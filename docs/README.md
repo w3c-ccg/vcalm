@@ -1,5 +1,3 @@
-# Example Verifiable Credential 
-
 #### [View GitHub](https://github.com/w3c-ccg/vc-examples)
 
 ## Hypothetical Certified Mill Test Report
