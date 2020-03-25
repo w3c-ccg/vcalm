@@ -1,0 +1,127 @@
+<html><head><meta charset="utf-8"/><title>Interop Report</title><style type="text/css">html, body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+	margin: 0;
+	padding: 0;
+	color: #333;
+}
+body {
+	padding: 1rem;
+	font-size: 0.85rem;
+}
+#jesthtml-content {
+	margin-bottom: 2rem;
+}
+header {
+	display: flex;
+	align-items: center;
+}
+#title {
+	margin: 0;
+	flex-grow: 1;
+}
+#logo {
+	height: 4rem;
+}
+#timestamp {
+	font-weight: bold;
+	color: #666;
+	margin-bottom: 0.5rem;
+}
+#summary {
+	color: #999;
+	margin-bottom: 1rem;
+}
+.suite-info {
+	padding: 1rem;
+	background-color: #eee;
+	border-bottom: 2px solid #999;
+	color: #999;
+	display: flex;
+	align-items: center;
+}
+.suite-info .suite-path {
+	font-weight: bold;
+	word-break: break-all;
+	flex-grow: 1;
+}
+.suite-info .suite-time {
+	margin-left: 0.5rem;
+	padding: 0.2rem 0.3rem;
+	font-size: 0.75rem;
+}
+.suite-info .suite-time.warn {
+	background-color: #D8000C;
+	color: #fff;
+}
+.suite-table {
+	width: 100%;
+	font-size: 0.85rem;
+	margin-bottom: 1em;
+}
+.suite-table td {
+	padding: 0.5rem;
+}
+.suite-table tr.passed {
+	background-color: #DFF2BF;
+	color: #4F8A10;
+}
+.suite-table tr.pending {
+	background-color: #FEEFB3;
+	color: #9F6000;
+}
+.suite-table tr.failed {
+	background-color: #FFBABA;
+	color: #D8000C;
+}
+.suite-table td {
+	font-size: 0.85rem;
+	border-bottom: 1px solid #aaa;
+	vertical-align: top;
+}
+.suite-table td.suite {
+	font-weight: bold;
+	width: 20%;
+}
+.suite-table td.test {
+	font-style: italic;
+	width: 60%;
+}
+.suite-table td.test .failureMsg {
+	font-size: 1rem;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+}
+.suite-table td.result {
+	width: 20%;
+	text-align: right;
+}
+
+/* CONSOLE LOGS */
+.suite-consolelog {
+	margin-bottom: 2rem;
+	padding: 1rem;
+	background-color: #efefef;
+}
+.suite-consolelog-header {
+	font-weight: bold;
+}
+.suite-consolelog-item {
+	padding: 0.5rem;
+}
+.suite-consolelog-item pre {
+	margin: 0;
+}
+.suite-consolelog-item-origin {
+	color: #777;
+	font-weight: bold;
+}
+.suite-consolelog-item-message {
+	color: #000;
+	font-size: 1rem;
+	padding: 0 0.5rem;
+}
+</style></head><body><div id="jesthtml-content"><header><h1 id="title">Interop Report</h1></header><div id="metadata-container"><div id="timestamp">Start: 2020-03-25 14:59:44</div><div id="summary">6 tests -- 6 passed / 0 failed / 0 pending</div></div><div class="suite-info"><div class="suite-path">/Users/orie/Desktop/Code/W3C/vc-examples/test-suite/resolvers/resolvers.spec.js</div><div class="suite-time">1.508s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">resolvers &gt; https://uniresolver.io/1.0/identifiers/</td><td class="test">should resolve did:web:vc.transmute.world</td><td class="result">passed in 0.858s</td></tr><tr class="passed"><td class="suite">resolvers &gt; https://resolve.transmute.world/1.0/identifiers/</td><td class="test">should resolve did:web:vc.transmute.world</td><td class="result">passed in 0.301s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/orie/Desktop/Code/W3C/vc-examples/test-suite/issuers/issuers.spec.js</div><div class="suite-time">3.582s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">issuers &gt; https://vc.transmute.world/credentials/issueCredential</td><td class="test">should issue UniversityDegreeCredential</td><td class="result">passed in 0.736s</td></tr><tr class="passed"><td class="suite">issuers &gt; https://vc.transmute.world/credentials/issueCredential</td><td class="test">should issue CertifiedMillTestReport</td><td class="result">passed in 2.497s</td></tr></table><div class="suite-info"><div class="suite-path">/Users/orie/Desktop/Code/W3C/vc-examples/test-suite/verifiers/verifiers.spec.js</div><div class="suite-time">3.66s</div></div><table class="suite-table" cellspacing="0" cellpadding="0"><tr class="passed"><td class="suite">verifiers &gt; https://vc.transmute.world/verifications</td><td class="test">should verify UniversityDegreeCredential</td><td class="result">passed in 0.937s</td></tr><tr class="passed"><td class="suite">verifiers &gt; https://vc.transmute.world/verifications</td><td class="test">should verify CertifiedMillTestReport</td><td class="result">passed in 2.376s</td></tr></table></div></body></html>
