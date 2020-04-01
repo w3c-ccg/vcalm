@@ -13,3 +13,10 @@
 
 - [schema](./cmtr/examples/v0.1/cmtr-verifiable-credential-schema-v0.1.json)
 - [credential](./cmtr/examples/v0.1/cmtr-verifiable-credential-v0.1.json)
+
+## Hypothetical Crude Verifiable Credentials
+
+- [Crude Product](./crude/v1.0/crude-product-verifiable-credential-v1.0.json)
+- [Crude Product Inspection](./crude/v1.0/crude-inspection-verifiable-credential-v1.0.json)
+- [Bill of Lading](./crude/v1.0/bill-of-lading-verifiable-credential-v1.0.json)
+- [QP InBond](./crude/v1.0/qp-inbond-verifiable-credential-v1.0.json)
