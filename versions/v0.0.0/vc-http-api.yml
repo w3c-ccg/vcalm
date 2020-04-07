@@ -17,7 +17,7 @@ tags:
   - name: Verifier
     description: APIs for Verifiers.
   - name: Optional
-    description: Optional for APIs.
+    description: Optional APIs.
 paths:
   /credentials:
     post:
