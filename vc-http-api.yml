@@ -12,14 +12,12 @@ info:
 tags:
   - name: Issuer
     description: APIs for Issuers.
-  - name: Holder
-    description: APIs for Holders.
   - name: Verifier
     description: APIs for Verifiers.
-  - name: Optional
-    description: Optional APIs.
+  - name: Holder
+    description: Optional APIs for Holders.
 paths:
-  /credentials:
+  /credentials/issueCredential:
     post:
       tags:
         - Issuer
@@ -67,22 +65,46 @@ paths:
           description: invalid input!
         '500':
           description: error!
-  /verifications:
+  /verifier/credentials:
     post:
       tags:
         - Verifier
-      summary: Verifies a presentation and returns a verificationResult in the response body.
+      summary: Verifies a verifiableCredential and returns a verificationResult in the response body.
+      operationId: verifyCredential
+      description: Verifies a verifiableCredential and returns a verificationResult in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyCredentialRequest'
+        description: Parameters for verifying a verifiableCredential.
+      responses:
+        '200':
+          description: Verifiable Credential successfully verified!
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyCredentialResponse'                
+        '400':
+          description: invalid input!
+        '500':
+          description: error!
+  /verifier/presentations:
+    post:
+      tags:
+        - Verifier
+      summary: Verifies a verifiablePresentation and returns a verificationResult in the response body.
       operationId: verifyPresentation
-      description: Verifies a presentation and returns a verificationResult in the response body.
+      description: Verifies a verifiablePresentation and returns a verificationResult in the response body.
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/VerifyPresentationRequest'
-        description: Parameters for verifying a presentation.
+        description: Parameters for verifying a verifiablePresentation.
       responses:
         '200':
-          description: Presentation successfully verified!
+          description: Verifiable Presentation successfully verified!
           content:
             application/json:
               schema:
@@ -92,12 +114,39 @@ paths:
         '500':
           description: error!
   
+  
 components:
   schemas:
+    LinkedDataProof:
+      type: object
+      description: A JSON-LD Linked Data proof.
+      properties:
+        type:
+          type: string
+          description: Linked Data Signature Suite used to produce proof.
+        created:
+          type: string
+          description: Date the proof was created.
+        verificationMethod:
+          type: string
+          description: Verification Method used to verify proof.
+        proofPurpose:
+          type: string
+          description: The purpose of the proof to be used with verificationMethod.
+        jws:
+          type: string
+          description: Detached JSON Web Signature
+      example: {
+        "type": "Ed25519Signature2018",
+        "created": "2020-04-02T18:28:08Z",
+        "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+        "proofPurpose": "assertionMethod",
+        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA"
+      }
     LinkedDataProofOptions:
       type: object
       additionalProperties: false
-      description: Options for specifying how the proof is created.
+      description: Options for specifying how the LinkedDataProof is created.
       properties:
         verificationMethod:
           type: string
@@ -121,48 +170,138 @@ components:
         "domain": "example.com",
         "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8"
       }
-    IssueCredentialRequest:
+    VerificationResult:
       type: object
+      additionalProperties: false
+      description: Object summarizing a verification
       properties:
-        credential:
-          type: object
-          description: A JSON-LD Verifiable Credential without a proof.
-          additionalProperties: true
+        checks:
+          type: array
+          description: The checks performed
+        warnings:
+          type: array
+          description: Warnings
+        errors:
+          type: array
+          description: Errors 
+      example: { 
+        "checks": ["proof"],
+        "warnings": [],
+        "errors": []
+      }
+    Issuer:
+      type: object
+      description: A JSON-LD Verifiable Credential Issuer.
+      oneOf:
+        - type: string
+        - type: object
           properties:
-            "@context":
-              type: array
-              description: The "@context" of the Verifiable Credential.
-          example: {
-            "@context": [
-              "https://www.w3.org/2018/credentials/v1",
-              "https://www.w3.org/2018/credentials/examples/v1"
-            ],
-            "id": "http://example.gov/credentials/3732",
-            "type": ["VerifiableCredential", "UniversityDegreeCredential"],
-            "issuer": "did:example:123",
-            "issuanceDate": "2020-03-16T22:37:26.544Z",
-            "credentialSubject": {
-              "id": "did:example:123",
-              "degree": {
-                "type": "BachelorDegree",
-                "name": "Bachelor of Science and Arts"
-              }
-            },
+           id:
+            type: string
+      example: {
+        "id": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
+      }
+    Credential:
+      type: object
+      description: A JSON-LD Verifiable Credential without a proof.
+      properties:
+        "@context":
+          type: array
+          description: The JSON-LD context of the credential.
+        "id":
+          type: string
+          description: The ID of the credential.
+        "type":
+          type: array
+          description: The JSON-LD type of the credential.
+        "issuer":
+          $ref: '#/components/schemas/Issuer'
+        "issuanceDate":
+          type: string
+          description: The issuanceDate
+        "expirationDate":
+          type: string
+          description: The expirationDate
+        "credentialSubject":
+          type: object
+          description: The subject
+      example: {
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://www.w3.org/2018/credentials/examples/v1"
+        ],
+        "id": "http://example.gov/credentials/3732",
+        "type": ["VerifiableCredential", "UniversityDegreeCredential"],
+        "issuer": "did:example:123",
+        "issuanceDate": "2020-03-16T22:37:26.544Z",
+        "credentialSubject": {
+          "id": "did:example:123",
+          "degree": {
+            "type": "BachelorDegree",
+            "name": "Bachelor of Science and Arts"
           }
-        options:
-          $ref: '#/components/schemas/LinkedDataProofOptions'
-    IssueCredentialResponse:
-        type: object
-        description: A JSON-LD Verifiable Credential without a proof.
-        additionalProperties: true
-        properties:
-          "@context":
-            type: array
-            description: The "@context" of the Verifiable Credential.
-          "proof":
-            type: object
-            description: The proof of the Verifiable Credential.
-        example: {
+        },
+      }
+    VerifiableCredential:
+      type: object
+      description: A JSON-LD Verifiable Credential with a proof.
+      allOf:
+        - $ref: '#/components/schemas/Credential' 
+        - type: object
+          properties:
+           proof:
+            $ref: '#/components/schemas/LinkedDataProof' 
+      example: {
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://www.w3.org/2018/credentials/examples/v1"
+        ],
+        "id": "http://example.gov/credentials/3732",
+        "type": ["VerifiableCredential", "UniversityDegreeCredential"],
+        "issuer": "did:example:123",
+        "issuanceDate": "2020-03-16T22:37:26.544Z",
+        "credentialSubject": {
+          "id": "did:example:123",
+          "degree": {
+            "type": "BachelorDegree",
+            "name": "Bachelor of Science and Arts"
+          }
+        },
+        "proof": {
+            "type": "Ed25519Signature2018",
+            "created": "2020-04-02T18:28:08Z",
+            "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+            "proofPurpose": "assertionMethod",
+            "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA"
+        }
+      }
+    Presentation:
+      type: object
+      description: A JSON-LD Verifiable Presentation without a proof.
+      properties:
+        "@context":
+          type: array
+          description: The JSON-LD context of the presentation.
+        "id":
+          type: string
+          description: The ID of the presentation.
+        "type":
+          type: array
+          description: The JSON-LD type of the presentation.
+        "holder":
+          type: object
+          description: The holder
+        "verifiableCredential":
+          type: array
+          description: The Verifiable Credentials
+      example: {
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://www.w3.org/2018/credentials/examples/v1"
+        ],
+        "holder": "did:example:123",
+        "type": "VerifiablePresentation",
+        "verifiableCredential": [
           "@context": [
             "https://www.w3.org/2018/credentials/v1",
             "https://www.w3.org/2018/credentials/examples/v1"
@@ -179,32 +318,31 @@ components:
             }
           },
           "proof": {
-              "type": "Ed25519Signature2018",
-              "created": "2020-04-02T18:28:08Z",
-              "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
-              "proofPurpose": "assertionMethod",
-              "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA"
+            "type": "Ed25519Signature2018",
+            "created": "2020-04-02T18:28:08Z",
+            "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+            "proofPurpose": "assertionMethod",
+            "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA"
           }
-        }
-    ProvePresentationRequest:
+        ]
+      }
+    VerifiablePresentation:
       type: object
-      properties:
-        presentation:
-          type: object
-          description: A JSON-LD Verifiable Presentation without a proof.
-          additionalProperties: true
+      description: A JSON-LD Verifiable Presentation with a proof.
+      allOf:
+        - $ref: '#/components/schemas/Presentation' 
+        - type: object
           properties:
-            "@context":
-              type: array
-              description: The "@context" of the Verifiable Credential.
-          example: {
+            proof:
+              $ref: '#/components/schemas/LinkedDataProof' 
+      example: {
           "@context": [
             "https://www.w3.org/2018/credentials/v1",
             "https://www.w3.org/2018/credentials/examples/v1"
           ],
           "holder": "did:example:123",
           "type": "VerifiablePresentation",
-          "verifiableCredential": {
+          "verifiableCredential": [
             "@context": [
               "https://www.w3.org/2018/credentials/v1",
               "https://www.w3.org/2018/credentials/examples/v1"
@@ -227,123 +365,49 @@ components:
               "proofPurpose": "assertionMethod",
               "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA"
             }
-          }
+          ],
+        "proof": {
+            "type": "Ed25519Signature2018",
+            "created": "2020-04-02T18:28:08Z",
+            "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+            "proofPurpose": "assertionMethod",
+            "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA"
         }
+      }
+    IssueCredentialRequest:
+      type: object
+      properties:
+        credential:
+          $ref: '#/components/schemas/Credential'
         options:
           $ref: '#/components/schemas/LinkedDataProofOptions'
-    ProvePresentationResponse:
-        type: object
-        description: A JSON-LD Verifiable Presentation.
-        additionalProperties: true
-        properties:
-          "@context":
-            type: array
-            description: The "@context" of the Verifiable Presentation.
-          "proof":
-            type: object
-            description: The proof of the Verifiable Presentation.
-        example: {
-            "@context": [
-              "https://www.w3.org/2018/credentials/v1",
-              "https://www.w3.org/2018/credentials/examples/v1"
-            ],
-            "holder": "did:example:123",
-            "type": "VerifiablePresentation",
-            "verifiableCredential": {
-              "@context": [
-                "https://www.w3.org/2018/credentials/v1",
-                "https://www.w3.org/2018/credentials/examples/v1"
-              ],
-              "id": "http://example.gov/credentials/3732",
-              "type": ["VerifiableCredential", "UniversityDegreeCredential"],
-              "issuer": "did:example:123",
-              "issuanceDate": "2020-03-16T22:37:26.544Z",
-              "credentialSubject": {
-                "id": "did:example:123",
-                "degree": {
-                  "type": "BachelorDegree",
-                  "name": "Bachelor of Science and Arts"
-                }
-              },
-              "proof": {
-                "type": "Ed25519Signature2018",
-                "created": "2020-04-02T18:28:08Z",
-                "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
-                "proofPurpose": "assertionMethod",
-                "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA"
-              }
-            },
-            "proof": {
-              "type": "Ed25519Signature2018",
-              "created": "2020-04-02T18:48:36Z",
-              "verificationMethod": "did:example:123#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
-              "proofPurpose": "authentication",
-              "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
-              "domain": "example.com",
-              "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..b-o9btxwIMwrXJC3hHxwSWI_ZryUwi41siEVvOhCYigfp68Y_z1Ic5jqBBhezU109kGL7znEiu8r9yIkvfuZCA"
-            }
-          }
-    VerifyPresentationRequest:
+    IssueCredentialResponse:
+      $ref: '#/components/schemas/VerifiableCredential'
+    ProvePresentationRequest:
       type: object
       properties:
         presentation:
-          type: object
-          description: A JSON-LD Verifiable Presentation.
-          additionalProperties: true
-          properties:
-            "@context":
-              type: array
-              description: The "@context" of the Verifiable Credential.
-          example: {
-            "@context": [
-              "https://www.w3.org/2018/credentials/v1",
-              "https://www.w3.org/2018/credentials/examples/v1"
-            ],
-            "holder": "did:example:123",
-            "type": "VerifiablePresentation",
-            "verifiableCredential": {
-              "@context": [
-                "https://www.w3.org/2018/credentials/v1",
-                "https://www.w3.org/2018/credentials/examples/v1"
-              ],
-              "id": "http://example.gov/credentials/3732",
-              "type": ["VerifiableCredential", "UniversityDegreeCredential"],
-              "issuer": "did:example:123",
-              "issuanceDate": "2020-03-16T22:37:26.544Z",
-              "credentialSubject": {
-                "id": "did:example:123",
-                "degree": {
-                  "type": "BachelorDegree",
-                  "name": "Bachelor of Science and Arts"
-                }
-              },
-              "proof": {
-                "type": "Ed25519Signature2018",
-                "created": "2020-04-02T18:28:08Z",
-                "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
-                "proofPurpose": "assertionMethod",
-                "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA"
-              }
-            },
-            "proof": {
-              "type": "Ed25519Signature2018",
-              "created": "2020-04-02T18:48:36Z",
-              "verificationMethod": "did:example:123#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
-              "proofPurpose": "authentication",
-              "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
-              "domain": "example.com",
-              "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..b-o9btxwIMwrXJC3hHxwSWI_ZryUwi41siEVvOhCYigfp68Y_z1Ic5jqBBhezU109kGL7znEiu8r9yIkvfuZCA"
-            }
-          }
+          $ref: '#/components/schemas/Presentation'
+        options:
+          $ref: '#/components/schemas/LinkedDataProofOptions'
+    ProvePresentationResponse:
+      $ref: '#/components/schemas/VerifiablePresentation'
+    VerifyCredentialRequest:
+      type: object
+      properties:
+        verifiableCredential:
+          $ref: '#/components/schemas/VerifiableCredential'
+        options:
+          $ref: '#/components/schemas/LinkedDataProofOptions'
+    VerifyCredentialResponse:
+      $ref: '#/components/schemas/VerificationResult'
+    VerifyPresentationRequest:
+      type: object
+      properties:
+        verifiablePresentation:
+          $ref: '#/components/schemas/VerifiablePresentation'
         options:
           $ref: '#/components/schemas/LinkedDataProofOptions'
     VerifyPresentationResponse:
-      type: object
-      additionalProperties: false
-      description: Results of performing a verification
-      properties:
-        checks:
-          type: array
-          description: The checks that were performed.
-      example: { "checks": ["proof"] }
+      $ref: '#/components/schemas/VerificationResult'
           

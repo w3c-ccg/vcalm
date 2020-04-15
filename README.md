@@ -6,3 +6,7 @@ This API is not meant to be exposed directly over http without authorization.
 
 Implementations may not support all endpoints defined by this specification.
 
+### Holder APIs are optional, many implementations will not need them.
+
+However they are really useful for testing purposes, and cases where you don't have WebKMS.
+
