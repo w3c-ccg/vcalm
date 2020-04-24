@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      working-directory: ./test-suite
+      working-directory: ./plugfest-2020
 
     strategy:
       matrix:
