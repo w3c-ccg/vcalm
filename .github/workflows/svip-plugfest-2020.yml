@@ -19,11 +19,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-
-      - name: Install project 
+      - name: Install project
         working-directory: ${{ env.working-directory }}
         run: npm install
 
-      - name: Run tests 
+      - name: Lint project
+        working-directory: ${{ env.working-directory }}
+        run: npm run lint
+
+      - name: Run tests
         working-directory: ${{ env.working-directory }}
         run: npm test
