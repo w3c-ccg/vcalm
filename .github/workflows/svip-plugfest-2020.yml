@@ -9,8 +9,18 @@ jobs:
       working-directory: ./plugfest-2020
 
     strategy:
+      # will not stop all tests if one vendor's tests fail
+      fail-fast: false
       matrix:
         node-version: [12.x]
+        vendor:
+          - transmute
+          - digital_bazaar
+          - danubetech
+          - mavennet
+          - trustbloc
+          - factom
+          - sicpa
 
     steps:
       - uses: actions/checkout@v2
@@ -29,4 +39,4 @@ jobs:
 
       - name: Run tests
         working-directory: ${{ env.working-directory }}
-        run: npm test
+        run: INTEROP_FOCUS=${{ matrix.vendor}} npm run test
