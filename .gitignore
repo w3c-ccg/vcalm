@@ -2,3 +2,5 @@ node_modules
 .vscode
 
 # test-suite/data
+
+package-lock.json
