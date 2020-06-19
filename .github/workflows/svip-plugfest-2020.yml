@@ -21,6 +21,7 @@ jobs:
           - trustbloc
           - factom
           - sicpa
+          - dock
 
     steps:
       - uses: actions/checkout@v2
