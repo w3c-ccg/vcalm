@@ -1,0 +1,205 @@
+openapi: 3.0.0
+info:
+  description: This is an experimental open API specification for verifying digital credentials based on standards such as the Verifiable Credentials Data Model (https://www.w3.org/TR/vc-data-model/), JWT (https://tools.ietf.org/html/rfc7519), and Open Badges (https://openbadges.org/). Implementations are expected to change significantly and implementers that are not directly involved in the work are strongly urged to not implement this API. Implementations of this API may differ in terms of which data formats or proof formats they do or do not support. Implementations may choose to not support certain parts of this API (e.g. optional parts include retrieving a verification status that has already been created).
+  version: "0.0.3"
+  title: Verifiable Credential Verifier HTTP API
+  contact:
+    email: markus@danubetech.com
+  license:
+    name: All documents in this Repository are licensed by contributors under the [W3C Software and Document License](http://www.w3.org/Consortium/Legal/copyright-software).
+tags:
+  - name: internal
+    description: Internal APIs facing the Verifier.
+paths:
+  /verifier/credentials:
+    post:
+      tags:
+        - internal
+      summary: Verify a given credential.
+      operationId: verifyCredential
+      description: Performs a series of verification checks on a provided Verifiable Credential and returns the overall status of the checks as well as the status of each individual check. Support of this part of the API is REQUIRED for implementations.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: The credential to be verified and a set of options to use when verifying the credential.
+              type: object
+              properties:
+                verifiableCredential:
+                  type: object
+                  additionalProperties: false
+                  description: The verifiable credential to check.
+                  example: {
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/2018/credentials/examples/v1"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": [
+    "VerifiableCredential",
+    "UniversityDegreeCredential"
+  ],
+  "issuer": "did:example:c6f1c276e12ec21ebfeb1f712eb",
+  "issuanceDate": "2020-03-11",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "degree": {
+      "type": "BachelorDegree",
+      "name": "Bachelor of Science and Arts"
+    }
+  },
+  "proof": [{
+    "type": "Ed25519Signature2018",
+    "created": "2020-03-11T23:09:06.803Z",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2..hS5SPmWTFocjcDg",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:example:c6f1c276e12ec21ebfeb1f712eb#jf893k"
+  }]
+}
+                options:
+                  type: object
+                  additionalProperties: false
+                  description: Options for specifying how the credential will be checked.
+                  properties:
+                    checks:
+                      type: array
+                      items:
+                        type: string
+                      description: An array of verification checks to be performed on the credential. WARNING - Implementers are cautioned that the list of checks is currently incomplete and other checks such as issuance, expiration, nonce, domain, and acceptable issuers are expected to be added in time. A default list is also expected to encapsulate all available checks. This option might be changed to a 'ignore' option where it lists the checks the developer would like to skip.
+                      example: ["proof"]
+      responses:
+        '200':
+          description: The verification was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                description: A description of the checks that were performed.
+                properties:
+                  checks:
+                    type: array
+                    items:
+                      type: string
+                    description: An array of verification checks that were performed. WARNING - Implementers are cautioned that the list of checks is currently incomplete and other checks such as issuance, expiration, nonce, domain, and acceptable issuers are expected to be added in time.
+                    example: ["proof"]
+        '400':
+          description: The verification failed.
+          content:
+            application/json:
+              schema:
+                type: object
+                description: A description of the checks that were performed and any associated errors.
+                properties:
+                  checks:
+                    type: array
+                    items:
+                      type: object
+                    description: An array of verification checks that were performed and any associated errors and other information that may be helpful when debugging the failure. WARNING - Implementers are cautioned that the list of checks is currently incomplete and other checks such as issuance, expiration, nonce, domain, and acceptable issuers are expected to be added in time.
+                    example: [{
+                      "check": "proof",
+                      "error": "The verificationMethod (public key) associated with the digital signature could not be retrieved due to a network error.",
+                      "verificationMethod": "did:example:c6f1c276e12ec21ebfeb1f712eb#jf893k",
+                    }]
+  /verifier/presentations:
+    post:
+      tags:
+        - internal
+      summary: Verify a given presentation.
+      operationId: verifyPresentation
+      description: Performs a series of verification checks on a provided Verifiable Presentation and returns the overall status of the checks as well as the status of each individual check. Support of this part of the API is OPTIONAL for implementations.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: The presentation to be verified and a set of options to use when verifying the presentation.
+              type: object
+              properties:
+                verifiablePresentation:
+                  type: object
+                  additionalProperties: false
+                  description: The Verifiable Presentation to check.
+                  example: {
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/2018/credentials/examples/v1"
+  ],
+  "id": "urn:uuid:2011a95e-ed4a-420f-a2f8-252701e71853",
+  "type": ["VerifiablePresentation"],
+  "verifiableCredential": [{
+    "id": "http://example.edu/credentials/3732",
+    "type": [
+      "VerifiableCredential",
+      "UniversityDegreeCredential"
+    ],
+    "issuer": "did:example:c6f1c276e12ec21ebfeb1f712eb",
+    "issuanceDate": "2020-03-11",
+    "credentialSubject": {
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+      "degree": {
+        "type": "BachelorDegree",
+        "name": "Bachelor of Science and Arts"
+      }
+    },
+    "proof": [{
+      "type": "Ed25519Signature2018",
+      "created": "2020-03-11T23:09:06.803Z",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2..hS5SPmWTFocjcDg",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:example:c6f1c276e12ec21ebfeb1f712eb#jf893k"
+    }]
+  }],
+  "proof": [{
+    "type": "Ed25519Signature2018",
+    "created": "2020-03-11T23:09:06.984Z",
+    "domain": "example.com",
+    "challenge": "e8944a04-6ded-48e4-ae85-99133f7323fb",
+    "jws": "ey8fdjJ732kKdjw..5SPmWSjcDgTFoch",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:example:c21ebfeb1f712ebc6f1c276e12e#je83Ks"
+  }]
+}
+                options:
+                  type: object
+                  additionalProperties: false
+                  description: Options for specifying how the presentation will be checked.
+                  properties:
+                    checks:
+                      type: array
+                      items:
+                        type: string
+                      description: An array of verification checks to be performed on the presentation. WARNING - Implementers are cautioned that the list of checks is currently incomplete and other checks such as issuance, expiration, nonce, domain, and acceptable issuers are expected to be added in time. A default list is also expected to encapsulate all available checks. This option might be changed to a 'ignore' option where it lists the checks the developer would like to skip.
+                      example: ["proof"]
+      responses:
+        '200':
+          description: The verification was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                description: A description of the checks that were performed.
+                properties:
+                  checks:
+                    type: array
+                    items:
+                      type: string
+                    description: An array of verification checks that were performed. WARNING - Implementers are cautioned that the list of checks is currently incomplete and other checks such as issuance, expiration, nonce, domain, and acceptable issuers are expected to be added in time.
+                    example: ["proof"]
+        '400':
+          description: The verification failed.
+          content:
+            application/json:
+              schema:
+                type: object
+                description: A description of the checks that were performed and any associated errors.
+                properties:
+                  checks:
+                    type: array
+                    items:
+                      type: object
+                    description: An array of verification checks that were performed and any associated errors and other information that may be helpful when debugging the failure. WARNING - Implementers are cautioned that the list of checks is currently incomplete and other checks such as issuance, expiration, nonce, domain, and acceptable issuers are expected to be added in time.
+                    example: [{
+                      "check": "proof",
+                      "id": "http://example.edu/credentials/3732",
+                      "error": "The verificationMethod (public key) associated with the digital signature could not be retrieved due to a network error.",
+                      "verificationMethod": "did:example:c6f1c276e12ec21ebfeb1f712eb#jf893k",
+                    }]
