@@ -1,0 +1,525 @@
+openapi: 3.0.0
+info:
+  version: "0.0.0"
+  title: VC HTTP API
+  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
+  license:
+    name: W3C Software and Document License
+    url: http://www.w3.org/Consortium/Legal/copyright-software.
+  contact:
+    name: GitHub Source Code
+    url: https://github.com/transmute-industries/vc-http-api
+tags:
+  - name: Issuer
+    description: APIs for Issuers.
+  - name: Verifier
+    description: APIs for Verifiers.
+paths:
+  /credentials/issueCredential:
+    post:
+      tags:
+        - Issuer
+      summary: Issues a credential and returns it in the response body.
+      operationId: issueCredential
+      description: Issues a credential and returns it in the response body. Support of this part of the API is REQUIRED for implementations.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IssueCredentialRequest"
+        description: Parameters for issuing the credential.
+      responses:
+        "201":
+          description: Credential successfully issued!
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The issued credential. This SHOULD include a reference or ID that can be used later for other parts of the API, e.g. changing and retrieving the status of the credential, or refreshing the credential.
+        "400":
+          description: invalid input!
+        "500":
+          description: error!
+  /credentials/composeAndIssueCredential:
+    post:
+      tags:
+        - Issuer
+      summary: Composes and issues a credential and returns it in the response body.
+      operationId: composeAndIssueCredential
+      description: Composes and issues a credential and returns it in the response body. Support of this part of the API is OPTIONAL for implementations.
+      parameters:
+        - in: query
+          required: false
+          name: templateReference
+          schema:
+            type: string
+          description: Optional internal reference to a credential template. If this is present, it may be used to automatically pre-populate certain fields in the request body.
+          example: 67466513-67a0-4812-8f26-995dd78c5aa6
+        - in: query
+          required: false
+          name: subjectReference
+          schema:
+            type: string
+          description: Optional internal reference to the subject for which to issue a credential. If this is present, it may be used to pre-populate certain fields in the request body (e.g. "claims" and/or "subject").
+          example: 73b32334-81f3-4f4c-911e-710c7aadd4d8
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ComposeAndIssueCredentialRequest"
+        description: Parameters for issuing the credential.
+      responses:
+        "201":
+          description: credential successfully issued!
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The issued credential. This SHOULD include a reference or ID that can be used later for other parts of the API, e.g. changing and retrieving the status of the credential, or refreshing the credential.
+        "400":
+          description: invalid input!
+        "500":
+          description: error!
+  /credentials/{credentialReference}:
+    get:
+      tags:
+        - Issuer
+      summary: Retrieves a credential that has already been issued, and returns it in the response body.
+      operationId: retrieveCredential
+      description: Retrieves a credential that has already been issued, and returns it in the response body. The retrieved credential MUST be identical to the original credential when it was first issued. This can not be used for refreshing an expired credential. Support of this part of the API is OPTIONAL for implementations.
+      parameters:
+        - in: path
+          required: true
+          name: credentialReference
+          schema:
+            type: string
+          description: Reference to a credential that has been issued.
+      responses:
+        "200":
+          description: credential successfully retrieved!
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The retrieved credential.
+        "400":
+          description: invalid input!
+        "404":
+          description: credential not found!
+        "500":
+          description: error!
+        "501":
+          description: not supported by this implementation!
+  /credentials/{credentialReference}/status:
+    post:
+      tags:
+        - Issuer
+      summary: Changes the credential status.
+      operationId: changeCredentialStatus
+      description: Changes the credential status. Support of this part of the API is OPTIONAL for implementations.
+      parameters:
+        - in: path
+          required: true
+          name: credentialReference
+          schema:
+            type: string
+          description: Reference to a credential that has been issued.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ChangeStatusRequest"
+        description: Parameters for changing the credential status.
+      responses:
+        "200":
+          description: credential status successfully changed!
+        "400":
+          description: invalid input!
+        "404":
+          description: credential not found!
+        "500":
+          description: error!
+        "501":
+          description: not supported by this implementation!
+    get:
+      tags:
+        - Issuer
+      summary: Retrieves the credential status and returns it in the response body.
+      operationId: retrieveCredentialStatus
+      description: Retrieves the credential status and returns it in the response body. Support of this part of the API is OPTIONAL for implementations. WARNING - this type of "phone home" functionality is problematic from a privacy perspective, therefore this is likely to be removed in a future version.
+      parameters:
+        - in: path
+          required: true
+          name: credentialReference
+          schema:
+            type: string
+          description: Reference to a credential that has been issued.
+      responses:
+        "200":
+          description: credential status successfully retrieved!
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The credential status.
+        "400":
+          description: invalid input!
+        "404":
+          description: credential not found!
+        "500":
+          description: error!
+        "501":
+          description: not supported by this implementation!
+  /credentials/{credentialReference}/refresh:
+    post:
+      tags:
+        - Issuer
+      summary: Refreshes a credential and returns it in the response body.
+      operationId: refreshCredential
+      description: Refreshes a credential and returns it in the response body. Support of this part of the API is OPTIONAL for all implementations. WARNING - it may not make sense to model this functionality as a public API, instead the processes for "refreshing" may be more complex and use case specific, therefore this is likely to be removed in a future version.
+      parameters:
+        - in: path
+          required: true
+          name: credentialReference
+          schema:
+            type: string
+          description: Reference to a credential that has been issued.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RefreshRequest"
+        description: Parameters for refreshing the credential.
+      responses:
+        "200":
+          description: credential successfully refreshed!
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The refreshed credential.
+        "400":
+          description: invalid input!
+        "404":
+          description: credential not found!
+        "500":
+          description: error!
+        "501":
+          description: not supported by this implementation!
+  /verifier/credentials:
+    post:
+      tags:
+        - Verifier
+      summary: Verify a given credential.
+      operationId: verifyCredential
+      description: Performs a series of verification checks on a provided Verifiable Credential and returns the overall status of the checks as well as the status of each individual check. Support of this part of the API is REQUIRED for implementations.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: The credential to be verified and a set of options to use when verifying the credential.
+              type: object
+              properties:
+                verifiableCredential:
+                  type: object
+                  additionalProperties: false
+                  description: The verifiable credential to check.
+                  example: {
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/2018/credentials/examples/v1"
+  ],
+  "id": "http://example.edu/credentials/3732",
+  "type": [
+    "VerifiableCredential",
+    "UniversityDegreeCredential"
+  ],
+  "issuer": "did:example:c6f1c276e12ec21ebfeb1f712eb",
+  "issuanceDate": "2020-03-11",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "degree": {
+      "type": "BachelorDegree",
+      "name": "Bachelor of Science and Arts"
+    }
+  },
+  "proof": [{
+    "type": "Ed25519Signature2018",
+    "created": "2020-03-11T23:09:06.803Z",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2..hS5SPmWTFocjcDg",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:example:c6f1c276e12ec21ebfeb1f712eb#jf893k"
+  }]
+}
+                options:
+                  type: object
+                  additionalProperties: false
+                  description: Options for specifying how the credential will be checked.
+                  properties:
+                    checks:
+                      type: array
+                      items:
+                        type: string
+                      description: An array of verification checks to be performed on the credential. WARNING - Implementers are cautioned that the list of checks is currently incomplete and other checks such as issuance, expiration, nonce, domain, and acceptable issuers are expected to be added in time. A default list is also expected to encapsulate all available checks. This option might be changed to a 'ignore' option where it lists the checks the developer would like to skip.
+                      example: ["proof"]
+      responses:
+        '200':
+          description: The verification was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                description: A description of the checks that were performed.
+                properties:
+                  checks:
+                    type: array
+                    items:
+                      type: string
+                    description: An array of verification checks that were performed. WARNING - Implementers are cautioned that the list of checks is currently incomplete and other checks such as issuance, expiration, nonce, domain, and acceptable issuers are expected to be added in time.
+                    example: ["proof"]
+        '400':
+          description: The verification failed.
+          content:
+            application/json:
+              schema:
+                type: object
+                description: A description of the checks that were performed and any associated errors.
+                properties:
+                  checks:
+                    type: array
+                    items:
+                      type: object
+                    description: An array of verification checks that were performed and any associated errors and other information that may be helpful when debugging the failure. WARNING - Implementers are cautioned that the list of checks is currently incomplete and other checks such as issuance, expiration, nonce, domain, and acceptable issuers are expected to be added in time.
+                    example: [{
+                      "check": "proof",
+                      "error": "The verificationMethod (public key) associated with the digital signature could not be retrieved due to a network error.",
+                      "verificationMethod": "did:example:c6f1c276e12ec21ebfeb1f712eb#jf893k",
+                    }]
+  /verifier/presentations:
+    post:
+      tags:
+        - Verifier
+      summary: Verify a given presentation.
+      operationId: verifyPresentation
+      description: Performs a series of verification checks on a provided Verifiable Presentation and returns the overall status of the checks as well as the status of each individual check. Support of this part of the API is OPTIONAL for implementations.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: The presentation to be verified and a set of options to use when verifying the presentation.
+              type: object
+              properties:
+                verifiablePresentation:
+                  type: object
+                  additionalProperties: false
+                  description: The Verifiable Presentation to check.
+                  example: {
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/2018/credentials/examples/v1"
+  ],
+  "id": "urn:uuid:2011a95e-ed4a-420f-a2f8-252701e71853",
+  "type": ["VerifiablePresentation"],
+  "verifiableCredential": [{
+    "id": "http://example.edu/credentials/3732",
+    "type": [
+      "VerifiableCredential",
+      "UniversityDegreeCredential"
+    ],
+    "issuer": "did:example:c6f1c276e12ec21ebfeb1f712eb",
+    "issuanceDate": "2020-03-11",
+    "credentialSubject": {
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+      "degree": {
+        "type": "BachelorDegree",
+        "name": "Bachelor of Science and Arts"
+      }
+    },
+    "proof": [{
+      "type": "Ed25519Signature2018",
+      "created": "2020-03-11T23:09:06.803Z",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2..hS5SPmWTFocjcDg",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:example:c6f1c276e12ec21ebfeb1f712eb#jf893k"
+    }]
+  }],
+  "proof": [{
+    "type": "Ed25519Signature2018",
+    "created": "2020-03-11T23:09:06.984Z",
+    "domain": "example.com",
+    "challenge": "e8944a04-6ded-48e4-ae85-99133f7323fb",
+    "jws": "ey8fdjJ732kKdjw..5SPmWSjcDgTFoch",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:example:c21ebfeb1f712ebc6f1c276e12e#je83Ks"
+  }]
+}
+                options:
+                  type: object
+                  additionalProperties: false
+                  description: Options for specifying how the presentation will be checked.
+                  properties:
+                    checks:
+                      type: array
+                      items:
+                        type: string
+                      description: An array of verification checks to be performed on the presentation. WARNING - Implementers are cautioned that the list of checks is currently incomplete and other checks such as issuance, expiration, nonce, domain, and acceptable issuers are expected to be added in time. A default list is also expected to encapsulate all available checks. This option might be changed to a 'ignore' option where it lists the checks the developer would like to skip.
+                      example: ["proof"]
+      responses:
+        '200':
+          description: The verification was successful.
+          content:
+            application/json:
+              schema:
+                type: object
+                description: A description of the checks that were performed.
+                properties:
+                  checks:
+                    type: array
+                    items:
+                      type: string
+                    description: An array of verification checks that were performed. WARNING - Implementers are cautioned that the list of checks is currently incomplete and other checks such as issuance, expiration, nonce, domain, and acceptable issuers are expected to be added in time.
+                    example: ["proof"]
+        '400':
+          description: The verification failed.
+          content:
+            application/json:
+              schema:
+                type: object
+                description: A description of the checks that were performed and any associated errors.
+                properties:
+                  checks:
+                    type: array
+                    items:
+                      type: object
+                    description: An array of verification checks that were performed and any associated errors and other information that may be helpful when debugging the failure. WARNING - Implementers are cautioned that the list of checks is currently incomplete and other checks such as issuance, expiration, nonce, domain, and acceptable issuers are expected to be added in time.
+                    example: [{
+                      "check": "proof",
+                      "id": "http://example.edu/credentials/3732",
+                      "error": "The verificationMethod (public key) associated with the digital signature could not be retrieved due to a network error.",
+                      "verificationMethod": "did:example:c6f1c276e12ec21ebfeb1f712eb#jf893k",
+                    }]
+components:
+  schemas:
+    IssueCredentialRequest:
+      type: object
+      properties:
+        credential:
+          type: object
+          description: A JSON-LD Verifiable Credential without a proof.
+          example:
+            {
+              "@context":
+                [
+                  "https://www.w3.org/2018/credentials/v1",
+                  "https://www.w3.org/2018/credentials/examples/v1",
+                ],
+              "id": "http://example.gov/credentials/3732",
+              "type": ["VerifiableCredential", "UniversityDegreeCredential"],
+              "issuer": "https://example.edu",
+              "issuanceDate": "2020-03-11T23:09:06.803Z",
+              "credentialSubject":
+                {
+                  "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+                  "degree":
+                    {
+                      "type": "BachelorDegree",
+                      "name": "Bachelor of Science and Arts",
+                    },
+                },
+            }
+        options:
+          type: object
+          additionalProperties: false
+          description: Options for specifying how the credential will be issued.
+          properties:
+            assertionMethod:
+              type: string
+              description: The URI of a key that will be used to issue the credential. If ommited a default assertionMethod will be used.
+              example: "did:web:example.com#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN"
+    ComposeAndIssueCredentialRequest:
+      type: object
+      properties:
+        issuer:
+          type: string
+          description: Optional identifier for the issuer of the credential. If this is missing, it may be pre-configured or implied by other values in the request.
+          example: did:example:76e12ec712ebc6f1c221ebfeb1f
+        subject:
+          type: string
+          description: Optional identifier for the subject of the credential. If this is missing, it may be pre-configured or implied by other values in the request, or there may not be an identifier for the subject of the credential.
+          example: did:example:ebfeb1f712ebc6f1c276e12ec21
+        types:
+          type: array
+          items:
+            type: string
+          description: Optional value for the type(s) of a credential. If this is missing, it may be pre-configured or implied by other values in the request.
+          example: UniversityDegreeCredential
+        issuanceDate:
+          type: string
+          format: date-time
+          description: Optional value for the issuance date and time of the credential, to be used only when this value should not be automatically set to the current date and time.
+          example: "2010-01-01T19:23:24Z"
+        expirationDate:
+          type: string
+          format: date-time
+          description: Optional value for the expiration date and time of the credential. If this is missing, it may be pre-configured or implied by other values in the request, or the credential may not have an expiration date and time.
+          example: "2011-01-01T19:23:24Z"
+        claims:
+          type: object
+          additionalProperties: true
+          description: Optional object containing claims and their values.
+          example: { "name": "Jayden Doe" }
+        evidence:
+          type: object
+          additionalProperties: true
+          description: Optional object containing evidence of the credential.
+          example: {}
+        termsOfUse:
+          type: object
+          additionalProperties: true
+          description: Optional object containing terms of use of the credential.
+          example: {}
+        credentialFormat:
+          type: string
+          description: Optional value to specify the credential format. Well-known values are "jsonld", "jwt", "blockcerts". Other values MAY be supported. If this is missing, it may be pre-configured, and a default credential format will be used.
+          example: jsonld
+        proofFormat:
+          type: string
+          description: Optional value to specify the proof format. Well-known values are "ld-proof", "jws", "blockcerts". Other values MAY be supported. If this is missing, it may be pre-configured or implied by other values in the request (e.g. "credentialFormat"), and a default proof format will be used.
+          example: jws
+        credentialFormatOptions:
+          type: object
+          additionalProperties: true
+          description: Optional object containing additional options specific to the chosen credential format. E.g. for the "jsonld" credential format, this could contain JSON-LD context(s) to be included in the credential.
+          example:
+            { "@context": "https://www.w3.org/2018/credentials/examples/v1" }
+        proofFormatOptions:
+          type: object
+          additionalProperties: true
+          description: Optional object containing additional options specific to the chosen proof format. E.g. for the "jws" proof format, this could specify a key identifier to be used for the proof.
+          example: { "kid": "did:example:abfe13f712120431c276e12ecab#keys-1" }
+    ChangeStatusRequest:
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          type: string
+          description: New status of the credential. Well-known values are "revoked", "suspended", "active". Other values MAY be supported.
+          example: revoked
+        reason:
+          type: string
+          description: Optional reason statement for the new status of the credential.
+          example: Disciplinary action
+        options:
+          type: object
+          additionalProperties: true
+          description: Optional object containing additional options for the new status of the credential.
+          example: {}
+    RefreshRequest:
+      type: object
+      properties:
+        options:
+          type: object
+          additionalProperties: true
+          description: Optional object containing additional options for refreshing the credential.
+          example: {}
