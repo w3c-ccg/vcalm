@@ -8,7 +8,7 @@ info:
     url: http://www.w3.org/Consortium/Legal/copyright-software.
   contact:
     name: GitHub Source Code
-    url: https://github.com/transmute-industries/vc-http-api
+    url: https://github.com/w3c-ccg/vc-http-api
 tags:
   - name: Issuer
     description: APIs for Issuers.
