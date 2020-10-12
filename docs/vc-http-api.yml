@@ -150,13 +150,13 @@ components:
       properties:
         verificationMethod:
           type: string
-          description: The URI of the verificationMethod used for the proof. If ommited a default assertionMethod will be used.
+          description: The URI of the verificationMethod used for the proof. If omitted a default assertionMethod will be used.
         proofPurpose:
           type: string
-          description: The purpose of the proof. If ommited "assertionMethod" will be used.
+          description: The purpose of the proof. If omitted "assertionMethod" will be used.
         created:
           type: string
-          description: The date of the proof. If ommited system time will be used.
+          description: The date of the proof. If omitted system time will be used.
         challenge:
           type: string
           description: The challenge of the proof.
