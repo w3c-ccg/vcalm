@@ -17,7 +17,7 @@ tags:
   - name: Holder
     description: Optional APIs for Holders.
 paths:
-  /issue/credentials:
+  /credentials/issue:
     post:
       tags:
         - Issuer
@@ -41,7 +41,7 @@ paths:
           description: invalid input!
         "500":
           description: error!
-  /prove/presentations:
+  /presentations/prove:
     post:
       tags:
         - Holder
@@ -65,7 +65,7 @@ paths:
           description: invalid input!
         "500":
           description: error!
-  /verify/credentials:
+  /credentials/verify:
     post:
       tags:
         - Verifier
@@ -89,7 +89,7 @@ paths:
           description: invalid input!
         "500":
           description: error!
-  /verify/presentations:
+  /presentations/verify:
     post:
       tags:
         - Verifier
