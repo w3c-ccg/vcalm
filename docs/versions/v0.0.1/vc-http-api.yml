@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: "0.0.2-unstable"
+  version: "0.0.0"
   title: VC HTTP API
   description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
   license:
@@ -17,7 +17,7 @@ tags:
   - name: Holder
     description: Optional APIs for Holders.
 paths:
-  /credentials/issue:
+  /issue/credentials:
     post:
       tags:
         - Issuer
@@ -41,7 +41,7 @@ paths:
           description: invalid input!
         "500":
           description: error!
-  /presentations/prove:
+  /prove/presentations:
     post:
       tags:
         - Holder
@@ -65,7 +65,7 @@ paths:
           description: invalid input!
         "500":
           description: error!
-  /credentials/verify:
+  /verify/credentials:
     post:
       tags:
         - Verifier
@@ -89,7 +89,7 @@ paths:
           description: invalid input!
         "500":
           description: error!
-  /presentations/verify:
+  /verify/presentations:
     post:
       tags:
         - Verifier
