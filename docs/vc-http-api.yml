@@ -156,7 +156,7 @@ components:
           description: The purpose of the proof. Default: "assertionMethod".
         created:
           type: string
-          description: The date of the proof. If omitted system time will be used.
+          description: The date and time of the proof (with a maximum accuracy in seconds). Default: current system time.
         challenge:
           type: string
           description: The challenge of the proof.
