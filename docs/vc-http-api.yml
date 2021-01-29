@@ -153,7 +153,7 @@ components:
           description: The URI of the verificationMethod used for the proof. Default assertionMethod URI.
         proofPurpose:
           type: string
-          description: The purpose of the proof. If omitted "assertionMethod" will be used.
+          description: The purpose of the proof. Default: "assertionMethod".
         created:
           type: string
           description: The date of the proof. If omitted system time will be used.
