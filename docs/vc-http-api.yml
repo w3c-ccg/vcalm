@@ -162,7 +162,7 @@ components:
           description: A challenge provided by the requesting party of the proof.
         domain:
           type: string
-          description: The domain of the proof.
+          description: The intended domain of validity for the proof. For example: website.example
         credentialStatusMethod:
           type: string
           description: The method of credential status to issue the credential including. If omitted credential status will be included.
