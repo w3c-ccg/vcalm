@@ -159,7 +159,7 @@ components:
           description: The date and time of the proof (with a maximum accuracy in seconds). Default: current system time.
         challenge:
           type: string
-          description: The challenge of the proof.
+          description: A challenge provided by the requesting party of the proof.
         domain:
           type: string
           description: The domain of the proof.
