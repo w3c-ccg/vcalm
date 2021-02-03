@@ -104,15 +104,15 @@ paths:
         description: Parameters for verifying a list of verifiableCredentials.
       responses:
         "200":
-          description: Verifiable Credentials successfully verified!
+          description: Verifiable Credentials successfully verified
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/VerifyCredentialsResponse"
         "400":
-          description: invalid input!
+          description: invalid input not matching required parameters
         "500":
-          description: error!
+          description: system error
   /presentations/verify:
     post:
       tags:
