@@ -503,6 +503,19 @@ components:
           $ref: "#/components/schemas/VerifyOptions"
     VerifyCredentialResponse:
       $ref: "#/components/schemas/VerificationResult"
+    VerifyCredentialsRequest:
+      type: array
+      items:
+        type: object
+        properties:
+        verifiableCredential:
+          $ref: "#/components/schemas/VerifiableCredential"
+        options:
+          $ref: "#/components/schemas/LinkedDataProofOptions"
+    VerifyCredentialsResponse:
+      type: array
+      items:
+        $ref: "#/components/schemas/VerificationResult"
     VerifyPresentationRequest:
       type: object
       properties:
