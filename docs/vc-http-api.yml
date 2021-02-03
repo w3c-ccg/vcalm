@@ -104,7 +104,7 @@ paths:
         description: Parameters for verifying a list of verifiableCredentials.
       responses:
         "200":
-          description: Verifiable Credentials successfully verified
+          description: The array of Verifiable Credentials was processed. NOTE - Some verifications might have failed; successful processing does not mean successful verification of each credential.  The results array must be inspected for individual results
           content:
             application/json:
               schema:
