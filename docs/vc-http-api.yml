@@ -148,6 +148,9 @@ components:
       additionalProperties: false
       description: Options for specifying how the LinkedDataProof is created.
       properties:
+        type:
+          type: string
+          description: The type of the proof. If omitted a default proof type will be used.
         verificationMethod:
           type: string
           description: The URI of the verificationMethod used for the proof. If omitted a default assertionMethod will be used.
