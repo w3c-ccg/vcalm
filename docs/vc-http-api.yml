@@ -110,7 +110,7 @@ paths:
               schema:
                 $ref: "#/components/schemas/VerifyCredentialsResponse"
         "400":
-          description: invalid input not matching required parameters
+          description: invalid input not matching required parameters, e.g. passing a single object rather than array, or a malformed set of parameters
         "500":
           description: system error
   /presentations/verify:
