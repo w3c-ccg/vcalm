@@ -124,7 +124,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/VerifyPresentationRequest"
+              oneOf:
+                - $ref: "#/components/schemas/VerifyPresentationRequest"
+                - $ref: "#/components/schemas/ProoflessVerifyPresentationRequest"
         description: Parameters for verifying a verifiablePresentation.
       responses:
         "200":
@@ -468,5 +470,10 @@ components:
           $ref: "#/components/schemas/VerifiablePresentation"
         options:
           $ref: "#/components/schemas/LinkedDataProofOptions"
+    ProoflessVerifyPresentationRequest:
+      type: object
+      properties:
+        presentation:
+          $ref: "#/components/schemas/Presentation"
     VerifyPresentationResponse:
       $ref: "#/components/schemas/VerificationResult"
