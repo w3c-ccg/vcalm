@@ -89,6 +89,30 @@ paths:
           description: invalid input!
         "500":
           description: error!
+  /credentials/verifyMany:
+    post:
+      tags:
+        - Verifier
+      summary: Verifies a list of verifiableCredentials and returns a list of index matched verificationResults in the response body.
+      operationId: verifyCredentials
+      description: Verifies a list of verifiableCredentials and returns a list of index matched verificationResults in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VerifyCredentialsRequest"
+        description: Parameters for verifying a list of verifiableCredentials.
+      responses:
+        "200":
+          description: Verifiable Credentials successfully verified!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VerifyCredentialsResponse"
+        "400":
+          description: invalid input!
+        "500":
+          description: error!
   /presentations/verify:
     post:
       tags:
@@ -426,13 +450,16 @@ components:
       items:
         type: object
         properties:
-        verifiableCredential:
-          $ref: "#/components/schemas/VerifiableCredential"
-        options:
-          $ref: "#/components/schemas/LinkedDataProofOptions"
+          verifiableCredential:
+            type: object
+            $ref: "#/components/schemas/VerifiableCredential"
+          options:
+            type: object
+            $ref: "#/components/schemas/LinkedDataProofOptions"
     VerifyCredentialsResponse:
       type: array
       items:
+        type: object
         $ref: "#/components/schemas/VerificationResult"
     VerifyPresentationRequest:
       type: object
