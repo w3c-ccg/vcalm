@@ -93,9 +93,9 @@ paths:
     post:
       tags:
         - Verifier
-      summary: Verifies a verifiablePresentation and returns a verificationResult in the response body.
+      summary: Verifies a Presentation with or without proofs attached and returns a verificationResult in the response body.
       operationId: verifyPresentation
-      description: Verifies a verifiablePresentation and returns a verificationResult in the response body.
+      description: Verifies a verifiablePresentation and returns a verificationResult in the response body.  Given the possibility of denial of service, buffer overflow, or other style attacks, an implementation is permitted to rate limit or restrict requests against this API endpoint to those requests that contain only a single credential with a 413 or 429 error code as appropriate.
       requestBody:
         content:
           application/json:
@@ -112,9 +112,13 @@ paths:
               schema:
                 $ref: "#/components/schemas/VerifyPresentationResponse"
         "400":
-          description: invalid input!
+          description: Invalid or malformed input 
+        "413":
+          description: Payload too large
+        "429":
+          description: Rate limit exceeded by too many requests. 
         "500":
-          description: error!
+          description: Internal Server Error
 
 components:
   schemas:
