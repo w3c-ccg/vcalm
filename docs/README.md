@@ -19,7 +19,7 @@ Contributions to this repo should take place via a Pull Request, and should gene
 
 ### Security
 
-Implementations of this API SHOULD not be exposed directly over http(s) without authorization.  Best Practices around OAuth and other widely accepted standards for authentication and / or authorization should be followed.
+Implementations of this API SHOULD NOT be exposed directly over http(s) without authorization.  Best Practices around OAuth and other widely accepted standards for authentication and/or authorization should be followed.
 
 ### Holder APIs 
 
