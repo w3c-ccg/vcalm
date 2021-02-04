@@ -4,7 +4,7 @@ The W3C CCG VC HTTP API is a RESTful API definition conforming with the [OpenAPI
 
 As some implementations may not support all endpoints defined by this specification, the APIs also provide a clean measure by which to identify which methods are or are not implemented when comparing solutions that provide VC support across vendors.
 
-As part of this API definition, test procedures and specifications are also provided to allow for repeatable and automated interoperability testing between solutions that interact with VCs.
+Test procedures and specifications are provided as part of this API definition to allow for repeatable and automated interoperability testing between solutions that interact with VCs.
 
 ## Style, Versioning, and Contribution
 This API is versioned in coformance with the [Semantic Versioning 2.0 spec](https://semver.org/) to prevent breaking changes between major versions, and to allow for reliable testing and integration of implementations of this API within enterprise environments.
