@@ -7,7 +7,7 @@ As some implementations may not support all endpoints defined by this specificat
 Test procedures and specifications are provided as part of this API definition to allow for repeatable and automated interoperability testing between solutions that interact with VCs.
 
 ## Style, Versioning, and Contribution
-This API is versioned in coformance with the [Semantic Versioning 2.0 spec](https://semver.org/) to prevent breaking changes between major versions, and to allow for reliable testing and integration of implementations of this API within enterprise environments.
+This API is versioned in conformance with the [Semantic Versioning 2.0 specification](https://semver.org/) to prevent breaking changes between minor versions, and to allow for reliable testing and integration of implementations of this API within enterprise environments.
 
 API style, endpoint naming, and object definitions within the vc-http-api should be in compliance with the guidelines laid out in the [REST API Tutorial](https://restfulapi.net/).  The VC HTTP API conforms primarily to the [controller](https://restfulapi.net/resource-naming/) model as detailed in the REST documentation.
 
