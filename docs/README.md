@@ -1,6 +1,6 @@
 # [VC HTTP API](https://github.com/w3c-ccg/vc-http-api/) Goals
 
-The W3C CCG VC HTTP API is a RESTful API definition conforming with the [OpenAPI 3.0 Specification](https://swagger.io/specification/) for constructing and verifying objects which conform to the [Verifiable Credential Data Model](https://www.w3.org/TR/vc-data-model/) specification.  This API provides a standard set of interfaces by which interoperability may be tested and verified by various parties who leverage Verifiable Credentials (VCs).
+The W3C CCG VC HTTP API is a RESTful API definition conforming with the [OpenAPI (formerly known as Swagger) 3.0 Specification](https://swagger.io/specification/) for constructing and verifying objects which conform to the [Verifiable Credential Data Model](https://www.w3.org/TR/vc-data-model/) specification.  This API provides a standard set of interfaces by which interoperability may be tested and verified by various parties who leverage Verifiable Credentials (VCs).
 
 As some implementations may not support all endpoints defined by this specification, the APIs also provide a clean measure by which to identify which methods are or are not implemented when comparing solutions that provide VC support across vendors.
 
@@ -24,4 +24,3 @@ Implementations of this API SHOULD not be exposed directly over http(s) without 
 ### Holder APIs 
 
 Holder APIs are optional as many implementations will not need them, however they are extremely useful for testing purposes as well as for cases where WebKMS is not present or not an option.
-
