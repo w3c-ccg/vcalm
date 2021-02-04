@@ -89,30 +89,6 @@ paths:
           description: invalid input!
         "500":
           description: error!
-  /credentials/verifyMany:
-    post:
-      tags:
-        - Verifier
-      summary: Verifies a list of verifiableCredentials and returns a list of index matched verificationResults in the response body.
-      operationId: verifyCredentials
-      description: Verifies a list of verifiableCredentials and returns a list of index matched verificationResults in the response body.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/VerifyCredentialsRequest"
-        description: Parameters for verifying a list of verifiableCredentials.
-      responses:
-        "200":
-          description: The array of Verifiable Credentials was processed. NOTE - Some verifications might have failed; successful processing does not mean successful verification of each credential.  The results array must be inspected for individual results
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/VerifyCredentialsResponse"
-        "400":
-          description: Invalid input not matching required parameters, e.g., passing a single object rather than array, or a malformed set of parameters
-        "500":
-          description: system error
   /presentations/verify:
     post:
       tags:
@@ -530,22 +506,6 @@ components:
           $ref: "#/components/schemas/VerifyOptions"
     VerifyCredentialResponse:
       $ref: "#/components/schemas/VerificationResult"
-    VerifyCredentialsRequest:
-      type: array
-      items:
-        type: object
-        properties:
-          verifiableCredential:
-            type: object
-            $ref: "#/components/schemas/VerifiableCredential"
-          options:
-            type: object
-            $ref: "#/components/schemas/LinkedDataProofOptions"
-    VerifyCredentialsResponse:
-      type: array
-      items:
-        type: object
-        $ref: "#/components/schemas/VerificationResult"
     VerifyPresentationRequest:
       type: object
       properties:
