@@ -153,19 +153,23 @@ components:
           description: The URI of the verificationMethod used for the proof. Default assertionMethod URI.
         proofPurpose:
           type: string
-          description: The purpose of the proof. Default: "assertionMethod".
+          description: The purpose of the proof. Default 'assertionMethod'.
         created:
           type: string
-          description: The date and time of the proof (with a maximum accuracy in seconds). Default: current system time.
+          description: The date and time of the proof (with a maximum accuracy in seconds). Default current system time.
         challenge:
           type: string
-          description: A challenge provided by the requesting party of the proof. For example: 6e62f66e-67de-11eb-b490-ef3eeefa55f2
+          description: A challenge provided by the requesting party of the proof. For example 6e62f66e-67de-11eb-b490-ef3eeefa55f2
         domain:
           type: string
-          description: The intended domain of validity for the proof. For example: website.example
-        credentialStatusMethod:
-          type: string
+          description: The intended domain of validity for the proof. For example website.example
+        credentialStatus:
+          type: object
           description: The method of credential status to issue the credential including. If omitted credential status will be included.
+          properties:
+            type:
+              type: string
+              description: The type of credential status to issue the credential with
       example:
         {
           "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
@@ -173,7 +177,9 @@ components:
           "created": "2020-04-02T18:48:36Z",
           "domain": "revocation.example",
           "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8",
-          "credentialStatusMethod": "RevocationList2020Status",
+          "credentialStatus": {
+            "type": "RevocationList2020Status"
+          }
         }
     PresentCredentialOptions:
       type: object
@@ -182,19 +188,19 @@ components:
       properties:
         verificationMethod:
           type: string
-          description: The URI of the verificationMethod used for the proof. If omitted a default assertionMethod will be used.
+          description: The URI of the verificationMethod used for the proof. Default assertionMethod URI.
         proofPurpose:
           type: string
-          description: The purpose of the proof. If omitted "assertionMethod" will be used.
+          description: The purpose of the proof. Default 'assertionMethod'.
         created:
           type: string
-          description: The date of the proof. If omitted system time will be used.
+          description: The date and time of the proof (with a maximum accuracy in seconds). Default current system time.
         challenge:
           type: string
-          description: The challenge of the proof.
+          description: A challenge provided by the requesting party of the proof. For example 6e62f66e-67de-11eb-b490-ef3eeefa55f2
         domain:
           type: string
-          description: The domain of the proof.
+          description: The intended domain of validity for the proof. For example website.example
       example:
         {
           "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
@@ -210,19 +216,19 @@ components:
       properties:
         verificationMethod:
           type: string
-          description: The URI of the verificationMethod used for the proof. If omitted a default assertionMethod will be used.
+          description: The URI of the verificationMethod used for the proof. Default assertionMethod URI.
         proofPurpose:
           type: string
-          description: The purpose of the proof. If omitted "assertionMethod" will be used.
+          description: The purpose of the proof. Default 'assertionMethod'.
         created:
           type: string
-          description: The date of the proof. If omitted system time will be used.
+          description: The date and time of the proof (with a maximum accuracy in seconds). Default current system time.
         challenge:
           type: string
-          description: The challenge of the proof.
+          description: A challenge provided by the requesting party of the proof. For example 6e62f66e-67de-11eb-b490-ef3eeefa55f2
         domain:
           type: string
-          description: The domain of the proof.
+          description: The intended domain of validity for the proof. For example website.example
       example:
         {
           "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
