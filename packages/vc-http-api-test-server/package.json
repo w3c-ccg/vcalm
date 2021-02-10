@@ -1,0 +1,18 @@
+{
+    "name": "vc-http-api-test-server",
+    "version": "0.0.1",
+    "description": "",
+    "scripts": {
+      "test": "node runLocal.js",
+      "start-test-server": "node runServer.js"
+    },
+    "dependencies": {
+      "jest": "^26.6.3",
+      "base64url": "^3.0.1",
+      "fastify": "^3.9.1",
+      "fastify-cors": "^5.0.0",
+      "fastify-swagger": "^3.5.0",
+      "node-fetch": "^2.6.1",
+      "querystring": "^0.2.0"
+    }
+}

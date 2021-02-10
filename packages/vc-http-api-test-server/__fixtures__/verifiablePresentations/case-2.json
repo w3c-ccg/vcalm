@@ -1,0 +1,44 @@
+{
+    "@context": ["https://www.w3.org/2018/credentials/v1"],
+    "type": ["VerifiablePresentation"],
+    "holder": "did:key:z6MktT2KTXK3So7Eskmvn96QccaVCGeLjFtpuGrTAY24Ls9X",
+    "verifiableCredential": [
+      {
+        "@context": [
+          "https://www.w3.org/2018/credentials/v1",
+          "https://www.w3.org/2018/credentials/examples/v1"
+        ],
+        "id": "http://example.gov/credentials/3732#6c02882c-711f-4069-8e5d-13ce9cbedba8#61ab35c4-a652-4868-9460-6f6509d0f61e#c5aa4b4f-877a-41ba-b304-e03a572477ce",
+        "type": [
+          "VerifiableCredential",
+          "UniversityDegreeCredential"
+        ],
+        "issuer": "did:key:z6MktT2KTXK3So7Eskmvn96QccaVCGeLjFtpuGrTAY24Ls9X",
+        "issuanceDate": "2020-03-10T04:24:12.164Z",
+        "credentialSubject": {
+          "id": "did:key:z6MktT2KTXK3So7Eskmvn96QccaVCGeLjFtpuGrTAY24Ls9X",
+          "degree": {
+            "type": "BachelorDegree",
+            "name": "Bachelor of Science and Arts"
+          }
+        },
+        "proof": {
+          "type": "Ed25519Signature2018",
+          "created": "2020-04-23T17:05:11Z",
+          "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..L77SpdckEEf4HYwV1reezXOMWEE8kX8iKxIr-NdgO5NI1TDunY5Q4lraGLZ3sGsSYTHHjaEOooXC3L8EtjBiAQ",
+          "proofPurpose": "assertionMethod",
+          "verificationMethod": "did:key:z6MktT2KTXK3So7Eskmvn96QccaVCGeLjFtpuGrTAY24Ls9X#z6MktT2KTXK3So7Eskmvn96QccaVCGeLjFtpuGrTAY24Ls9X"
+        }
+      }
+    ],
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2020-04-23T17:05:15Z",
+      "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
+      "domain": "issuer.example.com",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..XYdhxOTyELrl23onupVkviA0ABvqOsaDG66nt7im_WyhQLWB6DZP8tZPBUOhA8J5iyhcLuqGTcIsqKxjwbKhCg",
+      "proofPurpose": "authentication",
+      "verificationMethod": "did:key:z6MktT2KTXK3So7Eskmvn96QccaVCGeLjFtpuGrTAY24Ls9X#z6MktT2KTXK3So7Eskmvn96QccaVCGeLjFtpuGrTAY24Ls9X"
+    }
+}
+  

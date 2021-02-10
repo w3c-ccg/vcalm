@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   version: "0.0.2-unstable"
   title: VC HTTP API
-  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
+  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).  
   license:
     name: W3C Software and Document License
     url: http://www.w3.org/Consortium/Legal/copyright-software.
@@ -149,26 +149,92 @@ components:
           "proofPurpose": "assertionMethod",
           "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA",
         }
-    LinkedDataProofOptions:
+    IssueCredentialOptions:
       type: object
       additionalProperties: false
       description: Options for specifying how the LinkedDataProof is created.
       properties:
         verificationMethod:
           type: string
-          description: The URI of the verificationMethod used for the proof. If omitted a default assertionMethod will be used.
+          description: The URI of the verificationMethod used for the proof. Default assertionMethod URI.
         proofPurpose:
           type: string
-          description: The purpose of the proof. If omitted "assertionMethod" will be used.
+          description: The purpose of the proof. Default 'assertionMethod'.
         created:
           type: string
-          description: The date of the proof. If omitted system time will be used.
+          description: The date and time of the proof (with a maximum accuracy in seconds). Default current system time.
         challenge:
           type: string
-          description: The challenge of the proof.
+          description: A challenge provided by the requesting party of the proof. For example 6e62f66e-67de-11eb-b490-ef3eeefa55f2
         domain:
           type: string
-          description: The domain of the proof.
+          description: The intended domain of validity for the proof. For example website.example
+        credentialStatus:
+          type: object
+          description: The method of credential status to issue the credential including. If omitted credential status will be included.
+          properties:
+            type:
+              type: string
+              description: The type of credential status to issue the credential with
+      example:
+        {
+          "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+          "proofPurpose": "assertionMethod",
+          "created": "2020-04-02T18:48:36Z",
+          "domain": "revocation.example",
+          "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8",
+          "credentialStatus": {
+            "type": "RevocationList2020Status"
+          }
+        }
+    PresentCredentialOptions:
+      type: object
+      additionalProperties: false
+      description: Options for specifying how the LinkedDataProof is created.
+      properties:
+        verificationMethod:
+          type: string
+          description: The URI of the verificationMethod used for the proof. Default assertionMethod URI.
+        proofPurpose:
+          type: string
+          description: The purpose of the proof. Default 'assertionMethod'.
+        created:
+          type: string
+          description: The date and time of the proof (with a maximum accuracy in seconds). Default current system time.
+        challenge:
+          type: string
+          description: A challenge provided by the requesting party of the proof. For example 6e62f66e-67de-11eb-b490-ef3eeefa55f2
+        domain:
+          type: string
+          description: The intended domain of validity for the proof. For example website.example
+      example:
+        {
+          "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+          "proofPurpose": "assertionMethod",
+          "created": "2020-04-02T18:48:36Z",
+          "domain": "example.com",
+          "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8",
+        }
+    VerifyOptions:
+      type: object
+      additionalProperties: false
+      description: Options for specifying how the LinkedDataProof is created.
+      properties:
+        verificationMethod:
+          type: string
+          description: The URI of the verificationMethod used for the proof. Default assertionMethod URI.
+        proofPurpose:
+          type: string
+          description: The purpose of the proof. Default 'assertionMethod'.
+        created:
+          type: string
+          description: The date and time of the proof (with a maximum accuracy in seconds). Default current system time.
+        challenge:
+          type: string
+          description: A challenge provided by the requesting party of the proof. For example 6e62f66e-67de-11eb-b490-ef3eeefa55f2
+        domain:
+          type: string
+          description: The intended domain of validity for the proof. For example website.example
       example:
         {
           "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
@@ -185,12 +251,18 @@ components:
         checks:
           type: array
           description: The checks performed
+          items:
+            type: string
         warnings:
           type: array
           description: Warnings
+          items:
+            type: string
         errors:
           type: array
           description: Errors
+          items:
+            type: string
       example: { "checks": ["proof"], "warnings": [], "errors": [] }
     Issuer:
       type: object
@@ -210,12 +282,16 @@ components:
         "@context":
           type: array
           description: The JSON-LD context of the credential.
+          items:
+            type: string
         "id":
           type: string
           description: The ID of the credential.
         "type":
           type: array
           description: The JSON-LD type of the credential.
+          items:
+            type: string
         "issuer":
           $ref: "#/components/schemas/Issuer"
         "issuanceDate":
@@ -293,12 +369,16 @@ components:
         "@context":
           type: array
           description: The JSON-LD context of the presentation.
+          items:
+            type: string
         "id":
           type: string
           description: The ID of the presentation.
         "type":
           type: array
           description: The JSON-LD type of the presentation.
+          items:
+            type: string
         "holder":
           type: object
           description: The holder - will be ignored if no proof is present since there is no proof of authority over the credentials
@@ -306,6 +386,8 @@ components:
         "verifiableCredential":
           type: array
           description: The Verifiable Credentials
+          items:
+            type: object        
       example:
         {
           "@context":
@@ -407,7 +489,7 @@ components:
         credential:
           $ref: "#/components/schemas/Credential"
         options:
-          $ref: "#/components/schemas/LinkedDataProofOptions"
+          $ref: "#/components/schemas/IssueCredentialOptions"
     IssueCredentialResponse:
       $ref: "#/components/schemas/VerifiableCredential"
     ProvePresentationRequest:
@@ -416,7 +498,7 @@ components:
         presentation:
           $ref: "#/components/schemas/Presentation"
         options:
-          $ref: "#/components/schemas/LinkedDataProofOptions"
+          $ref: "#/components/schemas/PresentCredentialOptions"
     ProvePresentationResponse:
       $ref: "#/components/schemas/VerifiablePresentation"
     VerifyCredentialRequest:
@@ -425,7 +507,7 @@ components:
         verifiableCredential:
           $ref: "#/components/schemas/VerifiableCredential"
         options:
-          $ref: "#/components/schemas/LinkedDataProofOptions"
+          $ref: "#/components/schemas/VerifyOptions"
     VerifyCredentialResponse:
       $ref: "#/components/schemas/VerificationResult"
     VerifyPresentationRequest:
@@ -434,7 +516,7 @@ components:
         verifiablePresentation:
           $ref: "#/components/schemas/VerifiablePresentation"
         options:
-          $ref: "#/components/schemas/LinkedDataProofOptions"
+          $ref: "#/components/schemas/VerifyOptions"
     ProoflessVerifyPresentationRequest:
       type: object
       properties:
