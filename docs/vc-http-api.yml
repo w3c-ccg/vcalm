@@ -41,6 +41,26 @@ paths:
           description: invalid input!
         "500":
           description: error!
+  /credentials/updateStatus:
+    post:
+      tags:
+        - Issuer
+      summary: Updates the status of an issued credential
+      operationId: updateCredentialStatus
+      description: Updates the status of an issued credential.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateCredentialStatus"
+        description: Parameters for updating the status of the issued credential.
+      responses:
+        "200":
+          description: Credential status successfully updated!
+        "400":
+          description: invalid input!
+        "500":
+          description: error!
   /presentations/prove:
     post:
       tags:
@@ -122,6 +142,24 @@ paths:
 
 components:
   schemas:
+    UpdateCredentialStatus:
+      type: object
+      description: Request for updating the status of an issued credential.
+      oneOf:
+        - type: object
+          properties:
+            credentialId:
+              type: string
+            type:
+              type: string
+            status:
+              type: number
+      example:
+        { 
+          "credentialId": "urn:uuid:45a44711-e457-4fa8-9b89-69fe0287c86a",
+          "type": "RevocationList2020Status",
+          "status": 0
+        }
     LinkedDataProof:
       type: object
       description: A JSON-LD Linked Data proof.
