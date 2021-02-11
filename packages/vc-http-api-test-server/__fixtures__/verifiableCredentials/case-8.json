@@ -1,105 +1,48 @@
 {
-    "@context": [
+  "@context": [
       "https://www.w3.org/2018/credentials/v1",
       "https://schema.org/",
-      "https://mavennet.github.io/contexts/crude-product-v1.0.jsonld"
-    ],
-    "id": "http://neo-flow.com/credentials/3a185b8f-078a-4646-8343-76a45c2856a5",
-    "type": ["VerifiableCredential", "CrudeProductCredential"],
-    "name": "Heavy Sour Dilbit",
-    "description": "Crude oil stream, produced from diluted bitumen.",
-    "issuer": "did:key:z6MkiTsvjrrPNDZ1rrg9QDEYCFWCmEswT6U2cEkScb7edQ9b",
-    "issuanceDate": "2020-04-09T21:12:12Z",
-    "credentialSubject": {
-      "producer": "did:v1:test:nym:z6MkfG5HTrBXzsAP8AbayNpG3ZaoyM4PCqNPrdWQRSpHDV6J",
-      "id": "did:key:z6MkiTsvjrrPNDZ1rrg9QDEYCFWCmEswT6U2cEkScb7edQ9b",
-      "category": "Western Canadian Select",
-      "hsCode": "270900",
-      "identifier": "3a185b8f-078a-4646-8343-76a45c2856a5",
-      "name": "Heavy Sour Dilbit",
-      "description": "Crude oil stream, produced from diluted bitumen.",
-      "volume": "10000",
-      "address": {
-        "address": "Edmonton, CAN",
-        "latitude": "53.5461",
-        "longitude": "113.4938"
+      "https://mavennet.github.io/contexts/qp-in-bond-v1.0.jsonld"
+  ],
+  "id": "http://neo-flow.com/credentials/3aee17e7-8c50-4551-a8b4-9bc129c106e8",
+  "type": [
+      "VerifiableCredential",
+      "QPInbondCredential"
+  ],
+  "name": "QP Inbond",
+  "description": "Permit document for import/export of shipments that have not been cleared by US Customs.",
+  "issuer": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k",
+  "issuanceDate": "2020-04-09T21:13:43Z",
+  "credentialSubject": {
+      "productIdentifier": "3a185b8f-078a-4646-8343-76a45c2856a5",
+      "inBondNumber": "123456789",
+      "inBondType": "IT (61)",
+      "portOfEntry": "Superior, WI, USA",
+      "carrier": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k",
+      "irsNumber": "12345678-01",
+      "transportType": "Pipeline",
+      "recipient": "did:v1:test:nym:z6MknQLHcwKwopce5ji1Ftsurn8mNL58wTxZB238uEMsegUj",
+      "originAddress": {
+          "address": "Quebec, CAN",
+          "latitude": "52.9399",
+          "longitude": "73.5491"
       },
-      "productionDate": "2020-03-30T07:23:14.206Z",
-      "predecessorOf": "c98f2452-ab18-4cbe-bf89-635fb8ae7f33",
-      "successorOf": "",
-      "physicalSpecs": {
-        "uom": "barrel",
-        "minimumQuantity": "1000",
-        "apiGravity": 21,
-        "viscosityAt10C": "302",
-        "viscosityAt20C": "157",
-        "viscosityAt30C": "89.6",
-        "viscosityAt40C": "55.3",
-        "viscosityAt45C": "44.4",
-        "pourPoint": "-30",
-        "vapourPressure": "51.7",
-        "density": "928",
-        "naphtha": "",
-        "distillateAt350To650F": "",
-        "gasOilAt650To980F": "",
-        "residAt980F": "41",
-        "deemedButane": "1.9",
-        "tan": "1.05",
-        "ron": "",
-        "mon": "",
-        "boilingPoint": "",
-        "freezingPoint": "",
-        "criticalTemperature": "",
-        "criticalPressure": "",
-        "autoIgnitionTemperatureInAirAt1atm": "",
-        "solubilityInTrichloroethylene": "",
-        "penetrationAt25C100g5sec": "",
-        "softeningPoint": "",
-        "ductilityAt25C": "",
-        "olefin": "",
-        "color": "",
-        "odor": "",
-        "grossCalorificValueAt15C": "",
-        "netCalorificValueAt15C": "",
-        "airRequiredForCombustion": "",
-        "copperCorrosionAt38CFor1Hour": ""
+      "deliveryAddress": {
+          "address": "Chicago, USA",
+          "latitude": "41.8781",
+          "longitude": "87.6298"
       },
-      "chemicalSpecs": {
-        "microCarbonResidue": "9.68",
-        "aromaticsTotalBTEX": "0.23",
-        "sedimentAndWater": "188",
-        "liquidPhaseH2S": "",
-        "mercury": "",
-        "oxygenates": "",
-        "filterableSolids": "",
-        "phosphorousVolatile": "",
-        "mediumChainTriglycerides": "",
-        "benzene": "",
-        "particulates": "",
-        "organicChlorides": "",
-        "nickel": "54",
-        "vanadium": "132.5",
-        "water": "",
-        "molecularWeight": "",
-        "sulphur": "3.66",
-        "naphthenes": "",
-        "chloride": "",
-        "arsenic": "",
-        "lead": "",
-        "ethene": "",
-        "propane": "",
-        "isoButane": "",
-        "nButane": "",
-        "hydrocarbonsHeavier": "",
-        "unsaturatedHydrocarbons": ""
-      }
-    },
-    "proof": {
+      "bolNumber": "BOL000104976",
+      "valuePerItem": "46",
+      "totalOrderValue": "126500",
+      "expectedDeliveryDates": "12-APR-2020",
+      "comments": ""
+  },
+  "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2020-04-02T03:50:55Z",
-      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..0VTnj5WU54g_yGK3CxSmsmLyvudjoDc2lMnCOtwFSfPTzN6Ck-fwxnh8K-Qih1gmzFtKfc_kG0m-evre-ClOBQ",
+      "created": "2020-04-09T21:13:55Z",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..fO8cjS1k5RTCUjg1UunT2MsJtqd8qFPC51-tLCYpUFRShNdRjfXvUjGL5irHDzYAKANYc5e9BNvOMel22af6DA",
       "proofPurpose": "assertionMethod",
-      "verificationMethod": "did:key:z6MkiTsvjrrPNDZ1rrg9QDEYCFWCmEswT6U2cEkScb7edQ9b#z6MkiTsvjrrPNDZ1rrg9QDEYCFWCmEswT6U2cEkScb7edQ9b"
-    }
+      "verificationMethod": "did:v1:test:nym:z6MkhdmzFu659ZJ4XKj31vtEDmjvsi5yDZG5L7Caz63oP39k#z6MkiukuAuQAE8ozxvmahnQGzApvtW7KT5XXKfojjwbdEomY"
   }
-  
+}

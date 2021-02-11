@@ -5,7 +5,7 @@ module.exports = async (config) => {
   let results = await jestRunner.runCLI(
     {
       json: false,
-      roots: [path.resolve(`${__dirname}/../`)],
+      roots: [path.resolve(`${__dirname}/../../`)],
       globals: JSON.stringify({ suiteConfig: config }),
     },
     [process.cwd()]

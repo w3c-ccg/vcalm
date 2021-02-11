@@ -1,6 +1,6 @@
 let { suiteConfig } = global;
 
-const help = require('../help');
+const httpClient = require('../services/httpClient');
 
 if (suiteConfig.issueCredentialConfiguration) {
   describe("Issue Credential API - Conformance", () => {
@@ -16,7 +16,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             const body = {
                 credential: { ...credentials[0].data, issuer: value.id },
             };
-            const res = await help.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, {});
             expect(res.status).toBe(201);
             expect(res.body.proof).toBeDefined();
         });
@@ -25,7 +25,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             const body = {
                 credential: { ...credentials[0].data, issuer: value.id },
             };
-            const res = await help.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, {});
             expect(res.status).toBe(201);
             expect(res.body.proof).toBeDefined();
         });
@@ -37,7 +37,7 @@ if (suiteConfig.issueCredentialConfiguration) {
                 '@context': 'force_error',
               },
             };
-            const res = await help.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, {});
             expect(res.status).toBe(400);
         });
 
@@ -45,7 +45,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             const body = {
               credential: { ...credentials[0].data, issuer: value.id },
             };
-            const res = await help.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, {});
             expect(res.status).toBe(201);
             expect(res.body).toBeDefined();
             expect(res.body.issuer).toBeDefined();
@@ -63,7 +63,7 @@ if (suiteConfig.issueCredentialConfiguration) {
                 proofPurpose: 'foo',
               },
             };
-            const res = await help.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, {});
             expect(res.status).toBe(400);
         });
 
@@ -78,7 +78,7 @@ if (suiteConfig.issueCredentialConfiguration) {
                 assertionMethod: 'foo',
               },
             };
-            const res = await help.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, {});
             expect(res.status).toBe(400);
         });
 
@@ -90,7 +90,7 @@ if (suiteConfig.issueCredentialConfiguration) {
               },
             };
             delete body.credential['@context'];
-            const res = await help.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, {});
             expect(res.status).toBe(400);
         });
 
@@ -105,7 +105,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             'https://www.w3.org/2018/credentials/v1',
             'broken',
           ];
-          const res = await help.postJson(value.endpoint, body, {});
+          const res = await httpClient.postJson(value.endpoint, body, {});
           expect(res.status).toBe(400);
         });
 
@@ -116,7 +116,7 @@ if (suiteConfig.issueCredentialConfiguration) {
               issuer: value.id
             }
           };
-          const res = await help.postJson(value.endpoint, body, {});
+          const res = await httpClient.postJson(value.endpoint, body, {});
           expect(res.status).toBe(201);
           expect(res.body.proof).toBeDefined();
         });
@@ -138,7 +138,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             const body = {
               credential: { ...credentials[0].data, issuer: value.id },
           };
-          const res = await help.postJson(value.endpoint, body, {});
+          const res = await httpClient.postJson(value.endpoint, body, {});
           expect(res.status).toBe(201);
           expect(res.body.proof).toBeDefined();
           })

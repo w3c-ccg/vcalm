@@ -1,7 +1,5 @@
-const fs = require('fs');
-const getReportResults = require('./services/getReportResults');
-const help = require('./help');
-
+const runTestRunner = require('./services/jest/testRunner');
+const help = require('./services/utilities');
 let config = require('./config');
 
 (async () => {
@@ -14,10 +12,6 @@ let config = require('./config');
     });
   }
 
-  const { suitesReportJson } = await getReportResults(config);
+  await runTestRunner(config);
 
-  fs.writeFileSync(
-    `test-report.json`,
-    JSON.stringify(suitesReportJson, null, 2)
-  );
 })();

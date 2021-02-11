@@ -42,15 +42,7 @@ const postJson = async (url, body, requestAuthorization) => {
   return {status: res.status, body: resBody};
 };
 
-const cloneObj = (obj) => {
-  return JSON.parse(JSON.stringify(obj));
-}
-
-const filterVerifiableCredentialsByDidMethods = (verifiableCredentials, didMethods) => verifiableCredentials.filter(item => didMethods.includes(item.issuerDidMethod));
-
 module.exports = {
-  getJson,
-  postJson,
-  cloneObj,
-  filterVerifiableCredentialsByDidMethods
+    postJson,
+    getJson
 };

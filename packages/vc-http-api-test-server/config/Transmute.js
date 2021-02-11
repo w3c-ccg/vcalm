@@ -11,7 +11,7 @@ module.exports = {
     ],
     verifyCredentialConfiguration: {
         endpoint: "https://vc.transmute.world/v0.1.0/verify/credentials",
-        didMethodsSupported: [ "did:key:", "did:web:", "did:v1:test:nym", "did:factom", "did:elem:ropsten:" ],
+        didMethodsSupported: [ "did:key:", "did:web:", "did:factom", "did:elem:ropsten:" ],
         linkedDataProofSuitesSupported: [ "Ed25519Signature2018" ]
     },
     verifyPresentationConfiguration: {

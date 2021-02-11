@@ -1,6 +1,7 @@
 let { suiteConfig } = global;
 
-const help = require('../help');
+const httpClient = require('../services/httpClient');
+const utilities = require('../services/utilities');
 
 if (suiteConfig.verifyCredentialConfiguration) {
     describe('Verify Credential API - Conformance', () => {
@@ -10,7 +11,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
         const verifierEndpoint = suiteConfig.verifyCredentialConfiguration.endpoint;
 
         beforeEach(() => {
-            verifiableCredentials = help.cloneObj(suiteConfig.verifiableCredentials);
+            verifiableCredentials = utilities.cloneObj(suiteConfig.verifiableCredentials);
         });
 
         // eslint-disable-next-line max-len
@@ -22,7 +23,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                     checks: ['proof'],
                 },
                 };
-                const res = await help.postJson(verifierEndpoint, body, {});
+                const res = await httpClient.postJson(verifierEndpoint, body, {});
                 expect(res.status).toBe(200);
                 expect(res.body.checks).toEqual(['proof']);
             });
@@ -34,7 +35,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                 },
                 };
                 body.verifiableCredential.proof.jws += 'bar';
-                const res = await help.postJson(verifierEndpoint, body, {});
+                const res = await httpClient.postJson(verifierEndpoint, body, {});
                 expect(res.status).toBe(400);
             });
         });
@@ -48,7 +49,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                 },
                 };
                 delete body.verifiableCredential.proof.created;
-                const res = await help.postJson(verifierEndpoint, body, {});
+                const res = await httpClient.postJson(verifierEndpoint, body, {});
                 expect(res.status).toBe(400);
             });
         });
@@ -62,7 +63,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                 },
                 };
                 body.verifiableCredential.proof.proofPurpose = 'bar';
-                const res = await help.postJson(verifierEndpoint, body, {});
+                const res = await httpClient.postJson(verifierEndpoint, body, {});
                 expect(res.status).toBe(400);
             });
         });
@@ -76,7 +77,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                 },
                 };
                 body.verifiableCredential.newProp = 'foo';
-                const res = await help.postJson(verifierEndpoint, body, {});
+                const res = await httpClient.postJson(verifierEndpoint, body, {});
                 expect(res.status).toBe(400);
             });
         });
@@ -90,7 +91,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                 },
                 };
                 delete body.verifiableCredential.issuer;
-                const res = await help.postJson(verifierEndpoint, body, {});
+                const res = await httpClient.postJson(verifierEndpoint, body, {});
                 expect(res.status).toBe(400);
             });
         });
@@ -104,7 +105,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                 },
                 };
                 body.verifiableCredential.issuer = 'bar';
-                const res = await help.postJson(verifierEndpoint, body, {});
+                const res = await httpClient.postJson(verifierEndpoint, body, {});
                 expect(res.status).toBe(400);
             });
         });
@@ -118,7 +119,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                 },
                 };
                 body.verifiableCredential.proof.newProp = 'bar';
-                const res = await help.postJson(verifierEndpoint, body, {});
+                const res = await httpClient.postJson(verifierEndpoint, body, {});
                 expect(res.status).toBe(400);
             });
         });
@@ -132,7 +133,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                 },
                 };
                 delete body.verifiableCredential.proof.proofPurpose;
-                const res = await help.postJson(verifierEndpoint, body, {});
+                const res = await httpClient.postJson(verifierEndpoint, body, {});
                 expect(res.status).toBe(400);
             });
         });
@@ -146,7 +147,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                 },
                 };
                 body.verifiableCredential.proof.created += 'bar';
-                const res = await help.postJson(verifierEndpoint, body, {});
+                const res = await httpClient.postJson(verifierEndpoint, body, {});
                 expect(res.status).toBe(400);
             });
         });
@@ -159,7 +160,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                     checks: ['proof'],
                 },
                 };
-                const res = await help.postJson(verifierEndpoint, body, {});
+                const res = await httpClient.postJson(verifierEndpoint, body, {});
                 expect(res.status).toBe(200);
                 expect(res.body.checks).toEqual(['proof']);
             });
@@ -174,7 +175,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                     checks: ['proof'],
                 },
                 };
-                const res = await help.postJson(verifierEndpoint, body, {});
+                const res = await httpClient.postJson(verifierEndpoint, body, {});
                 expect(res.status).toBe(400);
             });
         });
@@ -192,7 +193,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                     checks: ['proof'],
                 },
                 };
-                const res = await help.postJson(verifierEndpoint, body, {});
+                const res = await httpClient.postJson(verifierEndpoint, body, {});
                 expect(res.status).toBe(200);
                 expect(res.body.checks).toEqual(['proof']);
             });
@@ -201,13 +202,9 @@ if (suiteConfig.verifyCredentialConfiguration) {
 
     describe('Verify Credential API - Interop', () => {
         // Load in the static test fixtures
-        let verifiableCredentials = suiteConfig.verifiableCredentials;
+        let verifiableCredentials = utilities.filterVerifiableCredentialsByDidMethods(suiteConfig.verifiableCredentials, suiteConfig.verifyCredentialConfiguration.didMethodsSupported);;
 
         const verifierEndpoint = suiteConfig.verifyCredentialConfiguration.endpoint;
-
-        beforeEach(() => {
-            verifiableCredentials = help.filterVerifiableCredentialsByDidMethods(suiteConfig.verifiableCredentials, suiteConfig.verifyCredentialConfiguration.didMethodsSupported);
-        });
 
         verifiableCredentials.forEach((verifiableCredential) => {
             describe(`Can verify ${verifiableCredential.name} verifiable credential, with issuer DID method ${verifiableCredential.issuerDidMethod} and linked data proof suite ${verifiableCredential.linkedDataProofSuite}`, () => {
@@ -218,7 +215,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                         checks: ['proof'],
                     },
                     };
-                    const res = await help.postJson(verifierEndpoint, body, {});
+                    const res = await httpClient.postJson(verifierEndpoint, body, {});
                     expect(res.status).toBe(200);
                     expect(res.body.checks).toEqual(['proof']);
                 });
@@ -230,7 +227,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
                     },
                     };
                     body.verifiableCredential.proof.jws += 'bar';
-                    const res = await help.postJson(verifierEndpoint, body, {});
+                    const res = await httpClient.postJson(verifierEndpoint, body, {});
                     expect(res.status).toBe(400);
                 });
             });

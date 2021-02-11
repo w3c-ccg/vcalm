@@ -1,6 +1,7 @@
 let { suiteConfig } = global;
 
-const help = require('../help');
+const httpClient = require('../services/httpClient');
+const utilities = require('../services/utilities');
 
 describe('Verify Presentation API', () => {
     // Load in the static test fixtures
@@ -9,7 +10,7 @@ describe('Verify Presentation API', () => {
     const verifierEndpoint = suiteConfig.verifyPresentationConfiguration.endpoint;
     
     beforeEach(() => {
-      verifiablePresentations = help.cloneObj(suiteConfig.verifiablePresentations);
+      verifiablePresentations = utilities.cloneObj(suiteConfig.verifiablePresentations);
     });
 
     // eslint-disable-next-line max-len
@@ -41,12 +42,12 @@ describe('Verify Presentation API', () => {
                 checks: ['proof'],
               },
             };
-            const res = await help.postJson(verifierEndpoint, body, {});
+            const res = await httpClient.postJson(verifierEndpoint, body, {});
             expect(res.status).toBe(200);
             solutions.push(vp);
           })
         );
-        expect(solutions.length).toBeGreaterThanOrEqual(1);
+        expect(solutions.length).toBeGreaterThanOrEqual(test_vps.length);
       });
     });
 
@@ -71,12 +72,12 @@ describe('Verify Presentation API', () => {
                 checks: ['proof'],
               },
             };
-            const res = await help.postJson(verifierEndpoint, body, {});
+            const res = await httpClient.postJson(verifierEndpoint, body, {});
             expect(res.status).toBe(200);
             solutions.push(vp);
           })
         );
-        expect(solutions.length).toBeGreaterThanOrEqual(1);
+        expect(solutions.length).toBeGreaterThanOrEqual(test_vps.length);
       });
     });
 
@@ -91,7 +92,7 @@ describe('Verify Presentation API', () => {
             checks: ['proof'],
           },
         };
-        const res = await help.postJson(verifierEndpoint, body, {});
+        const res = await httpClient.postJson(verifierEndpoint, body, {});
         expect(res.status).toBe(200);
         expect(res.body.checks).toEqual(['proof']);
       });
@@ -108,7 +109,7 @@ describe('Verify Presentation API', () => {
             checks: ['proof'],
           },
         };
-        const res = await help.postJson(verifierEndpoint, body, {});
+        const res = await httpClient.postJson(verifierEndpoint, body, {});
         expect(res.status).toBe(400);
       });
     });
@@ -129,20 +130,9 @@ describe('Verify Presentation API', () => {
             checks: ['proof'],
           },
         };
-        const res = await help.postJson(verifierEndpoint, body, {});
+        const res = await httpClient.postJson(verifierEndpoint, body, {});
         expect(res.status).toBe(200);
         expect(res.body.checks).toEqual(['proof']);
-      });
-    });
-
-    // eslint-disable-next-line max-len
-    describe(`6. The Verifier's Verify Presentation HTTP API MUST support "options.challenge" in the body of the POST request.`, () => {
-      it('should have error', async () => {
-        const body = {
-          verifiablePresentation: verifiablePresentations[0],
-        };
-        const res = await help.postJson(verifierEndpoint, body, {});
-        expect(res.status).toBe(400);
       });
     });
 });
