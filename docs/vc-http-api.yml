@@ -62,7 +62,7 @@ paths:
         "404":
           description: credential not found!
         "500":
-          description: error!
+          description: Internal server error.
   /presentations/prove:
     post:
       tags:
