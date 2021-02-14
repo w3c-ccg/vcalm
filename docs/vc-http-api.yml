@@ -58,7 +58,7 @@ paths:
         "200":
           description: Credential status successfully updated!
         "400":
-          description: invalid input!
+          description: Malformed input.
         "404":
           description: credential not found!
         "500":
