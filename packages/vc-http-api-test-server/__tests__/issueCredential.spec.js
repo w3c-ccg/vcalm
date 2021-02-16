@@ -109,7 +109,7 @@ if (suiteConfig.issueCredentialConfiguration) {
           expect(res.status).toBe(400);
         });
 
-        it(`9. The Issuer's Issue Credential HTTP API MUST must support no "options" in the body of the POST request.`, async () => {
+        it(`9. The Issuer's Issue Credential HTTP API MUST support no "options" in the body of the POST request.`, async () => {
           const body = {
             credential: {
               ...credentials[0].data,
@@ -120,6 +120,49 @@ if (suiteConfig.issueCredentialConfiguration) {
           expect(res.status).toBe(201);
           expect(res.body.proof).toBeDefined();
         });
+
+        if (value.credentialStatusesSupported) {
+          const credentialStatusesSupported = Array.isArray(value.credentialStatusesSupported) ? value.credentialStatusesSupported : [ value.credentialStatusesSupported ];
+
+          credentialStatusesSupported.forEach((credStatusType) => {
+            it(`10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of ${credStatusType}`, async () => {
+              const body = {
+                credential: {
+                  ...credentials[0].data,
+                  issuer: value.id
+                },
+                options: {
+                  ...value.options[0],
+                  credentialStatus: {
+                    type: credStatusType
+                  },
+                },
+              };
+              const res = await httpClient.postJson(value.endpoint, body, {});
+              expect(res.status).toBe(201);
+              expect(res.body).toBeDefined();
+              expect(res.body.credentialStatus).toBeDefined();
+              expect(res.body.credentialStatus.type).toEqual(credStatusType);
+            });
+          });
+
+          it(`11. The Issuer's Issue Credential HTTP API MUST return 400 if credential status type not recognized`, async () => {
+            const body = {
+              credential: {
+                ...credentials[0].data,
+                issuer: value.id
+              },
+              options: {
+                ...value.options[0],
+                credentialStatus: {
+                  type: "BadType"
+                },
+              },
+            };
+            const res = await httpClient.postJson(value.endpoint, body, {});
+            expect(res.status).toBe(400);
+          });
+        }
       });
     });
   });
