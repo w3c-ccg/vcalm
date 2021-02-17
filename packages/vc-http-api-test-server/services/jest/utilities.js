@@ -2,10 +2,10 @@ module.exports = extractTestSummary = (results) => {
   return {
     name: results.name,
     testResults: {
-      numFailedTests: results.testResults.results.numFailedTests,
-      numPassedTests: results.testResults.results.numPassedTests,
-      numTotalTests: results.testResults.results.numTotalTests,
-      testResults: results.testResults.results.testResults.map((result) => {
+      numFailedTests: results.numFailedTests,
+      numPassedTests: results.numPassedTests,
+      numTotalTests: results.numTotalTests,
+      testResults: results.testResults.map((result) => {
         return {
           numFailingTests: result.numFailingTests,
           numPassingTests: result.numPassingTests,
