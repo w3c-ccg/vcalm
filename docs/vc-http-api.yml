@@ -93,14 +93,16 @@ paths:
     post:
       tags:
         - Verifier
-      summary: Verifies a verifiablePresentation and returns a verificationResult in the response body.
+      summary: Verifies a Presentation with or without proofs attached and returns a verificationResult in the response body.
       operationId: verifyPresentation
-      description: Verifies a verifiablePresentation and returns a verificationResult in the response body.
+      description: Verifies a verifiablePresentation and returns a verificationResult in the response body.  Given the possibility of denial of service, buffer overflow, or other style attacks, an implementation is permitted to rate limit or restrict requests against this API endpoint to those requests that contain only a single credential with a 413 or 429 error code as appropriate.
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/VerifyPresentationRequest"
+              oneOf:
+                - $ref: "#/components/schemas/VerifyPresentationRequest"
+                - $ref: "#/components/schemas/ProoflessVerifyPresentationRequest"
         description: Parameters for verifying a verifiablePresentation.
       responses:
         "200":
@@ -110,9 +112,13 @@ paths:
               schema:
                 $ref: "#/components/schemas/VerifyPresentationResponse"
         "400":
-          description: invalid input!
+          description: Invalid or malformed input 
+        "413":
+          description: Payload too large
+        "429":
+          description: Rate limit exceeded by too many requests. 
         "500":
-          description: error!
+          description: Internal Server Error
 
 components:
   schemas:
@@ -375,7 +381,8 @@ components:
             type: string
         "holder":
           type: object
-          description: The holder
+          description: The holder - will be ignored if no proof is present since there is no proof of authority over the credentials
+          nullable: true
         "verifiableCredential":
           type: array
           description: The Verifiable Credentials
@@ -510,5 +517,10 @@ components:
           $ref: "#/components/schemas/VerifiablePresentation"
         options:
           $ref: "#/components/schemas/VerifyOptions"
+    ProoflessVerifyPresentationRequest:
+      type: object
+      properties:
+        presentation:
+          $ref: "#/components/schemas/Presentation"
     VerifyPresentationResponse:
       $ref: "#/components/schemas/VerificationResult"
