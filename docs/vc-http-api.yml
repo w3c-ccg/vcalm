@@ -158,13 +158,13 @@ components:
               type:
                 type: string
               status:
-                type: number
+                type: string
       example:
         { 
           "credentialId": "urn:uuid:45a44711-e457-4fa8-9b89-69fe0287c86a",
           "credentialStatus": [{
             "type": "RevocationList2020Status",
-            "status": 0
+            "status": "0"
           }]
         }
     LinkedDataProof:
