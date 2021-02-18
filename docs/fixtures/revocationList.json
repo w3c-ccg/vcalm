@@ -1,0 +1,26 @@
+{
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/vc-revocation-list-2020/v1"
+    ],
+    "id": "https://w3c-ccg.github.io/vc-http-api/fixtures/revocationList.json",
+    "type": [
+      "VerifiableCredential",
+      "RevocationList2020Credential"
+    ],
+    "issuer": {
+      "id": "did:key:z6MkiY62766b1LJkExWMsM3QG4WtX7QpY823dxoYzr9qZvJ3"
+    },
+    "issuanceDate": "2021-02-15T07:50:03.050Z",
+    "credentialSubject": {
+      "type": "RevocationList2020",
+      "encodedList": "H4sIAAAAAAAAA-3BMQ0AAAACIGf_0MbwARoAAAAAAAAAAAAAAAAAAADgbbmHB0sAQAAA"
+    },
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2021-02-15T07:50:03Z",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..qN657PZcI21d3hZsjlHaINGMJ0URuP9Lo8-0vYqNrPK6WEOB1SsegmyFSwRMcvyrKpWfcorpBsDFLwdwcVHNBA",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:key:z6MkiY62766b1LJkExWMsM3QG4WtX7QpY823dxoYzr9qZvJ3#z6MkiY62766b1LJkExWMsM3QG4WtX7QpY823dxoYzr9qZvJ3"
+    }
+}
