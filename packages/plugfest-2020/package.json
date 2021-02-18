@@ -4,9 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint \"**/*.js\"",
-    "lint:fix": "eslint \"**/*.js\" --fix",
-    "test": "jest",
     "test:all": "jest",
     "test:dock": "INTEROP_FOCUS=dock npm run test",
     "test:digital_bazaar": "INTEROP_FOCUS=digital_bazaar npm run test",
