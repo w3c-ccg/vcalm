@@ -1,11 +1,15 @@
 const runJestCli = require("./cli");
 const generateTestReport = require("./testReporter");
 const extractTestSummary = require("./utilities");
-
 const fs = require("fs");
+const path = require("path");
+const slugify = require("slugify");
 const { promises } = require("fs");
 
-const TEST_RESULTS_DIRECTORY = "test_results";
+const TEST_RESULTS_DIRECTORY = path.resolve(
+  __dirname,
+  "../../../../docs/test-suite"
+);
 const TEST_FILE_JSON = "testResults.json";
 
 async function capture(fn, p) {
@@ -33,7 +37,10 @@ module.exports = runTests = async (config) => {
     if (Array.isArray(config)) {
       await Promise.all(
         config.map(async (element) => {
-          const directory = `${TEST_RESULTS_DIRECTORY}/${element.name}`;
+          const directory = `${TEST_RESULTS_DIRECTORY}/${slugify(element.name, {
+            replacement: "-",
+            lower: true,
+          })}`;
           if (!fs.existsSync(directory)) {
             await promises.mkdir(directory, { recursive: true });
           }
@@ -53,7 +60,10 @@ module.exports = runTests = async (config) => {
         })
       );
     } else {
-      const directory = `${TEST_RESULTS_DIRECTORY}/${config.name}`;
+      const directory = `${TEST_RESULTS_DIRECTORY}/${slugify(config.name, {
+        replacement: "-",
+        lower: true,
+      })}`;
       const output = await runJestCli(config);
       await generateTestReport(directory, config.name, output.results);
       const summary = extractTestSummary(output.results);
