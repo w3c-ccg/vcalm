@@ -2,10 +2,10 @@ module.exports = {
     name: "SecureKey",
     issueCredentialConfiguration: [
         {
-            id: "did:trustbloc:testnet.trustbloc.dev:EiBtYHD1_ybxr9icxKxCWhOL7G1UoygLEJ2mXVznkrlBEA",
+            id: "did:trustbloc:testnet.trustbloc.dev:EiAFEDjO4aF0ItSmvK1ehKwtqyZlXExK8l70D6EP-TuF9A",
             endpoint: "https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issueCredential",
             options: {
-                assertionMethod: "did:trustbloc:testnet.trustbloc.dev:EiBtYHD1_ybxr9icxKxCWhOL7G1UoygLEJ2mXVznkrlBEA#IhhisIjDfhneDSa_7f3H"
+                assertionMethod: "did:trustbloc:testnet.trustbloc.dev:EiAFEDjO4aF0ItSmvK1ehKwtqyZlXExK8l70D6EP-TuF9A#cAl-0D3UEU2WOSlDrQXQWG2YQ51QIL6Ho8aeXaVzkfw"
             }
         },
         {
