@@ -6,7 +6,7 @@ const utilities = require('../services/utilities');
 if (suiteConfig.verifyCredentialConfiguration) {
     describe('Verify Credential API - Conformance', () => {
         // Load in the static test fixtures
-        let verifiableCredentials = suiteConfig.verifiableCredentials;
+        let verifiableCredentials = utilities.filterVerifiableCredentialsForVendorConfig(suiteConfig.verifiableCredentials, suiteConfig.verifyCredentialConfiguration);
 
         const verifierEndpoint = suiteConfig.verifyCredentialConfiguration.endpoint;
         const credentialStatusesSupported = suiteConfig.verifyCredentialConfiguration.credentialStatusesSupported;
@@ -251,12 +251,12 @@ if (suiteConfig.verifyCredentialConfiguration) {
 
     describe('Verify Credential API - Interop', () => {
         // Load in the static test fixtures
-        let verifiableCredentials = utilities.filterVerifiableCredentialsByDidMethods(suiteConfig.verifiableCredentials, suiteConfig.verifyCredentialConfiguration.didMethodsSupported);;
+        let verifiableCredentials = utilities.filterVerifiableCredentialsForVendorConfig(suiteConfig.verifiableCredentials, suiteConfig.verifyCredentialConfiguration);
 
         const verifierEndpoint = suiteConfig.verifyCredentialConfiguration.endpoint;
 
         verifiableCredentials.forEach((verifiableCredential) => {
-            describe(`Can verify ${verifiableCredential.name} verifiable credential, with issuer DID method ${verifiableCredential.issuerDidMethod} and linked data proof suite ${verifiableCredential.linkedDataProofSuite}`, () => {
+            describe(`Can verify ${verifiableCredential.name} verifiable credential, with issuer DID method ${verifiableCredential.issuerDidMethod} and linked data proof suite ${verifiableCredential.proofType}`, () => {
                 it('should pass with no mutation', async () => {
                     const body = {
                     verifiableCredential: verifiableCredential.data,

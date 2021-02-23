@@ -1,0 +1,33 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/citizenship/v1",
+    "https://w3id.org/security/bbs/v1"
+  ],
+  "id": "https://issuer.oidp.uscis.gov/credentials/83627465",
+  "type": [
+    "PermanentResidentCard",
+    "VerifiableCredential"
+  ],
+  "description": "Government of Example Permanent Resident Card.",
+  "name": "Permanent Resident Card",
+  "credentialSubject": {
+    "id": "did:example:b34ca6cd37bbf23",
+    "type": [
+      "Person",
+      "PermanentResident"
+    ],
+    "birthDate": "1958-07-17"
+  },
+  "expirationDate": "2029-12-03T12:19:52Z",
+  "issuanceDate": "2019-12-03T12:19:52Z",
+  "issuer": "did:key:zUC724vuGvHpnCGFG1qqpXb81SiBLu3KLSqVzenwEZNPoY35i2Bscb8DLaVwHvRFs6F2NkNNXRcPWvqnPDUd9ukdjLkjZd3u9zzL4wDZDUpkPAatLDGLEYVo8kkAzuAKJQMr7N2",
+  "proof": {
+    "type": "BbsBlsSignatureProof2020",
+    "created": "2021-02-23T19:31:12Z",
+    "nonce": "G/hn9Ca9bIWZpJGlhnr/41r8RB0OO0TLChZASr3QJVztdri/JzS8Zf/xWJT5jW78zlM=",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "ABgA/wYfjSxZz8DBQHTIuX+F0MmeskKbywg6NSMGHOqJ9LvYrfaakmMaPh+UsJxIK1z5v3NuiRP4OGhIbYgjo0KovKMZzluSzCGwzAyXui2hnFlrySj3RP+WNmWd+6QZQ6bEm+pyhNC6VrEMVDxJ2TH7DShbx6GFQ6RLvuS0Xf38GuOhX26+5RJ9RBs5Qaj4/UKsTfc9AAAAdKGdxxloz3ZJ2QnoFlqicO6MviT8yzeyf5gILHg8YUjNIAVJJNsh26kBqIdQkaROpQAAAAIVX5Y1Jy9hgEQgqUld/aGN2uxOLZAJsri9BRRHoFNWkkcF73EV4BE9+Hs+8fuvX0SNDAmomTVz6vSrq58bjHZ+tmJ5JddwT1tCunHV330hqleI47eAqwGuY9hdeSixzfL0/CGnZ2XoV2YAybVTcupSAAAACw03E8CoLBvqXeMV7EtRTwMpKQmEUyAM5iwC2ZaAkDLnFOt2iHR4P8VExFmOZCl94gt6bqWuODhJ5mNCJXjEO9wmx3RNM5prB7Au5g59mdcuuY/GCKmKNt087BoHYG//dEFi4Q+bRpVE5MKaGv/JZd/LmPAfKfuj5Tr37m0m3hx6HROmIv0yHcakQlNQqM6QuRQLMr2U+nj4U4OFQZfMg3A+f6fVS6T18WLq4xbHc/2L1bYhIw+SjXwkj20cGhEBsmFOqj4oY5AzjN1t4gfzb5itxQNkZFVE2IdBP9v/Ck8rMQLmxs68PDPcp6CAb9dvMS0fX5CTTbJHqG4XEjYRaBVG0Ji5g3vTpGVAA4jqOzpTbxKQawA4SvddV8NUUm4N/zCeWMermi3yRhZRl1AXa8BqGO+mXNI7yAPjn1YDoGliQkoQc5B4CYY/5ldP19XS2hV5Ak16AJtD4tdeqbaX0bo=",
+    "verificationMethod": "did:key:zUC724vuGvHpnCGFG1qqpXb81SiBLu3KLSqVzenwEZNPoY35i2Bscb8DLaVwHvRFs6F2NkNNXRcPWvqnPDUd9ukdjLkjZd3u9zzL4wDZDUpkPAatLDGLEYVo8kkAzuAKJQMr7N2#zUC724vuGvHpnCGFG1qqpXb81SiBLu3KLSqVzenwEZNPoY35i2Bscb8DLaVwHvRFs6F2NkNNXRcPWvqnPDUd9ukdjLkjZd3u9zzL4wDZDUpkPAatLDGLEYVo8kkAzuAKJQMr7N2"
+  }
+}
