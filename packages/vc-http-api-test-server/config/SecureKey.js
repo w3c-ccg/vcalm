@@ -17,12 +17,12 @@ module.exports = {
         }
     ],
     verifyCredentialConfiguration: {
-        endpoint: "https://verifier.sandbox.trustbloc.dev/verifier/credentials",
+        endpoint: "https://verifier.sandbox.trustbloc.dev/verifier1/verifier/credentials",
         didMethodsSupported: [ "did:key:", "did:web:" ],
         linkedDataProofSuitesSupported: [ "Ed25519Signature2018" ]
     },
     verifyPresentationConfiguration: {
-        endpoint: "https://verifier.sandbox.trustbloc.dev/verifier/presentations"
+        endpoint: "https://verifier.sandbox.trustbloc.dev/verifier1/verifier/presentations"
     },
     credentials: require('../__fixtures__/credentials'),
     verifiableCredentials: require('../__fixtures__/verifiableCredentials'),

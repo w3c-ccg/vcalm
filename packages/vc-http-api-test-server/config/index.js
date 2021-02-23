@@ -9,7 +9,7 @@ module.exports = [
     //require("./Dock"),
     //require("./Factom"),
     //require("./Mavennet"),
-    //require("./SecureKey"),
+    require("./SecureKey"),
     //require("./SICPA"),
     require("./Transmute"),
     //require("./TrybeID")
