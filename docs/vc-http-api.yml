@@ -45,7 +45,7 @@ paths:
     post:
       tags:
         - Holder
-      summary: Derive a credential and returns it in the response body.
+      summary: Derives a credential and returns it in the response body.
       operationId: deriveCredential
       description: Derives a credential and returns it in the response body.
       requestBody:
