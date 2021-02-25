@@ -164,7 +164,7 @@ paths:
         "413":
           description: Payload too large
         "429":
-          description: Rate limit exceeded by too many requests.
+          description: Request rate limit exceeded.
         "500":
           description: Internal Server Error
 
