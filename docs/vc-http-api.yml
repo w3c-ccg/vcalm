@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   version: "0.0.2-unstable"
   title: VC HTTP API
-  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).  
+  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
   license:
     name: W3C Software and Document License
     url: http://www.w3.org/Consortium/Legal/copyright-software.
@@ -41,6 +41,32 @@ paths:
           description: invalid input!
         "500":
           description: error!
+  /credentials/derive:
+    post:
+      tags:
+        - Holder
+      summary: Derives a credential and returns it in the response body.
+      operationId: deriveCredential
+      description: Derives a credential and returns it in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeriveCredentialRequest"
+        description: Parameters for deriving the credential.
+      responses:
+        "201":
+          description: Credential derived successfully.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeriveCredentialResponse"
+        "400":
+          description: Invalid Request
+        "500":
+          description: Internal Error
+        "501":
+          description: Not Implemented
   /credentials/status:
     post:
       tags:
@@ -134,11 +160,11 @@ paths:
               schema:
                 $ref: "#/components/schemas/VerifyPresentationResponse"
         "400":
-          description: Invalid or malformed input 
+          description: Invalid or malformed input
         "413":
           description: Payload too large
         "429":
-          description: Rate limit exceeded by too many requests. 
+          description: Request rate limit exceeded.
         "500":
           description: Internal Server Error
 
@@ -160,12 +186,10 @@ components:
               status:
                 type: string
       example:
-        { 
+        {
           "credentialId": "urn:uuid:45a44711-e457-4fa8-9b89-69fe0287c86a",
-          "credentialStatus": [{
-            "type": "RevocationList2020Status",
-            "status": "0"
-          }]
+          "credentialStatus":
+            [{ "type": "RevocationList2020Status", "status": "0" }],
         }
     LinkedDataProof:
       type: object
@@ -228,9 +252,7 @@ components:
           "created": "2020-04-02T18:48:36Z",
           "domain": "revocation.example",
           "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8",
-          "credentialStatus": {
-            "type": "RevocationList2020Status"
-          }
+          "credentialStatus": { "type": "RevocationList2020Status" },
         }
     PresentCredentialOptions:
       type: object
@@ -432,7 +454,7 @@ components:
           type: array
           description: The Verifiable Credentials
           items:
-            type: object        
+            type: object
       example:
         {
           "@context":
@@ -536,6 +558,16 @@ components:
         options:
           $ref: "#/components/schemas/IssueCredentialOptions"
     IssueCredentialResponse:
+      $ref: "#/components/schemas/VerifiableCredential"
+    DeriveCredentialRequest:
+      type: object
+        properties:
+          verifiableCredential:
+            $ref: "#/components/schemas/VerifiableCredential"
+          frame:
+            type: object
+            description: A JSON-LD frame used for selective disclosure.
+    DeriveCredentialResponse:
       $ref: "#/components/schemas/VerifiableCredential"
     ProvePresentationRequest:
       type: object
