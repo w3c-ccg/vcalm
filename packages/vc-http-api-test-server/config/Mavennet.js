@@ -4,6 +4,7 @@ module.exports = {
         {
             id: "did:key:z6MkiTsvjrrPNDZ1rrg9QDEYCFWCmEswT6U2cEkScb7edQ9b",
             endpoint: "https://api.neo-flow.com/credentials/issueCredential",
+            proofType: "Ed25519Signature2018",
             options: {
                 assertionMethod: "did:key:z6MkiTsvjrrPNDZ1rrg9QDEYCFWCmEswT6U2cEkScb7edQ9b#z6MkiTsvjrrPNDZ1rrg9QDEYCFWCmEswT6U2cEkScb7edQ9b"
             }
@@ -11,6 +12,7 @@ module.exports = {
         {
             id: "did:v1:test:nym:z6MkfG5HTrBXzsAP8AbayNpG3ZaoyM4PCqNPrdWQRSpHDV6J",
             endpoint: "https://api.neo-flow.com/credentials/issueCredential",
+            proofType: "Ed25519Signature2018",
             options: {
                 assertionMethod: "did:v1:test:nym:z6MkfG5HTrBXzsAP8AbayNpG3ZaoyM4PCqNPrdWQRSpHDV6J#z6MkqfvdBsFw4QdGrZrnx7L1EKfY5zh9tT4gumUGsMMEZHY3"
             }

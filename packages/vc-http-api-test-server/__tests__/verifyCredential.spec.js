@@ -259,7 +259,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
             describe(`Can verify ${verifiableCredential.name} verifiable credential, with issuer DID method ${verifiableCredential.issuerDidMethod} and linked data proof suite ${verifiableCredential.proofType}`, () => {
                 it('should pass with no mutation', async () => {
                     const body = {
-                    verifiableCredential: verifiableCredential.data,
+                    verifiableCredential: utilities.cloneObj(verifiableCredential.data),
                     options: {
                         checks: ['proof'],
                     },
@@ -268,14 +268,42 @@ if (suiteConfig.verifyCredentialConfiguration) {
                     expect(res.status).toBe(200);
                     expect(res.body.checks).toEqual(['proof']);
                 });
-                it('should fail with mutation', async () => {
+                it('should fail with mutated proof value', async () => {
                     const body = {
-                    verifiableCredential: verifiableCredential.data,
+                    verifiableCredential: utilities.cloneObj(verifiableCredential.data),
                     options: {
                         checks: ['proof'],
                     },
                     };
-                    body.verifiableCredential.proof.jws += 'bar';
+                    if (body.verifiableCredential.proof.jws) {
+                        body.verifiableCredential.proof.jws = 'badProof';
+                    }
+                    if (body.verifiableCredential.proof.proofValue) {
+                        body.verifiableCredential.proof.proofValue = 'badProof';
+                    }
+                    const res = await httpClient.postJson(verifierEndpoint, body, {});
+                    expect(res.status).toBe(400);
+                });
+                it('should fail with additional unsigned property in credential', async () => {
+                    const body = {
+                    verifiableCredential: utilities.cloneObj(verifiableCredential.data),
+                    options: {
+                        checks: ['proof'],
+                    },
+                    };
+                    body.verifiableCredential.badPropTest = "bad";
+                    const res = await httpClient.postJson(verifierEndpoint, body, {});
+                    expect(res.status).toBe(400);
+                });
+                it('should fail with deleted property from credential', async () => {
+                    const body = {
+                    verifiableCredential: utilities.cloneObj(verifiableCredential.data),
+                    options: {
+                        checks: ['proof'],
+                    },
+                    };
+                    // Assumes all interop test fixtures have a credential.credentialSubject property
+                    delete body.verifiableCredential.credentialSubject;
                     const res = await httpClient.postJson(verifierEndpoint, body, {});
                     expect(res.status).toBe(400);
                 });

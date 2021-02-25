@@ -4,12 +4,14 @@ module.exports = {
         {
             id: "did:sov:danube:VZoG2R1UneUscisG1eLxJb",
             endpoint: "https://uniissuer.io/api/credentials/issueCredential",
+            proofType: "Ed25519Signature2018",
             options: {
                 assertionMethod: "did:sov:danube:VZoG2R1UneUscisG1eLxJb#key-1"
             }
         },
         {
             id: "did:v1:test:nym:z6MktyAYL7sVcmPQPTbbMqrnGMNwp6zkvRvKREs94f81fA1K",
+            proofType: "Ed25519Signature2018",
             endpoint: "https://uniissuer.io/api/credentials/issueCredential",
             options: {
                 assertionMethod: "did:v1:test:nym:z6MktyAYL7sVcmPQPTbbMqrnGMNwp6zkvRvKREs94f81fA1K#z6MkgumSeJ8FGqFjXFPJSsT2EFCNYVvx5RXDQ6oBYDrmtiDb"

@@ -4,6 +4,7 @@ module.exports = {
         {
             id: "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd",
             endpoint: "https://vc.transmute.world/v0.1.0/issue/credentials",
+            proofType: "Ed25519Signature2018",
             options: {
                 assertionMethod:"did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd#z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
             }

@@ -19,6 +19,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             const res = await httpClient.postJson(value.endpoint, body, {});
             expect(res.status).toBe(201);
             expect(res.body.proof).toBeDefined();
+            expect(res.body.proof.type).toEqual(value.proofType);
         });
 
         it(`2. The Issuer's Issue Credential HTTP API MUST require "credential" in the body of the POST request. The field "credential" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).`, async () => {
@@ -28,6 +29,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             const res = await httpClient.postJson(value.endpoint, body, {});
             expect(res.status).toBe(201);
             expect(res.body.proof).toBeDefined();
+            expect(res.body.proof.type).toEqual(value.proofType);
         });
 
         it(`3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected.`, async () => {
