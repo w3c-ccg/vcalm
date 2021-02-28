@@ -561,12 +561,12 @@ components:
       $ref: "#/components/schemas/VerifiableCredential"
     DeriveCredentialRequest:
       type: object
-        properties:
-          verifiableCredential:
-            $ref: "#/components/schemas/VerifiableCredential"
-          frame:
-            type: object
-            description: A JSON-LD frame used for selective disclosure.
+      properties:
+        verifiableCredential:
+          $ref: "#/components/schemas/VerifiableCredential"
+        frame:
+          type: object
+          description: A JSON-LD frame used for selective disclosure.
     DeriveCredentialResponse:
       $ref: "#/components/schemas/VerifiableCredential"
     ProvePresentationRequest:
