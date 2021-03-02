@@ -78,7 +78,7 @@ These are categories of validation checks, but do not prescribe specific ways of
 
 *   Timeliness and Status (callback to verification)
     *   issuanceDate isn’t in the future, not past expiration date
-    *   Status is “current”, e.g. not revoked
+    *   Status is “current”, e.g., not revoked, not expired, etc.
 *   Credential Holder/Subject is expected party
     *   Authenticate 
         *   Including DID auth, traditional auth method
