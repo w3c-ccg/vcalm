@@ -87,7 +87,7 @@ These are categories of validation checks, but do not prescribe specific ways of
         *   Subject attributes listed in the credential 
 *   Issuer is expected party
     *   The value associated with the `issuer` property identifies an issuer that is known to and trusted by the verifier.
-        *   E.g. Check the issuer DID against an allow-list
+        *   E.g., Check the issuer DID against an allow-list
 *   Proof attributes (TODO: still teasing apart this from DID checks.)
     *   From: [https://www.w3.org/TR/vc-data-model/#proofs-signatures-0](https://www.w3.org/TR/vc-data-model/#proofs-signatures-0)
     *   Acceptably recent metadata regarding the public key associated with the signature is available. For example, the metadata might include properties related to expiration, key owner, or key purpose.
