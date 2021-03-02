@@ -104,7 +104,7 @@ These are categories of validation checks, but do not prescribe specific ways of
 
 Perform any other application-specific or domain-specific validation around fitness for purpose. 
 
-Veracity checks do not fall in the scope of vc-http-api, but we call it out as a general bucket for additional checks, which serve one of these purposes
+Veracity checks do not fall within the scope of vc-http-api, but we call it out as a general bucket for additional checks, which serve one of these purposes
 
 1. Restrict the credentials accepted, to establish credibility, reputation, or “premium brand presence”. Examples include:
     1. Accept credentials with specific accreditations
