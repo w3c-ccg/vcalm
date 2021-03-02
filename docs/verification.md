@@ -106,10 +106,13 @@ Perform any other application-specific or domain-specific validation around fitn
 
 Veracity checks do not fall within the scope of vc-http-api, but we call it out as a general bucket for additional checks, which serve one of these purposes
 
-1. Restrict the credentials accepted, to establish credibility, reputation, or “premium brand presence”. Examples include:
+
+ssume it means that verifiers that have better policies / higher bars for verification are better than verifiers that put less effort in... some verifiers will take credentials in any shape or form, other have stricter preferences.
+
+1. Verifiers or relying parties choosing to restrict the credentials accepted. They may do this to enforce policies or additional standards. Examples include:
     1. Accept credentials with specific accreditations
     2. Checking nested signatures/proofs
-2. Relax the credential accepted: e.g., override a previous “failed” status, to accept a broader range of credentials. Examples may include:
+2. Verifiers or relying parties choosing to relax the credentials accepted: e.g., override a previous “failed” status, to accept a broader range of credentials. Examples may include:
     1. Accept issuanceDate in the future (post-dated checks)
     2. Accept another institution’s expired credentials (e.g., if the issuing institution went out of business) 
 
