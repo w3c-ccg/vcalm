@@ -102,7 +102,7 @@ These are categories of validation checks, but do not prescribe specific ways of
 
 ## Veracity
 
-Perform any other app-specific or domain-specific validation around fitness for purpose. 
+Perform any other application-specific or domain-specific validation around fitness for purpose. 
 
 Veracity checks do not fall in the scope of vc-http-api, but we call it out as a general bucket for additional checks, which serve one of these purposes
 
