@@ -56,7 +56,7 @@ At a high level, the 3V procedure involves:
 ### Verify (VC)
 
 1. Check well-formed according to VC-DATA-MODEL
-    1. E.g. are required fields present
+    1. E.g., required fields are present
 2. Check proof (DID resolver provided by verifier)
     2. Credential hasn’t been tampered with
         1. Signed with an expected issuer DID/key (per document loader provided by caller)
@@ -143,4 +143,3 @@ Sources include the VC Data Model, emerging specifications, and implementations,
     *   [https://github.com/digitalbazaar/vc-js](https://github.com/digitalbazaar/vc-js)
 *   VC-DATA-MODEL “Proofs (Signatures)”
     *   [https://www.w3.org/TR/vc-data-model/#proofs-signatures-0](https://www.w3.org/TR/vc-data-model/#proofs-signatures-0)
-
