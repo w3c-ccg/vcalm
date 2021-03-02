@@ -1,7 +1,7 @@
 
 # Verification, Validation, and Veracity
 
-This attempts a general, user-facing description of the process whereby a relying party checks whether they will accept VC or VP. An additional goal is to provide a framework and context for the “verification” steps provided in the vc-http-api repository.
+This attempts a general description of the process whereby a relying party checks whether they will accept Verifiable Credential or Verifiable Presentation. An additional goal is to provide a framework and context for the “verification” steps provided in the vc-http-api repository.
 
 This process is broken into three sub-processes called Verification, Validation, and Veracity (“3V”). 
 
