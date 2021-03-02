@@ -118,7 +118,7 @@ Veracity checks do not fall within the scope of vc-http-api, but we call it out 
 There are two relevant interfaces between Validation and Verification:
 
 *   Callbacks to determine credential timeliness and status
-    *   This provides flexibility for verifier to make their own judgment about whether they’ll accept a credential; i.e. some parties may accept an issuanceDate in the future but others won’t
+    *   This provides flexibility for verifier to make their own judgment about whether they’ll accept a credential; e.g., some parties may accept an issuanceDate that falls in the future, while others won’t
 *   Document loaders to DID resolution, JSON-LD contexts, or any other document needed at runtime
 
 # Sources
