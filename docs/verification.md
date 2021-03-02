@@ -109,7 +109,7 @@ Veracity checks do not fall within the scope of vc-http-api, but we call it out 
 1. Restrict the credentials accepted, to establish credibility, reputation, or “premium brand presence”. Examples include:
     1. Accept credentials with specific accreditations
     2. Checking nested signatures/proofs
-2. Relax the credential accepted: i.e. override a previous “failed” status, to accept a broader range of credentials. Examples may include:
+2. Relax the credential accepted: e.g., override a previous “failed” status, to accept a broader range of credentials. Examples may include:
     1. Accept issuanceDate in the future (post-dated checks)
     2. Accept another institution’s expired credentials (e.g. if the issuing institution went out of business) 
 
