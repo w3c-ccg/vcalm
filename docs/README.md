@@ -24,3 +24,8 @@ Implementations of this API SHOULD NOT be exposed directly over http(s) without 
 ### Holder APIs 
 
 Holder APIs are optional as many implementations will not need them, however they are extremely useful for testing purposes as well as for cases where WebKMS is not present or not an option.
+
+## Additional Documentation
+
+- [Verifiable Credential Issuer HTTP API Architecture Model](architecture.md)
+- [Verification, Validation, and Veracity](verification.md)
