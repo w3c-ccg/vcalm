@@ -4,7 +4,7 @@
  * Configuration for running the test suite
  */
 module.exports = [
-    //require("./DanubeTech"),
+    require("./DanubeTech"),
     require("./DigitalBazaar"),
     //require("./Dock"),
     //require("./Factom"),

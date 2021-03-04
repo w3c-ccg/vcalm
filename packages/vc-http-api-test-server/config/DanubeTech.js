@@ -2,29 +2,37 @@ module.exports = {
     name: "Danube Tech",
     issueCredentialConfiguration: [
         {
-            id: "did:sov:danube:VZoG2R1UneUscisG1eLxJb",
-            endpoint: "https://uniissuer.io/api/credentials/issueCredential",
+            id: "did:key:z6MkkYfWywBbMpw3odcGFiZHDYtiHMn5CrEmTFHBqDD94omt",
+            endpoint: "https://uniissuer.io/1.0/credentials/issue",
             proofType: "Ed25519Signature2018",
             options: {
-                assertionMethod: "did:sov:danube:VZoG2R1UneUscisG1eLxJb#key-1"
+                assertionMethod: "did:key:z6MkkYfWywBbMpw3odcGFiZHDYtiHMn5CrEmTFHBqDD94omt#z6MkkYfWywBbMpw3odcGFiZHDYtiHMn5CrEmTFHBqDD94omt"
             }
         },
         {
-            id: "did:v1:test:nym:z6MktyAYL7sVcmPQPTbbMqrnGMNwp6zkvRvKREs94f81fA1K",
+            id: "did:sov:danube:MQ5WYVUsciSd55zXMgYWpM",
+            endpoint: "https://uniissuer.io/1.0/credentials/issue",
             proofType: "Ed25519Signature2018",
-            endpoint: "https://uniissuer.io/api/credentials/issueCredential",
             options: {
-                assertionMethod: "did:v1:test:nym:z6MktyAYL7sVcmPQPTbbMqrnGMNwp6zkvRvKREs94f81fA1K#z6MkgumSeJ8FGqFjXFPJSsT2EFCNYVvx5RXDQ6oBYDrmtiDb"
+                assertionMethod: "did:sov:danube:MQ5WYVUsciSd55zXMgYWpM#key-1"
+            }
+        },
+        {
+            id: "did:key:z6MkkYfWywBbMpw3odcGFiZHDYtiHMn5CrEmTFHBqDD94omt",
+            endpoint: "https://uniissuer.io/1.0/credentials/issue",
+            proofType: "Ed25519Signature2018",
+            options: {
+                assertionMethod: "did:v1:test:nym:z6MkfnjtqNa5BSqGjieBccf8QNonFSjcBkxYvyYfESPcCxom#z6Mko9qj4XJRQHZPnM561KhxXuB7kjigwyVipgQdeRdz6jDD"
             }
         }
     ],
     verifyCredentialConfiguration: {
-        endpoint: "https://univerifier.io/api/verifier/credentials",
-        didMethodsSupported: [ "did:key:", "did:sov:danube:", "did:v1:test:nym:" ],
+        endpoint: "https://univerifier.io/1.0/credentials/verify",
+        didMethodsSupported: [ "did:key:", "did:sov:", "did:v1:test:nym:", "did:web:", "did:ion:", "did:btcr:" ],
         linkedDataProofSuitesSupported: [ "Ed25519Signature2018" ]
     },
     verifyPresentationConfiguration: {
-        endpoint: "https://univerifier.io/api/verifier/presentations"
+        endpoint: "https://univerifier.io/1.0/presentations/verify"
     },
     credentials: require('../__fixtures__/credentials'),
     verifiableCredentials: verifiableCredentials = require('../__fixtures__/verifiableCredentials'),
