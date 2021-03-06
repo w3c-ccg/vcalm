@@ -2,7 +2,7 @@ module.exports = {
   name: "mesur.io",
   issueCredentialConfiguration: [
     {
-      id: "did:key:z6Mki93tJ2rwrDaWTMZcdMShk4xLWf75Fu559dAapKe8pdmX#z6Mki93tJ2rwrDaWTMZcdMShk4xLWf75Fu559dAapKe8pdmX",
+      id: "did:key:z6Mki93tJ2rwrDaWTMZcdMShk4xLWf75Fu559dAapKe8pdmX",
       endpoint: "http://vc.mesur.io:8080/next/credentials/issue",
       proofType: "Ed25519Signature2018",
       options: {
