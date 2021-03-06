@@ -13,4 +13,5 @@ module.exports = [
     //require("./SICPA"),
     require("./Transmute"),
     //require("./TrybeID")
+    require("./mesur.io"),
 ]
