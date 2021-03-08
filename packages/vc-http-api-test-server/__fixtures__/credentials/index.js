@@ -1,3 +1,5 @@
+const path = require('path');
+
 const fixtures = require('require-all')({
     dirname: __dirname,
     filter: /.json$/,
@@ -6,9 +8,10 @@ const fixtures = require('require-all')({
     }
 })
 
-module.exports = Object.values(fixtures).map(item => {
+module.exports = Object.keys(fixtures).map(item => {
     return {
-        name: item.name,
-        data: item
+        fileName: path.basename(item, '.json'),
+        name: fixtures[item].name,
+        data: fixtures[item]
     };
 });

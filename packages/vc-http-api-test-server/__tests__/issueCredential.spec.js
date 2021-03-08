@@ -179,7 +179,7 @@ if (suiteConfig.issueCredentialConfiguration) {
     issuerConfiguration.forEach((value) => {
       describe(`With issuer: ${value.id}`, () => {
         credentials.forEach((credential) => {
-          it(`Can issue ${credential.name} credential`, async () => {
+          it(`Can issue ${credential.name} credential, fixture ${credential.fileName}`, async () => {
             const body = {
               credential: { ...credentials[0].data, issuer: value.id },
           };

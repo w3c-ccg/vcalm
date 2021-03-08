@@ -1,3 +1,5 @@
+const path = require('path');
+
 const fixtures = require('require-all')({
     dirname: __dirname,
     filter: /.json$/,
@@ -6,12 +8,13 @@ const fixtures = require('require-all')({
     }
 })
 
-module.exports = Object.values(fixtures).map(item => {
+module.exports = Object.keys(fixtures).map(item => {
     return {
-        name: item.name,
-        issuerDidMethod: typeof item.issuer === 'string' ? item.issuer : item.issuer.id,
-        credentialStatusTypes: item.credentialStatus ? Array.isArray(item.credentialStatus) ? item.credentialStatus.map(val => val.type) : [ item.credentialStatus.type ]: undefined,
-        proofType: item.proof.type,
-        data: item
+        fileName: path.basename(item, '.json'),
+        name: fixtures[item].name,
+        issuerDidMethod: typeof fixtures[item].issuer === 'string' ? fixtures[item].issuer : fixtures[item].issuer.id,
+        credentialStatusTypes: fixtures[item].credentialStatus ? Array.isArray(fixtures[item].credentialStatus) ? fixtures[item].credentialStatus.map(val => val.type) : [ fixtures[item].credentialStatus.type ]: undefined,
+        proofType: fixtures[item].proof.type,
+        data: fixtures[item]
     };
 });
