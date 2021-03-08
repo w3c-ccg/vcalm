@@ -1,5 +1,7 @@
 ## vc-http-api
 
+[![Implementation Interoperability Report](https://github.com/w3c-ccg/vc-http-api/actions/workflows/cd.yml/badge.svg)](https://github.com/w3c-ccg/vc-http-api/actions/workflows/cd.yml)
+
 The VC HTTP API repository contains a standard API specification for constructing and verifying objects which conform to the [Verifiable Credential Data Model](https://www.w3.org/TR/vc-data-model/) specification, along with documentation, integration and compatability tests, and related assets for the test and integration process.
 
 ### Structure
