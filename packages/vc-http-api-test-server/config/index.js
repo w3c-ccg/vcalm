@@ -14,4 +14,5 @@ module.exports = [
     require("./Transmute"),
     //require("./TrybeID")
     require("./mesur.io"),
+    require("./Spherity"),
 ]
