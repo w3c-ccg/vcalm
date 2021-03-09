@@ -16,7 +16,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
         });
 
         // eslint-disable-next-line max-len
-        describe(`1. The Verifier's Verify Credential HTTP API MUST fail to verify a Verifiable Credential with a mutated signature value (ex. a mutated jws) in the proof.`, () => {
+        describe(`1. The Verifier's Verify Credential HTTP API MUST fail to verify a Verifiable Credential with a mutated signature value (such as a mutated jws) in the proof.`, () => {
             it('should pass with no mutation', async () => {
                 const body = {
                     verifiableCredential: verifiableCredentials[0].data,
@@ -69,7 +69,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
             });
         });
 
-        describe('4. The Verifier\'s Verify Credential HTTP API MUST fail to verify a Verifiable Credential with an added property to the credential.', () => {
+        describe('4. The Verifier\'s Verify Credential HTTP API MUST fail to verify a Verifiable Credential with a property added to the credential.', () => {
             it('should fail', async () => {
                 const body = {
                     verifiableCredential: verifiableCredentials[0].data,
@@ -83,7 +83,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
             });
         });
 
-        describe('5. The Verifier\'s Verify Credential HTTP API MUST fail to verify a Verifiable Credential with a removed property from the credential.', () => {
+        describe('5. The Verifier\'s Verify Credential HTTP API MUST fail to verify a Verifiable Credential with a property removed from the credential.', () => {
             it('should fail', async () => {
                 const body = {
                     verifiableCredential: verifiableCredentials[0].data,
@@ -97,7 +97,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
             });
         });
 
-        describe('6. The Verifier\'s Verify Credential HTTP API MUST fail to verify a Verifiable Credential with a mutated property to the credential.', () => {
+        describe('6. The Verifier\'s Verify Credential HTTP API MUST fail to verify a Verifiable Credential with a mutated property in the credential.', () => {
             it('should fail ', async () => {
                 const body = {
                     verifiableCredential: verifiableCredentials[0].data,
@@ -111,7 +111,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
             });
         });
 
-        describe('7. The Verifier\'s Verify Credential HTTP API MUST fail to verify a Verifiable Credential with an added property to the proof.', () => {
+        describe('7. The Verifier\'s Verify Credential HTTP API MUST fail to verify a Verifiable Credential with a property added to the proof.', () => {
             it('should fail ', async () => {
                 const body = {
                     verifiableCredential: verifiableCredentials[0].data,
@@ -125,7 +125,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
             });
         });
 
-        describe('8. The Verifier\'s Verify Credential HTTP API MUST fail to verify a Verifiable Credential a removed property to the proof.', () => {
+        describe('8. The Verifier\'s Verify Credential HTTP API MUST fail to verify a Verifiable Credential with a property removed from the proof.', () => {
             it('should fail ', async () => {
                 const body = {
                     verifiableCredential: verifiableCredentials[0].data,
@@ -139,7 +139,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
             });
         });
 
-        describe('9. The Verifier\'s Verify Credential HTTP API MUST fail to verify a Verifiable Credential with a mutated property to the proof.', () => {
+        describe('9. The Verifier\'s Verify Credential HTTP API MUST fail to verify a Verifiable Credential with a mutated property in the proof.', () => {
             it('should fail ', async () => {
                 const body = {
                     verifiableCredential: verifiableCredentials[0].data,
@@ -181,7 +181,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
             });
         });
 
-        describe('12. The Verifier\'s Verify Credential HTTP API MUST support the verification of, JSON-LD Proof, Ed25519Signature2018.', () => {
+        describe('12. The Verifier\'s Verify Credential HTTP API MUST support the verification of JSON-LD Proof, Ed25519Signature2018.', () => {
             it('should pass', async () => {
                 const vc = verifiableCredentials[0].data;
                 const proof = Array.isArray(vc.proof) ? vc.proof : [vc.proof];
@@ -256,7 +256,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
         const verifierEndpoint = suiteConfig.verifyCredentialConfiguration.endpoint;
 
         verifiableCredentials.forEach((verifiableCredential) => {
-            describe(`Can verify ${verifiableCredential.name} verifiable credential, with issuer DID method ${verifiableCredential.issuerDidMethod} and linked data proof suite ${verifiableCredential.proofType}, fixture ${verifiableCredential.fileName}`, () => {
+            describe(`Can verify verifiable credential ${verifiableCredential.name}, with issuer DID method ${verifiableCredential.issuerDidMethod} and linked data proof suite ${verifiableCredential.proofType}, fixture ${verifiableCredential.fileName}`, () => {
                 it('should pass with no mutation', async () => {
                     const body = {
                     verifiableCredential: utilities.cloneObj(verifiableCredential.data),
