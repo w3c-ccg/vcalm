@@ -1,15 +1,16 @@
-name: CD
+name: Implementation Interoperability Report
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   publish-test-results:
     # Don't run on any commit that features [skip ci] in the commit message
     if: "! contains(github.event.head_commit.message, '[skip ci]')"
-    name: Publish unstable release
+    name: Publish
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

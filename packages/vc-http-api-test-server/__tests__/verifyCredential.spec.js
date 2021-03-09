@@ -256,7 +256,7 @@ if (suiteConfig.verifyCredentialConfiguration) {
         const verifierEndpoint = suiteConfig.verifyCredentialConfiguration.endpoint;
 
         verifiableCredentials.forEach((verifiableCredential) => {
-            describe(`Can verify ${verifiableCredential.name} verifiable credential, with issuer DID method ${verifiableCredential.issuerDidMethod} and linked data proof suite ${verifiableCredential.proofType}`, () => {
+            describe(`Can verify ${verifiableCredential.name} verifiable credential, with issuer DID method ${verifiableCredential.issuerDidMethod} and linked data proof suite ${verifiableCredential.proofType}, fixture ${verifiableCredential.fileName}`, () => {
                 it('should pass with no mutation', async () => {
                     const body = {
                     verifiableCredential: utilities.cloneObj(verifiableCredential.data),
