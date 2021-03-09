@@ -16,4 +16,5 @@ module.exports = [
     //require("./TrybeID")
     require("./mesur.io"),
     require("./Spherity"),
+    require("./Spruce"),
 ]
