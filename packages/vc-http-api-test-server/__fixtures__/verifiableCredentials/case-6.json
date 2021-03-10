@@ -1,11 +1,14 @@
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
-    "https://schema.org/",
+    "https://raw.githubusercontent.com/schemaorg/schemaorg/main/data/releases/11.0/schemaorgcontext.jsonld",
     "https://mavennet.github.io/contexts/bill-of-lading-v1.0.jsonld"
   ],
   "id": "http://neo-flow.com/credentials/e94a16cb-35b2-4301-9fb6-7af3d8fe7b81",
-  "type": ["VerifiableCredential", "BillOfLadingCredential"],
+  "type": [
+    "VerifiableCredential",
+    "BillOfLadingCredential"
+  ],
   "name": "Bill of Lading",
   "description": "Detailed shipment document provided by the carrier to the receiver of products.",
   "issuer": "did:v1:test:nym:z6MkfG5HTrBXzsAP8AbayNpG3ZaoyM4PCqNPrdWQRSpHDV6J",
