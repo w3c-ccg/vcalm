@@ -1,0 +1,68 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/traceability/v1"
+  ],
+  "id": "http://example.org/credentials/",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuanceDate": "2021-02-04T20:29:37+00:00",
+  "issuer": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+  "credentialSubject": {
+    "@context": [
+      "https://w3id.org/traceability/v1"
+    ],
+    "type": "EcommerceWayBillRegistrationCredential",
+    "wayBillID": "ACMEWayBill#102",
+    "carrierName": "Bailey - Mills",
+    "modeOfTransport": "Truck",
+    "portOfEntry": {
+      "type": "ShippingStop",
+      "shippingStopAddress": {
+        "type": "PostalAddress",
+        "organizationName": "Donnelly, Schulist and Schneider",
+        "streetAddress": "17034 Russ Mission",
+        "addressLocality": "Lake Doyle",
+        "addressRegion": "South Dakota",
+        "postalCode": "13098-9352",
+        "addressCountry": "Gibraltar"
+      },
+      "carrier": {
+        "type": "Organization",
+        "name": "Koch and Sons",
+        "description": "Multi-layered global productivity",
+        "address": {
+          "type": "PostalAddress",
+          "streetAddress": "433 Allan Summit",
+          "addressLocality": "North Kattiestad",
+          "addressRegion": "Pennsylvania",
+          "postalCode": "43069",
+          "addressCountry": "Greenland"
+        },
+        "email": "Nelson_Breitenberg@example.org",
+        "phoneNumber": "555-566-2616",
+        "faxNumber": "555-652-3532"
+      },
+      "vesselNumber": "ACMECarrierVessel#848",
+      "arrivalDate": "2021-03-09",
+      "stopType": "Departure"
+    },
+    "masterWayBill": "No",
+    "wayBillVCID": [
+      "https://vc.example.com/?queryID=0x5266C4aDeA8e66d43A8a44fdE0F79a539FC442E47AF9CcB060098B6D01bb8Ed8"
+    ],
+    "packageVCID": [
+      "https://vc.example.com/?queryID=0x45bCA81Fca2B0819C82f0c9EC552980d9Cc7ce776d2D8528AFFDFcDbd6fb6Cdf",
+      "https://vc.example.com/?queryID=0xa6a4A56362E912a3Ecd3c15674Cbc2bA2D0AFb8Cdf10f8ECc720cAAB83Dbe4Df"
+    ],
+    "certificateName": "ACME Carrier Ecommerce Way Bill Registration Certificate"
+  },
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2019-12-11T03:50:55Z",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..0XM9SJS62fsPPwCdS7je3oQEWbK4yBIqLbSA4el0OSz9wFg4UzwB8r56JvNoK8dykO9fWlc0FMrx5102pczTDQ",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
+  }
+}

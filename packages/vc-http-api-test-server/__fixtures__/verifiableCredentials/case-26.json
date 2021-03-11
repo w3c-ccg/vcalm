@@ -1,0 +1,35 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/traceability/v1"
+  ],
+  "id": "http://example.org/credentials/",
+  "type": [
+    "VerifiableCredential"
+  ],
+  "issuanceDate": "2021-02-04T20:29:37+00:00",
+  "issuer": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U",
+  "credentialSubject": {
+    "@context": [
+      "https://w3id.org/traceability/v1"
+    ],
+    "type": "EcommercePackingListRegistrationCredential",
+    "packageItems": [
+      {
+        "type": "EcommercePackingListItem",
+        "orderID": "https://vc.example.com/?queryID=AB06f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58597a",
+        "productInOrder": [
+          "https://vc.example.com/?queryID=7306f1f744a781480c521902a1a1dbf5f1d01e7ea21daf483e7668817e58599e"
+        ]
+      }
+    ],
+    "certificateName": "ACME Ecommerce Packing List Registration Certificate"
+  },
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2019-12-11T03:50:55Z",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..4H-Awg04TcOxMXmFXZu94D4pi1o7gkZMhHf8rxUL0BetBLICXheSWUAC48EG5ZsHdEh0IQSr_sYqhgQMzOoLBw",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U#z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U"
+  }
+}
