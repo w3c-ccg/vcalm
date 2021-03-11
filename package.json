@@ -4,7 +4,8 @@
   "scripts": {
     "postinstall": "lerna bootstrap",
     "lint": "lerna run lint",
-    "test": "lerna run test"
+    "test": "lerna run test",
+    "test:2021": "lerna run test:2021"
   },
   "devDependencies": {
     "lerna": "^3.22.1"
