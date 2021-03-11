@@ -1,0 +1,48 @@
+{
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://w3id.org/citizenship/v1",
+      "https://w3id.org/vc-revocation-list-2020/v1"
+    ],
+    "id": "https://issuer.oidp.uscis.gov/credentials/83627465",
+    "type": [
+      "VerifiableCredential",
+      "PermanentResidentCard"
+    ],
+    "identifier": "83627465",
+    "name": "Permanent Resident Card",
+    "description": "Government of Example Permanent Resident Card.",
+    "issuanceDate": "2019-12-03T12:19:52Z",
+    "expirationDate": "2029-12-03T12:19:52Z",
+    "credentialStatus": {
+      "id": "https://issuer.oidp.uscis.gov/credentials/status/3#94567",
+      "type": "RevocationList2020Status",
+      "revocationListIndex": "0",
+      "revocationListCredential": "https://w3c-ccg.github.io/vc-http-api/fixtures/revocationList.json"
+    },
+    "credentialSubject": {
+      "id": "did:example:b34ca6cd37bbf23",
+      "type": [
+        "PermanentResident",
+        "Person"
+      ],
+      "givenName": "JOHN",
+      "familyName": "SMITH",
+      "gender": "Male",
+      "image": "data:image/png;base64,iVBORw0KGgo...kJggg==",
+      "residentSince": "2015-01-01",
+      "lprCategory": "C09",
+      "lprNumber": "999-999-999",
+      "commuterClassification": "C1",
+      "birthCountry": "Bahamas",
+      "birthDate": "1958-07-17"
+    },
+    "issuer": "did:key:z6MkiY62766b1LJkExWMsM3QG4WtX7QpY823dxoYzr9qZvJ3",
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2021-02-16T04:32:29Z",
+      "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..nFXiF3D2p-Pt6K75si3Gg8ZOP7rvbEYSP3kkXUj-d5TbrGWTfxjE6u4rb89mSRvmkxsldZH1RSdxLbAM-aP6Dw",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:key:z6MkiY62766b1LJkExWMsM3QG4WtX7QpY823dxoYzr9qZvJ3#z6MkiY62766b1LJkExWMsM3QG4WtX7QpY823dxoYzr9qZvJ3"
+    }
+}
