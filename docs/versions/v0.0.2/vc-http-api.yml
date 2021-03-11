@@ -282,6 +282,18 @@ components:
           "domain": "example.com",
           "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8",
         }
+    DeriveCredentialOptions:
+      type: object
+      additionalProperties: false
+      description: Options for specifying how the derived credential is created.
+      properties:
+        nonce:
+          type: string
+          description: An encoded nonce provided by the holder of the credential to be included into the LinkedDataProof.
+      example:
+        {
+          "nonce": "lEixQKDQvRecCifKl789TQj+Ii6YWDLSwn3AxR0VpPJ1QV5htod/0VCchVf1zVM0y2E=",
+        }
     VerifyOptions:
       type: object
       additionalProperties: false
@@ -567,6 +579,8 @@ components:
         frame:
           type: object
           description: A JSON-LD frame used for selective disclosure.
+        options:
+          $ref: "#/components/schemas/DeriveCredentialOptions"
     DeriveCredentialResponse:
       $ref: "#/components/schemas/VerifiableCredential"
     ProvePresentationRequest:
