@@ -24,7 +24,7 @@ module.exports = {
         linkedDataProofSuitesSupported: [ "Ed25519Signature2018" ]
     },
     verifyPresentationConfiguration: {
-        endpoint: "https://producer-api.neoflow.ca/v1//presentations/verify"
+        endpoint: "https://producer-api.neoflow.ca/v1/presentations/verify"
     },
     credentials: require('../__fixtures__/credentials'),
     verifiableCredentials: require('../__fixtures__/verifiableCredentials'),
