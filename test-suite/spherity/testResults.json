@@ -460,22 +460,18 @@
               {
                 "actual": "",
                 "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
+                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                  "type": "invalid-json"
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:30:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:29:25)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:30:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:29:25)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).",
             "status": "failed",
@@ -490,22 +486,18 @@
               {
                 "actual": "",
                 "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
+                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                  "type": "invalid-json"
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
+                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:43:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:42:25)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:43:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:42:25)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected.",
             "status": "failed",
@@ -520,22 +512,18 @@
               {
                 "actual": "",
                 "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
+                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                  "type": "invalid-json"
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:51:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:50:25)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:51:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:50:25)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response.",
             "status": "failed",
@@ -550,22 +538,18 @@
               {
                 "actual": "",
                 "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
+                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                  "type": "invalid-json"
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
+                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:69:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:68:25)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:69:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:68:25)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported.",
             "status": "failed",
@@ -580,22 +564,18 @@
               {
                 "actual": "",
                 "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
+                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                  "type": "invalid-json"
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
+                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:83:25)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:83:25)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist.",
             "status": "failed",
@@ -610,22 +590,18 @@
               {
                 "actual": "",
                 "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
+                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                  "type": "invalid-json"
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
+                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:96:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:95:25)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:96:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:95:25)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context.",
             "status": "failed",
@@ -640,22 +616,18 @@
               {
                 "actual": "",
                 "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
+                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                  "type": "invalid-json"
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
+                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:111:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:110:23)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:111:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:110:23)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context.",
             "status": "failed",
@@ -670,22 +642,18 @@
               {
                 "actual": "",
                 "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
+                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                  "type": "invalid-json"
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:121:23)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:121:23)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request.",
             "status": "failed",
