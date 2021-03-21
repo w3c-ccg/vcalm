@@ -1,7 +1,7 @@
 {
   "testResults": {
-    "numFailedTests": 15,
-    "numPassedTests": 203,
+    "numFailedTests": 11,
+    "numPassedTests": 207,
     "numTotalTests": 218,
     "testResults": [
       {
@@ -1312,8 +1312,8 @@
         ]
       },
       {
-        "numFailingTests": 4,
-        "numPassingTests": 108,
+        "numFailingTests": 0,
+        "numPassingTests": 112,
         "testResults": [
           {
             "ancestorTitles": [
@@ -1375,30 +1375,11 @@
               "Issue Credential API - Conformance",
               "with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 201,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 201",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 201\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 201\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist.",
-            "status": "failed",
-            "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist."
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist.",
+            "status": "passed",
+            "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist."
           },
           {
             "ancestorTitles": [
@@ -1493,30 +1474,11 @@
               "Issue Credential API - Conformance",
               "with issuer: did:sov:danube:MQ5WYVUsciSd55zXMgYWpM"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 201,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 201",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 201\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 201\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:sov:danube:MQ5WYVUsciSd55zXMgYWpM 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist.",
-            "status": "failed",
-            "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist."
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:sov:danube:MQ5WYVUsciSd55zXMgYWpM 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist.",
+            "status": "passed",
+            "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist."
           },
           {
             "ancestorTitles": [
@@ -1611,30 +1573,11 @@
               "Issue Credential API - Conformance",
               "with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 201,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 201",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 201\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 201\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist.",
-            "status": "failed",
-            "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist."
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist.",
+            "status": "passed",
+            "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist."
           },
           {
             "ancestorTitles": [
@@ -1729,30 +1672,11 @@
               "Issue Credential API - Conformance",
               "with issuer: did:web:did-web.uniregistrar.io:uscis"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 201,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 201",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 201\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 201\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:web:did-web.uniregistrar.io:uscis 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist.",
-            "status": "failed",
-            "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist."
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:web:did-web.uniregistrar.io:uscis 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist.",
+            "status": "passed",
+            "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist."
           },
           {
             "ancestorTitles": [
@@ -2660,11 +2584,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
             ],
             "fullName": "Verify Presentation API 2. The Verifier's Verify Presentation HTTP API MUST verify a Verifiable Presentation where the credential's issuer, presentation's holder and credential's subject are the same. should pass",
             "status": "failed",

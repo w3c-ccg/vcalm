@@ -1079,9 +1079,9 @@
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6Mkg9AkjefxdJFSphkStzXwHQnbweN43mCqA37aANGRxF1o 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6Mkg9AkjefxdJFSphkStzXwHQnbweN43mCqA37aANGRxF1o 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist.",
             "status": "passed",
-            "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist."
+            "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist."
           },
           {
             "ancestorTitles": [
