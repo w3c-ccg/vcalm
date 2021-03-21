@@ -1,12 +1,12 @@
 {
   "testResults": {
-    "numFailedTests": 1,
-    "numPassedTests": 97,
-    "numTotalTests": 98,
+    "numFailedTests": 5,
+    "numPassedTests": 147,
+    "numTotalTests": 152,
     "testResults": [
       {
-        "numFailingTests": 1,
-        "numPassingTests": 50,
+        "numFailingTests": 3,
+        "numPassingTests": 84,
         "testResults": [
           {
             "ancestorTitles": [
@@ -530,6 +530,440 @@
           {
             "ancestorTitles": [
               "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29 should pass with no mutation",
+            "status": "failed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30 should pass with no mutation",
+            "status": "failed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
               "Can verify verifiable credential Permanent Resident Card, with issuer DID method did:web:vc.transmute.world and linked data proof suite Ed25519Signature2018, fixture case-5"
             ],
             "failureDetails": [
@@ -589,8 +1023,8 @@
         ]
       },
       {
-        "numFailingTests": 0,
-        "numPassingTests": 42,
+        "numFailingTests": 2,
+        "numPassingTests": 58,
         "testResults": [
           {
             "ancestorTitles": [
@@ -751,10 +1185,29 @@
               "Issue Credential API - Conformance",
               "with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 500,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:51:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:51:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd 4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response.",
-            "status": "passed",
+            "status": "failed",
             "title": "4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response."
           },
           {
@@ -855,6 +1308,105 @@
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue COVID-19 Vaccination Certificate credential, fixture case-10",
             "status": "passed",
             "title": "Can issue COVID-19 Vaccination Certificate credential, fixture case-10"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue undefined credential, fixture case-11",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-11"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue undefined credential, fixture case-12",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-12"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue undefined credential, fixture case-13",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-13"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue undefined credential, fixture case-14",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-14"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue undefined credential, fixture case-15",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-15"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue undefined credential, fixture case-16",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-16"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue undefined credential, fixture case-17",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-17"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue undefined credential, fixture case-18",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-18"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue undefined credential, fixture case-19",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-19"
           },
           {
             "ancestorTitles": [
@@ -965,6 +1517,124 @@
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue COVID-19 Vaccination Certificate credential, fixture case-10",
             "status": "passed",
             "title": "Can issue COVID-19 Vaccination Certificate credential, fixture case-10"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue undefined credential, fixture case-11",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-11"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue undefined credential, fixture case-12",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-12"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue undefined credential, fixture case-13",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-13"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue undefined credential, fixture case-14",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-14"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 500,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue undefined credential, fixture case-15",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-15"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue undefined credential, fixture case-16",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-16"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue undefined credential, fixture case-17",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-17"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue undefined credential, fixture case-18",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-18"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue undefined credential, fixture case-19",
+            "status": "passed",
+            "title": "Can issue undefined credential, fixture case-19"
           },
           {
             "ancestorTitles": [

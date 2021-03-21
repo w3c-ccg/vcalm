@@ -1,12 +1,12 @@
 {
   "testResults": {
-    "numFailedTests": 38,
-    "numPassedTests": 42,
-    "numTotalTests": 80,
+    "numFailedTests": 56,
+    "numPassedTests": 78,
+    "numTotalTests": 134,
     "testResults": [
       {
         "numFailingTests": 0,
-        "numPassingTests": 37,
+        "numPassingTests": 73,
         "testResults": [
           {
             "ancestorTitles": [
@@ -374,6 +374,402 @@
           {
             "ancestorTitles": [
               "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30 should pass with no mutation",
+            "status": "passed",
+            "title": "should pass with no mutation"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30 should fail with mutated proof value",
+            "status": "passed",
+            "title": "should fail with mutated proof value"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30 should fail with additional unsigned property in credential",
+            "status": "passed",
+            "title": "should fail with additional unsigned property in credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
+              "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30 should fail with deleted property from credential",
+            "status": "passed",
+            "title": "should fail with deleted property from credential"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Interop",
               "Can verify verifiable credential Permanent Resident Card, with issuer DID method did:web:vc.transmute.world and linked data proof suite Ed25519Signature2018, fixture case-5"
             ],
             "failureDetails": [],
@@ -418,7 +814,7 @@
         ]
       },
       {
-        "numFailingTests": 38,
+        "numFailingTests": 56,
         "numPassingTests": 0,
         "testResults": [
           {
@@ -460,18 +856,22 @@
               {
                 "actual": "",
                 "error": {
-                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
-                  "type": "invalid-json"
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
                 "passed": false,
-                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:29:25)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:30:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:29:25)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:30:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).",
             "status": "failed",
@@ -486,18 +886,22 @@
               {
                 "actual": "",
                 "error": {
-                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
-                  "type": "invalid-json"
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 400,
+                    "name": "toBe",
+                    "pass": false
+                  }
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
                 "passed": false,
-                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:42:25)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:43:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:42:25)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:43:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected.",
             "status": "failed",
@@ -512,18 +916,22 @@
               {
                 "actual": "",
                 "error": {
-                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
-                  "type": "invalid-json"
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
                 "passed": false,
-                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:50:25)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:51:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:50:25)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:51:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response.",
             "status": "failed",
@@ -538,18 +946,22 @@
               {
                 "actual": "",
                 "error": {
-                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
-                  "type": "invalid-json"
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 400,
+                    "name": "toBe",
+                    "pass": false
+                  }
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
                 "passed": false,
-                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:68:25)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:69:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:68:25)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:69:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported.",
             "status": "failed",
@@ -564,18 +976,22 @@
               {
                 "actual": "",
                 "error": {
-                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
-                  "type": "invalid-json"
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 400,
+                    "name": "toBe",
+                    "pass": false
+                  }
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
                 "passed": false,
-                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:83:25)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:83:25)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist.",
             "status": "failed",
@@ -590,18 +1006,22 @@
               {
                 "actual": "",
                 "error": {
-                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
-                  "type": "invalid-json"
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 400,
+                    "name": "toBe",
+                    "pass": false
+                  }
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
                 "passed": false,
-                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:95:25)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:96:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:95:25)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:96:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context.",
             "status": "failed",
@@ -616,18 +1036,22 @@
               {
                 "actual": "",
                 "error": {
-                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
-                  "type": "invalid-json"
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 400,
+                    "name": "toBe",
+                    "pass": false
+                  }
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
                 "passed": false,
-                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:110:23)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:111:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:110:23)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:111:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context.",
             "status": "failed",
@@ -642,18 +1066,22 @@
               {
                 "actual": "",
                 "error": {
-                  "message": "invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
-                  "type": "invalid-json"
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
                 },
                 "expected": "",
                 "matcherName": "",
-                "message": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
                 "passed": false,
-                "stack": "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:121:23)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "FetchError: invalid json response body at https://cbp-qa.api.wallet.spherity.io/api/v1/credential/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:121:23)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request.",
             "status": "failed",
@@ -1015,6 +1443,276 @@
             "failureMessages": [
               "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-11",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-11"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-12",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-12"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-13",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-13"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-14",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-14"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-15",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-15"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-16",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-16"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-17",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-17"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-18",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-18"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-19",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-19"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-2",
             "status": "failed",
             "title": "Can issue undefined credential, fixture case-2"
@@ -1288,6 +1986,276 @@
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue COVID-19 Vaccination Certificate credential, fixture case-10",
             "status": "failed",
             "title": "Can issue COVID-19 Vaccination Certificate credential, fixture case-10"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-11",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-11"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-12",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-12"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-13",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-13"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-14",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-14"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-15",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-15"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-16",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-16"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-17",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-17"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-18",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-18"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+            ],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 403,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-19",
+            "status": "failed",
+            "title": "Can issue undefined credential, fixture case-19"
           },
           {
             "ancestorTitles": [
