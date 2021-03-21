@@ -3,7 +3,7 @@
 
 This attempts a general description of the process whereby a relying party checks whether they will accept Verifiable Credential or Verifiable Presentation. An additional goal is to provide a framework and context for the “verification” steps provided in the vc-http-api repository.
 
-This process is broken into three sub-processes called Verification, Validation, and Veracity (“3V”). 
+This process is broken into three sub-processes called Verification, Validation, and Veracity (“3V”).
 
 # Table of contents
 
@@ -46,7 +46,7 @@ The input to the 3V procedure is a Verifiable Presentation (VP), which:
 
 At a high level, the 3V procedure involves:
 
-1. 3V each VC in the VP 
+1. 3V each VC in the VP
     - See "Verify(VC)"
 3. 3V VP outer layer
     - See "Verify(VP)"
@@ -80,11 +80,11 @@ These are categories of validation checks, but do not prescribe specific ways of
     *   issuanceDate isn’t in the future, not past expiration date
     *   Status is “current”, e.g., not revoked, not expired, etc.
 *   Credential Holder/Subject is expected party
-    *   Authenticate 
+    *   Authenticate
         *   Including DID auth, traditional auth method
     *   Other checks
-        *   Public key material (TODO: check this doesn't conflict with another category) 
-        *   Subject attributes listed in the credential 
+        *   Public key material (TODO: check this doesn't conflict with another category)
+        *   Subject attributes listed in the credential
 *   Issuer is expected party
     *   The value associated with the `issuer` property identifies an issuer that is known to and trusted by the verifier.
         *   E.g., Check the issuer DID against an allow-list
@@ -102,7 +102,7 @@ These are categories of validation checks, but do not prescribe specific ways of
 
 ## Veracity
 
-Perform any other application-specific or domain-specific validation around fitness for purpose. 
+Perform any other application-specific or domain-specific validation around fitness for purpose.
 
 Veracity checks do not fall within the scope of vc-http-api, but we call it out as a general bucket for additional checks, which serve one of these purposes
 
@@ -114,7 +114,7 @@ ssume it means that verifiers that have better policies / higher bars for verifi
     2. Checking nested signatures/proofs
 2. Verifiers or relying parties choosing to relax the credentials accepted: e.g., override a previous “failed” status, to accept a broader range of credentials. Examples may include:
     1. Accept issuanceDate in the future (post-dated checks)
-    2. Accept another institution’s expired credentials (e.g., if the issuing institution went out of business) 
+    2. Accept another institution’s expired credentials (e.g., if the issuing institution went out of business)
 
 # Interfaces between Validation and Verification
 
@@ -136,12 +136,12 @@ Sources include the VC Data Model, emerging specifications, and implementations,
     *   [https://github.com/w3c-ccg/vc-http-api](https://github.com/w3c-ccg/vc-http-api)
     *   Specific references:
         *   Plugfest verifier test suite:
-            *   [https://github.com/w3c-ccg/vc-http-api/tree/master/packages/plugfest-2020#verifier](https://github.com/w3c-ccg/vc-http-api/tree/master/packages/plugfest-2020#verifier)
+            *   [https://github.com/w3c-ccg/vc-http-api/tree/main/packages/plugfest-2020#verifier](https://github.com/w3c-ccg/vc-http-api/tree/main/packages/plugfest-2020#verifier)
         *   Github issues:
             *   https://github.com/w3c-ccg/vc-http-api/issues/55
             *   https://github.com/w3c-ccg/vc-http-api/issues/59
             *   [https://github.com/w3c-ccg/vc-http-api/issues/57](https://github.com/w3c-ccg/vc-http-api/issues/57)
-        *   https://github.com/w3c-ccg/vc-http-api/tree/master/packages/plugfest-2020#verifier
+        *   https://github.com/w3c-ccg/vc-http-api/tree/main/packages/plugfest-2020#verifier
 *   Digital Bazaar’s VC-JS implementation
     *   [https://github.com/digitalbazaar/vc-js](https://github.com/digitalbazaar/vc-js)
 *   VC-DATA-MODEL “Proofs (Signatures)”

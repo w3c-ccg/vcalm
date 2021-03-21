@@ -11,7 +11,7 @@ The vc-http-api repository is structured with two main sections:
 - [docs](./docs/) which contains the VC HTTP API spec itself in [OpenAPI](https://swagger.io/specification/) (formerly known as Swagger) form as well as related documentation to assist in building and testing a compliant implementation of the API spec
   - Architecture for the issuer model is discussed in the [architecture document](./docs/architecture.md)
   - Within docs, the versions of the API are stored in the appropriate folder under [versions](./docs/versions)
-  - The core API itself is detailed in the [spec file](./docs/vc-http-api.yml) and this spec should be used as the master reference for the API
+  - The core API itself is detailed in the [spec file](./docs/vc-http-api.yml) and this spec should be used as the main reference for the API
 - [packages](./packages/) which contains test suites and related utilities for integration testing, test suite results, and related assets.
 
 ### Data Visualization
