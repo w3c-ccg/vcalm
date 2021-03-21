@@ -1,7 +1,7 @@
 {
   "testResults": {
-    "numFailedTests": 5,
-    "numPassedTests": 147,
+    "numFailedTests": 7,
+    "numPassedTests": 145,
     "numTotalTests": 152,
     "testResults": [
       {
@@ -1008,8 +1008,8 @@
         ]
       },
       {
-        "numFailingTests": 3,
-        "numPassingTests": 57,
+        "numFailingTests": 5,
+        "numPassingTests": 55,
         "testResults": [
           {
             "ancestorTitles": [
@@ -1439,10 +1439,29 @@
               "Issue Credential API - Credential Type Interop",
               "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 500,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue undefined credential, fixture case-4",
-            "status": "passed",
+            "status": "failed",
             "title": "Can issue undefined credential, fixture case-4"
           },
           {
@@ -1483,17 +1502,6 @@
               "Issue Credential API - Credential Type Interop",
               "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
             ],
-            "failureDetails": [],
-            "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue QP Inbond credential, fixture case-8",
-            "status": "passed",
-            "title": "Can issue QP Inbond credential, fixture case-8"
-          },
-          {
-            "ancestorTitles": [
-              "Issue Credential API - Credential Type Interop",
-              "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
-            ],
             "failureDetails": [
               {
                 "actual": "",
@@ -1515,8 +1523,19 @@
             "failureMessages": [
               "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue Certified Mill Test Report credential, fixture case-9",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue QP Inbond credential, fixture case-8",
             "status": "failed",
+            "title": "Can issue QP Inbond credential, fixture case-8"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Credential Type Interop",
+              "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue Certified Mill Test Report credential, fixture case-9",
+            "status": "passed",
             "title": "Can issue Certified Mill Test Report credential, fixture case-9"
           },
           {
@@ -1568,10 +1587,29 @@
               "Issue Credential API - Credential Type Interop",
               "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 500,
+                    "expected": 201,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue undefined credential, fixture case-13",
-            "status": "passed",
+            "status": "failed",
             "title": "Can issue undefined credential, fixture case-13"
           },
           {
