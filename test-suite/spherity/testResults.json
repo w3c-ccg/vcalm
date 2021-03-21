@@ -1,8 +1,8 @@
 {
   "testResults": {
-    "numFailedTests": 56,
-    "numPassedTests": 78,
-    "numTotalTests": 134,
+    "numFailedTests": 0,
+    "numPassedTests": 138,
+    "numTotalTests": 138,
     "testResults": [
       {
         "numFailingTests": 0,
@@ -814,1687 +814,667 @@
         ]
       },
       {
-        "numFailingTests": 56,
-        "numPassingTests": 0,
+        "numFailingTests": 0,
+        "numPassingTests": 60,
         "testResults": [
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:20:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:20:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.",
+            "status": "passed",
             "title": "1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:30:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:30:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).",
+            "status": "passed",
             "title": "2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/)."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:43:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:43:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected.",
+            "status": "passed",
             "title": "3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:51:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:51:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response.",
+            "status": "passed",
             "title": "4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:69:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:69:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported.",
+            "status": "passed",
             "title": "5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist.",
+            "status": "passed",
             "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:96:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:96:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context.",
+            "status": "passed",
             "title": "7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:111:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:111:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context.",
+            "status": "passed",
             "title": "8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF 9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request.",
+            "status": "passed",
             "title": "9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:web:amazon-qa.wallet.spherity.io"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:20:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of RevocationList2020Status",
+            "status": "passed",
+            "title": "10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of RevocationList2020Status"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:20:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 11. The Issuer's Issue Credential HTTP API MUST return 400 if credential status type not recognized",
+            "status": "passed",
+            "title": "11. The Issuer's Issue Credential HTTP API MUST return 400 if credential status type not recognized"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:web:amazon-qa.wallet.spherity.io 1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.",
+            "status": "passed",
             "title": "1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:web:amazon-qa.wallet.spherity.io"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:30:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:30:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:web:amazon-qa.wallet.spherity.io 2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).",
+            "status": "passed",
             "title": "2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/)."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:web:amazon-qa.wallet.spherity.io"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:43:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:43:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:web:amazon-qa.wallet.spherity.io 3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected.",
+            "status": "passed",
             "title": "3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:web:amazon-qa.wallet.spherity.io"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:51:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:51:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:web:amazon-qa.wallet.spherity.io 4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response.",
+            "status": "passed",
             "title": "4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:web:amazon-qa.wallet.spherity.io"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:69:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:69:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:web:amazon-qa.wallet.spherity.io 5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported.",
+            "status": "passed",
             "title": "5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:web:amazon-qa.wallet.spherity.io"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:web:amazon-qa.wallet.spherity.io 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist.",
+            "status": "passed",
             "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.assertionMethod\" in the body of the POST request does not exist."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:web:amazon-qa.wallet.spherity.io"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:96:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:96:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:web:amazon-qa.wallet.spherity.io 7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context.",
+            "status": "passed",
             "title": "7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:web:amazon-qa.wallet.spherity.io"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 400,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:111:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:111:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:web:amazon-qa.wallet.spherity.io 8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context.",
+            "status": "passed",
             "title": "8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:web:amazon-qa.wallet.spherity.io"
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Conformance with issuer: did:web:amazon-qa.wallet.spherity.io 9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request.",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request.",
+            "status": "passed",
             "title": "9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request."
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of RevocationList2020Status",
+            "status": "passed",
+            "title": "10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of RevocationList2020Status"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 11. The Issuer's Issue Credential HTTP API MUST return 400 if credential status type not recognized",
+            "status": "passed",
+            "title": "11. The Issuer's Issue Credential HTTP API MUST return 400 if credential status type not recognized"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue Permanent Resident Card credential, fixture case-1",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue Permanent Resident Card credential, fixture case-1",
+            "status": "passed",
             "title": "Can issue Permanent Resident Card credential, fixture case-1"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue COVID-19 Vaccination Certificate credential, fixture case-10",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue COVID-19 Vaccination Certificate credential, fixture case-10",
+            "status": "passed",
             "title": "Can issue COVID-19 Vaccination Certificate credential, fixture case-10"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-11",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-11",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-11"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-12",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-12",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-12"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-13",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-13",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-13"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-14",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-14",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-14"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-15",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-15",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-15"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-16",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-16",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-16"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-17",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-17",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-17"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-18",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-18",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-18"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-19",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-19",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-19"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-2",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-2",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-2"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-3",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-3",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-3"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue undefined credential, fixture case-4",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-4",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-4"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue Bill of Lading credential, fixture case-5",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue Bill of Lading credential, fixture case-5",
+            "status": "passed",
             "title": "Can issue Bill of Lading credential, fixture case-5"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6",
+            "status": "passed",
             "title": "Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue Heavy Sour Dilbit credential, fixture case-7",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue Heavy Sour Dilbit credential, fixture case-7",
+            "status": "passed",
             "title": "Can issue Heavy Sour Dilbit credential, fixture case-7"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue QP Inbond credential, fixture case-8",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue QP Inbond credential, fixture case-8",
+            "status": "passed",
             "title": "Can issue QP Inbond credential, fixture case-8"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkkvPAU8JWm65ktjSBjtGkdhAb1q71C255Dyq1A53CSQUF Can issue Certified Mill Test Report credential, fixture case-9",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue Certified Mill Test Report credential, fixture case-9",
+            "status": "passed",
             "title": "Can issue Certified Mill Test Report credential, fixture case-9"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue Permanent Resident Card credential, fixture case-1",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue Permanent Resident Card credential, fixture case-1",
+            "status": "passed",
             "title": "Can issue Permanent Resident Card credential, fixture case-1"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue COVID-19 Vaccination Certificate credential, fixture case-10",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue COVID-19 Vaccination Certificate credential, fixture case-10",
+            "status": "passed",
             "title": "Can issue COVID-19 Vaccination Certificate credential, fixture case-10"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-11",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-11",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-11"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-12",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-12",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-12"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-13",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-13",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-13"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-14",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-14",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-14"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-15",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-15",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-15"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-16",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-16",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-16"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-17",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-17",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-17"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-18",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-18",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-18"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-19",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-19",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-19"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-2",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-2",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-2"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-3",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-3",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-3"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue undefined credential, fixture case-4",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue undefined credential, fixture case-4",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-4"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue Bill of Lading credential, fixture case-5",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue Bill of Lading credential, fixture case-5",
+            "status": "passed",
             "title": "Can issue Bill of Lading credential, fixture case-5"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6",
+            "status": "passed",
             "title": "Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue Heavy Sour Dilbit credential, fixture case-7",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue Heavy Sour Dilbit credential, fixture case-7",
+            "status": "passed",
             "title": "Can issue Heavy Sour Dilbit credential, fixture case-7"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue QP Inbond credential, fixture case-8",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue QP Inbond credential, fixture case-8",
+            "status": "passed",
             "title": "Can issue QP Inbond credential, fixture case-8"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:web:amazon-qa.wallet.spherity.io"
+              "With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 403,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 403\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:web:amazon-qa.wallet.spherity.io Can issue Certified Mill Test Report credential, fixture case-9",
-            "status": "failed",
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 Can issue Certified Mill Test Report credential, fixture case-9",
+            "status": "passed",
             "title": "Can issue Certified Mill Test Report credential, fixture case-9"
           }
         ]
