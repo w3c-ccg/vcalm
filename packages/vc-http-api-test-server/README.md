@@ -34,3 +34,7 @@ curl -s -X POST http://localhost:8080/test-suite-manager/generate-report \
 -H "Content-Type: application/json" \
 -d @./suites/did-spec/default.json
 ```
+
+### Relationship to previous test suite
+
+This test suite supersedes the original which is available [here](https://github.com/w3c-ccg/vc-http-api/tree/b4df10dfdce98b453a2333e7ec1728a10bcc54d1/packages/plugfest-2020)
