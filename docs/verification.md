@@ -56,13 +56,12 @@ At a high level, the 3V procedure involves:
 ### Verify (VC)
 
 1. Check well-formed according to VC-DATA-MODEL
-    1. E.g., required fields are present
+    -  E.g., required fields are present
 2. Check proof (DID resolver provided by verifier)
-    2. Credential hasn’t been tampered with
-        1. Signed with an expected issuer DID/key (per document loader provided by caller)
-    3. Signed by key authorized for the purposes of signing
-    4. Expected properties are present (per proof data model)
-3. Check timeliness and status (per callbacks provided by verifier)
+    -  Credential hasn’t been tampered with: signed with an expected issuer DID/key (per document loader provided by caller)
+    -  Signed by key authorized for the purposes of signing
+    -  Expected properties are present (per proof data model)
+4. Check timeliness and status (per callbacks provided by verifier)
 
 ### Verify (VP)
 
