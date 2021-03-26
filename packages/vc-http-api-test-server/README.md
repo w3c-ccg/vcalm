@@ -37,4 +37,7 @@ curl -s -X POST http://localhost:8080/test-suite-manager/generate-report \
 
 ### Relationship to previous test suite
 
-This test suite supersedes the original which is available [here](https://github.com/w3c-ccg/vc-http-api/tree/b4df10dfdce98b453a2333e7ec1728a10bcc54d1/packages/plugfest-2020)
+This test suite, from Plugfest 2021, is meant to replace the original, 
+from Plugfest 2020, which remains available 
+[here](https://github.com/w3c-ccg/vc-http-api/tree/b4df10dfdce98b453a2333e7ec1728a10bcc54d1/packages/plugfest-2020) 
+for reference purposes.
