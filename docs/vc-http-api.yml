@@ -121,7 +121,7 @@ paths:
       operationId: notifyPresentationAvailable
       description:
         This API is the first part of a holder to holder credential exchange over http.
-        The server MAY reply with a query for the client to proceed with a presentation.
+        Notifies this server-holder that the client-holder (caller) is prepared to deliver a presentation compliant with the provided Verifiable Presentation Request query. This is the first part of a presentation exchange over this HTTP API. This server-holder MUST return the required 'domain' and 'challenge' parameters for the Presentation. This server-holder MAY reply with an alternate Verifiable Presentation Request query if it requires something different than the one proposed by the client-holder. The client-holder MUST return a Presentation in accordance with the response parameters.
       requestBody:
         description: Details the client provides to the server to help it decide if the presentation should be made.
         content:
@@ -148,7 +148,7 @@ paths:
         - Holder
       summary: Provide a presentation for a holder to store.
       operationId: storePresentation
-      description: Present from a client holder to a server holder, for the purpose of verification AND storage.
+      description: "Delivery endpoint for a client-holder to provide a presentation in compliance with the Verifiable Presentation Request provided in the Notification call. This server-holder MUST match the 'domain' and 'challenge' to a 'domain' and 'challenge' previously sent in a Notification Response, and not already received. The server-holder MUST verify the Presentation. The server MUST store the Presentation if verification passes."
       requestBody:
         description: Details the client provides to the server to help it decide if the presentation should be made.
         content:
