@@ -1,12 +1,12 @@
 {
   "testResults": {
-    "numFailedTests": 11,
-    "numPassedTests": 207,
+    "numFailedTests": 2,
+    "numPassedTests": 216,
     "numTotalTests": 218,
     "testResults": [
       {
-        "numFailingTests": 10,
-        "numPassingTests": 91,
+        "numFailingTests": 1,
+        "numPassingTests": 100,
         "testResults": [
           {
             "ancestorTitles": [
@@ -420,29 +420,10 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 400,
-                    "expected": 200,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22 should pass with no mutation",
-            "status": "failed",
+            "status": "passed",
             "title": "should pass with no mutation"
           },
           {
@@ -483,29 +464,10 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 400,
-                    "expected": 200,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23 should pass with no mutation",
-            "status": "failed",
+            "status": "passed",
             "title": "should pass with no mutation"
           },
           {
@@ -546,29 +508,10 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 400,
-                    "expected": 200,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24 should pass with no mutation",
-            "status": "failed",
+            "status": "passed",
             "title": "should pass with no mutation"
           },
           {
@@ -609,29 +552,10 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 400,
-                    "expected": 200,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25 should pass with no mutation",
-            "status": "failed",
+            "status": "passed",
             "title": "should pass with no mutation"
           },
           {
@@ -672,29 +596,10 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 400,
-                    "expected": 200,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26 should pass with no mutation",
-            "status": "failed",
+            "status": "passed",
             "title": "should pass with no mutation"
           },
           {
@@ -735,29 +640,10 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 400,
-                    "expected": 200,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27 should pass with no mutation",
-            "status": "failed",
+            "status": "passed",
             "title": "should pass with no mutation"
           },
           {
@@ -798,29 +684,10 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 400,
-                    "expected": 200,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28 should pass with no mutation",
-            "status": "failed",
+            "status": "passed",
             "title": "should pass with no mutation"
           },
           {
@@ -861,29 +728,10 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 400,
-                    "expected": 200,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29 should pass with no mutation",
-            "status": "failed",
+            "status": "passed",
             "title": "should pass with no mutation"
           },
           {
@@ -987,29 +835,10 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 400,
-                    "expected": 200,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30 should pass with no mutation",
-            "status": "failed",
+            "status": "passed",
             "title": "should pass with no mutation"
           },
           {
@@ -1318,99 +1147,99 @@
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp 1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB 1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.",
             "status": "passed",
             "title": "1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp 2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).",
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB 2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).",
             "status": "passed",
             "title": "2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/)."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp 3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB 3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected.",
             "status": "passed",
             "title": "3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp 4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB 4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response.",
             "status": "passed",
             "title": "4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp 5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB 5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported.",
             "status": "passed",
             "title": "5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist.",
             "status": "passed",
             "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp 7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB 7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context.",
             "status": "passed",
             "title": "7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp 8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB 8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context.",
             "status": "passed",
             "title": "8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp 9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB 9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request.",
             "status": "passed",
             "title": "9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request."
           },
@@ -1516,99 +1345,99 @@
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o 1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC 1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.",
             "status": "passed",
             "title": "1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o 2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).",
+            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC 2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).",
             "status": "passed",
             "title": "2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/)."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o 3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC 3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected.",
             "status": "passed",
             "title": "3. The Issuer's Issue Credential HTTP API MUST return a 400 HTTP response status code when the request is rejected."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o 4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC 4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response.",
             "status": "passed",
             "title": "4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o 5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC 5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported.",
             "status": "passed",
             "title": "5. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.proofPurpose\" in the body of the POST request is not supported."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist.",
             "status": "passed",
             "title": "6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o 7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC 7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context.",
             "status": "passed",
             "title": "7. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request does not contain a context."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o 8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC 8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context.",
             "status": "passed",
             "title": "8. The Issuer's Issue Credential HTTP API MUST reject if the value of \"credential\" in the body of the POST request contains a malformed JSON-LD context."
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
-              "with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o 9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request.",
+            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC 9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request.",
             "status": "passed",
             "title": "9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request."
           },
@@ -1714,209 +1543,209 @@
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue Permanent Resident Card credential, fixture case-1",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue Permanent Resident Card credential, fixture case-1",
             "status": "passed",
             "title": "Can issue Permanent Resident Card credential, fixture case-1"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue COVID-19 Vaccination Certificate credential, fixture case-10",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue COVID-19 Vaccination Certificate credential, fixture case-10",
             "status": "passed",
             "title": "Can issue COVID-19 Vaccination Certificate credential, fixture case-10"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue undefined credential, fixture case-11",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue undefined credential, fixture case-11",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-11"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue undefined credential, fixture case-12",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue undefined credential, fixture case-12",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-12"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue undefined credential, fixture case-13",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue undefined credential, fixture case-13",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-13"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue undefined credential, fixture case-14",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue undefined credential, fixture case-14",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-14"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue undefined credential, fixture case-15",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue undefined credential, fixture case-15",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-15"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue undefined credential, fixture case-16",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue undefined credential, fixture case-16",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-16"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue undefined credential, fixture case-17",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue undefined credential, fixture case-17",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-17"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue undefined credential, fixture case-18",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue undefined credential, fixture case-18",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-18"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue undefined credential, fixture case-19",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue undefined credential, fixture case-19",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-19"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue undefined credential, fixture case-2",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue undefined credential, fixture case-2",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-2"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue undefined credential, fixture case-3",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue undefined credential, fixture case-3",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-3"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue undefined credential, fixture case-4",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue undefined credential, fixture case-4",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-4"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue Bill of Lading credential, fixture case-5",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue Bill of Lading credential, fixture case-5",
             "status": "passed",
             "title": "Can issue Bill of Lading credential, fixture case-5"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6",
             "status": "passed",
             "title": "Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue Heavy Sour Dilbit credential, fixture case-7",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue Heavy Sour Dilbit credential, fixture case-7",
             "status": "passed",
             "title": "Can issue Heavy Sour Dilbit credential, fixture case-7"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue QP Inbond credential, fixture case-8",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue QP Inbond credential, fixture case-8",
             "status": "passed",
             "title": "Can issue QP Inbond credential, fixture case-8"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+              "With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp Can issue Certified Mill Test Report credential, fixture case-9",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB Can issue Certified Mill Test Report credential, fixture case-9",
             "status": "passed",
             "title": "Can issue Certified Mill Test Report credential, fixture case-9"
           },
@@ -2132,209 +1961,209 @@
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue Permanent Resident Card credential, fixture case-1",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue Permanent Resident Card credential, fixture case-1",
             "status": "passed",
             "title": "Can issue Permanent Resident Card credential, fixture case-1"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue COVID-19 Vaccination Certificate credential, fixture case-10",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue COVID-19 Vaccination Certificate credential, fixture case-10",
             "status": "passed",
             "title": "Can issue COVID-19 Vaccination Certificate credential, fixture case-10"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue undefined credential, fixture case-11",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue undefined credential, fixture case-11",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-11"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue undefined credential, fixture case-12",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue undefined credential, fixture case-12",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-12"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue undefined credential, fixture case-13",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue undefined credential, fixture case-13",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-13"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue undefined credential, fixture case-14",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue undefined credential, fixture case-14",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-14"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue undefined credential, fixture case-15",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue undefined credential, fixture case-15",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-15"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue undefined credential, fixture case-16",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue undefined credential, fixture case-16",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-16"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue undefined credential, fixture case-17",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue undefined credential, fixture case-17",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-17"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue undefined credential, fixture case-18",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue undefined credential, fixture case-18",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-18"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue undefined credential, fixture case-19",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue undefined credential, fixture case-19",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-19"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue undefined credential, fixture case-2",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue undefined credential, fixture case-2",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-2"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue undefined credential, fixture case-3",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue undefined credential, fixture case-3",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-3"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue undefined credential, fixture case-4",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue undefined credential, fixture case-4",
             "status": "passed",
             "title": "Can issue undefined credential, fixture case-4"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue Bill of Lading credential, fixture case-5",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue Bill of Lading credential, fixture case-5",
             "status": "passed",
             "title": "Can issue Bill of Lading credential, fixture case-5"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6",
             "status": "passed",
             "title": "Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue Heavy Sour Dilbit credential, fixture case-7",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue Heavy Sour Dilbit credential, fixture case-7",
             "status": "passed",
             "title": "Can issue Heavy Sour Dilbit credential, fixture case-7"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue QP Inbond credential, fixture case-8",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue QP Inbond credential, fixture case-8",
             "status": "passed",
             "title": "Can issue QP Inbond credential, fixture case-8"
           },
           {
             "ancestorTitles": [
               "Issue Credential API - Credential Type Interop",
-              "With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o"
+              "With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             ],
             "failureDetails": [],
             "failureMessages": [],
-            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o Can issue Certified Mill Test Report credential, fixture case-9",
+            "fullName": "Issue Credential API - Credential Type Interop With issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC Can issue Certified Mill Test Report credential, fixture case-9",
             "status": "passed",
             "title": "Can issue Certified Mill Test Report credential, fixture case-9"
           },
