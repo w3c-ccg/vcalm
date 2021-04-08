@@ -2,11 +2,11 @@ module.exports = {
     name: "Danube Tech",
     issueCredentialConfiguration: [
         {
-            id: "did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp",
+            id: "did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB",
             endpoint: "https://uniissuer.io/1.0/credentials/issue",
             proofType: "Ed25519Signature2018",
             options: {
-                assertionMethod: "did:key:z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp#z6Mkqf7nLJsKmHnr5tKkLsCn25BmCQCSPPCn6cvr7ZSerAtp"
+                assertionMethod: "did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB#z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
             }
         },
         {
@@ -18,11 +18,11 @@ module.exports = {
             }
         },
         {
-            id: "did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o",
+            id: "did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC",
             endpoint: "https://uniissuer.io/1.0/credentials/issue",
             proofType: "Ed25519Signature2018",
             options: {
-                assertionMethod: "did:v1:test:nym:z6MkwHPHHoKW14LNWpGh2L9J8beekUsoihq7NYmAVqCT5H2o#z6Mkfhq6Aiq9TBYvm6j2Do4zshhAkhp3tN9xe7xP8yhuSSXM"
+                assertionMethod: "did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC#z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
             }
         },
         {
