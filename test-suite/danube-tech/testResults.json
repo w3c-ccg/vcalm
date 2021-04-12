@@ -1,12 +1,12 @@
 {
   "testResults": {
     "numFailedTests": 2,
-    "numPassedTests": 216,
-    "numTotalTests": 218,
+    "numPassedTests": 226,
+    "numTotalTests": 228,
     "testResults": [
       {
         "numFailingTests": 1,
-        "numPassingTests": 100,
+        "numPassingTests": 102,
         "testResults": [
           {
             "ancestorTitles": [
@@ -150,6 +150,30 @@
             "fullName": "Verify Credential API - Conformance 12. The Verifier's Verify Credential HTTP API MUST support the verification of JSON-LD Proof, Ed25519Signature2018. should pass",
             "status": "passed",
             "title": "should pass"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Conformance",
+              "13. The Verifier's Verify Credential HTTP API MAY support checking the status of a credential.",
+              "For status type of: RevocationList2020Status"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Conformance 13. The Verifier's Verify Credential HTTP API MAY support checking the status of a credential. For status type of: RevocationList2020Status should pass",
+            "status": "passed",
+            "title": "should pass"
+          },
+          {
+            "ancestorTitles": [
+              "Verify Credential API - Conformance",
+              "13. The Verifier's Verify Credential HTTP API MAY support checking the status of a credential.",
+              "For status type of: RevocationList2020Status"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Verify Credential API - Conformance 13. The Verifier's Verify Credential HTTP API MAY support checking the status of a credential. For status type of: RevocationList2020Status should fail",
+            "status": "passed",
+            "title": "should fail"
           },
           {
             "ancestorTitles": [
@@ -1142,7 +1166,7 @@
       },
       {
         "numFailingTests": 0,
-        "numPassingTests": 112,
+        "numPassingTests": 120,
         "testResults": [
           {
             "ancestorTitles": [
@@ -1246,6 +1270,28 @@
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB 10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of RevocationList2020Status",
+            "status": "passed",
+            "title": "10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of RevocationList2020Status"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB 11. The Issuer's Issue Credential HTTP API MUST return 400 if credential status type not recognized",
+            "status": "passed",
+            "title": "11. The Issuer's Issue Credential HTTP API MUST return 400 if credential status type not recognized"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
               "with issuer: did:sov:danube:MQ5WYVUsciSd55zXMgYWpM"
             ],
             "failureDetails": [],
@@ -1341,6 +1387,28 @@
             "fullName": "Issue Credential API - Conformance with issuer: did:sov:danube:MQ5WYVUsciSd55zXMgYWpM 9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request.",
             "status": "passed",
             "title": "9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request."
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:sov:danube:MQ5WYVUsciSd55zXMgYWpM"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:sov:danube:MQ5WYVUsciSd55zXMgYWpM 10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of RevocationList2020Status",
+            "status": "passed",
+            "title": "10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of RevocationList2020Status"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:sov:danube:MQ5WYVUsciSd55zXMgYWpM"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:sov:danube:MQ5WYVUsciSd55zXMgYWpM 11. The Issuer's Issue Credential HTTP API MUST return 400 if credential status type not recognized",
+            "status": "passed",
+            "title": "11. The Issuer's Issue Credential HTTP API MUST return 400 if credential status type not recognized"
           },
           {
             "ancestorTitles": [
@@ -1444,6 +1512,28 @@
           {
             "ancestorTitles": [
               "Issue Credential API - Conformance",
+              "with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC 10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of RevocationList2020Status",
+            "status": "passed",
+            "title": "10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of RevocationList2020Status"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC 11. The Issuer's Issue Credential HTTP API MUST return 400 if credential status type not recognized",
+            "status": "passed",
+            "title": "11. The Issuer's Issue Credential HTTP API MUST return 400 if credential status type not recognized"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
               "with issuer: did:web:did-web.uniregistrar.io:uscis"
             ],
             "failureDetails": [],
@@ -1539,6 +1629,28 @@
             "fullName": "Issue Credential API - Conformance with issuer: did:web:did-web.uniregistrar.io:uscis 9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request.",
             "status": "passed",
             "title": "9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request."
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:web:did-web.uniregistrar.io:uscis"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:web:did-web.uniregistrar.io:uscis 10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of RevocationList2020Status",
+            "status": "passed",
+            "title": "10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of RevocationList2020Status"
+          },
+          {
+            "ancestorTitles": [
+              "Issue Credential API - Conformance",
+              "with issuer: did:web:did-web.uniregistrar.io:uscis"
+            ],
+            "failureDetails": [],
+            "failureMessages": [],
+            "fullName": "Issue Credential API - Conformance with issuer: did:web:did-web.uniregistrar.io:uscis 11. The Issuer's Issue Credential HTTP API MUST return 400 if credential status type not recognized",
+            "status": "passed",
+            "title": "11. The Issuer's Issue Credential HTTP API MUST return 400 if credential status type not recognized"
           },
           {
             "ancestorTitles": [
@@ -2413,11 +2525,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
             ],
             "fullName": "Verify Presentation API 2. The Verifier's Verify Presentation HTTP API MUST verify a Verifiable Presentation where the credential's issuer, presentation's holder and credential's subject are the same. should pass",
             "status": "failed",
