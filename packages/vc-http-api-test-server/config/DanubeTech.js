@@ -7,7 +7,8 @@ module.exports = {
             proofType: "Ed25519Signature2018",
             options: {
                 assertionMethod: "did:key:z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB#z6MkvfambyLsugwe8DCHeUGVJbYZyKne59RDHx2dqmXRG6nB"
-            }
+            },
+            credentialStatusesSupported: ['RevocationList2020Status']
         },
         {
             id: "did:sov:danube:MQ5WYVUsciSd55zXMgYWpM",
@@ -15,7 +16,8 @@ module.exports = {
             proofType: "Ed25519Signature2018",
             options: {
                 assertionMethod: "did:sov:danube:MQ5WYVUsciSd55zXMgYWpM#key-1"
-            }
+            },
+            credentialStatusesSupported: ['RevocationList2020Status']
         },
         {
             id: "did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC",
@@ -23,7 +25,8 @@ module.exports = {
             proofType: "Ed25519Signature2018",
             options: {
                 assertionMethod: "did:v1:test:nym:z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC#z6MkkGibPh9yV4X3Gt47oRsn1wpscmPjYjSgr3mmJTRvUenC"
-            }
+            },
+            credentialStatusesSupported: ['RevocationList2020Status']
         },
         {
             id: "did:web:did-web.uniregistrar.io:uscis",
@@ -31,13 +34,15 @@ module.exports = {
             proofType: "Ed25519Signature2018",
             options: {
                 assertionMethod: "did:web:did-web.uniregistrar.io:uscis#z6Mkpg9GarVada9ycNVnYEKG7kNyh7QTYy4Znu6Kyoi2ZseG"
-            }
+            },
+            credentialStatusesSupported: ['RevocationList2020Status']
         }
     ],
     verifyCredentialConfiguration: {
         endpoint: "https://univerifier.io/1.0/credentials/verify",
         didMethodsSupported: [ "did:key:", "did:sov:", "did:v1:test:nym:", "did:web:", "did:ion:", "did:btcr:" ],
-        linkedDataProofSuitesSupported: [ "Ed25519Signature2018" ]
+        linkedDataProofSuitesSupported: [ "Ed25519Signature2018" ],
+        credentialStatusesSupported: ['RevocationList2020Status']
     },
     verifyPresentationConfiguration: {
         endpoint: "https://univerifier.io/1.0/presentations/verify"
