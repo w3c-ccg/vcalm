@@ -2525,11 +2525,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
             ],
             "fullName": "Verify Presentation API 2. The Verifier's Verify Presentation HTTP API MUST verify a Verifiable Presentation where the credential's issuer, presentation's holder and credential's subject are the same. should pass",
             "status": "failed",
