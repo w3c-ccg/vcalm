@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  version: "0.0.2-unstable"
+  title: VC HTTP API
+  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
+  license:
+    name: W3C Software and Document License
+    url: http://www.w3.org/Consortium/Legal/copyright-software.
+  contact:
+    name: GitHub Source Code
+    url: https://github.com/w3c-ccg/vc-http-api
+paths:
+components:
+  schemas:
+    LinkedDataProof:
+      type: object
+      description: A JSON-LD Linked Data proof.
+      properties:
+        type:
+          type: string
+          description: Linked Data Signature Suite used to produce proof.
+        created:
+          type: string
+          description: Date the proof was created.
+        verificationMethod:
+          type: string
+          description: Verification Method used to verify proof.
+        proofPurpose:
+          type: string
+          description: The purpose of the proof to be used with verificationMethod.
+        jws:
+          type: string
+          description: Detached JSON Web Signature
+      example:
+        {
+          "type": "Ed25519Signature2018",
+          "created": "2020-04-02T18:28:08Z",
+          "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+          "proofPurpose": "assertionMethod",
+          "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA",
+        }
