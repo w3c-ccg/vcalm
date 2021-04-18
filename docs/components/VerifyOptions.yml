@@ -1,0 +1,42 @@
+openapi: 3.0.0
+info:
+  version: "0.0.2-unstable"
+  title: VC HTTP API
+  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
+  license:
+    name: W3C Software and Document License
+    url: http://www.w3.org/Consortium/Legal/copyright-software.
+  contact:
+    name: GitHub Source Code
+    url: https://github.com/w3c-ccg/vc-http-api
+paths:
+components:
+  schemas:
+    VerifyOptions:
+      type: object
+      additionalProperties: false
+      description: Options for specifying how the LinkedDataProof is created.
+      properties:
+        verificationMethod:
+          type: string
+          description: The URI of the verificationMethod used for the proof. Default assertionMethod URI.
+        proofPurpose:
+          type: string
+          description: The purpose of the proof. Default 'assertionMethod'.
+        created:
+          type: string
+          description: The date and time of the proof (with a maximum accuracy in seconds). Default current system time.
+        challenge:
+          type: string
+          description: A challenge provided by the requesting party of the proof. For example 6e62f66e-67de-11eb-b490-ef3eeefa55f2
+        domain:
+          type: string
+          description: The intended domain of validity for the proof. For example website.example
+      example:
+        {
+          "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+          "proofPurpose": "assertionMethod",
+          "created": "2020-04-02T18:48:36Z",
+          "domain": "example.com",
+          "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8",
+        }

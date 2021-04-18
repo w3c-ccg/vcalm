@@ -1,0 +1,217 @@
+openapi: 3.0.0
+info:
+  version: "0.0.2-unstable"
+  title: VC Holder HTTP API
+  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
+  license:
+    name: W3C Software and Document License
+    url: http://www.w3.org/Consortium/Legal/copyright-software.
+  contact:
+    name: GitHub Source Code
+    url: https://github.com/w3c-ccg/vc-http-api
+paths:
+  /credentials/derive:
+    post:
+      summary: Derives a credential and returns it in the response body.
+      operationId: deriveCredential
+      description: Derives a credential and returns it in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeriveCredentialRequest"
+        description: Parameters for deriving the credential.
+      responses:
+        "201":
+          description: Credential derived successfully.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeriveCredentialResponse"
+        "400":
+          description: Invalid Request
+        "500":
+          description: Internal Error
+        "501":
+          description: Not Implemented
+  /presentations/prove:
+    post:
+      summary: Proves a presentation and returns it in the response body.
+      operationId: provePresentation
+      description: Proves a presentation and returns it in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProvePresentationRequest"
+        description: Parameters for proving the presentation.
+      responses:
+        "201":
+          description: Presentation successfully proved!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProvePresentationResponse"
+        "400":
+          description: invalid input!
+        "500":
+          description: error!
+  /presentations/available:
+    post:
+      summary: Notifies a holder of an available presentation.
+      operationId: notifyPresentationAvailable
+      description:
+        This API is the first part of a holder to holder credential exchange over http.
+        Notifies this server-holder that the client-holder (caller) is prepared to deliver a presentation compliant with the provided Verifiable Presentation Request query. This is the first part of a presentation exchange over this HTTP API. This server-holder MUST return the required 'domain' and 'challenge' parameters for the Presentation. This server-holder MAY reply with an alternate Verifiable Presentation Request query if it requires something different than the one proposed by the client-holder. The client-holder MUST return a Presentation in accordance with the response parameters.
+      requestBody:
+        description: Details the client provides to the server to help it decide if the presentation should be made.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NotifyPresentationAvailableRequest"
+      responses:
+        "200":
+          description: Proceed with presentation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotifyPresentationAvailableResponse"
+        "400":
+          description: Request for presentation is malformed
+        "501":
+          description: Not implemented
+        "500":
+          description: internal error
+  /presentations/submissions:
+    post:
+      summary: Provide a presentation for a holder to store.
+      operationId: storePresentation
+      description: "Delivery endpoint for a client-holder to provide a presentation in compliance with the Verifiable Presentation Request provided in the Notification call. This server-holder MUST match the 'domain' and 'challenge' to a 'domain' and 'challenge' previously sent in a Notification Response, and not already received. The server-holder MUST verify the Presentation. The server MUST store the Presentation if verification passes."
+      requestBody:
+        description: Details the client provides to the server to help it decide if the presentation should be made.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StorePresentationRequest"
+      responses:
+        "202":
+          description: Presentation accepted
+        "400":
+          description: Presentation is malformed
+        "401":
+          description: Presentation did not contain a proof
+        "402":
+          description: Payment required
+        "403":
+          description: Presentation verification failed
+        "425":
+          description: Server is unwilling to risk processing a request that might be replayed
+        "501":
+          description: Not implemented
+        "500":
+          description: internal error
+components:
+  schemas:
+    DeriveCredentialRequest:
+      type: object
+      properties:
+        verifiableCredential:
+          $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+        frame:
+          type: object
+          description: A JSON-LD frame used for selective disclosure.
+        options:
+          $ref: "./components/DeriveCredentialOptions.yml#/components/schemas/DeriveCredentialOptions"
+    DeriveCredentialResponse:
+      $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+    ProvePresentationRequest:
+      type: object
+      properties:
+        presentation:
+          $ref: "./components/Presentation.yml#/components/schemas/Presentation"
+        options:
+          $ref: "./components/PresentCredentialOptions.yml#/components/schemas/PresentCredentialOptions"
+    ProvePresentationResponse:
+      $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+    NotifyPresentationAvailableRequest:
+      type: object
+      properties:
+        query:
+          type: object
+          description: See https://w3c-ccg.github.io/vp-request-spec/#format
+          properties:
+            type:
+              type: string
+              description: "The type of query the server should reply with."
+            credentialQuery:
+              type: object
+              description: "Details of the client's available presentation"
+      example:
+        {
+          "query":
+            [
+              {
+                "type": "RequestQueryByFrame",
+                "credentialQuery":
+                  [
+                    {
+                      "type":
+                        [
+                            "VerifiableCredential",
+                            "CommercialInvoiceCertificate",
+                        ],
+                      "reason": "Wallet XYZ is ready to selectively disclose new credentials.",
+                    },
+                  ],
+              },
+            ],
+        }
+    NotifyPresentationAvailableResponse:
+      type: object
+      properties:
+        query:
+          type: object
+          description: See https://w3c-ccg.github.io/vp-request-spec/#format
+        domain:
+          type: string
+          description: See https://w3id.org/security#domain
+        challenge:
+          type: string
+          description: See https://w3id.org/security#challenge
+      example:
+        {
+          "query":
+            [
+              {
+                "type": "QueryByFrame",
+                "credentialQuery":
+                  {
+                    "frame":
+                      {
+                        "@context":
+                          [
+                              "https://www.w3.org/2018/credentials/v1",
+                              "https://w3id.org/traceability/v1",
+                              "https://w3id.org/bbs/v1",
+                          ],
+                        "type":
+                          [
+                              "VerifiableCredential",
+                              "CommercialInvoiceCertificate",
+                          ],
+                        "credentialSubject":
+                          {
+                            "@explicit": true,
+                            "type": ["CommercialInvoice"],
+                            "purchaseDate": {},
+                            "destinationCountry": {},
+                          },
+                      },
+                  },
+              },
+            ],
+          "domain": "jobs.example.com",
+          "challenge": "3182bdea-63d9-11ea-b6de-3b7c1404d57f",
+        }
+    StorePresentationRequest:
+      $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
