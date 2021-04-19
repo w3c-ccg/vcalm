@@ -1032,11 +1032,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 404",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 404\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 404\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 404\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 400\nReceived: 404\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:84:32)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkjafApNWaUm4n7WHqYdjDwsjhKbZQi54LwPDb8U8fQAT9 6. The Issuer's Issue Credential HTTP API MUST reject if the value of \"options.verificationMethod\" in the body of the POST request does not exist.",
             "status": "failed",
