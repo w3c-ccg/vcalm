@@ -16,11 +16,11 @@ components:
       type: object
       description: A JSON-LD Verifiable Presentation with a proof.
       allOf:
-        - $ref: "#/components/schemas/Presentation"
+        - $ref: "./Presentation.yml#/components/schemas/Presentation"
         - type: object
           properties:
             proof:
-              $ref: "#/components/schemas/LinkedDataProof"
+              $ref: "./LinkedDataProof.yml#/components/schemas/LinkedDataProof"
       example:
         {
           "@context":
