@@ -1,7 +1,7 @@
 const jest = require("jest");
 const path = require("path");
 
-const JEST_TEST_TIMEOUT_MS = 20 * 1000;
+const JEST_TEST_TIMEOUT_MS = 60 * 1000;
 
 module.exports = async (config) => {
   let results = await jest.runCLI(
