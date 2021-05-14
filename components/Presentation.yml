@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  version: "0.0.2-unstable"
+  title: VC HTTP API
+  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
+  license:
+    name: W3C Software and Document License
+    url: http://www.w3.org/Consortium/Legal/copyright-software.
+  contact:
+    name: GitHub Source Code
+    url: https://github.com/w3c-ccg/vc-http-api
+paths:
+components:
+  schemas:
+    Presentation:
+      type: object
+      description: A JSON-LD Verifiable Presentation without a proof.
+      properties:
+        "@context":
+          type: array
+          description: The JSON-LD context of the presentation.
+          items:
+            type: string
+        "id":
+          type: string
+          description: The ID of the presentation.
+        "type":
+          type: array
+          description: The JSON-LD type of the presentation.
+          items:
+            type: string
+        "holder":
+          type: object
+          description: The holder - will be ignored if no proof is present since there is no proof of authority over the credentials
+          nullable: true
+        "verifiableCredential":
+          type: array
+          description: The Verifiable Credentials
+          items:
+            type: object
+      example:
+        {
+          "@context":
+            [
+                "https://www.w3.org/2018/credentials/v1",
+                "https://www.w3.org/2018/credentials/examples/v1",
+            ],
+          "holder": "did:example:123",
+          "type": "VerifiablePresentation",
+          "verifiableCredential":
+            [
+                "@context":
+                  [
+                      "https://www.w3.org/2018/credentials/v1",
+                      "https://www.w3.org/2018/credentials/examples/v1",
+                  ],
+                "id": "http://example.gov/credentials/3732",
+                "type": ["VerifiableCredential", "UniversityDegreeCredential"],
+                "issuer": "did:example:123",
+                "issuanceDate": "2020-03-16T22:37:26.544Z",
+                "credentialSubject":
+                  {
+                    "id": "did:example:123",
+                    "degree":
+                      {
+                        "type": "BachelorDegree",
+                        "name": "Bachelor of Science and Arts",
+                      },
+                  },
+                "proof":
+                  {
+                    "type": "Ed25519Signature2018",
+                    "created": "2020-04-02T18:28:08Z",
+                    "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+                    "proofPurpose": "assertionMethod",
+                    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA",
+                  },
+            ],
+        }
