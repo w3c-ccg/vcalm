@@ -1,12 +1,12 @@
 {
   "testResults": {
-    "numFailedTests": 0,
-    "numPassedTests": 126,
+    "numFailedTests": 1,
+    "numPassedTests": 125,
     "numTotalTests": 126,
     "testResults": [
       {
-        "numFailingTests": 0,
-        "numPassingTests": 91,
+        "numFailingTests": 1,
+        "numPassingTests": 90,
         "testResults": [
           {
             "ancestorTitles": [
@@ -157,10 +157,29 @@
               "13. The Verifier's Verify Credential HTTP API MAY support checking the status of a credential.",
               "For status type of: RevocationList2020Status"
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:225:60)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:225:60)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Verify Credential API - Conformance 13. The Verifier's Verify Credential HTTP API MAY support checking the status of a credential. For status type of: RevocationList2020Status should pass",
-            "status": "passed",
+            "status": "failed",
             "title": "should pass"
           },
           {
