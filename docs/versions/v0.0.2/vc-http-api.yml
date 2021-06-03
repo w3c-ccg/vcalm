@@ -407,7 +407,6 @@ components:
       type: object
       description: A JSON-LD Verifiable Credential with a proof.
       required:
-        - id
         - type
         - credentialSubject
         - proof
