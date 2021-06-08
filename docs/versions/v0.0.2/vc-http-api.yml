@@ -406,6 +406,12 @@ components:
     VerifiableCredential:
       type: object
       description: A JSON-LD Verifiable Credential with a proof.
+      required:
+        - type
+        - credentialSubject
+        - proof
+        - issuer
+        - issuanceDate
       allOf:
         - $ref: "#/components/schemas/Credential"
         - type: object
