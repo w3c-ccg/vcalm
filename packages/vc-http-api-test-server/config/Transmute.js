@@ -22,7 +22,7 @@ module.exports = {
     },
   ],
   verifyCredentialConfiguration: {
-    endpoint: "https://vc.transmute.world/next/credentials/verify",
+    endpoint: "https://staging.platform.transmute.industries/v1/organizations/eaff306f-2591-4d02-a08c-410574e9c861/credentials/verify",
     didMethodsSupported: ["did:key:"],
     linkedDataProofSuitesSupported: [
       "Ed25519Signature2018",

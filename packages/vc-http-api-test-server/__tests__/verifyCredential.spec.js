@@ -37,7 +37,8 @@ if (suiteConfig.verifyCredentialConfiguration) {
                 };
                 body.verifiableCredential.proof.jws += 'bar';
                 const res = await httpClient.postJson(verifierEndpoint, body, {});
-                expect(res.status).toBe(400);
+                expect(res.status).toBe(200);
+                expect(res.body.errors.includes('proof')).toBeTruthy();
             });
         });
 
@@ -65,7 +66,8 @@ if (suiteConfig.verifyCredentialConfiguration) {
                 };
                 body.verifiableCredential.proof.proofPurpose = 'bar';
                 const res = await httpClient.postJson(verifierEndpoint, body, {});
-                expect(res.status).toBe(400);
+                expect(res.status).toBe(200);
+                expect(res.body.errors.includes('proof')).toBeTruthy();
             });
         });
 
@@ -149,7 +151,8 @@ if (suiteConfig.verifyCredentialConfiguration) {
                 };
                 body.verifiableCredential.proof.created += 'bar';
                 const res = await httpClient.postJson(verifierEndpoint, body, {});
-                expect(res.status).toBe(400);
+                expect(res.status).toBe(200);
+                expect(res.body.errors.includes('proof')).toBeTruthy();
             });
         });
 
@@ -282,7 +285,8 @@ if (suiteConfig.verifyCredentialConfiguration) {
                         body.verifiableCredential.proof.proofValue = 'badProof';
                     }
                     const res = await httpClient.postJson(verifierEndpoint, body, {});
-                    expect(res.status).toBe(400);
+                    expect(res.status).toBe(200);
+                    expect(res.body.errors.includes('proof')).toBeTruthy();
                 });
                 it('should fail with additional unsigned property in credential', async () => {
                     const body = {
