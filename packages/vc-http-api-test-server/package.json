@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "test": "jest",
+    "test": "jest issue",
     "start-test-server": "node runServer.js"
   },
   "dependencies": {
