@@ -1,4 +1,4 @@
-let { suiteConfig } = global;
+const suiteConfig = require('../config/Transmute');
 
 const httpClient = require('../services/httpClient');
 
@@ -8,11 +8,12 @@ if (suiteConfig.issueCredentialConfiguration) {
     const credentials = suiteConfig.credentials;
 
     // Deal with possible polymorphic issuer configuration
-    const issuerConfiguration = Array.isArray(suiteConfig.issueCredentialConfiguration) ? suiteConfig.issueCredentialConfiguration : [ suiteConfig.issueCredentialConfiguration ];
+    let issuerConfiguration = Array.isArray(suiteConfig.issueCredentialConfiguration) ? suiteConfig.issueCredentialConfiguration : [ suiteConfig.issueCredentialConfiguration ];
+    issuerConfiguration = [issuerConfiguration[0]];
 
     issuerConfiguration.forEach((value) => {
       describe(`with issuer: ${value.id}`, () => {
-        it('1. The Issuer\'s Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.', async () => {
+        it.only('1. The Issuer\'s Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.', async () => {
             const body = {
                 credential: { ...credentials[0].data, issuer: value.id },
             };
@@ -168,8 +169,8 @@ if (suiteConfig.issueCredentialConfiguration) {
       });
     });
   });
-  
-  describe("Issue Credential API - Credential Type Interop", () => {
+
+  describe.skip("Issue Credential API - Credential Type Interop", () => {
     // Load in the static test fixtures
     const credentials = suiteConfig.credentials;
 
