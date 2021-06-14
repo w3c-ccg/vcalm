@@ -3,6 +3,11 @@ const suiteConfig = require('../config/Transmute');
 const httpClient = require('../services/httpClient');
 
 if (suiteConfig.issueCredentialConfiguration) {
+  const authorizationOptions = {
+    getHeaders: suiteConfig.getHeaders,
+    getQueryParams: suiteConfig.getQueryParams,
+  };
+
   describe("Issue Credential API - Conformance", () => {
     // Load in the static test fixtures
     const credentials = suiteConfig.credentials;
@@ -13,11 +18,11 @@ if (suiteConfig.issueCredentialConfiguration) {
 
     issuerConfiguration.forEach((value) => {
       describe(`with issuer: ${value.id}`, () => {
-        it.only('1. The Issuer\'s Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.', async () => {
+        it('1. The Issuer\'s Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.', async () => {
             const body = {
                 credential: { ...credentials[0].data, issuer: value.id },
             };
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(201);
             expect(res.body.proof).toBeDefined();
             expect(res.body.proof.type).toEqual(value.proofType);
@@ -27,7 +32,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             const body = {
                 credential: { ...credentials[0].data, issuer: value.id },
             };
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(201);
             expect(res.body.proof).toBeDefined();
             expect(res.body.proof.type).toEqual(value.proofType);
@@ -40,7 +45,7 @@ if (suiteConfig.issueCredentialConfiguration) {
                 '@context': 'force_error',
               },
             };
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(400);
         });
 
@@ -48,7 +53,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             const body = {
               credential: { ...credentials[0].data, issuer: value.id },
             };
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(201);
             expect(res.body).toBeDefined();
             expect(res.body.issuer).toBeDefined();
@@ -66,7 +71,7 @@ if (suiteConfig.issueCredentialConfiguration) {
                 proofPurpose: 'foo',
               },
             };
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(400);
         });
 
@@ -81,7 +86,7 @@ if (suiteConfig.issueCredentialConfiguration) {
                 verificationMethod: 'foo',
               },
             };
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(400);
         });
 
@@ -93,7 +98,7 @@ if (suiteConfig.issueCredentialConfiguration) {
               },
             };
             delete body.credential['@context'];
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(400);
         });
 
@@ -108,7 +113,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             'https://www.w3.org/2018/credentials/v1',
             'broken',
           ];
-          const res = await httpClient.postJson(value.endpoint, body, {});
+          const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
           expect(res.status).toBe(400);
         });
 
@@ -119,7 +124,7 @@ if (suiteConfig.issueCredentialConfiguration) {
               issuer: value.id
             }
           };
-          const res = await httpClient.postJson(value.endpoint, body, {});
+          const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
           expect(res.status).toBe(201);
           expect(res.body.proof).toBeDefined();
         });
@@ -141,7 +146,7 @@ if (suiteConfig.issueCredentialConfiguration) {
                   },
                 },
               };
-              const res = await httpClient.postJson(value.endpoint, body, {});
+              const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
               expect(res.status).toBe(201);
               expect(res.body).toBeDefined();
               expect(res.body.credentialStatus).toBeDefined();
@@ -162,7 +167,7 @@ if (suiteConfig.issueCredentialConfiguration) {
                 },
               },
             };
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(400);
           });
         }
@@ -170,7 +175,7 @@ if (suiteConfig.issueCredentialConfiguration) {
     });
   });
 
-  describe.skip("Issue Credential API - Credential Type Interop", () => {
+  describe("Issue Credential API - Credential Type Interop", () => {
     // Load in the static test fixtures
     const credentials = suiteConfig.credentials;
 
@@ -184,7 +189,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             const body = {
               credential: { ...credentials[0].data, issuer: value.id },
           };
-          const res = await httpClient.postJson(value.endpoint, body, {});
+          const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
           expect(res.status).toBe(201);
           expect(res.body.proof).toBeDefined();
           })
