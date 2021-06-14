@@ -10,6 +10,7 @@ if (
 ) {
   describe("Submit Presentation API", () => {
     let verifiablePresentations = suiteConfig.verifiablePresentations;
+    let verifiableCredentials = suiteConfig.verifiableCredentials;
 
     const {
       authentication,
@@ -43,16 +44,17 @@ if (
     });
 
     it("2. the submit presentation should pass", async () => {
-      const body = {
+      const notifyBody = {
         query: [{ type: "UniversityDegreeCredential" }],
       };
-      const res = await httpClient.postJson(notifyEndpoint, body, {});
-      expect(res.status).toBe(200);
-      expect(res.body.query).toBeDefined();
-      expect(res.body.domain).toBeDefined();
-      expect(res.body.challenge).toBeDefined();
-      ({ domain, challenge } = res.body);
-      const body2 = {
+      const notifyRes = await httpClient.postJson(notifyEndpoint, notifyBody, {});
+      expect(notifyRes.status).toBe(200);
+      expect(notifyRes.body.query).toBeDefined();
+      expect(notifyRes.body.domain).toBeDefined();
+      expect(notifyRes.body.challenge).toBeDefined();
+      ({ domain, challenge } = notifyRes.body);
+      verifiablePresentations[0].verifiableCredential = verifiableCredentials[0].data;
+      const proveBody = {
         presentation: verifiablePresentations[0],
         options: {
           // Will be filled with the signing key id by the API
@@ -62,11 +64,18 @@ if (
           challenge,
         },
       };
-      const res2 = await httpClient.postJson(proveEndpoint, body2, {
+      const proveRes = await httpClient.postJson(proveEndpoint, proveBody, {
         type: "oauth2-bearer-token",
         accessToken,
       });
-      expect(res2.status).toBe(201);
+      expect(proveRes.status).toBe(201);
+      expect(proveRes.body).toBeDefined();
+      expect(proveRes.body.type).toEqual(['VerifiablePresentation']);
+      expect(proveRes.body.proof).toBeDefined();
+      const submissionRes = await httpClient.postJson(endpoint, proveRes.body);
+      expect(submissionRes.status).toBe(200);
+      expect(submissionRes.body).toBeDefined();
+      expect(submissionRes.body.verified).toBeTruthy();
     });
   });
 }
