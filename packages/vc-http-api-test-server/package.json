@@ -20,7 +20,6 @@
     "slugify": "^1.4.6"
   },
   "devDependencies": {
-    "axios": "^0.21.1",
     "dotenv-cli": "^4.0.0"
   }
 }
