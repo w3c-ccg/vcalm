@@ -1,4 +1,4 @@
-const axios = require('axios');
+const fetch = require('node-fetch');
 
 module.exports = {
   name: 'Transmute',
@@ -10,15 +10,17 @@ module.exports = {
       audience: process.env.TRANSMUTE_AUDIENCE,
       grant_type: 'client_credentials',
     };
-    const oauthResponse = await axios({
-      method: 'POST',
-      url: `https://${process.env.TRANSMUTE_DOMAIN}/oauth/token`,
-      headers: {
-        'content-type': 'application/json',
+    const oauthResponse = await fetch(
+      `https://${process.env.TRANSMUTE_DOMAIN}/oauth/token`,
+      {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(data),
       },
-      data,
-    });
-    const accessToken = oauthResponse.data.access_token;
+    ).then(res => res.json());
+    const accessToken = oauthResponse.access_token;
     return {
       Authorization: `Bearer ${accessToken}`,
     };
