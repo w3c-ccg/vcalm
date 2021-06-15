@@ -28,18 +28,18 @@ module.exports = {
   },
   getQueryParams: async () => {
     return {
-      role: 'http://localhost:8080/organizations/a1664189-094f-4546-a767-fff1602638a3/admin',
+      role: 'https://staging.platform.transmute.industries/organizations/eaff306f-2591-4d02-a08c-410574e9c861/admin',
     };
   },
   issueCredentialConfiguration: [
     {
-      id: 'did:key:z6MkpRgwMo1tSopyz5RZD131SpkZ1tAb5pvZcs76eBe9hQRK',
+      id: 'did:key:z6Mknv9euBSQrKXBCsTrr7sYdqMiGbeKgUCWvM5SMxQWgn7w',
       endpoint:
-        'http://localhost:8080/v1/organizations/a1664189-094f-4546-a767-fff1602638a3/credentials/issue',
+        'https://staging.platform.transmute.industries/v1/organizations/eaff306f-2591-4d02-a08c-410574e9c861/credentials/issue',
       proofType: 'Ed25519Signature2018',
       options: {
         assertionMethod:
-          'did:key:z6MkpRgwMo1tSopyz5RZD131SpkZ1tAb5pvZcs76eBe9hQRK#z6MkpRgwMo1tSopyz5RZD131SpkZ1tAb5pvZcs76eBe9hQRK',
+          'did:key:z6Mknv9euBSQrKXBCsTrr7sYdqMiGbeKgUCWvM5SMxQWgn7w#z6Mknv9euBSQrKXBCsTrr7sYdqMiGbeKgUCWvM5SMxQWgn7w',
       },
     },
   ],
