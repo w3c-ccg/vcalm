@@ -7,8 +7,6 @@ module.exports = {
     const data = {
       client_id: process.env.CLIENT_ID,
       client_secret: process.env.CLIENT_SECRET,
-      // audience: 'https://staging.platform.transmute.industries',
-      // audience: 'http://localhost:8080',
       audience: process.env.AUDIENCE,
       grant_type: 'client_credentials',
     };
