@@ -1,4 +1,4 @@
-const suiteConfig = require('../config/Transmute');
+let { suiteConfig } = global;
 
 const httpClient = require('../services/httpClient');
 
