@@ -19,4 +19,7 @@ jobs:
         run: npm run lint
 
       - name: Test
+        env:
+          TRANSMUTE_CLIENT_ID: ${{ secrets.TRANSMUTE_CLIENT_ID }}
+          TRANSMUTE_CLIENT_SECRET: ${{ secrets.TRANSMUTE_CLIENT_SECRET }}
         run: npm run test
