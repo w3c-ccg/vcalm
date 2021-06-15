@@ -22,7 +22,7 @@ if (suiteConfig.issueCredentialConfiguration) {
 
     issuerConfiguration.forEach((value) => {
       describe(`with issuer: ${value.id}`, () => {
-        it.only('1. The Issuer\'s Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.', async () => {
+        it('1. The Issuer\'s Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.', async () => {
             const body = {
                 credential: { ...credentials[0].data, issuer: value.id },
             };
@@ -179,7 +179,7 @@ if (suiteConfig.issueCredentialConfiguration) {
     });
   });
 
-  describe.skip("Issue Credential API - Credential Type Interop", () => {
+  describe("Issue Credential API - Credential Type Interop", () => {
     // Load in the static test fixtures
     const credentials = suiteConfig.credentials;
 
