@@ -67,6 +67,28 @@ module.exports = {
       'BbsBlsSignatureProof2020',
     ],
   },
+  notifyPresentationConfiguration: {
+    endpoint: "https://staging.platform.transmute.industries/v1/organizations/eaff306f-2591-4d02-a08c-410574e9c861/presentations/available",
+    // endpoint: "http://localhost:8080/v1/organizations/52628a04-cc54-4570-9940-36133d606ab6/presentations/available",
+  },
+  submitPresentationConfiguration: {
+    endpoint: "https://staging.platform.transmute.industries/v1/organizations/eaff306f-2591-4d02-a08c-410574e9c861/presentations/submissions",
+    // endpoint: "http://localhost:8080/v1/organizations/52628a04-cc54-4570-9940-36133d606ab6/presentations/submissions",
+    proveEndpoint: "https://staging.platform.transmute.industries/v1/organizations/eaff306f-2591-4d02-a08c-410574e9c861/presentations/prove?role=https://staging.platform.transmute.industries/organizations/eaff306f-2591-4d02-a08c-410574e9c861/admin",
+    // proveEndpoint: "http://localhost:8080/v1/organizations/52628a04-cc54-4570-9940-36133d606ab6/presentations/prove?role=http://localhost:8080/organizations/52628a04-cc54-4570-9940-36133d606ab6/admin",
+  },
+  credentials: require("../__fixtures__/credentials"),
+  verifiableCredentials: require("../__fixtures__/verifiableCredentials"),
+  verifiablePresentations: require("../__fixtures__/verifiablePresentations"),
+  authentication: {
+    endpoint: "https://transmute-industries.auth0.com/oauth/token",
+    request: {
+      client_id: process.env.TRANSMUTE_CLIENT_ID,
+      client_secret: process.env.TRANSMUTE_CLIENT_SECRET,
+      audience: "https://staging.platform.transmute.industries",
+      grant_type: "client_credentials"
+    }
+  },
   credentials: require('../__fixtures__/credentials'),
   verifiableCredentials: require('../__fixtures__/verifiableCredentials'),
   verifiablePresentations: require('../__fixtures__/verifiablePresentations'),
