@@ -3,10 +3,15 @@ const suiteConfig = require('../config/Transmute');
 const httpClient = require('../services/httpClient');
 
 if (suiteConfig.issueCredentialConfiguration) {
-  const authorizationOptions = {
-    getHeaders: suiteConfig.getHeaders,
-    getQueryParams: suiteConfig.getQueryParams,
-  };
+  const authorizationOptions = {};
+  beforeAll(async () => {
+    if (suiteConfig.getHeaders) {
+      authorizationOptions.headers = await suiteConfig.getHeaders();
+    }
+    if (suiteConfig.getQueryParams) {
+      authorizationOptions.query = await suiteConfig.getQueryParams();
+    }
+  });
 
   describe("Issue Credential API - Conformance", () => {
     // Load in the static test fixtures

@@ -1,9 +1,29 @@
+const axios = require('axios');
+
 module.exports = {
   name: 'Transmute',
   getHeaders: async () => {
+    // Get oauth2 access token using client_credentials flow
+    const data = {
+      client_id: process.env.CLIENT_ID,
+      client_secret: process.env.CLIENT_SECRET,
+      // audience: 'https://staging.platform.transmute.industries',
+      // audience: 'http://localhost:8080',
+      audience: process.env.AUDIENCE,
+      grant_type: 'client_credentials',
+    };
+    const auth0Domain = process.env.DOMAIN;
+    const oauthResponse = await axios({
+      method: 'POST',
+      url: `https://${auth0Domain}/oauth/token`,
+      headers: {
+        'content-type': 'application/json',
+      },
+      data,
+    });
+    const accessToken = oauthResponse.data.access_token;
     return {
-      Authorization:
-        'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik9FRkROek5CTUVKQ00wRkVSalEyUXpjM05qZ3hSVU14TmpJd016VXdRMEUwT0RBME5USXhRZyJ9.eyJpc3MiOiJodHRwczovL3RyYW5zbXV0ZS1pbmR1c3RyaWVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGI5MDk1ODZhY2FiZjAwNjliMzcwYmUiLCJhdWQiOlsiaHR0cDovL2xvY2FsaG9zdDo4MDgwIiwiaHR0cHM6Ly90cmFuc211dGUtaW5kdXN0cmllcy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjIzNjc5Njk2LCJleHAiOjE2MjM3NjYwOTYsImF6cCI6IkVxeDJPRWtWRDk5ak0xdVdqdkJmV2xFODNma1lTOHNUIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCBvZmZsaW5lX2FjY2VzcyJ9.H1MtQ-Y_4-5FTZ-8IkKIWtI6zEvql1IcRVNZax4HzU3a0LZNUx3hI8DyiNB31QIsb2DzUsQuFfz4q2yUVy858RLIwu3mlQdJ720ZNzKu5GM3amRMSYR5nUFztsLX6dMzf-DGOSQL3nKwyb-Lkh9xs3u8D6XtaWCknN7NtfE6nz4h44PZWfNo8oU30F6ZWJIoFPl8ndgExC4OaN4Nr1udvTATCjxSpOqXXqRxaO0b15TpEey10xH2t9q90aZ9aCaNcTACY049CbT5tj4e00umuxy6EkQNy9lasZmPaOkgBsacIvCY4DkFpyRvCXHunelJp5VYxFw7ygwFrgZ0Q0GXdg',
+      Authorization: `Bearer ${accessToken}`,
     };
   },
   getQueryParams: async () => {

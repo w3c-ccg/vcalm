@@ -32,18 +32,16 @@ const postJson = async (url, body, requestAuthorization) => {
     headers.Authorization = `Bearer ${requestAuthorization.accessToken}`
   }
 
-  if (requestAuthorization.getHeaders) {
-    const extraHeaders = await requestAuthorization.getHeaders();
+  if (requestAuthorization.headers) {
     headers = {
       ...headers,
-      ...extraHeaders,
+      ...requestAuthorization.headers,
     };
   }
 
   const params = new URLSearchParams();
-  if (requestAuthorization.getQueryParams) {
-    const extraQueryParams = await requestAuthorization.getQueryParams();
-    Object.entries(extraQueryParams).forEach(([key, value]) => {
+  if (requestAuthorization.query) {
+    Object.entries(requestAuthorization.query).forEach(([key, value]) => {
       params.append(key, value);
     });
   }
