@@ -3,6 +3,16 @@ let { suiteConfig } = global;
 const httpClient = require('../services/httpClient');
 
 if (suiteConfig.issueCredentialConfiguration) {
+  const authorizationOptions = {};
+  beforeAll(async () => {
+    if (suiteConfig.getHeaders) {
+      authorizationOptions.headers = await suiteConfig.getHeaders();
+    }
+    if (suiteConfig.getQueryParams) {
+      authorizationOptions.query = await suiteConfig.getQueryParams();
+    }
+  });
+
   describe("Issue Credential API - Conformance", () => {
     // Load in the static test fixtures
     const credentials = suiteConfig.credentials;
@@ -16,7 +26,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             const body = {
                 credential: { ...credentials[0].data, issuer: value.id },
             };
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(201);
             expect(res.body.proof).toBeDefined();
             expect(res.body.proof.type).toEqual(value.proofType);
@@ -26,7 +36,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             const body = {
                 credential: { ...credentials[0].data, issuer: value.id },
             };
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(201);
             expect(res.body.proof).toBeDefined();
             expect(res.body.proof.type).toEqual(value.proofType);
@@ -39,7 +49,7 @@ if (suiteConfig.issueCredentialConfiguration) {
                 '@context': 'force_error',
               },
             };
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(400);
         });
 
@@ -47,7 +57,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             const body = {
               credential: { ...credentials[0].data, issuer: value.id },
             };
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(201);
             expect(res.body).toBeDefined();
             expect(res.body.issuer).toBeDefined();
@@ -65,7 +75,7 @@ if (suiteConfig.issueCredentialConfiguration) {
                 proofPurpose: 'foo',
               },
             };
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(400);
         });
 
@@ -80,7 +90,7 @@ if (suiteConfig.issueCredentialConfiguration) {
                 verificationMethod: 'foo',
               },
             };
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(400);
         });
 
@@ -92,7 +102,7 @@ if (suiteConfig.issueCredentialConfiguration) {
               },
             };
             delete body.credential['@context'];
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(400);
         });
 
@@ -107,7 +117,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             'https://www.w3.org/2018/credentials/v1',
             'broken',
           ];
-          const res = await httpClient.postJson(value.endpoint, body, {});
+          const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
           expect(res.status).toBe(400);
         });
 
@@ -118,7 +128,7 @@ if (suiteConfig.issueCredentialConfiguration) {
               issuer: value.id
             }
           };
-          const res = await httpClient.postJson(value.endpoint, body, {});
+          const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
           expect(res.status).toBe(201);
           expect(res.body.proof).toBeDefined();
         });
@@ -140,7 +150,7 @@ if (suiteConfig.issueCredentialConfiguration) {
                   },
                 },
               };
-              const res = await httpClient.postJson(value.endpoint, body, {});
+              const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
               expect(res.status).toBe(201);
               expect(res.body).toBeDefined();
               expect(res.body.credentialStatus).toBeDefined();
@@ -161,14 +171,14 @@ if (suiteConfig.issueCredentialConfiguration) {
                 },
               },
             };
-            const res = await httpClient.postJson(value.endpoint, body, {});
+            const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
             expect(res.status).toBe(400);
           });
         }
       });
     });
   });
-  
+
   describe("Issue Credential API - Credential Type Interop", () => {
     // Load in the static test fixtures
     const credentials = suiteConfig.credentials;
@@ -183,7 +193,7 @@ if (suiteConfig.issueCredentialConfiguration) {
             const body = {
               credential: { ...credentials[0].data, issuer: value.id },
           };
-          const res = await httpClient.postJson(value.endpoint, body, {});
+          const res = await httpClient.postJson(value.endpoint, body, authorizationOptions);
           expect(res.status).toBe(201);
           expect(res.body.proof).toBeDefined();
           })

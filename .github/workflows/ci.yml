@@ -22,4 +22,6 @@ jobs:
         env:
           TRANSMUTE_CLIENT_ID: ${{ secrets.TRANSMUTE_CLIENT_ID }}
           TRANSMUTE_CLIENT_SECRET: ${{ secrets.TRANSMUTE_CLIENT_SECRET }}
+          TRANSMUTE_DOMAIN: ${{ secrets.TRANSMUTE_DOMAIN }}
+          TRANSMUTE_AUDIENCE: ${{ secrets.TRANSMUTE_AUDIENCE }}
         run: npm run test

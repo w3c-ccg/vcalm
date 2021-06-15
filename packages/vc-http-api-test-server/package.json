@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "test": "node runLocal.js",
+    "test": "dotenv -e .env jest --runInBand --",
+    "run:report": "node runLocal.js",
     "start-test-server": "node runServer.js"
   },
   "dependencies": {
@@ -17,5 +18,8 @@
     "querystring": "^0.2.0",
     "require-all": "3.0.0",
     "slugify": "^1.4.6"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^4.0.0"
   }
 }
