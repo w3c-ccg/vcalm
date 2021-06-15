@@ -24,8 +24,7 @@ const getJson = async (url, requestAuthorization) => {
 
 const postJson = async (url, body, requestAuthorization = {}) => {
   console.log(url);
-  console.log(body);
-  console.log(requestAuthorization);
+  console.log(requestAuthorization.headers);
   let headers = {
     Accept: 'application/ld+json,application/json',
     'Content-Type': 'application/json',

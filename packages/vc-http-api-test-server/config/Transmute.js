@@ -11,16 +11,16 @@ module.exports = {
       audience: process.env.TRANSMUTE_AUDIENCE,
       grant_type: 'client_credentials',
     };
-    const auth0Domain = process.env.TRANSMUTE_DOMAIN;
     const oauthResponse = await axios({
       method: 'POST',
-      url: `https://${auth0Domain}/oauth/token`,
+      url: `https://${process.env.TRANSMUTE_DOMAIN}/oauth/token`,
       headers: {
         'content-type': 'application/json',
       },
       data,
     });
     const accessToken = oauthResponse.data.access_token;
+    console.log('accessToken', accessToken);
     return {
       Authorization: `Bearer ${accessToken}`,
     };
@@ -76,15 +76,12 @@ module.exports = {
     proveEndpoint: "https://staging.platform.transmute.industries/v1/organizations/eaff306f-2591-4d02-a08c-410574e9c861/presentations/prove?role=https://staging.platform.transmute.industries/organizations/eaff306f-2591-4d02-a08c-410574e9c861/admin",
     // proveEndpoint: "http://localhost:8080/v1/organizations/52628a04-cc54-4570-9940-36133d606ab6/presentations/prove?role=http://localhost:8080/organizations/52628a04-cc54-4570-9940-36133d606ab6/admin",
   },
-  credentials: require("../__fixtures__/credentials"),
-  verifiableCredentials: require("../__fixtures__/verifiableCredentials"),
-  verifiablePresentations: require("../__fixtures__/verifiablePresentations"),
   authentication: {
-    endpoint: "https://transmute-industries.auth0.com/oauth/token",
+    endpoint: `https://${process.env.TRANSMUTE_DOMAIN}/oauth/token`,
     request: {
       client_id: process.env.TRANSMUTE_CLIENT_ID,
       client_secret: process.env.TRANSMUTE_CLIENT_SECRET,
-      audience: "https://staging.platform.transmute.industries",
+      audience: process.env.TRANSMUTE_AUDIENCE,
       grant_type: "client_credentials"
     }
   },
