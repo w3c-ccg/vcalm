@@ -5,12 +5,12 @@ module.exports = {
   getHeaders: async () => {
     // Get oauth2 access token using client_credentials flow
     const data = {
-      client_id: process.env.CLIENT_ID,
-      client_secret: process.env.CLIENT_SECRET,
-      audience: process.env.AUDIENCE,
+      client_id: process.env.TRANSMUTE_CLIENT_ID,
+      client_secret: process.env.TRANSMUTE_CLIENT_SECRET,
+      audience: process.env.TRANSMUTE_AUDIENCE,
       grant_type: 'client_credentials',
     };
-    const auth0Domain = process.env.DOMAIN;
+    const auth0Domain = process.env.TRANSMUTE_DOMAIN;
     const oauthResponse = await axios({
       method: 'POST',
       url: `https://${auth0Domain}/oauth/token`,
