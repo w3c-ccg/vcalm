@@ -18,8 +18,7 @@ if (suiteConfig.issueCredentialConfiguration) {
     const credentials = suiteConfig.credentials;
 
     // Deal with possible polymorphic issuer configuration
-    let issuerConfiguration = Array.isArray(suiteConfig.issueCredentialConfiguration) ? suiteConfig.issueCredentialConfiguration : [ suiteConfig.issueCredentialConfiguration ];
-    issuerConfiguration = [issuerConfiguration[0]];
+    const issuerConfiguration = Array.isArray(suiteConfig.issueCredentialConfiguration) ? suiteConfig.issueCredentialConfiguration : [ suiteConfig.issueCredentialConfiguration ];
 
     issuerConfiguration.forEach((value) => {
       describe(`with issuer: ${value.id}`, () => {

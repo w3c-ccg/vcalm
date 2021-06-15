@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "test": "node runLocal.js",
-    "test:jest": "dotenv -e .env jest",
+    "test": "dotenv -e .env jest",
+    "run:report": "node runLocal.js",
     "start-test-server": "node runServer.js"
   },
   "dependencies": {
