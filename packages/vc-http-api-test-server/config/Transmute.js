@@ -19,7 +19,7 @@ module.exports = {
         },
         body: JSON.stringify(data),
       },
-    ).then(res => res.json());
+    ).then((res) => res.json());
     const accessToken = oauthResponse.access_token;
     return {
       Authorization: `Bearer ${accessToken}`,
@@ -42,6 +42,18 @@ module.exports = {
       },
     },
   ],
+  verifyCredentialConfiguration: {
+    // endpoint: "https://vc.transmute.world/next/credentials/verify",
+    // endpoint: "http://localhost:8080/v1/organizations/52628a04-cc54-4570-9940-36133d606ab6/credentials/verify",
+    endpoint:
+      'https://staging.platform.transmute.industries/v1/organizations/eaff306f-2591-4d02-a08c-410574e9c861/credentials/verify',
+    didMethodsSupported: ['did:key:'],
+    linkedDataProofSuitesSupported: [
+      'Ed25519Signature2018',
+      'BbsBlsSignature2020',
+      'BbsBlsSignatureProof2020',
+    ],
+  },
   verifyPresentationConfiguration: {
     // endpoint: "https://vc.transmute.world/next/presentations/verify",
     // endpoint: "http://localhost:8080/v1/organizations/52628a04-cc54-4570-9940-36133d606ab6/presentations/verify",
