@@ -4,6 +4,7 @@ module.exports = {
   name: 'Transmute',
   getHeaders: async () => {
     // Get oauth2 access token using client_credentials flow
+    console.log('lol', process.env.TRANSMUTE_CLIENT_ID);
     const data = {
       client_id: process.env.TRANSMUTE_CLIENT_ID,
       client_secret: process.env.TRANSMUTE_CLIENT_SECRET,

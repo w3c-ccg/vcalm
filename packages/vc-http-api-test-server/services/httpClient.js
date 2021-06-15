@@ -23,6 +23,9 @@ const getJson = async (url, requestAuthorization) => {
 };
 
 const postJson = async (url, body, requestAuthorization = {}) => {
+  console.log(url);
+  console.log(body);
+  console.log(requestAuthorization);
   let headers = {
     Accept: 'application/ld+json,application/json',
     'Content-Type': 'application/json',
@@ -53,6 +56,7 @@ const postJson = async (url, body, requestAuthorization = {}) => {
     method: 'post',
     body: JSON.stringify(body),
   });
+  console.log(urlWithParams, res);
   const resBody = await res.json();
 
   return {status: res.status, body: resBody};
