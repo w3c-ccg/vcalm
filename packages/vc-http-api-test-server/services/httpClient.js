@@ -22,7 +22,7 @@ const getJson = async (url, requestAuthorization) => {
   return res;
 };
 
-const postJson = async (url, body, requestAuthorization) => {
+const postJson = async (url, body, requestAuthorization = {}) => {
   let headers = {
     Accept: 'application/ld+json,application/json',
     'Content-Type': 'application/json',
@@ -39,14 +39,16 @@ const postJson = async (url, body, requestAuthorization) => {
     };
   }
 
+  let urlWithParams = url;
   const params = new URLSearchParams();
   if (requestAuthorization.query) {
     Object.entries(requestAuthorization.query).forEach(([key, value]) => {
       params.append(key, value);
     });
+    urlWithParams = `${url}?${params.toString()}`;
   }
 
-  const res = await fetch(`${url}?${params.toString()}`, {
+  const res = await fetch(urlWithParams, {
     headers,
     method: 'post',
     body: JSON.stringify(body),
