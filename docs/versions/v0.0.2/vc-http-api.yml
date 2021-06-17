@@ -468,11 +468,11 @@ components:
           type: object
           description: The holder - will be ignored if no proof is present since there is no proof of authority over the credentials
           nullable: true
-        "verifiableCredential":
+        "verifiableCredentials":
           type: array
           description: The Verifiable Credentials
           items:
-            type: object
+            $ref: "#/components/schemas/VerifiableCredential"
       example:
         {
           "@context":
