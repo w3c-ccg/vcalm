@@ -8,6 +8,7 @@
     "start-test-server": "node runServer.js"
   },
   "dependencies": {
+    "abort-controller": "^3.0.0",
     "base64url": "^3.0.1",
     "fastify": "^3.9.1",
     "fastify-cors": "^5.0.0",

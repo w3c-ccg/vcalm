@@ -1,4 +1,6 @@
 const fetch = require('node-fetch');
+const { AbortError } = require('node-fetch');
+const AbortController = require('abort-controller');
 
 const getJson = async (url, requestAuthorization) => {
   let headers = {
@@ -48,14 +50,28 @@ const postJson = async (url, body, requestAuthorization = {}) => {
     urlWithParams = `${url}?${params.toString()}`;
   }
 
-  const res = await fetch(urlWithParams, {
-    headers,
-    method: 'post',
-    body: JSON.stringify(body),
-  });
-  const resBody = await res.json();
+  // Abort request if it takes more than 1s
+  const controller = new AbortController();
+  const timeout = setTimeout(() => {
+    controller.abort();
+  }, 1000);
+  try {
+    const res = await fetch(urlWithParams, {
+      headers,
+      method: 'post',
+      body: JSON.stringify(body),
+      signal: controller.signal,
+    });
+    const resBody = await res.json();
+    return { status: res.status, body: resBody };
+  } catch (error) {
+    if (error && error.type === 'aborted') {
+      return { status: 408 };
+    }
+  } finally {
+    clearTimeout(timeout);
+  }
 
-  return {status: res.status, body: resBody};
 };
 
 module.exports = {
