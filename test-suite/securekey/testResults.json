@@ -1,12 +1,12 @@
 {
   "testResults": {
-    "numFailedTests": 14,
-    "numPassedTests": 138,
+    "numFailedTests": 4,
+    "numPassedTests": 148,
     "numTotalTests": 152,
     "testResults": [
       {
-        "numFailingTests": 3,
-        "numPassingTests": 84,
+        "numFailingTests": 2,
+        "numPassingTests": 85,
         "testResults": [
           {
             "ancestorTitles": [
@@ -157,29 +157,10 @@
               "13. The Verifier's Verify Credential HTTP API MAY support checking the status of a credential.",
               "For status type of: RevocationList2020Status"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 400,
-                    "expected": 200,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:225:60)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:225:60)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Verify Credential API - Conformance 13. The Verifier's Verify Credential HTTP API MAY support checking the status of a credential. For status type of: RevocationList2020Status should pass",
-            "status": "failed",
+            "status": "passed",
             "title": "should pass"
           },
           {
@@ -1027,8 +1008,8 @@
         ]
       },
       {
-        "numFailingTests": 11,
-        "numPassingTests": 49,
+        "numFailingTests": 2,
+        "numPassingTests": 58,
         "testResults": [
           {
             "ancestorTitles": [
@@ -1480,25 +1461,10 @@
               "Issue Credential API - Credential Type Interop",
               "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "name": "",
-                  "message": "Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout."
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": ": Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.",
-                "passed": false,
-                "stack": "Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.Error: \n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Spec.js:116:22)\n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/setup_jest_globals.js:78:9)\n    at specFactory (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:523:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:592:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:134:23)\n    at it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:100:21)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:182:11)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:181:21)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:180:7)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:179:25)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:172:3)\n    at Runtime._execModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:1299:24)\n    at Runtime._loadModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:898:12)\n    at Runtime.requireModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:746:10)\n    at jasmine2 (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/index.js:230:13)\n    at runTestInternal (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:380:22)\n    at runTest (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:472:34)"
-              }
-            ],
-            "failureMessages": [
-              ": Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.Error: \n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Spec.js:116:22)\n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/setup_jest_globals.js:78:9)\n    at specFactory (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:523:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:592:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:134:23)\n    at it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:100:21)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:182:11)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:181:21)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:180:7)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:179:25)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:172:3)\n    at Runtime._execModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:1299:24)\n    at Runtime._loadModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:898:12)\n    at Runtime.requireModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:746:10)\n    at jasmine2 (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/index.js:230:13)\n    at runTestInternal (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:380:22)\n    at runTest (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:472:34)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6",
-            "status": "failed",
+            "status": "passed",
             "title": "Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6"
           },
           {
@@ -1506,42 +1472,10 @@
               "Issue Credential API - Credential Type Interop",
               "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "message": "invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0",
-                  "type": "invalid-json"
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "FetchError: invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0",
-                "passed": false,
-                "stack": "FetchError: invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:186:23)"
-              },
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 500,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "FetchError: invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:186:23)",
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue Heavy Sour Dilbit credential, fixture case-7",
-            "status": "failed",
+            "status": "passed",
             "title": "Can issue Heavy Sour Dilbit credential, fixture case-7"
           },
           {
@@ -1549,29 +1483,10 @@
               "Issue Credential API - Credential Type Interop",
               "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 500,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue QP Inbond credential, fixture case-8",
-            "status": "failed",
+            "status": "passed",
             "title": "Can issue QP Inbond credential, fixture case-8"
           },
           {
@@ -1579,29 +1494,10 @@
               "Issue Credential API - Credential Type Interop",
               "With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 500,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:trustbloc:testnet.trustbloc.dev:EiA93NYbmVnRB0vdlwYMijSoHDQL21QRo8bWCJ_h7rglGA Can issue Certified Mill Test Report credential, fixture case-9",
-            "status": "failed",
+            "status": "passed",
             "title": "Can issue Certified Mill Test Report credential, fixture case-9"
           },
           {
@@ -1609,29 +1505,10 @@
               "Issue Credential API - Credential Type Interop",
               "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "matcherResult": {
-                    "actual": 500,
-                    "expected": 201,
-                    "name": "toBe",
-                    "pass": false
-                  }
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500",
-                "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-              }
-            ],
-            "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 500\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue Permanent Resident Card credential, fixture case-1",
-            "status": "failed",
+            "status": "passed",
             "title": "Can issue Permanent Resident Card credential, fixture case-1"
           },
           {
@@ -1639,25 +1516,10 @@
               "Issue Credential API - Credential Type Interop",
               "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "name": "",
-                  "message": "Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout."
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": ": Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.",
-                "passed": false,
-                "stack": "Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.Error: \n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Spec.js:116:22)\n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/setup_jest_globals.js:78:9)\n    at specFactory (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:523:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:592:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:134:23)\n    at it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:100:21)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:182:11)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:181:21)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:180:7)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:179:25)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:172:3)\n    at Runtime._execModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:1299:24)\n    at Runtime._loadModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:898:12)\n    at Runtime.requireModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:746:10)\n    at jasmine2 (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/index.js:230:13)\n    at runTestInternal (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:380:22)\n    at runTest (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:472:34)"
-              }
-            ],
-            "failureMessages": [
-              ": Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.Error: \n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Spec.js:116:22)\n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/setup_jest_globals.js:78:9)\n    at specFactory (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:523:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:592:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:134:23)\n    at it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:100:21)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:182:11)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:181:21)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:180:7)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:179:25)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:172:3)\n    at Runtime._execModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:1299:24)\n    at Runtime._loadModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:898:12)\n    at Runtime.requireModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:746:10)\n    at jasmine2 (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/index.js:230:13)\n    at runTestInternal (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:380:22)\n    at runTest (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:472:34)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue COVID-19 Vaccination Certificate credential, fixture case-10",
-            "status": "failed",
+            "status": "passed",
             "title": "Can issue COVID-19 Vaccination Certificate credential, fixture case-10"
           },
           {
@@ -1665,38 +1527,10 @@
               "Issue Credential API - Credential Type Interop",
               "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "message": "invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0",
-                  "type": "invalid-json"
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "FetchError: invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0",
-                "passed": false,
-                "stack": "FetchError: invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:186:23)"
-              },
-              {
-                "actual": "",
-                "error": {
-                  "name": "",
-                  "message": "Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout."
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": ": Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.",
-                "passed": false,
-                "stack": "Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.Error: \n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Spec.js:116:22)\n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/setup_jest_globals.js:78:9)\n    at specFactory (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:523:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:592:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:134:23)\n    at it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:100:21)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:182:11)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:181:21)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:180:7)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:179:25)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:172:3)\n    at Runtime._execModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:1299:24)\n    at Runtime._loadModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:898:12)\n    at Runtime.requireModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:746:10)\n    at jasmine2 (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/index.js:230:13)\n    at runTestInternal (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:380:22)\n    at runTest (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:472:34)"
-              }
-            ],
-            "failureMessages": [
-              "FetchError: invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:186:23)",
-              ": Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.Error: \n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Spec.js:116:22)\n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/setup_jest_globals.js:78:9)\n    at specFactory (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:523:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:592:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:134:23)\n    at it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:100:21)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:182:11)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:181:21)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:180:7)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:179:25)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:172:3)\n    at Runtime._execModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:1299:24)\n    at Runtime._loadModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:898:12)\n    at Runtime.requireModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:746:10)\n    at jasmine2 (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/index.js:230:13)\n    at runTestInternal (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:380:22)\n    at runTest (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:472:34)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue undefined credential, fixture case-11",
-            "status": "failed",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-11"
           },
           {
@@ -1704,38 +1538,10 @@
               "Issue Credential API - Credential Type Interop",
               "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "message": "invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0",
-                  "type": "invalid-json"
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "FetchError: invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0",
-                "passed": false,
-                "stack": "FetchError: invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:186:23)"
-              },
-              {
-                "actual": "",
-                "error": {
-                  "name": "",
-                  "message": "Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout."
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": ": Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.",
-                "passed": false,
-                "stack": "Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.Error: \n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Spec.js:116:22)\n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/setup_jest_globals.js:78:9)\n    at specFactory (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:523:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:592:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:134:23)\n    at it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:100:21)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:182:11)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:181:21)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:180:7)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:179:25)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:172:3)\n    at Runtime._execModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:1299:24)\n    at Runtime._loadModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:898:12)\n    at Runtime.requireModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:746:10)\n    at jasmine2 (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/index.js:230:13)\n    at runTestInternal (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:380:22)\n    at runTest (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:472:34)"
-              }
-            ],
-            "failureMessages": [
-              "FetchError: invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:186:23)",
-              ": Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.Timeout - Async callback was not invoked within the 60000 ms timeout specified by jest.setTimeout.Error: \n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Spec.js:116:22)\n    at new Spec (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/setup_jest_globals.js:78:9)\n    at specFactory (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:523:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:592:24)\n    at Env.it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:134:23)\n    at it (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:100:21)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:182:11)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:181:21)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at forEach (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:180:7)\n    at Array.forEach (<anonymous>)\n    at Suite.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:179:25)\n    at addSpecsToSuite (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:444:51)\n    at Env.describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/Env.js:414:11)\n    at describe (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/jasmine/jasmineLight.js:88:18)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:172:3)\n    at Runtime._execModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:1299:24)\n    at Runtime._loadModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:898:12)\n    at Runtime.requireModule (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runtime/build/index.js:746:10)\n    at jasmine2 (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-jasmine2/build/index.js:230:13)\n    at runTestInternal (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:380:22)\n    at runTest (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/jest/node_modules/jest-runner/build/runTest.js:472:34)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue undefined credential, fixture case-12",
-            "status": "failed",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-12"
           },
           {
@@ -1743,25 +1549,10 @@
               "Issue Credential API - Credential Type Interop",
               "With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd"
             ],
-            "failureDetails": [
-              {
-                "actual": "",
-                "error": {
-                  "message": "invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0",
-                  "type": "invalid-json"
-                },
-                "expected": "",
-                "matcherName": "",
-                "message": "FetchError: invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0",
-                "passed": false,
-                "stack": "FetchError: invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:186:23)"
-              }
-            ],
-            "failureMessages": [
-              "FetchError: invalid json response body at https://issuer.sandbox.trustbloc.dev/vc-issuer-interop/credentials/issue reason: Unexpected token < in JSON at position 0\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/node_modules/node-fetch/lib/index.js:272:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at Object.postJson (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/services/httpClient.js:40:19)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:186:23)"
-            ],
+            "failureDetails": [],
+            "failureMessages": [],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd Can issue undefined credential, fixture case-13",
-            "status": "failed",
+            "status": "passed",
             "title": "Can issue undefined credential, fixture case-13"
           },
           {
