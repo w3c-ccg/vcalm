@@ -13,58 +13,63 @@ paths:
 components:
   schemas:
     VerifiablePresentation:
-      type: object
-      description: A JSON-LD Verifiable Presentation with a proof.
-      allOf:
-        - $ref: "./Presentation.yml#/components/schemas/Presentation"
+      oneOf:
+        - type: string
+          description: A JWT Verifiable Presentation
+          example:
+            eyJhbGciOiJFZERTQSIsImtpZCI6ImRpZDprZXk6ejZNa2lWcHdBMjQxZ3VxdEtXQWtvaEhwY0FyeTdTOTRRUWI2dWtXM0djQ3N1Z2JLI3o2TWtpVnB3QTI0MWd1cXRLV0Frb2hIcGNBcnk3Uzk0UVFiNnVrVzNHY0NzdWdiSyJ9.eyJqdGkiOiJodHRwOi8vZXhhbXBsZS5nb3YvY3JlZGVudGlhbHMvMzczMiIsInZwIjp7IkBjb250ZXh0IjpbImh0dHBzOi8vd3d3LnczLm9yZy8yMDE4L2NyZWRlbnRpYWxzL3YxIiwiaHR0cHM6Ly93d3cudzMub3JnLzIwMTgvY3JlZGVudGlhbHMvZXhhbXBsZXMvdjEiXSwidHlwZSI6WyJWZXJpZmlhYmxlQ3JlZGVudGlhbCIsIlVuaXZlcnNpdHlEZWdyZWVDcmVkZW50aWFsIl0sInByb29mIjp7InR5cGUiOiJFZDI1NTE5U2lnbmF0dXJlMjAxOCIsInByb29mUHVycG9zZSI6ImFzc2VydGlvbk1ldGhvZCIsInZlcmlmaWNhdGlvbk1ldGhvZCI6ImRpZDpleGFtcGxlOjEyMyN6Nk1rc0hoN3FIV3Z5YkxnNVFUUFBkRzJEZ0VqamR1QkRBclY5RUY5bVJpUnpNQk4iLCJjcmVhdGVkIjoiMjAyMC0wNC0wMlQxODoyODowOFoiLCJqd3MiOiJleUpoYkdjaU9pSkZaRVJUUVNJc0ltSTJOQ0k2Wm1Gc2MyVXNJbU55YVhRaU9sc2lZalkwSWwxOS4uWXRxakVZbkZFTlQ3Zk5XLUNPRDBIQUFDeGV1UXhQS0FtcDRuSWw4allBdV9fNklIMkZwU3h2ODF3LWw1UHZFMW9nNTB0Uzl0SDhXeVhNbFh5bzQ1Q0EifSwiaXNzdWVyIjoiZGlkOmV4YW1wbGU6MTIzIiwiaXNzdWFuY2VEYXRlIjoiMjAyMC0wMy0xNlQyMjozNzoyNi41NDRaIiwiY3JlZGVudGlhbFN1YmplY3QiOnsiZGVncmVlIjp7Im5hbWUiOiJCYWNoZWxvciBvZiBTY2llbmNlIGFuZCBBcnRzIiwidHlwZSI6IkJhY2hlbG9yRGVncmVlIn0sImlkIjoiZGlkOmV4YW1wbGU6MTIzIn19fQ.fYcLJgGu2q4xLwUp40D8zQ45bOSu5ctX1qzn7aaHU77OTqDsMrAyNirhmFc00-1967Xnu9OUCiqJLOjHATSQAg
         - type: object
-          properties:
-            proof:
-              $ref: "./LinkedDataProof.yml#/components/schemas/LinkedDataProof"
-      example:
-        {
-          "@context":
-            [
-                "https://www.w3.org/2018/credentials/v1",
-                "https://www.w3.org/2018/credentials/examples/v1",
-            ],
-          "holder": "did:example:123",
-          "type": "VerifiablePresentation",
-          "verifiableCredential":
-            [
-                "@context":
-                  [
-                      "https://www.w3.org/2018/credentials/v1",
-                      "https://www.w3.org/2018/credentials/examples/v1",
-                  ],
-                "id": "http://example.gov/credentials/3732",
-                "type": ["VerifiableCredential", "UniversityDegreeCredential"],
-                "issuer": "did:example:123",
-                "issuanceDate": "2020-03-16T22:37:26.544Z",
-                "credentialSubject":
-                  {
-                    "id": "did:example:123",
-                    "degree":
-                      {
-                        "type": "BachelorDegree",
-                        "name": "Bachelor of Science and Arts",
-                      },
-                  },
-                "proof":
-                  {
-                    "type": "Ed25519Signature2018",
-                    "created": "2020-04-02T18:28:08Z",
-                    "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
-                    "proofPurpose": "assertionMethod",
-                    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA",
-                  },
-            ],
-          "proof":
+          description: A JSON-LD Verifiable Presentation with a proof.
+          allOf:
+            - $ref: "./Presentation.yml#/components/schemas/Presentation"
+            - type: object
+              properties:
+                proof:
+                  $ref: "./LinkedDataProof.yml#/components/schemas/LinkedDataProof"
+          example:
             {
-              "type": "Ed25519Signature2018",
-              "created": "2020-04-02T18:28:08Z",
-              "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
-              "proofPurpose": "assertionMethod",
-              "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA",
-            },
-        }
+              "@context":
+                [
+                    "https://www.w3.org/2018/credentials/v1",
+                    "https://www.w3.org/2018/credentials/examples/v1",
+                ],
+              "holder": "did:example:123",
+              "type": "VerifiablePresentation",
+              "verifiableCredential":
+                [
+                    "@context":
+                      [
+                          "https://www.w3.org/2018/credentials/v1",
+                          "https://www.w3.org/2018/credentials/examples/v1",
+                      ],
+                    "id": "http://example.gov/credentials/3732",
+                    "type": ["VerifiableCredential", "UniversityDegreeCredential"],
+                    "issuer": "did:example:123",
+                    "issuanceDate": "2020-03-16T22:37:26.544Z",
+                    "credentialSubject":
+                      {
+                        "id": "did:example:123",
+                        "degree":
+                          {
+                            "type": "BachelorDegree",
+                            "name": "Bachelor of Science and Arts",
+                          },
+                      },
+                    "proof":
+                      {
+                        "type": "Ed25519Signature2018",
+                        "created": "2020-04-02T18:28:08Z",
+                        "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+                        "proofPurpose": "assertionMethod",
+                        "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA",
+                      },
+                ],
+              "proof":
+                {
+                  "type": "Ed25519Signature2018",
+                  "created": "2020-04-02T18:28:08Z",
+                  "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+                  "proofPurpose": "assertionMethod",
+                  "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA",
+                },
+            }
