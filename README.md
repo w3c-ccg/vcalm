@@ -1,40 +1,31 @@
-## vc-http-api
+# [VC HTTP API](https://github.com/w3c-ccg/vc-http-api/) Goals
 
-[![Implementation Interoperability Report](https://github.com/w3c-ccg/vc-http-api/actions/workflows/cd.yml/badge.svg)](https://github.com/w3c-ccg/vc-http-api/actions/workflows/cd.yml)
+The W3C CCG VC HTTP APIs are a set of RESTful API definitions conforming with the [OpenAPI (formerly known as Swagger) 3.0 Specification](https://swagger.io/specification/) for the roles of Issuer, Verifier, and Holder as described in the [Verifiable Credential Data Model](https://www.w3.org/TR/vc-data-model/) specification.  These APIs provide a standard set of interfaces by which interoperability may be tested and verified by various parties who leverage Verifiable Credentials (VCs).
 
-The VC HTTP API repository contains a standard API specification for constructing and verifying objects which conform to the [Verifiable Credential Data Model](https://www.w3.org/TR/vc-data-model/) specification, along with documentation, integration and compatability tests, and related assets for the test and integration process.
+As some implementations may not support all endpoints defined by this specification, the APIs provide a clean measure by which to identify which methods are or are not implemented when comparing solutions that provide VC support across vendors.
 
-### Structure
+Test procedures and specifications are provided as part of this API definition to allow for repeatable and automated interoperability testing between solutions that interact with VCs.
 
-The vc-http-api repository is structured with two main sections:
+## Style, Versioning, and Contribution
+This API is versioned in conformance with the [Semantic Versioning 2.0 specification](https://semver.org/) to prevent breaking changes between minor versions, and to allow for reliable testing and integration of implementations of this API within enterprise environments.
 
-- [docs](./docs/) which contains the VC HTTP API spec itself in [OpenAPI](https://swagger.io/specification/) (formerly known as Swagger) form as well as related documentation to assist in building and testing a compliant implementation of the API spec
-  - Architecture for the issuer model is discussed in the [architecture document](./docs/architecture.md)
-  - Within docs, the versions of the API are stored in the appropriate folder under [versions](./docs/versions)
-  - The core API itself is detailed in the [spec file](./docs/vc-http-api.yml) and this spec should be used as the main reference for the API
-- [packages](./packages/) which contains test suites and related utilities for integration testing, test suite results, and related assets.
+API style, endpoint naming, and object definitions within the vc-http-api should be in compliance with the guidelines laid out in the [REST API Tutorial](https://restfulapi.net/).  The VC HTTP API conforms primarily to the [controller](https://restfulapi.net/resource-naming/) model as detailed in the REST documentation.
 
-### Data Visualization
+The actual standard and specification defined by the vc-http-api is provided in [YAML format](./vc-http-api.yml) and should be referenced directly by developers should questions arise, as certain interfaces on top of OpenAPI specifications may differ in their presentation of certain scenarios commonly encountered in API definitions, especially when dealling with `nullable` parameters or properties.
 
-You may wish to programatically download the latest test results as JSON.
+Contributions to this repo should take place via a Pull Request, and should generally reference an issue and related discussion around the topic 
 
-#### Test Results for All Implementations
+## Best Practices
 
-- HTML Report: TODO
+### Security
 
-  ```
-  curl -s https://w3c-ccg.github.io/vc-http-api/test-suite/testResults.json | jq
-  ```
+Implementations of this API SHOULD NOT be exposed directly over http(s) without authorization.  Best Practices around OAuth and other widely accepted standards for authentication and/or authorization should be followed.
 
-#### Test Results for a Specific Implementation
+### Holder APIs 
 
-- HTML Report: https://w3c-ccg.github.io/vc-http-api/test-suite/IMPLEMENTATION_NAME
+Holder APIs are optional as many implementations will not need them, however they are extremely useful for testing purposes as well as for cases where WebKMS is not present or not an option.
 
-  ```
-  curl -s https://w3c-ccg.github.io/vc-http-api/test-suite/IMPLEMENTATION_NAME/testResults.json | jq
-  ```
+## Additional Documentation
 
-### Contributing
-
-We encourage contributions meeting the [Contribution Guidelines](CONTRIBUTING.md).  
-While we prefer the creation of issues and Pull Requests in the GitHub repository, discussions often occur on the [public-credentials](http://lists.w3.org/Archives/Public/public-credentials/) mailing list as well.
+- [Verifiable Credential Issuer HTTP API Architecture Model](architecture.md)
+- [Verification, Validation, and Veracity](verification.md)
