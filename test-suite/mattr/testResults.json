@@ -1195,11 +1195,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:v1:test:nym:z6Mkf2oXtnamowoTSFGda1bgmW3PSLDcHRj4W3eTU1Q3czuL and linked data proof suite Ed25519Signature2018, fixture case-4 should pass with no mutation",
             "status": "failed",
@@ -1302,11 +1302,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential Bill of Lading, with issuer DID method did:v1:test:nym:z6MkfG5HTrBXzsAP8AbayNpG3ZaoyM4PCqNPrdWQRSpHDV6J and linked data proof suite Ed25519Signature2018, fixture case-6 should pass with no mutation",
             "status": "failed",
@@ -1642,11 +1642,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkqBXF5EGQaawhFdRMLftMGWpYw8dhurowTtmWQNEcZ2md 9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request.",
             "status": "failed",
@@ -1672,11 +1672,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:144:34)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:144:34)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:144:34)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:144:34)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:z6MkqBXF5EGQaawhFdRMLftMGWpYw8dhurowTtmWQNEcZ2md 10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of RevocationList2020Status",
             "status": "failed",
@@ -1713,11 +1713,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:20:32)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:20:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:20:32)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:20:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ 1. The Issuer's Issue Credential HTTP API MUST return a 201 HTTP response status code after successful credential issuance.",
             "status": "failed",
@@ -1743,11 +1743,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:30:32)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:30:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:30:32)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:30:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ 2. The Issuer's Issue Credential HTTP API MUST require \"credential\" in the body of the POST request. The field \"credential\" MUST be conformant to [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).",
             "status": "failed",
@@ -1784,11 +1784,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:51:32)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:51:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:51:32)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:51:32)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ 4. The Issuer's Issue Credential HTTP API MUST return a Verifiable Credential with the value of its \"issuer\" or \"issuer.id\" as a URI in the body of the response.",
             "status": "failed",
@@ -1858,11 +1858,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:122:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ 9. The Issuer's Issue Credential HTTP API MUST support no \"options\" in the body of the POST request.",
             "status": "failed",
@@ -1888,11 +1888,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:144:34)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:144:34)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:144:34)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:144:34)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Conformance with issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ 10. The Issuer's Issue Credential HTTP API MAY support issuing a credential with a credential status type of RevocationList2020Status",
             "status": "failed",
@@ -2619,11 +2619,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue undefined credential, fixture case-13",
             "status": "failed",
@@ -2649,11 +2649,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue undefined credential, fixture case-14",
             "status": "failed",
@@ -2679,11 +2679,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue undefined credential, fixture case-15",
             "status": "failed",
@@ -2709,11 +2709,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue undefined credential, fixture case-16",
             "status": "failed",
@@ -2739,11 +2739,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue undefined credential, fixture case-17",
             "status": "failed",
@@ -2769,11 +2769,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue undefined credential, fixture case-18",
             "status": "failed",
@@ -2799,11 +2799,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue undefined credential, fixture case-19",
             "status": "failed",
@@ -2829,11 +2829,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue undefined credential, fixture case-2",
             "status": "failed",
@@ -2859,11 +2859,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue undefined credential, fixture case-3",
             "status": "failed",
@@ -2889,11 +2889,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue undefined credential, fixture case-4",
             "status": "failed",
@@ -2919,11 +2919,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue Bill of Lading credential, fixture case-5",
             "status": "failed",
@@ -2949,11 +2949,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue Heavy Sour Dilbit Inspection Report credential, fixture case-6",
             "status": "failed",
@@ -2979,11 +2979,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue Heavy Sour Dilbit credential, fixture case-7",
             "status": "failed",
@@ -3009,11 +3009,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue QP Inbond credential, fixture case-8",
             "status": "failed",
@@ -3039,11 +3039,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/issueCredential.spec.js:187:30)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Issue Credential API - Credential Type Interop With issuer: did:key:zUC72trFXko7eccfAeLJHQwJT7wjVuTkfjbTfmDsLfyQEevrQtrWAe3pvc63xH2LsxbqpBAi6T4fdEpfQMmLDL148zZaY6eEbTmK2SaEQsvvQppas93pXs1GgazkSgemnGTWbWJ Can issue Certified Mill Test Report credential, fixture case-9",
             "status": "failed",
@@ -3075,11 +3075,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:46:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:30:9)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:46:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:30:9)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:46:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:30:9)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:46:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:30:9)"
             ],
             "fullName": "Verify Presentation API 1. The Verifier's Verify Presentation HTTP API MUST verify a Verifiable Presentation where the credential's issuer, presentation's holder and credential's subject are different. should pass",
             "status": "failed",
@@ -3116,11 +3116,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:96:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:96:28)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:96:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:96:28)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Verify Presentation API 3. The Verifier's Verify Presentation HTTP API MUST adhere to the proof verification format. should pass",
             "status": "failed",
@@ -3157,11 +3157,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:134:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:134:28)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:134:28)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:134:28)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
             ],
             "fullName": "Verify Presentation API 5. The Verifier's Verify Presentation HTTP API MUST support the verification of, JSON-LD Proof, Ed25519Signature2018. should pass",
             "status": "failed",

@@ -1,12 +1,12 @@
 {
   "testResults": {
-    "numFailedTests": 3,
-    "numPassedTests": 225,
+    "numFailedTests": 15,
+    "numPassedTests": 213,
     "numTotalTests": 228,
     "testResults": [
       {
-        "numFailingTests": 2,
-        "numPassingTests": 101,
+        "numFailingTests": 11,
+        "numPassingTests": 92,
         "testResults": [
           {
             "ancestorTitles": [
@@ -463,10 +463,29 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22"
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-22 should pass with no mutation",
-            "status": "passed",
+            "status": "failed",
             "title": "should pass with no mutation"
           },
           {
@@ -507,10 +526,29 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23"
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-23 should pass with no mutation",
-            "status": "passed",
+            "status": "failed",
             "title": "should pass with no mutation"
           },
           {
@@ -551,10 +589,29 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24"
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-24 should pass with no mutation",
-            "status": "passed",
+            "status": "failed",
             "title": "should pass with no mutation"
           },
           {
@@ -595,10 +652,29 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25"
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-25 should pass with no mutation",
-            "status": "passed",
+            "status": "failed",
             "title": "should pass with no mutation"
           },
           {
@@ -639,10 +715,29 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26"
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-26 should pass with no mutation",
-            "status": "passed",
+            "status": "failed",
             "title": "should pass with no mutation"
           },
           {
@@ -683,10 +778,29 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27"
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-27 should pass with no mutation",
-            "status": "passed",
+            "status": "failed",
             "title": "should pass with no mutation"
           },
           {
@@ -727,10 +841,29 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28"
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-28 should pass with no mutation",
-            "status": "passed",
+            "status": "failed",
             "title": "should pass with no mutation"
           },
           {
@@ -771,10 +904,29 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29"
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-29 should pass with no mutation",
-            "status": "passed",
+            "status": "failed",
             "title": "should pass with no mutation"
           },
           {
@@ -878,10 +1030,29 @@
               "Verify Credential API - Interop",
               "Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30"
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyCredential.spec.js:268:40)\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Verify Credential API - Interop Can verify verifiable credential undefined, with issuer DID method did:key:z6MktHQo3fRRohk44dsbE76CuiTpBmyMWq2VVjvV6aBSeE3U and linked data proof suite Ed25519Signature2018, fixture case-30 should pass with no mutation",
-            "status": "passed",
+            "status": "failed",
             "title": "should pass with no mutation"
           },
           {
@@ -2510,18 +2681,37 @@
         ]
       },
       {
-        "numFailingTests": 1,
-        "numPassingTests": 4,
+        "numFailingTests": 4,
+        "numPassingTests": 1,
         "testResults": [
           {
             "ancestorTitles": [
               "Verify Presentation API",
               "1. The Verifier's Verify Presentation HTTP API MUST verify a Verifiable Presentation where the credential's issuer, presentation's holder and credential's subject are different."
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:46:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:30:9)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:46:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:30:9)"
+            ],
             "fullName": "Verify Presentation API 1. The Verifier's Verify Presentation HTTP API MUST verify a Verifiable Presentation where the credential's issuer, presentation's holder and credential's subject are different. should pass",
-            "status": "passed",
+            "status": "failed",
             "title": "should pass"
           },
           {
@@ -2544,11 +2734,11 @@
                 "matcherName": "",
                 "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
                 "passed": false,
-                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
               }
             ],
             "failureMessages": [
-              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at runMicrotasks (<anonymous>)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at /home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:76:32\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async Promise.all (index 0)\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:65:9)"
             ],
             "fullName": "Verify Presentation API 2. The Verifier's Verify Presentation HTTP API MUST verify a Verifiable Presentation where the credential's issuer, presentation's holder and credential's subject are the same. should pass",
             "status": "failed",
@@ -2559,10 +2749,29 @@
               "Verify Presentation API",
               "3. The Verifier's Verify Presentation HTTP API MUST adhere to the proof verification format."
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:96:28)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:96:28)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Verify Presentation API 3. The Verifier's Verify Presentation HTTP API MUST adhere to the proof verification format. should pass",
-            "status": "passed",
+            "status": "failed",
             "title": "should pass"
           },
           {
@@ -2581,10 +2790,29 @@
               "Verify Presentation API",
               "5. The Verifier's Verify Presentation HTTP API MUST support the verification of, JSON-LD Proof, Ed25519Signature2018."
             ],
-            "failureDetails": [],
-            "failureMessages": [],
+            "failureDetails": [
+              {
+                "actual": "",
+                "error": {
+                  "matcherResult": {
+                    "actual": 400,
+                    "expected": 200,
+                    "name": "toBe",
+                    "pass": false
+                  }
+                },
+                "expected": "",
+                "matcherName": "",
+                "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400",
+                "passed": false,
+                "stack": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:134:28)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+              }
+            ],
+            "failureMessages": [
+              "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 400\n    at Object.<anonymous> (/home/runner/work/vc-http-api/vc-http-api/packages/vc-http-api-test-server/__tests__/verifyPresentation.spec.js:134:28)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"
+            ],
             "fullName": "Verify Presentation API 5. The Verifier's Verify Presentation HTTP API MUST support the verification of, JSON-LD Proof, Ed25519Signature2018. should pass",
-            "status": "passed",
+            "status": "failed",
             "title": "should pass"
           }
         ]
