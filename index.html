@@ -100,7 +100,7 @@
   }
   </style>
 </head>
-<body data-cite="infra rfc3986">
+<body data-cite="vc-data-model">
   <section id='abstract'>
 
     <p>
@@ -194,13 +194,73 @@ This section provides a basic overview of the major components of this
 specification's architecture.
       </p>
 
-      <figure id="brief-architecture-overview">
+      <figure id="roles">
         <img style="margin: auto; display: block; width: 75%;"
-          src="diagrams/vc-http-api-architecture.svg" alt="
-        " >
-        <figcaption>
-Overview of the VC HTTP API architecture and the relationship of the
-basic components.
+       src="https://www.w3.org/TR/vc-data-model/diagrams/ecosystem.svg"
+       alt="
+Diagram showing how credentials flow from issuer to holder and presentations
+flow from holder to verifier where all three parties can use information from a
+logical verifiable data registry
+       ">
+        <figcaption style="text-align: center;">
+The roles and information flows forming the basis for this specification.
+        </figcaption>
+      </figure>
+
+      <p class="note">
+The <a data-cite="vc-data-model#ecosystem-overview">ecosystem overview</a> above
+is an example ecosystem in which to ground the rest of the concepts in this
+specification. Other ecosystems exist, such as protected environments or
+proprietary systems, where <a
+data-cite="vc-data-model#dfn-verifiable-credentials">verifiable credentials</a>
+also provide benefit.
+      </p>
+
+      <p class="issue">
+TODO: Explain example issuer architecture overview. The blue highlights around
+some boxes identify APIs defined by this specification.
+      </p>
+
+      <figure id="arch-issuer">
+        <img style="margin: auto; display: block; width: 75%;"
+       src="diagrams/arch-issuer-detail.svg"
+       alt="
+TODO
+       ">
+        <figcaption style="text-align: center;">
+A detailed view of an example issuer architecture.
+        </figcaption>
+      </figure>
+
+      <p class="issue">
+TODO: Explain example holder architecture overview. The blue highlights around
+some boxes identify APIs defined by this specification.
+      </p>
+
+      <figure id="arch-holder">
+        <img style="margin: auto; display: block; width: 75%;"
+       src="diagrams/arch-holder-detail.svg"
+       alt="
+TODO
+       ">
+        <figcaption style="text-align: center;">
+A detailed view of an example holder architecture.
+        </figcaption>
+      </figure>
+
+      <p class="issue">
+TODO: Explain example holder architecture overview. The blue highlights around
+some boxes identify APIs defined by this specification.
+      </p>
+
+      <figure id="arch-verifier">
+        <img style="margin: auto; display: block; width: 75%;"
+       src="diagrams/arch-verifier-detail.svg"
+       alt="
+TODO
+       ">
+        <figcaption style="text-align: center;">
+A detailed view of an example verifier architecture.
         </figcaption>
       </figure>
 
