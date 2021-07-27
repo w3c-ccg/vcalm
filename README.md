@@ -2,6 +2,12 @@
 
 The W3C CCG VC HTTP APIs are a set of RESTful API definitions conforming with the [OpenAPI (formerly known as Swagger) 3.0 Specification](https://swagger.io/specification/) for the roles of Issuer, Verifier, and Holder as described in the [Verifiable Credential Data Model](https://www.w3.org/TR/vc-data-model/) specification.  These APIs provide a standard set of interfaces by which interoperability may be tested and verified by various parties who leverage Verifiable Credentials (VCs).
 
+Current versions of the APIs are --
+* [Issuer](https://w3c-ccg.github.io/vc-http-api/issuer.html)
+* [Holder](https://w3c-ccg.github.io/vc-http-api/holder.html)
+* [Verifier](https://w3c-ccg.github.io/vc-http-api/verifier.html)
+
+
 As some implementations may not support all endpoints defined by this specification, the APIs provide a clean measure by which to identify which methods are or are not implemented when comparing solutions that provide VC support across vendors.
 
 Test procedures and specifications are provided as part of this API definition to allow for repeatable and automated interoperability testing between solutions that interact with VCs.
