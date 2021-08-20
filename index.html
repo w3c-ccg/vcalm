@@ -296,7 +296,111 @@ A <dfn>conforming VC HTTP API server</dfn> is ...
     <section>
       <h3>Authorization</h3>
       <p>
+As an API built on top of HTTP, the VC HTTP API MAY be protected by any security technology
+that is applicable to such HTTP APIs. It is RECOMMENDED that deployments use standard delegation
+protocols to allow for interoperable access to the functions of the API without divulging end-user
+credentials or details unnecessarily to different parties. It is NOT RECOMMENDED that deployments
+use direct authentication technologies such as HTTP Basic Authentication.
       </p>
+      <p>
+This specification defines interoperable bindings to several standard delegation and authorization
+protocols. A conformant implementation deployed with one of these technologies MUST use these
+profiles and MAY further profile the connections as necessary. Each VC HTTP API endpoint defines
+a an authorization <code>type</code>, <code>actions</code>, <code>datatypes</code>, and other 
+security values relevant to the different actions that can be taken on an endpoint.
+These security values are combined and encoded in different ways for the associated security
+protocol, allowing a client to request and a policy to specify fine-grained access control
+for the VC HTTP API endpoints under protection.
+      </p>
+      <section>
+        <h4>OAuth 2.0</h4>
+        <p>
+When calling a VC HTTP API using OAuth 2.0, the request MUST be made using 
+<a href="https://tools.ietf.org/html/draft-ietf-oauth-rar">OAuth 2.0 Rich Authorization Requests</a>
+to describe the rights requested for the given API. The security parameters relevant for
+the rights requested for the endpoints in question are encoded as separate objects within
+the authorization details array.
+        </p>
+        <p>
+For example, a client requesting access to the issuing endpoint hosted at
+<code>https://example.com/issue</code> for the purposes of issuing credentials would
+combine the security parameters defined in the issuing endpoint as follows:
+        </p>
+        <p>
+          <code><pre>
+[
+  {
+    "type": "https://www.w3c.org/TR/vc-http-api",
+    "actions": [ "issue" ],
+    "locations": [ "https://example.com/issue" ],
+    "datatypes": [ "credential" ]
+  }
+]
+          </pre></code>
+        </p>
+        <p>
+If this is the only request, it is encoded into the OAuth 2.0 Rich Authorization Request as follows:
+        </p>
+        <p>
+          <code>
+authorization_details=%5B%7B%22type%22%3A%22https%3A%2F%2Fwww.w3c.org%2FTR%2Fvc-http-api%22%2C%22actions%22%3A%5B%22issue%22%5D%2C%22locations%22%3A%5B%22https%3A%2F%2Fexample.com%2Fissue%22%5D%2C%22datatypes%22%3A%5B%22credential%22%5D%7D%5D&client_id=...
+          </code>
+        </p>
+        <p>
+The OAuth 2.0 <code>scope</code> and <code>resource</code> parameters are not defined for
+the VC HTTP API, though these parameters MAY be used to combine requests for other APIs with
+the request for access to the VC HTTP API. Requests for different actions and endpoints MAY
+be combined into the authorization details request list as different objects.
+        </p>
+        <p>
+The access tokens granted from this process MAY be OAuth 2.0 Bearer tokens or any other
+valid OAuth 2.0 token type.
+        </p>
+      </section>
+      <section>
+        <h4>Grant Negotiation and Authorization Protocol (GNAP)</h4>
+        <p>
+When calling a VC HTTP API using <a href="https://www.ietf.org/archive/id/draft-ietf-gnap-core-protocol-06.html">GNAP</a>
+, the request MUST be made using the GNAP resource access rights data structures
+to describe the rights requested for the given API. The security parameters relevant for
+the rights requested for the endpoints in question are encoded as separate objects within
+the <code>access</code> array.
+        </p>
+        <p>
+For example, a client requesting access to the issuing endpoint hosted at
+<code>https://example.com/issue</code> for the purposes of issuing credentials would
+combine the security parameters defined in the issuing endpoint in the following
+grant request structure:
+        </p>
+        <p>
+          <code><pre>
+{
+  "access_token": {
+    "access": [
+      {
+        "type": "https://www.w3c.org/TR/vc-http-api",
+        "actions": [ "issue" ],
+        "locations": [ "https://example.com/issue" ],
+        "datatypes": [ "credential" ]
+      }
+    ]
+  },
+  "client": ...
+}
+          </pre></code>
+        </p>
+        <p>
+This example shows a single request for a single access token, but the same structures
+apply to multiple requests or multiple access tokens.
+        </p>
+        <p>
+GNAP resource reference values are not defined for
+the VC HTTP API, though such values MAY be used to combine requests for other APIs with
+the request for access to the VC HTTP API. Requests for different actions and endpoints MAY
+be combined into the access request list as different objects, or used in separate
+access tokens.
+        </p>
+      </section>
     </section>
 
     <section>
