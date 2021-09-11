@@ -272,11 +272,11 @@ A detailed view of an example verifier architecture.
       </p>
 
      <p>
-A <dfn>conforming VC HTTP API client</dfn> is ...
+A conforming <dfn>VC HTTP API client</dfn> is ...
      </p>
 
       <p>
-A <dfn>conforming VC HTTP API server</dfn> is ...
+A conforming <dfn>VC HTTP API server</dfn> is ...
       </p>
 
     </section>
@@ -296,7 +296,20 @@ A <dfn>conforming VC HTTP API server</dfn> is ...
     <section>
       <h3>Authorization</h3>
       <p>
+The VC HTTP API can be deployed in a variety of networking environments which
+might contain hostile actors. As a result, conforming <a>VC HTTP API servers</a>
+require conforming <a>VC HTTP API clients</a> to utilize secure authorization
+technologies when performing certain types of requests. Each HTTP endpoint
+defined in this document specifies whether or not authorization is required
+when performing a request.
       </p>
+      <p>
+This section details the authorization technologies that have been contemplated
+for use by conforming implementations. Other equivalent authorization
+technologies can be used. Implementers are cautioned against using non-standard
+or legacy authorization technologies.
+      </p>
+
     </section>
 
     <section>
