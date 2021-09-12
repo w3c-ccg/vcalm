@@ -197,6 +197,26 @@ var ccg = {
       status: "W3C Recommendation",
       publisher: "W3C",
       href: "https://www.w3.org/TR/vc-data-model/"
+    },
+    "ZCAP": {
+      title: "Authorization Capabilities 0.x",
+      date: "2021-09-12",
+      authors: [
+        "Chris Webber", "Manu Sporny", "Mark Miller"
+      ],
+      status: "Community Draft",
+      publisher: "W3C CCG",
+      href: "https://w3c-ccg.github.io/zcap-ld/"
+    },
+    "GNAP": {
+      title: "Grant Negotiation and Authorization Protocol",
+      date: "2021-07-12",
+      authors: [
+        "Justin Richer", "Aaron Parecki", "Fabien Imbault"
+      ],
+      status: "Internet-Draft",
+      publisher: "IETF",
+      href: "https://datatracker.ietf.org/doc/html/draft-ietf-gnap-core-protocol"
     }
   }
 };
