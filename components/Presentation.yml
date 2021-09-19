@@ -37,7 +37,7 @@ components:
           type: array
           description: The Verifiable Credentials
           items:
-            $ref: "#/components/schemas/VerifiableCredential"
+            $ref: "./VerifiableCredential.yml#/components/schemas/VerifiableCredential"
       example:
         {
           "@context":
