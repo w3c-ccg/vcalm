@@ -366,7 +366,6 @@ function buildEndpointDetails({config, document, apis}) {
     // detail each API endpoint
     const [verb, path] = section.dataset.apiEndpoint.split(/\s+/);
     const endpoint = getEndpoint({apis, path})[verb];
-    console.log("buildEndpointDetails", endpoint);
 
     // summary for endpoint
     const summary = document.createElement('p');
