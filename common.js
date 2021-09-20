@@ -346,7 +346,6 @@ function buildApiSummaryTables({config, document, apis}) {
     for(const path of table.dataset.apiPath.split(/\s+/)) {
       if(path.trim().length > 0) {
         const endpoint = getEndpoint({apis, path});
-        console.log("ENDPOINT", endpoint);
         for(const verb in endpoint) {
           const {summary} = endpoint[verb];
           const tableRow = document.createElement('tr');
@@ -356,8 +355,50 @@ function buildApiSummaryTables({config, document, apis}) {
         }
       }
     }
-    //const paths = (table.dataset.apiPath).split(' ');
-    //console.log("PATHS", paths);
+  }
+}
+
+function buildEndpointDetails({config, document, apis}) {
+  const apiDetailSections = document.querySelectorAll(".api-detail");
+
+  // process every detail section
+  for(const section of apiDetailSections) {
+    // detail each API endpoint
+    const [verb, path] = section.dataset.apiEndpoint.split(/\s+/);
+    const endpoint = getEndpoint({apis, path})[verb];
+    console.log("buildEndpointDetails", endpoint);
+
+    // summary for endpoint
+    const summary = document.createElement('p');
+    summary.innerHTML =
+      verb.toUpperCase() + ' ' + path + ' - ' + endpoint.summary;
+    section.appendChild(summary);
+
+    // responses for endpoint
+    const responsesTable = document.createElement('table');
+    responsesTable.setAttribute('class', 'simple');
+    responsesTable.innerHTML = '<tr><th>Response</th><th>Description</th></tr>';
+    for(const response in endpoint.responses) {
+      const responseDetail = endpoint.responses[response];
+      const {description} = responseDetail;
+      responsesTable.innerHTML +=
+        `<tr><td>${response}</td><td>${description}</td></tr>`;
+    }
+    section.appendChild(responsesTable);
+
+    // schema for endpoint
+    const schemaSummary = document.createElement('p');
+    schemaSummary.innerHTML =
+      `The ${path} endpoint uses the following schema when receiving a ` +
+      `${verb.toUpperCase()}:`;
+    section.appendChild(schemaSummary);
+
+    const requestSchema = document.createElement('pre');
+    requestSchema.innerHTML = JSON.stringify(
+      endpoint.requestBody.content['application/json'].schema.properties,
+      null, 2);
+    section.appendChild(requestSchema);
+
   }
 }
 
@@ -375,6 +416,7 @@ async function injectOas(config, document) {
     const apis = [issuerApi, verifierApi, holderApi];
 
     buildApiSummaryTables({config, document, apis});
+    buildEndpointDetails({config, document, apis});
   }
   catch(err) {
     console.error(err);
