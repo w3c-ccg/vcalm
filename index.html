@@ -311,6 +311,16 @@ or legacy authorization technologies.
       </p>
 
       <section>
+        <h4>Forbidden Authorization</h4>
+        <p>
+Any authorization protocol that uses long-lived static credentials such as
+usernames and passwords or similar values in a request to the VC HTTP API MUST
+NOT be utilized. An example of such a forbidden protocol is HTTP Basic
+Authentication [[RFC7617]].
+        </p>
+      </section>
+
+      <section>
         <h4>OAuth 2.0</h4>
         <p>
 If the OAuth 2.0 Authorization Framework [[RFC6749]] is utilized for authorization,
