@@ -14,6 +14,8 @@
     src="https://unpkg.com/browse/jquery/dist/jquery.min.js"></script>
   <script class="remove"
     src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+  <script class="remove"
+    src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-oas@0.0.1/dist/main.js"></script>
   <script class="removeOnSave"
     src="https://unpkg.com/reqlist/lib/reqlist.js"></script>
   <link class="removeOnSave" rel="stylesheet" type="text/css"
@@ -65,7 +67,7 @@
     // Uncomment these to use the respec extension that generates a list of
     //   normative statements:
     preProcess: [/*prepare_reqlist*/],
-    postProcess: [/*add_reqlist_button*/, restrictRefs],
+    postProcess: [/*add_reqlist_button*/, injectOas, restrictRefs],
 
     // list of specification editors
     editors: [{
@@ -335,19 +337,109 @@ to request the access tokens.
     <section>
       <h3>Issuing</h3>
       <p>
+The following APIs are defined for issuing a Verifiable Credential:
       </p>
+
+      <table class="simple api-summary-table"
+        data-api-path="/credentials/issue /credentials/status"></table>
+
+      <section>
+        <h4>Issue Credential</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="post /credentials/issue"></div>
+      </section>
+
+      <section>
+        <h4>Update Status</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="post /credentials/status"></div>
+      </section>
+
     </section>
 
     <section>
       <h3>Verifying</h3>
       <p>
+The following APIs are defined for verifyig a Verifiable Credential:
       </p>
+
+      <table class="simple api-summary-table"
+        data-api-path="/credentials/verify /presentations/verify"></table>
+
+      <section>
+        <h4>Verify Credential</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="post /credentials/verify"></div>
+      </section>
+
+      <section>
+        <h4>Verify Presentation</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="post /presentations/verify"></div>
+      </section>
+
     </section>
 
     <section>
       <h3>Presenting</h3>
       <p>
+The following APIs are defined for presenting a Verifiable Credential:
       </p>
+
+      <table class="simple api-summary-table"
+        data-api-path="
+          /credentials/derive /presentations/prove
+          /presentations/available /presentations/submissions"
+        ></table>
+
+      <section>
+        <h4>Derive Credential</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="post /credentials/derive"></div>
+      </section>
+
+      <section>
+        <h4>Prove Presentation</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="post /presentations/prove"></div>
+      </section>
+
+      <section>
+        <h4>Presentation Availability</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="post /presentations/available"></div>
+      </section>
+
+      <section>
+        <h4>Submit Presentation</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="post /presentations/submissions"></div>
+      </section>
+
     </section>
 
   </section>
