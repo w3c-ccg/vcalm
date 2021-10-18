@@ -1,23 +1,22 @@
-# [VC HTTP API](https://github.com/w3c-ccg/vc-http-api/) Goals
+# [VC API](https://github.com/w3c-ccg/vc-api/) Goals
 
-The W3C CCG VC HTTP APIs are a set of RESTful API definitions conforming with the [OpenAPI (formerly known as Swagger) 3.0 Specification](https://swagger.io/specification/) for the roles of Issuer, Verifier, and Holder as described in the [Verifiable Credential Data Model](https://www.w3.org/TR/vc-data-model/) specification.  These APIs provide a standard set of interfaces by which interoperability may be tested and verified by various parties who leverage Verifiable Credentials (VCs).
+The W3C CCG VC APIs are a set of RESTful API definitions conforming with the [OpenAPI 3.0 Specification](https://swagger.io/specification/) (formerly known as Swagger) for the roles of Issuer, Verifier, and Holder as described in the [Verifiable Credential Data Model](https://www.w3.org/TR/vc-data-model/) specification.  These APIs provide a standard set of interfaces by which interoperability may be tested and verified by various parties who leverage Verifiable Credentials (VCs).
 
 Current versions of the APIs are --
 * [Issuer](https://w3c-ccg.github.io/vc-http-api/issuer.html)
 * [Holder](https://w3c-ccg.github.io/vc-http-api/holder.html)
 * [Verifier](https://w3c-ccg.github.io/vc-http-api/verifier.html)
 
-
 As some implementations may not support all endpoints defined by this specification, the APIs provide a clean measure by which to identify which methods are or are not implemented when comparing solutions that provide VC support across vendors.
 
-Test procedures and specifications are provided as part of this API definition to allow for repeatable and automated interoperability testing between solutions that interact with VCs.
+Test procedures and specifications are provided as part of this API definition to allow for repeatable and automated interoperability testing between solutions that interact with Verifiable Credentials.
 
 ## Style, Versioning, and Contribution
 This API is versioned in conformance with the [Semantic Versioning 2.0 specification](https://semver.org/) to prevent breaking changes between minor versions, and to allow for reliable testing and integration of implementations of this API within enterprise environments.
 
-API style, endpoint naming, and object definitions within the vc-http-api should be in compliance with the guidelines laid out in the [REST API Tutorial](https://restfulapi.net/).  The VC HTTP API conforms primarily to the [controller](https://restfulapi.net/resource-naming/) model as detailed in the REST documentation.
+API style, endpoint naming, and object definitions within the vc-api should be in compliance with the guidelines laid out in the [REST API Tutorial](https://restfulapi.net/).  The VC API conforms primarily to the [controller](https://restfulapi.net/resource-naming/) model as detailed in the REST documentation.
 
-The actual standard and specification defined by the vc-http-api is provided in [YAML format](./vc-http-api.yml) and should be referenced directly by developers should questions arise, as certain interfaces on top of OpenAPI specifications may differ in their presentation of certain scenarios commonly encountered in API definitions, especially when dealling with `nullable` parameters or properties.
+The actual standard and specification defined by the vc-api is provided in YAML format and should be referenced directly by developers should questions arise, as certain interfaces on top of OpenAPI specifications may differ in their presentation of certain scenarios commonly encountered in API definitions, especially when dealling with `nullable` parameters or properties.
 
 Contributions to this repo should take place via a Pull Request, and should generally reference an issue and related discussion around the topic 
 
@@ -33,5 +32,5 @@ Holder APIs are optional as many implementations will not need them, however the
 
 ## Additional Documentation
 
-- [Verifiable Credential Issuer HTTP API Architecture Model](architecture.md)
+- [Verifiable Credential Issuer API Architecture Model](architecture.md)
 - [Verification, Validation, and Veracity](verification.md)
