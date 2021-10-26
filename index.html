@@ -138,24 +138,6 @@ to <a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a> (
     </p>
 
     <section class="informative">
-      <h2>A Simple Example</h2>
-
-      <p>
-      </p>
-
-      <figure id="issue-a-vc">
-        <img style="margin: auto; display: block; width: 75%;"
-          src="diagrams/issue-a-vc.svg" alt="
-An example of Verifiable Credential issuance.
-        " >
-        <figcaption>
-A simple example of issuing a Verifiable Credential.
-        </figcaption>
-      </figure>
-
-    </section>
-
-    <section class="informative">
       <h2>Design Goals</h2>
 
       <p>
@@ -192,87 +174,237 @@ Architecture Overview
       </h2>
 
       <p>
-This section provides a basic overview of the major components of this
-specification's architecture.
+The Verifiable Credentials Data Model defines three fundamental roles, the Issuer, the Verifier, and the Holder.
       </p>
 
       <figure id="roles">
-        <img style="margin: auto; display: block; width: 75%;"
-       src="https://www.w3.org/TR/vc-data-model/diagrams/ecosystem.svg"
+        <img style="margin: auto; display: block;"
+       src="./diagrams/roles.png"
        alt="
-Diagram showing how credentials flow from issuer to holder and presentations
-flow from holder to verifier where all three parties can use information from a
-logical verifiable data registry
-       ">
+Diagram showing the verifiable credential roles of Issuer, Holder, and Verifier">
         <figcaption style="text-align: center;">
-The roles and information flows forming the basis for this specification.
+The roles defined by the Verifiable Credentials Data Model specification.
         </figcaption>
       </figure>
 
-      <p class="note">
-The <a data-cite="vc-data-model#ecosystem-overview">ecosystem overview</a> above
-is an example ecosystem in which to ground the rest of the concepts in this
-specification. Other ecosystems exist, such as protected environments or
-proprietary systems, where <a
-data-cite="vc-data-model#dfn-verifiable-credentials">verifiable credentials</a>
-also provide benefit.
+      <p>
+Actors fulfilling each of these roles may use a number of
+software or service components to realize the VC API for
+exchanging Verifiable Credentials.
+      </p>
+      <p>
+Each role associates with a role-specific App, Service, and Admin as well
+as their own dedicated Storage Service. In addition, the Issuer  may
+also manage a Status Service for revocable credentials issued by the Issuer.
       </p>
 
-      <p class="issue">
-TODO: Explain example issuer architecture overview. The blue highlights around
-some boxes identify APIs defined by this specification.
-      </p>
-
-      <figure id="arch-issuer">
-        <img style="margin: auto; display: block; width: 75%;"
-       src="diagrams/arch-issuer-detail.svg"
-       alt="
-TODO
-       ">
+      <figure id="components">
+        <img style="margin: auto; display: block;"
+       src="diagrams/components.png"
+       alt="VC API Components of Apps, Services, and Admin for Issuers, Verifiers, and Holders">
         <figcaption style="text-align: center;">
-A detailed view of an example issuer architecture.
+VC API Components. Arrows indicate initiation of flows.
         </figcaption>
       </figure>
 
-      <p class="issue">
-TODO: Explain example holder architecture overview. The blue highlights around
-some boxes identify APIs defined by this specification.
+      <p>
+Any given VC API implementation may choose to combine any or all of these
+components into a single functional application. The boundaries and 
+interfaces between these components are defined in this specification to
+ensure interoperability and substitutability across the Verifiable
+Credential conformant ecosystem.
       </p>
 
-      <figure id="arch-holder">
-        <img style="margin: auto; display: block; width: 75%;"
-       src="diagrams/arch-holder-detail.svg"
-       alt="
-TODO
-       ">
-        <figcaption style="text-align: center;">
-A detailed view of an example holder architecture.
-        </figcaption>
-      </figure>
-
-      <p class="issue">
-TODO: Explain example holder architecture overview. The blue highlights around
-some boxes identify APIs defined by this specification.
+      <p>
+In addition to aggregating components into a single app, implementers 
+may choose to operationalize any given role over any number active
+instances of deployed software. For example, a browser-based Holder App
+should be considered as an amalgam of a web browser, various code running
+in that browser, one or more web servers (in the case of cross-origin AJAX 
+or remote embedded content), and the code running on that server. Each of
+those elements runs as different software packages in different 
+configurations, each executing just part of the overall functionality of 
+the component. For the sake of the VC API, each component satisfies all of 
+its required functionality as a whole, regardless of deployment
+architecture.
       </p>
-
-      <figure id="arch-verifier">
-        <img style="margin: auto; display: block; width: 75%;"
-       src="diagrams/arch-verifier-detail.svg"
-       alt="
-TODO
-       ">
-        <figcaption style="text-align: center;">
-A detailed view of an example verifier architecture.
-        </figcaption>
-      </figure>
-
+      <p>
+We define these components as follows:
+      </p>
+      <section>
+        <h3>Apps</h3>
+        <p>
+          <strong>Issuer App &bull; Verifier App &bull; Holder App </strong>
+        </p>
+        <p>
+Apps execute the business rules and policies set by the associated role.
+Often this is a custom or proprietary App developed specifically for a 
+single party acting in that role, it is the integration glue that connects 
+the controlling party to the VC ecosystem.
+        </p>
+        <p>
+Apps may or may not provide a visual user interface, depending on the 
+implementation. Pure command-line or continuously running services may 
+also be able to realize this component.
+        </p>
+        <p>
+With the exception of the Status Service, all role-to-role communication 
+is between Apps acting on behalf of its particular actor to fulfill its 
+role.
+        </p>
+        <p>
+The Issuer App executes the rules about who gets what credentials, 
+including how the parties creating or receiving those credentials are 
+authenticated and authorized. Typically the Issuer App integrates the 
+Issuer's back-end system with the Issuer service. This integration uses 
+whatever technologies are Appropriate; the interfaces between the Issuer 
+App and back-end services are out of scope for the VC-API.  The Issuer App 
+drives the Issuer service.
+        </p>
+        <p>
+The Verifier App communicates with a Verifier service to first check 
+authenticity and timeliness of a given VC or VP, then Applies the 
+Verifier's business rules before ultimately accepting or rejecting that VC 
+or VP. Such business rules may include evaluating the Issuer of a 
+particular claim or simply checking a configured allow-list. The Verifier 
+App exposes an API for submitting VCs to the Verifier per the Verifier's 
+policies. For example, the Verifier App may only accept VCs from current 
+users of the Verifier's other services. These rules typically require 
+bespoke integration with the Verifier's existing back-end. 
+        </p>
+        <p>
+The Holder App executes the business rules for Approving the flow of 
+credentials under the control of the Holder, from Issuers to Verifiers. In 
+several deployments this means exposing a user interface that gives 
+individual Holders a visual way to authorize or Approve VC storage or 
+transfer. Some functionality of the Holder App is commonly referred to as 
+a wallet. In the VC API, the Holder App initiates all flows. They request 
+VCs from Issuers. They decide if, and when, to share those VCs with 
+Verifiers. Within the VC API, there is no way for either the Issuer of the 
+Verifier to initiate a VC transfer. In many scenarios, the Holder App is 
+expected to be under the control of an individual human, ensuring a person 
+is directly involved in the communication of VCs, even if only at the step 
+of authorizing the transfer. However, many VCs are about organizations, 
+not individuals. How individuals using Holder Apps related to 
+organizations, and in particular, how organizational credentials are 
+securely shared with, and presented by, (legal) agents of those 
+organizations is not yet specified as in scope for the VC API. 
+        </p>
+      </section>
+      <section>
+        <h3>Services</h3>
+        <p>
+          <strong>Issuer Service &bull; Verifier Service &bull; Holder Service </strong>
+        </p>
+        <p>
+Services provide generic VC API functionality, driven by its associated 
+App. Designed to enable infrastructure providers to offer VC capability 
+through Software-as-a-Service. All services expose network endpoints to 
+their authorized Apps, which are themselves operating on behalf of the 
+associated role. Although deployed services MAY provide their own HTML 
+interfaces, such interfaces are out of scope for the VC API. Only the 
+network endpoints of services are defined herein.
+        </p>
+        <p>
+The Issuer Service takes requests to issue VCs from authorized Issuer Apps 
+and returns well-formed, signed Verifiable Credentials. This service MUST 
+have access to private keys (or key services which utilize private keys) 
+in order to create the proofs for those VCs. The API between the Issuer 
+service and its associated key service is believed to be out of scope for 
+the VC API, but may be addressed by WebKMS or similar specifications.
+        </p>
+        <p>
+The Verifier service takes requests to verify Verifiable Credentials and 
+Verifiable Presentations and returns the result of checking their proofs 
+and status (if present). The service only checks the authenticity and 
+timeliness of the VC; leaving the Verifier App to finish Applying any business rules needed.
+        </p>
+        <p>
+  The Holder service takes requests to create Verifiable Presentations
+  from an optional set of VCs and returns well-formed, signed Verifiable
+  Presentations containing those VCs. These VPs are used with Issuers to
+  demonstrate control over DIDs prior to issuance and with Verifiers to
+  present specific VCs.
+        </p>
+      </section>
+      <section>
+        <h3>Status Service</h3>
+        <p>
+        The Status Service provides a privacy-preserving means for publishing
+        and checking the status of any Verifiable Credentials issued by the
+        Issuer. Verifier services use the Issuer's status endpoint (as
+        specified in each revocable verifiable credential) to check the
+        timeliness of a given VC as part of verification.
+        </p>
+      </section>
+      <section>
+        <h3>Storage Services</h3>
+        <p>
+          <strong>Storage Service (Issuer) &bull;Storage Service
+            (Verifier) &bull; Storage Service (Holder)
+          </strong>
+        </p>
+        <p>
+Each actor in the system is expected to store their own verifiable
+credentials, as needed. Several known implementations use secure data
+storage such as encrypted data vaults for storing the Holder's VCs and
+use cryptographic authorizations to grant access to those VCs to
+Verifier Apps, as directed by the Holder. In-browser retrieval of such
+stored credentials can enable web-based Verifier Apps to integrate
+data from the Holder without sharing that data with the Verifier—the
+data is only ever present in the browser. Authorizing third-party
+remote access to Holder storage is likely in-scope for the VC API,
+although we expect this to be defined using extensible mechanisms to
+support a variety of storage and authorization approaches.
+        </p>
+        <p>
+The Issuer and Verifier storage solutions may or may not use secure
+data storage. Since all such storage interaction is moderated by the
+bespoke Issuer and Storage Apps, any necessary integrations can simply
+be part of that bespoke customization. We expect different
+implementations to compete on the ease of integration into various
+back-end storage platforms.
+        </p>
+      </section>
+      <section>
+        <h3>Admin</h3>
+        <p><strong>Issuer Admin &bull; Holder Admin &bull; Verifier Admin</strong></p>
+        <p>
+The Admin component is an acknowledgement that each of the other
+components need a way to be configured and managed, without
+prescribing the interfaces or means of that configuration. Some components
+may use JSON files to drive a semi-automated Issuer. Others might
+expose HTML pages. We expect different Apps and Services to compete on
+the power, ease, and flexibility of their administration and
+therefore, as of this writing, we anticipate Admin functionality to be
+out of scope for the VC API. However, we actually believe that to the
+extent we can standardize configuration setting across
+implementations, the more substitutable each component.
+        </p>
+      </section>
+      <section>
+        <h3>Summary</h3>
+        <p>
+Based on this architectural thinking, we may want to frame the VC API
+as a roadmap of related specifications, integrated in an extensible
+way for maximum substitutability. Several technologies, such as EDVs
+and WebKMSs would likely benefit from the crypto suite Approach taken
+for VC proofs. Defining a generic mechanism that can be realized by
+any functionally conformant technology enables flexibility while
+laying the groundwork with current existing functionality. In this
+way, we may be able to acknowledge that elements like Key Services,
+Storage, and Status are necessary parts of the VC API while deferring
+the definition of how those elements work to specification already in
+development as well as those yet to be written.
+        </p>
+      </section>
+      
     </section>
 
     <section id="conformance">
 
       <p>
       </p>
-
      <p>
 A conforming <dfn>VC API client</dfn> is ...
      </p>
