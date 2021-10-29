@@ -3,7 +3,7 @@
       "https://www.w3.org/2018/credentials/v1",
       "https://w3id.org/vc-revocation-list-2020/v1"
     ],
-    "id": "https://w3c-ccg.github.io/vc-http-api/fixtures/revocationList.json",
+    "id": "https://w3c-ccg.github.io/vc-api/fixtures/revocationList.json",
     "type": [
       "VerifiableCredential",
       "RevocationList2020Credential"
