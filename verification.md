@@ -192,12 +192,11 @@ including:
     *   [https://github.com/w3c-ccg/vc-api](https://github.com/w3c-ccg/vc-api)
     *   Specific references:
         *   Plugfest verifier test suite:
-            *   [https://github.com/w3c-ccg/vc-api/tree/main/packages/plugfest-2020#verifier](https://github.com/w3c-ccg/vc-api/tree/main/packages/plugfest-2020#verifier)
+            *   https://github.com/w3c-ccg/vc-api-test-suite
         *   Github issues:
             *   https://github.com/w3c-ccg/vc-api/issues/55
             *   https://github.com/w3c-ccg/vc-api/issues/59
             *   [https://github.com/w3c-ccg/vc-api/issues/57](https://github.com/w3c-ccg/vc-api/issues/57)
-        *   https://github.com/w3c-ccg/vc-api/tree/main/packages/plugfest-2020#verifier
 *   Digital Bazaar’s VC-JS implementation
     *   [https://github.com/digitalbazaar/vc-js](https://github.com/digitalbazaar/vc-js)
 *   VC-DATA-MODEL “Proofs (Signatures)”
