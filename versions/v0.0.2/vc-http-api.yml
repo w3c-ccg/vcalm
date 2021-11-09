@@ -1,14 +1,14 @@
 openapi: 3.0.0
 info:
   version: "0.0.2-unstable"
-  title: VC HTTP API
+  title: VC API
   description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
   license:
     name: W3C Software and Document License
     url: http://www.w3.org/Consortium/Legal/copyright-software.
   contact:
     name: GitHub Source Code
-    url: https://github.com/w3c-ccg/vc-http-api
+    url: https://github.com/w3c-ccg/vc-api
 tags:
   - name: Issuer
     description: APIs for Issuers.

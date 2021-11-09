@@ -35,7 +35,7 @@ minimal impact to their application services, business logic and user experience
 The following diagram is a high level, generic overview of the intended
 architecture context for this API.
 
-![Architecture Diagram](diagrams/vc-http-api-combined.png)
+![Architecture Diagram](diagrams/vc-combined.png)
 
 ### Components
 #### 1. User Agent
