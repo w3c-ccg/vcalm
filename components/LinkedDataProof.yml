@@ -22,6 +22,15 @@ components:
         created:
           type: string
           description: Date the proof was created.
+        challenge:
+          type: string
+          description: A challenge to mitigate replay attacks.
+        domain:
+          type: string
+          description: The domain of the proof to restrict its use to a particular target.
+        nonce:
+          type: string
+          description: A nonce to mitigate replay attacks.
         verificationMethod:
           type: string
           description: Verification Method used to verify proof.
