@@ -22,6 +22,15 @@ components:
         created:
           type: string
           description: Date the proof was created.
+        challenge:
+          type: string
+          description: A value chosen by the verifier to mitigate authentication proof replay attacks.
+        domain:
+          type: string
+          description: The domain of the proof to restrict its use to a particular target.
+        nonce:
+          type: string
+          description: A value chosen by the creator of a proof to randomize proof values for privacy purposes.
         verificationMethod:
           type: string
           description: Verification Method used to verify proof.
@@ -30,7 +39,10 @@ components:
           description: The purpose of the proof to be used with verificationMethod.
         jws:
           type: string
-          description: Detached JSON Web Signature
+          description: Detached JSON Web Signature.
+        proofValue:
+          type: string
+          description: Value of the Linked Data proof.
       example:
         {
           "type": "Ed25519Signature2018",
