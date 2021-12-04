@@ -19,7 +19,7 @@ components:
       properties:
         verificationMethod:
           type: string
-          description: The URI of the verificationMethod used for the proof. Default assertionMethod URI.
+          description: The URI of the verificationMethod used for the proof. If omitted, a default verification method will be used.
         proofPurpose:
           type: string
           description: The purpose of the proof. Default 'assertionMethod'.
