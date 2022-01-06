@@ -209,22 +209,22 @@ VC API Components. Arrows indicate initiation of flows.
 
       <p>
 Any given VC API implementation may choose to combine any or all of these
-components into a single functional application. The boundaries and 
+components into a single functional application. The boundaries and
 interfaces between these components are defined in this specification to
 ensure interoperability and substitutability across the Verifiable
 Credential conformant ecosystem.
       </p>
 
       <p>
-In addition to aggregating components into a single app, implementers 
+In addition to aggregating components into a single app, implementers
 may choose to operationalize any given role over any number active
 instances of deployed software. For example, a browser-based Holder App
 should be considered as an amalgam of a web browser, various code running
-in that browser, one or more web servers (in the case of cross-origin AJAX 
+in that browser, one or more web servers (in the case of cross-origin AJAX
 or remote embedded content), and the code running on that server. Each of
-those elements runs as different software packages in different 
-configurations, each executing just part of the overall functionality of 
-the component. For the sake of the VC API, each component satisfies all of 
+those elements runs as different software packages in different
+configurations, each executing just part of the overall functionality of
+the component. For the sake of the VC API, each component satisfies all of
 its required functionality as a whole, regardless of deployment
 architecture.
       </p>
@@ -238,57 +238,57 @@ We define these components as follows:
         </p>
         <p>
 Apps execute the business rules and policies set by the associated role.
-Often this is a custom or proprietary App developed specifically for a 
-single party acting in that role, it is the integration glue that connects 
+Often this is a custom or proprietary App developed specifically for a
+single party acting in that role, it is the integration glue that connects
 the controlling party to the VC ecosystem.
         </p>
         <p>
-Apps may or may not provide a visual user interface, depending on the 
-implementation. Pure command-line or continuously running services may 
+Apps may or may not provide a visual user interface, depending on the
+implementation. Pure command-line or continuously running services may
 also be able to realize this component.
         </p>
         <p>
-With the exception of the Status Service, all role-to-role communication 
-is between Apps acting on behalf of its particular actor to fulfill its 
+With the exception of the Status Service, all role-to-role communication
+is between Apps acting on behalf of its particular actor to fulfill its
 role.
         </p>
         <p>
-The Issuer App executes the rules about who gets what credentials, 
-including how the parties creating or receiving those credentials are 
-authenticated and authorized. Typically the Issuer App integrates the 
-Issuer's back-end system with the Issuer service. This integration uses 
-whatever technologies are Appropriate; the interfaces between the Issuer 
-App and back-end services are out of scope for the VC-API.  The Issuer App 
+The Issuer App executes the rules about who gets what credentials,
+including how the parties creating or receiving those credentials are
+authenticated and authorized. Typically the Issuer App integrates the
+Issuer's back-end system with the Issuer service. This integration uses
+whatever technologies are Appropriate; the interfaces between the Issuer
+App and back-end services are out of scope for the VC-API.  The Issuer App
 drives the Issuer service.
         </p>
         <p>
-The Verifier App communicates with a Verifier service to first check 
-authenticity and timeliness of a given VC or VP, then Applies the 
-Verifier's business rules before ultimately accepting or rejecting that VC 
-or VP. Such business rules may include evaluating the Issuer of a 
-particular claim or simply checking a configured allow-list. The Verifier 
-App exposes an API for submitting VCs to the Verifier per the Verifier's 
-policies. For example, the Verifier App may only accept VCs from current 
-users of the Verifier's other services. These rules typically require 
-bespoke integration with the Verifier's existing back-end. 
+The Verifier App communicates with a Verifier service to first check
+authenticity and timeliness of a given VC or VP, then Applies the
+Verifier's business rules before ultimately accepting or rejecting that VC
+or VP. Such business rules may include evaluating the Issuer of a
+particular claim or simply checking a configured allow-list. The Verifier
+App exposes an API for submitting VCs to the Verifier per the Verifier's
+policies. For example, the Verifier App may only accept VCs from current
+users of the Verifier's other services. These rules typically require
+bespoke integration with the Verifier's existing back-end.
         </p>
         <p>
-The Holder App executes the business rules for Approving the flow of 
-credentials under the control of the Holder, from Issuers to Verifiers. In 
-several deployments this means exposing a user interface that gives 
-individual Holders a visual way to authorize or Approve VC storage or 
-transfer. Some functionality of the Holder App is commonly referred to as 
-a wallet. In the VC API, the Holder App initiates all flows. They request 
-VCs from Issuers. They decide if, and when, to share those VCs with 
-Verifiers. Within the VC API, there is no way for either the Issuer of the 
-Verifier to initiate a VC transfer. In many scenarios, the Holder App is 
-expected to be under the control of an individual human, ensuring a person 
-is directly involved in the communication of VCs, even if only at the step 
-of authorizing the transfer. However, many VCs are about organizations, 
-not individuals. How individuals using Holder Apps related to 
-organizations, and in particular, how organizational credentials are 
-securely shared with, and presented by, (legal) agents of those 
-organizations is not yet specified as in scope for the VC API. 
+The Holder App executes the business rules for Approving the flow of
+credentials under the control of the Holder, from Issuers to Verifiers. In
+several deployments this means exposing a user interface that gives
+individual Holders a visual way to authorize or Approve VC storage or
+transfer. Some functionality of the Holder App is commonly referred to as
+a wallet. In the VC API, the Holder App initiates all flows. They request
+VCs from Issuers. They decide if, and when, to share those VCs with
+Verifiers. Within the VC API, there is no way for either the Issuer of the
+Verifier to initiate a VC transfer. In many scenarios, the Holder App is
+expected to be under the control of an individual human, ensuring a person
+is directly involved in the communication of VCs, even if only at the step
+of authorizing the transfer. However, many VCs are about organizations,
+not individuals. How individuals using Holder Apps related to
+organizations, and in particular, how organizational credentials are
+securely shared with, and presented by, (legal) agents of those
+organizations is not yet specified as in scope for the VC API.
         </p>
       </section>
       <section>
@@ -297,26 +297,26 @@ organizations is not yet specified as in scope for the VC API.
           <strong>Issuer Service &bull; Verifier Service &bull; Holder Service </strong>
         </p>
         <p>
-Services provide generic VC API functionality, driven by its associated 
-App. Designed to enable infrastructure providers to offer VC capability 
-through Software-as-a-Service. All services expose network endpoints to 
-their authorized Apps, which are themselves operating on behalf of the 
-associated role. Although deployed services MAY provide their own HTML 
-interfaces, such interfaces are out of scope for the VC API. Only the 
+Services provide generic VC API functionality, driven by its associated
+App. Designed to enable infrastructure providers to offer VC capability
+through Software-as-a-Service. All services expose network endpoints to
+their authorized Apps, which are themselves operating on behalf of the
+associated role. Although deployed services MAY provide their own HTML
+interfaces, such interfaces are out of scope for the VC API. Only the
 network endpoints of services are defined herein.
         </p>
         <p>
-The Issuer Service takes requests to issue VCs from authorized Issuer Apps 
-and returns well-formed, signed Verifiable Credentials. This service MUST 
-have access to private keys (or key services which utilize private keys) 
-in order to create the proofs for those VCs. The API between the Issuer 
-service and its associated key service is believed to be out of scope for 
+The Issuer Service takes requests to issue VCs from authorized Issuer Apps
+and returns well-formed, signed Verifiable Credentials. This service MUST
+have access to private keys (or key services which utilize private keys)
+in order to create the proofs for those VCs. The API between the Issuer
+service and its associated key service is believed to be out of scope for
 the VC API, but may be addressed by WebKMS or similar specifications.
         </p>
         <p>
-The Verifier service takes requests to verify Verifiable Credentials and 
-Verifiable Presentations and returns the result of checking their proofs 
-and status (if present). The service only checks the authenticity and 
+The Verifier service takes requests to verify Verifiable Credentials and
+Verifiable Presentations and returns the result of checking their proofs
+and status (if present). The service only checks the authenticity and
 timeliness of the VC; leaving the Verifier App to finish Applying any business rules needed.
         </p>
         <p>
@@ -398,7 +398,7 @@ the definition of how those elements work to specification already in
 development as well as those yet to be written.
         </p>
       </section>
-      
+
     </section>
 
     <section id="conformance">
@@ -492,6 +492,7 @@ The following APIs are defined for issuing a Verifiable Credential:
         <div class="api-detail"
           data-api-endpoint="post /credentials/status"></div>
       </section>
+
 
     </section>
 
