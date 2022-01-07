@@ -503,7 +503,7 @@ around the feature progress.
         </p>
 
         <p>
-The APIs in this specification enables automated (machine-to-machine) or
+The APIs in this specification enable automated (machine-to-machine) or
 mediated (person in the loop) issuance workflows to be executed. These workflows
 are initiated by a Holder App and responded to by an Issuer App. The
 flows consist of the following steps:
@@ -516,7 +516,7 @@ workflow.
           </li>
           <li>
 The Issuer App responds with a presentation request of some kind to authenticate
-and/or authorize the Holder App and provides the next hop in the workflow as  a
+and/or authorize the Holder App, and provides the next hop in the workflow as a
 URL.
           </li>
           <li>
@@ -524,9 +524,9 @@ The Holder App responds to the Issuer App with a Verifiable Presentation
 containing information that will satisfy the presentation request.
           </li>
           <li>
-Issuer App responds with a Verifiable Presentation with the newly issued
-Verifiable Credentials or a further presentation request as expressed in
-step 2 above.
+The Issuer App responds with a Verifiable Presentation with the newly issued
+Verifiable Credential(s) or with a further presentation request as expressed
+in step 2 above.
           </li>
         </ol>
 
@@ -591,16 +591,16 @@ Connection: keep-alive
         <p class="note" title="Interact service description">
 Readers are urged to pay particular attention to the `interact` service
 description that provides a mechanism to switch between automated flows and
-ones requiring mediation by a person.
+flows requiring mediation by a person.
         </p>
 
         <p class="note">
 While the example above utilizes a Verifiable Presentation Request, other types
 of equivalent presentation request formats, such as WACI/PeX, can be utilized
 (simultaneously or alternatively) based on the presentation request formats that
-are supported by the Issuer. Automated requests can be signalled by setting  the
-service `type` to `UnmediatedPresentationService2021`, while manual  requests
-can be signalled by setting the service `type` to
+are supported by the Issuer. Automated requests can be signaled by setting the
+service `type` to `UnmediatedPresentationService2021`, while manual requests
+can be signaled by setting the service `type` to
 `MediatedPresentationService2021`.
         </p>
 
