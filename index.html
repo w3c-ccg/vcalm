@@ -493,241 +493,6 @@ The following APIs are defined for issuing a Verifiable Credential:
           data-api-endpoint="post /credentials/status"></div>
       </section>
 
-      <section>
-        <h4>Automation via Workflows</h4>
-
-        <p class="issue" title="EXPERIMENTAL FEATURE">
-Workflows are an experimental feature that is currently being explored by the
-group. This feature is likely to undergo significant revision as conversations
-around the feature progress.
-        </p>
-
-        <p>
-The APIs in this specification enable automated (machine-to-machine) or
-mediated (person in the loop) issuance workflows to be executed. These workflows
-are initiated by a Holder App and responded to by an Issuer App. The
-flows consist of the following steps:
-        </p>
-
-        <ol>
-          <li>
-The Holder App contacts the Issuer App to request the initiation of a particular
-workflow.
-          </li>
-          <li>
-The Issuer App responds with a presentation request of some kind to authenticate
-and/or authorize the Holder App, and provides the next hop in the workflow as a
-URL.
-          </li>
-          <li>
-The Holder App responds to the Issuer App with a Verifiable Presentation
-containing information that will satisfy the presentation request.
-          </li>
-          <li>
-The Issuer App responds with a Verifiable Presentation with the newly issued
-Verifiable Credential(s) or with a further presentation request as expressed
-in step 2 above.
-          </li>
-        </ol>
-
-        <p class="note">
-The general workflow above can be performed in a way that is fully automated,
-mediated by a person, or in a hybrid fashion where portions are automated
-but interaction by a person is required at certain stages. The second step
-above is used to provide guidance on whether the next step is automated or
-requires an individual to intervene.
-        </p>
-
-        <p>
-The following example demonstrates a fully automated flow for performing a
-Verifiable Credential refresh:
-        </p>
-
-        <pre class="example"
-          title="Step 1 (request to issuer): Initiate degree refresh workflow">
-  GET /workflows/refresh-degree HTTP/1.1
-  Host: example.edu
-  Content-Type: application/json
-  Accept: application/json, */*
-  Accept-Encoding: gzip, deflate
-        </pre>
-
-        <pre class="example"
-          title="Step 2 (response from issuer): Verifiable Presentation Request">
-HTTP/1.1 200 OK
-Date: Fri, 14 Jun 2022 18:37:12 GMT
-Connection: keep-alive
-
-{
-  "verifiablePresentationRequest": {
-    "query": [{
-        "type": "DIDAuth"
-      }, {
-        "type": "QueryByExample",
-        "credentialQuery": {
-          "reason": "We need to see your existing University Degree credential.",
-          "example": {
-            "@context": [
-              "https://www.w3.org/2018/credentials/v1",
-              "https://www.w3.org/2018/credentials/examples/v1"
-            ],
-            "type": "UniversityDegreeCredential"
-          }
-        }
-      }],
-      "challenge": "3182bdea-63d9-11ea-b6de-3b7c1404d57f",
-      "domain": "example.edu",
-      "interact": {
-        "service": [{
-          "type": "UnmediatedPresentationService2021",
-          "serviceEndpoint": "https://example.edu/active-flows/123456"
-        }]
-      }
-    }
-  }
-}
-        </pre>
-
-        <p class="note" title="Interact service description">
-Readers are urged to pay particular attention to the `interact` service
-description that provides a mechanism to switch between automated flows and
-flows requiring mediation by a person.
-        </p>
-
-        <p class="note">
-While the example above utilizes a Verifiable Presentation Request, other types
-of equivalent presentation request formats, such as WACI/PeX, can be utilized
-(simultaneously or alternatively) based on the presentation request formats that
-are supported by the Issuer. Automated requests can be signaled by setting the
-service `type` to `UnmediatedPresentationService2021`, while manual requests
-can be signaled by setting the service `type` to
-`MediatedPresentationService2021`.
-        </p>
-
-        <p class="issue" title="Demonstrate usage of WACI/PeX?">
-We should make it clear that Issuers can choose to use one or more presentation
-request formats simultaneously in order to maximize the chances that a given
-client will be able to respond to a refresh workflow. This should probably be
-more clearly stated in the VC-API specification.
-        </p>
-
-        <pre class="example"
-          title="Step 3 (presentation to issuer): Provide Verifiable Presentation">
-POST /active-flows/123456 HTTP/1.1
-Host: example.edu
-Content-Type: application/json
-Accept: application/json, */*
-Accept-Encoding: gzip, deflate
-
-{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://www.w3.org/2018/credentials/examples/v1",
-    "https://w3id.org/security/suites/ed25519-2020/v1"
-  ],
-  "type": ["VerifiablePresentation"],
-  "holder": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-  "verifiableCredential": [{
-    "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://www.w3.org/2018/credentials/examples/v1",
-      "https://w3id.org/security/suites/ed25519-2020/v1"
-    ],
-    "id": "http://example.edu/credentials/3732",
-    "type": [
-      "VerifiableCredential",
-      "UniversityDegreeCredential"
-    ],
-    "issuer": "https://example.edu/issuers/14",
-    "issuanceDate": "2010-01-01T19:23:24Z",
-    "expirationDate": "2022-01-01T19:23:24Z",
-    "credentialSubject": {
-      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-      "degree": {
-        "type": "BachelorDegree",
-        "name": "Bachelor of Science and Arts"
-      }
-    },
-    "refreshService": {
-      "type": "AutoRefresh2021",
-      "url": "https://example.edu/workflows/refresh-degree",
-      "validAfter": "2021-09-01T19:23:24Z"
-    },
-    "proof": {
-      "type": "Ed25519Signature2020",
-      "created": "2021-12-05T17:59:45Z",
-      "verificationMethod": "https://example.edu/issuers/14#key-1",
-      "proofPurpose": "assertionMethod",
-      "proofValue": "z2aArNcQKX9aqYK7GRZmV7c9xfGuwB5YAXhkYY9DTvLdTCQEsXaNpz1G
-                     ZL9XDXdFQGT27WB68e2Y3wo9k75rka8oo"
-    }
-  }],
-  "proof": {
-    "type": "Ed25519Signature2020",
-    "created": "2022-06-15T16:37:12Z",
-    "verificationMethod": "did:example:76e12ec712ebc6f1c221ebfeb1f#key-1",
-    "proofPurpose": "authentication",
-    "challenge": "3182bdea-63d9-11ea-b6de-3b7c1404d57f",
-    "domain": "example.edu",
-    "proofValue": "z4aU6NSpnCvnjJqzAPw3cqJ1LKoWimEWxKz7StJYzwaZE2a3QAuK8vcq
-                   umwr6uabr7RshvjH1yTv1fTuhPUii1fN"
-  }
-}
-        </pre>
-
-        <pre class="example"
-          title="Step 4 (response from issuer): Re-issued Verifiable Credential">
-HTTP/1.1 200 OK
-Date: Fri, 14 Jun 2022 18:37:12 GMT
-Connection: keep-alive
-
-{
-  "@context": [
-    "https://www.w3.org/2018/credentials/v1",
-    "https://www.w3.org/2018/credentials/examples/v1"
-  ],
-  "type": ["VerifiablePresentation"],
-  "verifiableCredential": [{
-    "@context": [
-      "https://www.w3.org/2018/credentials/v1",
-      "https://www.w3.org/2018/credentials/examples/v1",
-      "https://w3id.org/security/suites/ed25519-2020/v1"
-    ],
-    "id": "http://example.edu/credentials/3732",
-    "type": [
-      "VerifiableCredential",
-      "UniversityDegreeCredential"
-    ],
-    "issuer": "https://example.edu/issuers/14",
-    "issuanceDate": "2010-01-01T19:23:24Z",
-    "expirationDate": "2027-06-14T18:37:12Z",
-    "credentialSubject": {
-      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-      "degree": {
-        "type": "BachelorDegree",
-        "name": "Bachelor of Science and Arts"
-      }
-    },
-    "refreshService": {
-      "type": "AutoRefresh2021",
-      "url": "https://example.edu/workflows/refresh-degree",
-      "validAfter": "2027-03-14T19:23:24Z",
-      "validUntil": "2027-07-14T19:23:24Z"
-    },
-    "proof": {
-      "type": "Ed25519Signature2020",
-      "created": "2022-06-14T18:37:12Z",
-      "verificationMethod": "https://example.edu/issuers/14#key-1",
-      "proofPurpose": "assertionMethod",
-      "proofValue": "z2aArNcQKX9aqYK7GRZmV7c9xfGuwB5YAXhkYY9DTvLdTCQEsXaNpz1G
-                     ZL9XDXdFQGT27WB68e2Y3wo9k75rka8oo"
-    }
-  }]
-}
-        </pre>
-
-      </section>
-
     </section>
 
     <section>
@@ -817,9 +582,245 @@ The following APIs are defined for executing Verifiable Credential workflows.
 
       <table class="simple api-summary-table"
         data-api-path="
-          /workflows/{workflow-name}/start
-          /workflows/{workflow-id}/presentations"
+          /workflows/{name}/start
+          /workflows/{id}/presentations"
         ></table>
+
+        <p class="issue" title="EXPERIMENTAL FEATURE">
+Workflows are an experimental feature that is currently being explored by the
+group. This feature is likely to undergo significant revision as conversations
+around the feature progress.
+        </p>
+
+        <p>
+The APIs in this specification enables unmediated (automated,
+machine-to-machine) or mediated (person in the loop) workflows to be
+executed. These workflows are initiated by a Holder App and responded to by
+any App that implements workflows. The flows consist of the following steps:
+        </p>
+
+        <ol>
+          <li>
+The Holder App contacts the receiving App to request the initiation of a
+particular workflow.
+          </li>
+          <li>
+The receiving App responds with a presentation request of some kind to
+authenticate and/or authorize the Holder App and provides the next hop in the
+workflow as a URL.
+          </li>
+          <li>
+The Holder App responds to the receiving App with a Verifiable Presentation
+containing information that will satisfy the presentation request.
+          </li>
+          <li>
+The receiving App responds with a Verifiable Presentation with the newly issued
+Verifiable Credentials or a further presentation request as expressed in
+step 2 above.
+          </li>
+        </ol>
+
+        <p>
+A diagram of the steps outlined above is presented below:
+        </p>
+
+        <img src="diagrams/workflow-generic.svg">
+
+        <p class="note">
+The general workflow above can be performed in a way that is fully automated,
+mediated by a person, or in a hybrid fashion where portions are automated
+but interaction by a person is required at certain stages. The second step
+above is used to provide guidance on whether the next step is automated or
+requires an individual to intervene.
+        </p>
+
+        <p>
+The following example demonstrates a fully automated flow for performing a
+Verifiable Credential refresh that follows the generic flow mentioned above:
+        </p>
+
+        <pre class="example"
+          title="Step 1 (request to issuer): Initiate degree refresh workflow">
+POST /workflows/refresh-degree/start HTTP/1.1
+Host: example.edu
+Content-Type: application/json
+Accept: application/json, */*
+Accept-Encoding: gzip, deflate
+        </pre>
+
+        <pre class="example"
+          title="Step 2 (response from issuer): Verifiable Presentation Request">
+HTTP/1.1 201 Created
+Date: Fri, 14 Jun 2022 18:37:12 GMT
+Connection: keep-alive
+
+{
+  "verifiablePresentationRequest": {
+    "query": [{
+        "type": "DIDAuth"
+      }, {
+        "type": "QueryByExample",
+        "credentialQuery": {
+          "reason": "We need to see your existing University Degree credential.",
+          "example": {
+            "@context": [
+              "https://www.w3.org/2018/credentials/v1",
+              "https://www.w3.org/2018/credentials/examples/v1"
+            ],
+            "type": "UniversityDegreeCredential"
+          }
+        }
+      }],
+      "challenge": "3182bdea-63d9-11ea-b6de-3b7c1404d57f",
+      "domain": "example.edu",
+      "interact": {
+        "service": [{
+          "type": "UnmediatedPresentationService2021",
+          "serviceEndpoint": "https://example.edu/workflows/123456/presentations"
+        }]
+      }
+    }
+  }
+}
+        </pre>
+
+        <p class="note" title="Interact service description">
+Readers are urged to pay particular attention to the `interact` service
+description that provides a mechanism to switch between automated flows and
+ones requiring mediation by a person.
+        </p>
+
+        <p class="note">
+While the example above utilizes a Verifiable Presentation Request, other types
+of equivalent presentation request formats, such as WACI/PeX, can be utilized
+(simultaneously or alternatively) based on the presentation request formats that
+are supported by the Issuer. Automated requests can be signalled by setting  the
+service `type` to `UnmediatedPresentationService2021`, while manual  requests
+can be signalled by setting the service `type` to
+`MediatedPresentationService2021`.
+        </p>
+
+        <p class="issue" title="Demonstrate usage of WACI/PeX?">
+We should make it clear that Issuers can choose to use one or more presentation
+request formats simultaneously in order to maximize the chances that a given
+client will be able to respond to a refresh workflow. This should probably be
+more clearly stated in the VC-API specification.
+        </p>
+
+        <pre class="example"
+          title="Step 3 (presentation to issuer): Provide Verifiable Presentation">
+POST /workflows/123456/presentations HTTP/1.1
+Host: example.edu
+Content-Type: application/json
+Accept: application/json, */*
+Accept-Encoding: gzip, deflate
+
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/2018/credentials/examples/v1",
+    "https://w3id.org/security/suites/ed25519-2020/v1"
+  ],
+  "type": ["VerifiablePresentation"],
+  "holder": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+  "verifiableCredential": [{
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://www.w3.org/2018/credentials/examples/v1",
+      "https://w3id.org/security/suites/ed25519-2020/v1"
+    ],
+    "id": "http://example.edu/credentials/3732",
+    "type": [
+      "VerifiableCredential",
+      "UniversityDegreeCredential"
+    ],
+    "issuer": "https://example.edu/issuers/14",
+    "issuanceDate": "2010-01-01T19:23:24Z",
+    "expirationDate": "2022-01-01T19:23:24Z",
+    "credentialSubject": {
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+      "degree": {
+        "type": "BachelorDegree",
+        "name": "Bachelor of Science and Arts"
+      }
+    },
+    "refreshService": {
+      "type": "AutoRefresh2021",
+      "url": "https://example.edu/workflows/refresh-degree/start",
+      "validAfter": "2021-09-01T19:23:24Z"
+    },
+    "proof": {
+      "type": "Ed25519Signature2020",
+      "created": "2021-12-05T17:59:45Z",
+      "verificationMethod": "https://example.edu/issuers/14#key-1",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z2aArNcQKX9aqYK7GRZmV7c9xfGuwB5YAXhkYY9DTvLdTCQEsXaNpz1G
+                     ZL9XDXdFQGT27WB68e2Y3wo9k75rka8oo"
+    }
+  }],
+  "proof": {
+    "type": "Ed25519Signature2020",
+    "created": "2022-06-15T16:37:12Z",
+    "verificationMethod": "did:example:76e12ec712ebc6f1c221ebfeb1f#key-1",
+    "proofPurpose": "authentication",
+    "challenge": "3182bdea-63d9-11ea-b6de-3b7c1404d57f",
+    "domain": "example.edu",
+    "proofValue": "z4aU6NSpnCvnjJqzAPw3cqJ1LKoWimEWxKz7StJYzwaZE2a3QAuK8vcq
+                   umwr6uabr7RshvjH1yTv1fTuhPUii1fN"
+  }
+}
+        </pre>
+
+        <pre class="example"
+          title="Step 4 (response from issuer): Re-issued Verifiable Credential">
+HTTP/1.1 200 OK
+Date: Fri, 14 Jun 2022 18:37:12 GMT
+Connection: keep-alive
+
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/2018/credentials/examples/v1"
+  ],
+  "type": ["VerifiablePresentation"],
+  "verifiableCredential": [{
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      "https://www.w3.org/2018/credentials/examples/v1",
+      "https://w3id.org/security/suites/ed25519-2020/v1"
+    ],
+    "id": "http://example.edu/credentials/3732",
+    "type": [
+      "VerifiableCredential",
+      "UniversityDegreeCredential"
+    ],
+    "issuer": "https://example.edu/issuers/14",
+    "issuanceDate": "2010-01-01T19:23:24Z",
+    "expirationDate": "2027-06-14T18:37:12Z",
+    "credentialSubject": {
+      "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+      "degree": {
+        "type": "BachelorDegree",
+        "name": "Bachelor of Science and Arts"
+      }
+    },
+    "refreshService": {
+      "type": "AutoRefresh2021",
+      "url": "https://example.edu/workflows/refresh-degree/start",
+      "validAfter": "2027-03-14T19:23:24Z",
+      "validUntil": "2027-07-14T19:23:24Z"
+    },
+    "proof": {
+      "type": "Ed25519Signature2020",
+      "created": "2022-06-14T18:37:12Z",
+      "verificationMethod": "https://example.edu/issuers/14#key-1",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z2aArNcQKX9aqYK7GRZmV7c9xfGuwB5YAXhkYY9DTvLdTCQEsXaNpz1G
+                     ZL9XDXdFQGT27WB68e2Y3wo9k75rka8oo"
+    }
+  }]
+}
+        </pre>
 
       <section>
         <h4>Start Workflow</h4>
@@ -827,34 +828,16 @@ The following APIs are defined for executing Verifiable Credential workflows.
         </p>
 
         <div class="api-detail"
-          data-api-endpoint="post /workflows/start"></div>
+          data-api-endpoint="post /workflows/{name}/start"></div>
       </section>
 
       <section>
-        <h4>Prove Presentation</h4>
+        <h4>Workflow Interaction</h4>
         <p>
         </p>
 
         <div class="api-detail"
-          data-api-endpoint="post /presentations/prove"></div>
-      </section>
-
-      <section>
-        <h4>Presentation Availability</h4>
-        <p>
-        </p>
-
-        <div class="api-detail"
-          data-api-endpoint="post /presentations/available"></div>
-      </section>
-
-      <section>
-        <h4>Submit Presentation</h4>
-        <p>
-        </p>
-
-        <div class="api-detail"
-          data-api-endpoint="post /presentations/submissions"></div>
+          data-api-endpoint="post  /workflows/{id}/presentations"></div>
       </section>
 
     </section>
