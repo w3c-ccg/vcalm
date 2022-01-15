@@ -1,0 +1,81 @@
+openapi: 3.0.0
+info:
+  version: "0.0.3-unstable"
+  title: VC HTTP API
+  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
+  license:
+    name: W3C Software and Document License
+    url: http://www.w3.org/Consortium/Legal/copyright-software.
+  contact:
+    name: GitHub Source Code
+    url: https://github.com/w3c-ccg/vc-api
+paths:
+components:
+  schemas:
+    VerifiablePresentationRequest:
+      type: object
+      description: A Verifiable Presentation Request.
+      properties:
+        "query":
+          type: array
+          description: A set of one or more queries sent by the requester.
+          items:
+            type: object
+            properties:
+              "type":
+                type: array
+                description: The type of the query.
+                items:
+                  type: string
+        "challenge":
+          type: string
+          description: A challenge, intended to prevent replay attacks, provided by the requester that is typically expected to be included in the Verifiable Presentation response.
+        "domain":
+          type: string
+          description: A domain, intended to prevent replay attacks, provided by the requester that is typically expected to be included in the Verifiable Presentation response.
+          items:
+            type: string
+        "interact":
+          type: array
+          description: A list of interaction mechanisms that are supported by the server.
+          items:
+            type: object
+            properties:
+              "service":
+                type: object
+                description: A service that is supported by the server that is capable of receiving a response to the Verifiable Presentation Request.
+                properties:
+                  "type":
+                    type: array
+                    description: The type of the service.
+                    items:
+                      type: string
+                  "serviceEndpoint":
+                    type: string
+                    description: A URL that can be utilized for interacting with the service for the purposes of responding to the Verifiable Presentation Request.
+      example:
+        {
+          "query": [{
+            "type": "DIDAuth"
+          }, {
+            "type": "QueryByExample",
+            "credentialQuery": {
+              "reason": "We need to see your existing University Degree credential.",
+              "example": {
+                "@context": [
+                  "https://www.w3.org/2018/credentials/v1",
+                  "https://www.w3.org/2018/credentials/examples/v1"
+                ],
+                "type": "UniversityDegreeCredential"
+              }
+            }
+          }],
+          "challenge": "3182bdea-63d9-11ea-b6de-3b7c1404d57f",
+          "domain": "edu.example",
+          "interact": {
+            "service": [{
+              "type": "UnmediatedPresentationService2021",
+              "serviceEndpoint": "https://edu.example/workflows/123456/presentations"
+            }]
+          }
+        }
