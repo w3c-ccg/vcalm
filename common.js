@@ -205,10 +205,7 @@ var ccg = {
 require(["core/pubsubhub"], (respecEvents) => {
   "use strict";
 
-  console.log("RESPEC EVENTS", respecEvents);
-
   respecEvents.sub('end-all', (message) => {
-    console.log("END EVENT", message);
     // remove data-cite on where the citation is to ourselves.
     const selfDfns = document.querySelectorAll("dfn[data-cite^='" + respecConfig.shortName.toUpperCase() + "#']");
     for (const dfn of selfDfns) {
@@ -394,7 +391,8 @@ function buildEndpointDetails({config, document, apis}) {
 
     const requestSchema = document.createElement('pre');
     requestSchema.innerHTML = JSON.stringify(
-      endpoint.requestBody.content['application/json'].schema.properties,
+      endpoint.requestBody.content['application/json'].schema.properties ||
+      endpoint.requestBody.content['application/json'].schema,
       null, 2);
     section.appendChild(requestSchema);
 
@@ -412,7 +410,10 @@ async function injectOas(config, document) {
     let holderApi = await SwaggerParser.validate('holder.yml');
     console.log('API name: %s, Version: %s',
       holderApi.info.title, holderApi.info.version);
-    const apis = [issuerApi, verifierApi, holderApi];
+    let workflowApi = await SwaggerParser.validate('workflow.yml');
+    console.log('API name: %s, Version: %s',
+      workflowApi.info.title, workflowApi.info.version);
+    const apis = [issuerApi, verifierApi, holderApi, workflowApi];
 
     buildApiSummaryTables({config, document, apis});
     buildEndpointDetails({config, document, apis});
