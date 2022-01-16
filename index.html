@@ -824,7 +824,16 @@ Connection: keep-alive
 
       <section>
         <h4>Start Workflow</h4>
-        <p>
+        <p class="issue" title="Generalize 'Presentation Availability' endpoint">
+The existing <a href="#presentation-availability">Presentation Availability</a>
+endpoint requires a Verifiable Presentation to be submitted to the endpoint.
+The <em>Start Workflow</em> endpoint defined here generalizes  the <a
+href="#presentation-availability">Presentation Availability</a> endpoint by
+allowing arbitrary data to be posted to the endpoint. It is suggested that we
+can merge the API endpoint defined in this section with the <a
+href="#presentation-availability">Presentation Availability</a> endpoint via
+the generalization provided in this section. The term "workflow" is a working
+title and is not intended to be the final feature name.
         </p>
 
         <div class="api-detail"
@@ -833,7 +842,19 @@ Connection: keep-alive
 
       <section>
         <h4>Workflow Interaction</h4>
-        <p>
+
+        <p class="issue" title="Generalize 'Submit Presentation' endpoint">
+The existing <a href="#submit-presentation">Submit Presentation</a> endpoint is
+highly similar to this endpoint and only differs in the return values provided
+by the endpoint. The <em>Workflow Interaction</em> endpoint defined here
+generalizes the  <a href="#submit-presentation">Submit Presentation</a> endpoint
+by allowing more variability in what is returned to the client and leaving some
+of the HTTP response codes undefined (which can be extended through other
+application-specific means). It is suggested that we can merge the API endpoint
+defined in this section with the <a href="#submit-presentation">Submit
+Presentation</a> endpoint via the generalization provided in this section. The
+term "workflow" is a working title and is not intended to be the final feature
+name.
         </p>
 
         <div class="api-detail"
