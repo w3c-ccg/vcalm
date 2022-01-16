@@ -17,6 +17,12 @@ paths:
         Starts a workflow with the given name. Optionally, additional information can be provided to the server in the request body that can help it fine tune what information to request from the client in order to continue with the workflow.
       requestBody:
         description: Optional and arbitrary POST data that the client might provide to the server to help it fine tune what information to request from the client in order to continue with the workflow.
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - type: object
+                - type: string
       responses:
         "201":
           description: A new workflow was successfully created for the client.
@@ -37,6 +43,10 @@ paths:
       description: "Delivery endpoint for a client-holder to provide a presentation in compliance with the Verifiable Presentation Request provided in the Notification call. This server-holder MUST match the 'domain' and 'challenge' to a 'domain' and 'challenge' previously sent in a Notification Response, and not already received. The server-holder MUST verify the Presentation. The server MUST store the Presentation if verification passes."
       requestBody:
         description: Details the client provides to the server to help it decide if the presentation should be made.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VerifiablePresentation"
       responses:
         "200":
           description: Presentation was successful
@@ -59,8 +69,6 @@ paths:
 components:
   schemas:
     WorkflowStartResponse:
-      type: object
       $ref: "./components/WorkflowStartResponse.yml#/components/schemas/WorkflowStartResponse"
     VerifiablePresentation:
-      type: object
       $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
