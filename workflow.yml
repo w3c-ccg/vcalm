@@ -22,7 +22,6 @@ paths:
             schema:
               oneOf:
                 - type: object
-                - type: string
       responses:
         "201":
           description: A new workflow was successfully created for the client.
