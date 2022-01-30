@@ -38,7 +38,6 @@ paths:
   /workflows/{id}/presentations:
     post:
       summary: Present information to an active workflow.
-      operationId: storePresentation
       description: "Delivery endpoint for a client-holder to provide a presentation in compliance with the Verifiable Presentation Request provided in the Notification call. This server-holder MUST match the 'domain' and 'challenge' to a 'domain' and 'challenge' previously sent in a Notification Response, and not already received. The server-holder MUST verify the Presentation. The server MUST store the Presentation if verification passes."
       requestBody:
         description: Details the client provides to the server to help it decide if the presentation should be made.
