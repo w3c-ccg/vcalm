@@ -56,60 +56,108 @@ paths:
           description: invalid input!
         "500":
           description: error!
-  /presentations/available:
+  /exchanges/{exchange-id}:
     post:
-      summary: Notifies a holder of an available presentation.
-      operationId: notifyPresentationAvailable
+      summary: Initiates an exchange of information.
+      operationId: initiateExchange
       description:
-        This API is the first part of a holder to holder credential exchange over http.
-        Notifies this server-holder that the client-holder (caller) is prepared to deliver a presentation compliant with the provided Verifiable Presentation Request query. This is the first part of a presentation exchange over this HTTP API. This server-holder MUST return the required 'domain' and 'challenge' parameters for the Presentation. This server-holder MAY reply with an alternate Verifiable Presentation Request query if it requires something different than the one proposed by the client-holder. The client-holder MUST return a Presentation in accordance with the response parameters.
+        A client can use this endpoint to initiate an exchange of a particular
+        type. The client can include HTTP POST information related to the
+        details of exchange it would like to initiate. If the server understands
+        the request, it returns a Verifiable Presentation Request. A request
+        that the server cannot understand results in an error.
+      parameters:
+        - in: path
+          name: exchange-id
+          required: true
+          schema:
+            type: string
+            minimum: 3
+            pattern: "[a-z0-9\\-]{3,}"
       requestBody:
-        description: Details the client provides to the server to help it decide if the presentation should be made.
+        description:
+          Information related to the type of exchange the client would like
+          to start.
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/NotifyPresentationAvailableRequest"
+              anyOf:
+                -
+                  {
+                    "type": "object",
+                    "description": "Data necessary to initiate the exchange."
+                  }
+                -
+                  $ref: "#/components/schemas/NotifyPresentationAvailableRequest"
       responses:
         "200":
-          description: Proceed with presentation
+          description: Proceed with exchange.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/NotifyPresentationAvailableResponse"
+                $ref: "#/components/schemas/VerifiablePresentationRequest"
         "400":
-          description: Request for presentation is malformed
+          description: Request is malformed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
         "501":
-          description: Not implemented
+          description: Service not implemented.
         "500":
-          description: internal error
-  /presentations/submissions:
+          description: Internal server error.
+  /exchanges/{exchange-id}/{transaction-uuid}:
     post:
-      summary: Provide a presentation for a holder to store.
-      operationId: storePresentation
-      description: "Delivery endpoint for a client-holder to provide a presentation in compliance with the Verifiable Presentation Request provided in the Notification call. This server-holder MUST match the 'domain' and 'challenge' to a 'domain' and 'challenge' previously sent in a Notification Response, and not already received. The server-holder MUST verify the Presentation. The server MUST store the Presentation if verification passes."
+      summary: Receives information related to an existing exchange.
+      operationId: receiveExchangeData
+      description:
+        A client can use this endpoint to continue the exchange of information
+        associated with an initiated exchange. A Verifiable Presentation is
+        sent to this endpoint. If the server has received all of the information
+        it needs, a 200 OK is returned with either an empty response or a
+        Verifiable Presentation containing requested credentials by the client.
+        If the server requires more information, it returns a Verifiable
+        Presentation Request. A request that the server cannot understand
+        results in an error.
+      parameters:
+        - in: path
+          name: exchange-id
+          description:
+            A human readable exchange type identifier such as "diplomas".
+          required: true
+          schema:
+            type: string
+            pattern: "[a-z0-9\\-]{3,}"
+        - in: path
+          name: transaction-uuid
+          required: true
+          schema:
+            type: string
+            pattern: "([0-9a-f]{8}\b-[0-9a-f]{4}\b-[0-9a-f]{4}\b-[0-9a-f]{4}\b-[0-9a-f]{12}){0,1}"
       requestBody:
-        description: Details the client provides to the server to help it decide if the presentation should be made.
+        description:
+          A Verifiable Presentation.
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/StorePresentationRequest"
+              $ref: "#/components/schemas/VerifiablePresentation"
       responses:
-        "202":
-          description: Presentation accepted
+        "200":
+          description: Received data was accepted.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VerifiablePresentationRequest"
         "400":
-          description: Presentation is malformed
-        "401":
-          description: Presentation did not contain a proof
-        "402":
-          description: Payment required
-        "403":
-          description: Presentation verification failed
-        "425":
-          description: Server is unwilling to risk processing a request that might be replayed
-        "501":
-          description: Not implemented
+          description: Received data is malformed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
         "500":
-          description: internal error
+          description: Internal server error.
+        "501":
+          description: Service not implemented.
 components:
   schemas:
     DeriveCredentialRequest:
@@ -213,5 +261,11 @@ components:
           "domain": "jobs.example.com",
           "challenge": "3182bdea-63d9-11ea-b6de-3b7c1404d57f",
         }
+    ErrorResponse:
+      $ref: "./components/ErrorResponse.yml#/components/schemas/ErrorResponse"
     StorePresentationRequest:
       $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+    VerifiablePresentation:
+      $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+    VerifiablePresentationRequest:
+      $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
