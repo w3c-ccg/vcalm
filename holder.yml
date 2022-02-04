@@ -67,13 +67,7 @@ paths:
         the request, it returns a Verifiable Presentation Request. A request
         that the server cannot understand results in an error.
       parameters:
-        - in: path
-          name: exchange-id
-          required: true
-          schema:
-            type: string
-            minimum: 3
-            pattern: "[a-z0-9\\-]{3,}"
+        - $ref: "./components/parameters/path/ExchangeId.yml"
       requestBody:
         description:
           Information related to the type of exchange the client would like
@@ -120,20 +114,8 @@ paths:
         Presentation Request. A request that the server cannot understand
         results in an error.
       parameters:
-        - in: path
-          name: exchange-id
-          description:
-            A human readable exchange type identifier such as "diplomas".
-          required: true
-          schema:
-            type: string
-            pattern: "[a-z0-9\\-]{3,}"
-        - in: path
-          name: transaction-uuid
-          required: true
-          schema:
-            type: string
-            pattern: "([0-9a-f]{8}\b-[0-9a-f]{4}\b-[0-9a-f]{4}\b-[0-9a-f]{4}\b-[0-9a-f]{12}){0,1}"
+        - $ref: "./components/parameters/path/ExchangeId.yml"
+        - $ref: "./components/parameters/path/TransactionUuid.yml"
       requestBody:
         description:
           A Verifiable Presentation.

@@ -1,0 +1,8 @@
+name: exchange-id
+description: A potentially human-readable identifier for an exchange.
+in: path
+required: true
+schema:
+  type: string
+  minimum: 3
+  pattern: "[a-z0-9][a-z0-9\\-]{2,}"
