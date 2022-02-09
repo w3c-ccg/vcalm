@@ -101,7 +101,7 @@ paths:
         "500":
           description: Internal server error.
   /exchanges/{exchange-id}/{transaction-uuid}:
-    post:
+    put:
       summary: Receives information related to an existing exchange.
       operationId: receiveExchangeData
       description:
