@@ -106,13 +106,8 @@ paths:
       operationId: receiveExchangeData
       description:
         A client can use this endpoint to continue the exchange of information
-        associated with an initiated exchange. A Verifiable Presentation is
-        sent to this endpoint. If the server has received all of the information
-        it needs, a 200 OK is returned with either an empty response or a
-        Verifiable Presentation containing requested credentials by the client.
-        If the server requires more information, it returns a Verifiable
-        Presentation Request. A request that the server cannot understand
-        results in an error.
+        associated with an initiated exchange by sending a Verifiable Presentation 
+        with information requested by the server to this endpoint.
       parameters:
         - $ref: "./components/parameters/path/ExchangeId.yml"
         - $ref: "./components/parameters/path/TransactionUuid.yml"
