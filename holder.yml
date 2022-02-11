@@ -100,17 +100,17 @@ paths:
           description: Service not implemented.
         "500":
           description: Internal server error.
-  /exchanges/{exchange-id}/{transaction-uuid}:
+  /exchanges/{exchange-id}/{transaction-id}:
     put:
       summary: Receives information related to an existing exchange.
       operationId: receiveExchangeData
       description:
         A client can use this endpoint to continue the exchange of information
-        associated with an initiated exchange by sending a Verifiable Presentation 
+        associated with an initiated exchange by sending a Verifiable Presentation
         with information requested by the server to this endpoint.
       parameters:
         - $ref: "./components/parameters/path/ExchangeId.yml"
-        - $ref: "./components/parameters/path/TransactionUuid.yml"
+        - $ref: "./components/parameters/path/TransactionId.yml"
       requestBody:
         description:
           A Verifiable Presentation.
