@@ -56,6 +56,39 @@ paths:
           description: invalid input!
         "500":
           description: error!
+  /exchanges/:
+    get:
+      summary: provides a discovery endpoint for the exchanges supported by this sserver endpoint.
+      operationId: discoverExchanges
+      description: 
+        This endpoint returns a map of the exchange-ids (endpoints) supported by this server, 
+        and the associated protocol supported by that exchange endpoint in an 
+        "exchange-id" -> "protocol" map. The keys in the returned object MUST be a valid 
+        ExchangeId path parameter, and the value field MUST be a string that 
+        references the supported protocol on that endpoint. Protocol strings MUST be 
+        the protocol specification name or type, or a url to a spec. Clients consuming this 
+        list wishing to use an exchange endpoint MUST recognize and support the protocol identified
+        in the value field. Clients are not expected to dynamically process the protocol specified.    
+      responses:
+        "200":
+          description: a map of the exchange-id endpoints to protocols those exchanges support.
+          content:
+            application/json:
+              schema:
+                type: object 
+                additionalProperties: 
+                  type: string
+              example:
+                {
+                  "credential-refresh" : "CredentialRefresh2020",
+                  "34901-18388409-1939" : "PresentationExchange1.0",
+                  "credential" : "openid-credential-provider-01",
+                  "salad" : "https://example.com/oas/my-salad.yml" 
+                }
+        "400": 
+          description: invalid input
+        "500" : 
+          description: error
   /exchanges/{exchange-id}:
     post:
       summary: Initiates an exchange of information.

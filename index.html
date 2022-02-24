@@ -555,6 +555,17 @@ The following APIs are defined for presenting a Verifiable Credential:
       </section>
 
       <section>
+        <h4>Exchange Discovery</h4>
+        <p> 
+Discovery is an optional call for the Holder App to ensure the Holder App can support
+the exchange protocol requirements before calling the endpoint. Apps SHOULD support 
+the exchange discovery endpoint.
+        </p>
+        <div class="api-detail"
+          data-api-endpoint="post /exchanges/"></div>
+
+      </section>
+      <section>
         <h4>Initiate Exchange</h4>
         <p>
         </p>
@@ -602,7 +613,11 @@ Verifiable Credentials or a further presentation request as expressed in
 step 2 above.
           </li>
         </ol>
-
+        <p>
+The Holder App MAY call the App's exchange discovery endpoint to determine if
+the Holder App supports the App's protocol requriements on a particular endpoint, 
+before actually initiating the exchange.
+        </p>        
         <p>
 A diagram of the steps outlined above is presented below:
         </p>
