@@ -58,7 +58,7 @@ paths:
           description: error!
   /exchanges/:
     get:
-      summary: provides a discovery endpoint for the exchanges supported by this sserver endpoint.
+      summary: provides a discovery endpoint for the exchanges supported by this server endpoint.
       operationId: discoverExchanges
       description: 
         This endpoint returns a map of the exchange-ids (endpoints) supported by this server, 
