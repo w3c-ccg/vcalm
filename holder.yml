@@ -66,7 +66,7 @@ paths:
         "exchange-id" -> "protocol" map. The keys in the returned object MUST be a valid 
         ExchangeId path parameter, and the value field MUST be a string that 
         references the supported protocol on that endpoint. Protocol strings MUST be 
-        the protocol specification name or type, or a url to a spec. Clients consuming this 
+        the protocol specification name or type, or a URL to a spec. Clients consuming this 
         list wishing to use an exchange endpoint MUST recognize and support the protocol identified
         in the value field. Clients are not expected to dynamically process the protocol specified.    
       responses:
