@@ -56,7 +56,7 @@ paths:
           description: invalid input!
         "500":
           description: error!
-  /exchanges/:
+  /exchanges:
     get:
       summary: provides a discovery endpoint for the exchanges supported by this server endpoint.
       operationId: discoverExchanges
