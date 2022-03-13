@@ -1,3 +1,7 @@
 node_modules
 
 docs/test-suite
+
+#package-lock.json
+#api/bundles/*.yml
+#api/*.yaml
