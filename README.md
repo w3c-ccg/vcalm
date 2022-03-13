@@ -72,6 +72,22 @@ This entails:
 - Minutes are scribed by volunteers from the group and sent to the CCG mailing
   list for review.
 
+### Development
+
+To assemble bundled yamls, as well as a master bundel of all definitions
+run the following:
+
+```bash
+npm run build
+```
+
+This will generate the following files:
+
+- `api/vc-api.yaml` a master file with all specifications rolled into one
+- `api/bundles/issuer.yml` issuer endpoints bundled with no external refs
+- `api/bundles/verifier.yml` verifier endpoints bundled with no external refs
+- `api/bundles/holder.yml` holder endpoints bundled with no external refs
+
 ## Additional Documentation
 
 - [Verifiable Credential Issuer API Architecture Model](architecture.md)
