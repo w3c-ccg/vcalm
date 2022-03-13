@@ -1,0 +1,43 @@
+# API Documentation for VC-API
+name: "Build and Publish VC-API Docs"
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  prepare:
+    name: "Prepare OAS Artifacts"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Build Docs"
+        uses: actions/setup-node@v1
+        with:
+          node-version: '16.x'
+      - run: npm install -g redoc-cli
+      - run: npm install -g @redocly/openapi-cli
+      - run: npm install 
+      - run: npm run build
+      - name: "Upload Generated Docs"
+        uses: actions/upload-artifact@v2
+        with:
+          name: generated-docs
+          path: docs
+
+  deploy:
+    name: "Deploy Docs to GitHub Pages"
+    needs: prepare
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Download Generated Docs"
+        uses: actions/download-artifact@v2
+        with:
+          name: generated-docs
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{steps.download.outputs.download-path}}
+          
