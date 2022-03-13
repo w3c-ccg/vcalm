@@ -74,14 +74,136 @@ function buildEndpointDetails({config, document, apis}) {
       `${verb.toUpperCase()}:`;
     section.appendChild(schemaSummary);
 
-    const requestSchema = document.createElement('pre');
-    requestSchema.innerHTML = JSON.stringify(
+    const requestSchema =
       endpoint.requestBody.content['application/json'].schema.properties ||
-      endpoint.requestBody.content['application/json'].schema,
-      null, 2);
-    section.appendChild(requestSchema);
+      endpoint.requestBody.content['application/json'].schema;
+
+    let requestSchemaHtml = document.createElement('p');
+    requestSchemaHtml.innerHTML = 'RENDERING ERROR'; // default
+    if(requestSchema) {
+      requestSchemaHtml = renderJsonSchema(requestSchema);
+    }
+
+    section.appendChild(requestSchemaHtml);
 
   }
+}
+
+function renderJsonSchema(schema) {
+  const requestSchemaTable = document.createElement('table');
+  const tableHeader = document.createElement('thead');
+  const tableBody = document.createElement('tbody');
+
+  requestSchemaTable.classList.add('simple');
+  tableHeader.innerHTML = '<tr><th>Property</th><th>Description</th></tr>';
+
+  // render every property in the schema
+  for(const property in schema) {
+    const subSchema = schema[property];
+    let propertyRendering = `<code>${property}</code>`;
+    let valueRendering = 'Error: JSON Schema value rendering failure.'; // default
+    if(subSchema.type === 'object') {
+      propertyRendering = `<code>${property}</code> [object]`;
+      valueRendering = renderJsonSchemaObject(subSchema);
+    } else {
+      valueRendering = '<pre>' + JSON.stringify(subSchema, null, 2) + '</pre>';
+    }
+    tableBody.innerHTML +=
+      `<tr><td style='vertical-align: top;'>${propertyRendering}</td>` +
+      `<td>${valueRendering}</td></tr>`;
+  }
+
+  // tableBody.innerHTML += '<tr><td>DEBUG</td><td><pre>' +
+  //   JSON.stringify(schema, null, 2) + '</pre></td></tr>';
+
+  requestSchemaTable.appendChild(tableHeader);
+  requestSchemaTable.appendChild(tableBody);
+
+  return requestSchemaTable;
+}
+
+function renderJsonSchemaObject(schema) {
+  let objectRendering = '';
+
+  if(schema.allOf) {
+    const mergedSchema = {
+      type: 'object',
+      properties: {}
+    };
+    for(item of schema.allOf) {
+      for(property in item.properties) {
+        mergedSchema.properties[property] = item.properties[property];
+      }
+    }
+
+    objectRendering = renderJsonSchemaObject(mergedSchema);
+  } else if(schema.oneOf) {
+    objectRendering += ' either '
+    let itemCount = 0;
+    for(item of schema.oneOf) {
+      if(item.type === 'string') {
+        objectRendering += 'a string'
+      } else if(item.type === 'object') {
+        objectRendering += renderJsonSchemaObject(item);
+      }
+
+      itemCount += 1;
+      if(itemCount < schema.oneOf.length) {
+        objectRendering += ' or '
+      }
+    }
+  } else if(schema.type === 'object') {
+    if(!schema.properties) {
+      objectRendering = 'an object.';
+    } else {
+      objectRendering += 'an object of the following form: <dl>';
+      for(property in schema.properties) {
+        const value = schema.properties[property];
+        objectRendering += renderJsonSchemaProperty(property, value);
+      }
+      objectRendering += '</dl>';
+    }
+  } else {
+    objectRendering = '<pre>' + JSON.stringify(schema, null, 2) + '</pre>';
+  }
+
+  return objectRendering;
+}
+
+function renderJsonSchemaProperty(property, value) {
+  let propertyRendering = `<dt>${property} [${value.type}]</dt>`;
+  propertyRendering += '<dd>' + value.description + ' ' +
+    renderJsonSchemaValue(property, value) + '</dd>';
+
+  return propertyRendering;
+}
+
+function renderJsonSchemaValue(property, value) {
+  let valueRendering = '';
+
+  if(value.type === 'array') {
+    valueRendering = `Each item in the <code>${property}</code> array MUST be `;
+    if(value.items.type === 'object') {
+      valueRendering += 'an object of the following form:';
+      //typeDetails += renderJsonSchemaValue(property, value);
+    } else if(value.items.type === 'string') {
+      valueRendering += 'a string.';
+    } else {
+      valueRendering += `a ${value.items.type}:`;
+    }
+  } else if(value.type === 'object') {
+    valueRendering =
+      `The <code>${property}</code> object MUST be `;
+      if(property === 'credentialSubject') console.log("CSUBJ", value);
+    valueRendering += renderJsonSchemaObject(value);
+  }
+  else if(value.type === 'string') {
+    // no-op
+  } else {
+    valueRendering = '<pre>' + JSON.stringify(value, null, 2) + '</pre>';
+  }
+
+  return valueRendering;
 }
 
 async function injectOas(config, document) {
