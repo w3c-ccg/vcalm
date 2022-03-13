@@ -12,10 +12,150 @@ info:
     name: GitHub Source Code
     url: https://github.com/w3c-ccg/vc-api
 paths:
+  /credentials/{id}:
+    get:
+      tags:
+        - Credentials
+      summary: Gets a credential or verifiable credential by ID
+      operationId: getCredential
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Credential retrieved
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/Credential'
+                  - $ref: '#/components/schemas/VerifiableCredential'
+        '400':
+          description: Bad Request
+        '401':
+          description: Not Authorized
+        '410':
+          description: Gone! There is no data here
+        '500':
+          description: Internal Error
+        '501':
+          description: Not Implemented
+  /credentials:
+    get:
+      tags:
+        - Credentials
+      summary: Gets list of credentials or verifiable credentials
+      operationId: getCredentials
+      parameters:
+        - in: query
+          name: type
+          schema:
+            type: array
+            items:
+              type: string
+              oneOf:
+                - credentials
+                - verifiablecredentials
+                - all
+      responses:
+        '200':
+          description: Credentials retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                description: The Credentials
+                items:
+                  anyOf:
+                    - $ref: '#/components/schemas/VerifiableCredential'
+                    - $ref: '#/components/schemas/Credential'
+        '400':
+          description: Bad Request
+        '401':
+          description: Not Authorized
+        '410':
+          description: Gone! There is no data here
+        '500':
+          description: Internal Error
+        '501':
+          description: Not Implemented
+  /presentations/{id}:
+    get:
+      tags:
+        - Presentation
+      summary: Gets a presentation or verifiable presentation by ID
+      operationId: getPresentation
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Credential retrieved
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/Presentation'
+                  - $ref: '#/components/schemas/VerifiablePresentation'
+        '400':
+          description: Bad Request
+        '401':
+          description: Not Authorized
+        '410':
+          description: Gone! There is no data here
+        '500':
+          description: Internal Error
+        '501':
+          description: Not Implemented
+  /Presentation:
+    get:
+      tags:
+        - Presentation
+      summary: Gets list of presentations or verifiable presentations
+      operationId: getPresentations
+      parameters:
+        - in: query
+          name: type
+          schema:
+            type: array
+            items:
+              type: string
+              oneOf:
+                - presentations
+                - verifiablepresentations
+                - all
+      responses:
+        '200':
+          description: Presentations retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                description: The Presentations
+                items:
+                  anyOf:
+                    - $ref: '#/components/schemas/Presentation'
+                    - $ref: '#/components/schemas/VerifiablePresentation'
+        '400':
+          description: Bad Request
+        '401':
+          description: Not Authorized
+        '410':
+          description: Gone! There is no data here
+        '500':
+          description: Internal Error
+        '501':
+          description: Not Implemented
   /credentials/derive:
     post:
       tags:
-        - credential
+        - Credentials
       summary: Derives a credential and returns it in the response body.
       operationId: deriveCredential
       description: Derives a credential and returns it in the response body.
@@ -42,7 +182,7 @@ paths:
     post:
       summary: Proves a presentation and returns it in the response body.
       tags:
-        - presentation
+        - Presentations
       operationId: provePresentation
       description: Proves a presentation and returns it in the response body.
       requestBody:
@@ -66,7 +206,7 @@ paths:
     post:
       summary: Initiates an exchange of information.
       tags:
-        - exchange
+        - Exchanges
       operationId: initiateExchange
       description: >-
         A client can use this endpoint to initiate an exchange of a particular
@@ -108,7 +248,7 @@ paths:
     put:
       summary: Receives information related to an existing exchange.
       tags:
-        - exchange
+        - Exchanges
       operationId: receiveExchangeData
       description: >-
         A client can use this endpoint to continue the exchange of information
@@ -477,18 +617,6 @@ components:
           proofPurpose: assertionMethod
           jws: >-
             eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA
-    DeriveCredentialOptions:
-      type: object
-      additionalProperties: false
-      description: Options for specifying how the derived credential is created.
-      properties:
-        nonce:
-          type: string
-          description: >-
-            An encoded nonce provided by the holder of the credential to be
-            included into the LinkedDataProof.
-      example:
-        nonce: lEixQKDQvRecCifKl789TQj+Ii6YWDLSwn3AxR0VpPJ1QV5htod/0VCchVf1zVM0y2E=
     Presentation:
       type: object
       description: A JSON-LD Verifiable Presentation without a proof.
@@ -545,6 +673,18 @@ components:
               proofPurpose: assertionMethod
               jws: >-
                 eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA
+    DeriveCredentialOptions:
+      type: object
+      additionalProperties: false
+      description: Options for specifying how the derived credential is created.
+      properties:
+        nonce:
+          type: string
+          description: >-
+            An encoded nonce provided by the holder of the credential to be
+            included into the LinkedDataProof.
+      example:
+        nonce: lEixQKDQvRecCifKl789TQj+Ii6YWDLSwn3AxR0VpPJ1QV5htod/0VCchVf1zVM0y2E=
     PresentCredentialOptions:
       type: object
       additionalProperties: false
