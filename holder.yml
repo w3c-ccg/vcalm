@@ -12,6 +12,8 @@ info:
 paths:
   /credentials/derive:
     post:
+      tags: 
+       - credential
       summary: Derives a credential and returns it in the response body.
       operationId: deriveCredential
       description: Derives a credential and returns it in the response body.
@@ -37,6 +39,8 @@ paths:
   /presentations/prove:
     post:
       summary: Proves a presentation and returns it in the response body.
+      tags: 
+       - presentation
       operationId: provePresentation
       description: Proves a presentation and returns it in the response body.
       requestBody:
@@ -59,6 +63,8 @@ paths:
   /exchanges/{exchange-id}:
     post:
       summary: Initiates an exchange of information.
+      tags: 
+       - exchange
       operationId: initiateExchange
       description:
         A client can use this endpoint to initiate an exchange of a particular
@@ -103,6 +109,8 @@ paths:
   /exchanges/{exchange-id}/{transaction-id}:
     put:
       summary: Receives information related to an existing exchange.
+      tags: 
+       - exchange
       operationId: receiveExchangeData
       description:
         A client can use this endpoint to continue the exchange of information
