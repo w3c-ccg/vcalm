@@ -39,6 +39,36 @@ paths:
           description: Not Authorized
         '410':
           description: Gone! There is no data here
+        '418':
+          description: >-
+            I'm a teapot - MUST not be returned outside of pre-arranged
+            scenarios between both parties
+        '500':
+          description: Internal Error
+        '501':
+          description: Not Implemented
+    delete:
+      tags:
+        - Credentials
+      summary: Deletes a credential or verifiable credential by ID
+      operationId: deleteCredential
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '202':
+          description: >-
+            Credential deleted - this is a 202 by default as soft deletes and
+            processing time are assumed
+        '400':
+          description: Bad Request
+        '401':
+          description: Not Authorized
+        '410':
+          description: Gone! There is no data here
         '500':
           description: Internal Error
         '501':
@@ -82,10 +112,36 @@ paths:
           description: Internal Error
         '501':
           description: Not Implemented
+  /credentials/derive:
+    post:
+      tags:
+        - Credentials
+      summary: Derives a credential and returns it in the response body.
+      operationId: deriveCredential
+      description: Derives a credential and returns it in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeriveCredentialRequest'
+        description: Parameters for deriving the credential.
+      responses:
+        '201':
+          description: Credential derived successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifiableCredential'
+        '400':
+          description: Invalid Request
+        '500':
+          description: Internal Error
+        '501':
+          description: Not Implemented
   /presentations/{id}:
     get:
       tags:
-        - Presentation
+        - Presentations
       summary: Gets a presentation or verifiable presentation by ID
       operationId: getPresentation
       parameters:
@@ -113,10 +169,36 @@ paths:
           description: Internal Error
         '501':
           description: Not Implemented
+    delete:
+      tags:
+        - Presentations
+      summary: Deletes a presentation or verifiable presentation by ID
+      operationId: deletePresentation
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '202':
+          description: >-
+            Presentation deleted - this is a 202 by default as soft deletes and
+            processing time are assumed
+        '400':
+          description: Bad Request
+        '401':
+          description: Not Authorized
+        '410':
+          description: Gone! There is no data here
+        '500':
+          description: Internal Error
+        '501':
+          description: Not Implemented
   /Presentation:
     get:
       tags:
-        - Presentation
+        - Presentations
       summary: Gets list of presentations or verifiable presentations
       operationId: getPresentations
       parameters:
@@ -148,32 +230,6 @@ paths:
           description: Not Authorized
         '410':
           description: Gone! There is no data here
-        '500':
-          description: Internal Error
-        '501':
-          description: Not Implemented
-  /credentials/derive:
-    post:
-      tags:
-        - Credentials
-      summary: Derives a credential and returns it in the response body.
-      operationId: deriveCredential
-      description: Derives a credential and returns it in the response body.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DeriveCredentialRequest'
-        description: Parameters for deriving the credential.
-      responses:
-        '201':
-          description: Credential derived successfully.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VerifiableCredential'
-        '400':
-          description: Invalid Request
         '500':
           description: Internal Error
         '501':
@@ -617,6 +673,18 @@ components:
           proofPurpose: assertionMethod
           jws: >-
             eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA
+    DeriveCredentialOptions:
+      type: object
+      additionalProperties: false
+      description: Options for specifying how the derived credential is created.
+      properties:
+        nonce:
+          type: string
+          description: >-
+            An encoded nonce provided by the holder of the credential to be
+            included into the LinkedDataProof.
+      example:
+        nonce: lEixQKDQvRecCifKl789TQj+Ii6YWDLSwn3AxR0VpPJ1QV5htod/0VCchVf1zVM0y2E=
     Presentation:
       type: object
       description: A JSON-LD Verifiable Presentation without a proof.
@@ -673,18 +741,6 @@ components:
               proofPurpose: assertionMethod
               jws: >-
                 eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA
-    DeriveCredentialOptions:
-      type: object
-      additionalProperties: false
-      description: Options for specifying how the derived credential is created.
-      properties:
-        nonce:
-          type: string
-          description: >-
-            An encoded nonce provided by the holder of the credential to be
-            included into the LinkedDataProof.
-      example:
-        nonce: lEixQKDQvRecCifKl789TQj+Ii6YWDLSwn3AxR0VpPJ1QV5htod/0VCchVf1zVM0y2E=
     PresentCredentialOptions:
       type: object
       additionalProperties: false

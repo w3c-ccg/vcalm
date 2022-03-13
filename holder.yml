@@ -37,6 +37,32 @@ paths:
           description: Not Authorized
         "410":
           description: Gone! There is no data here
+        "418":
+          description: I'm a teapot - MUST not be returned outside of pre-arranged scenarios between both parties
+        "500":
+          description: Internal Error
+        "501":
+          description: Not Implemented
+    delete:
+      tags:
+       - Credentials
+      summary: Deletes a credential or verifiable credential by ID
+      operationId: deleteCredential
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "202":
+          description: Credential deleted - this is a 202 by default as soft deletes and processing time are assumed
+        "400":
+          description: Bad Request
+        "401":
+          description: Not Authorized
+        "410":
+          description: Gone! There is no data here
         "500":
           description: Internal Error
         "501":
@@ -80,11 +106,37 @@ paths:
           description: Internal Error
         "501":
           description: Not Implemented
+  /credentials/derive:
+    post:
+      tags: 
+       - Credentials
+      summary: Derives a credential and returns it in the response body.
+      operationId: deriveCredential
+      description: Derives a credential and returns it in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeriveCredentialRequest"
+        description: Parameters for deriving the credential.
+      responses:
+        "201":
+          description: Credential derived successfully.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeriveCredentialResponse"
+        "400":
+          description: Invalid Request
+        "500":
+          description: Internal Error
+        "501":
+          description: Not Implemented
 
   /presentations/{id}:
     get:
       tags:
-       - Presentation
+       - Presentations
       summary: Gets a presentation or verifiable presentation by ID
       operationId: getPresentation
       parameters:
@@ -112,10 +164,34 @@ paths:
           description: Internal Error
         "501":
           description: Not Implemented
+    delete:
+      tags:
+       - Presentations
+      summary: Deletes a presentation or verifiable presentation by ID
+      operationId: deletePresentation
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "202":
+          description: Presentation deleted - this is a 202 by default as soft deletes and processing time are assumed
+        "400":
+          description: Bad Request
+        "401":
+          description: Not Authorized
+        "410":
+          description: Gone! There is no data here
+        "500":
+          description: Internal Error
+        "501":
+          description: Not Implemented
   /Presentation:
     get:
       tags:
-       - Presentation
+       - Presentations
       summary: Gets list of presentations or verifiable presentations
       operationId: getPresentations
       parameters:
@@ -152,32 +228,6 @@ paths:
         "501":
           description: Not Implemented
 
-  /credentials/derive:
-    post:
-      tags: 
-       - Credentials
-      summary: Derives a credential and returns it in the response body.
-      operationId: deriveCredential
-      description: Derives a credential and returns it in the response body.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/DeriveCredentialRequest"
-        description: Parameters for deriving the credential.
-      responses:
-        "201":
-          description: Credential derived successfully.
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/DeriveCredentialResponse"
-        "400":
-          description: Invalid Request
-        "500":
-          description: Internal Error
-        "501":
-          description: Not Implemented
   /presentations/prove:
     post:
       summary: Proves a presentation and returns it in the response body.
@@ -202,6 +252,7 @@ paths:
           description: invalid input!
         "500":
           description: error!
+
   /exchanges/{exchange-id}:
     post:
       summary: Initiates an exchange of information.
@@ -285,6 +336,7 @@ paths:
           description: Internal server error.
         "501":
           description: Service not implemented.
+
 components:
   schemas:
     DeriveCredentialRequest:
