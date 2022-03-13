@@ -171,7 +171,7 @@ function renderJsonSchemaObject(schema) {
 }
 
 function renderJsonSchemaProperty(property, value) {
-  let propertyRendering = `<dt>${property} [${value.type}]</dt>`;
+  let propertyRendering = `<dt><code>${property}</code> [${value.type}]</dt>`;
   propertyRendering += '<dd>' + value.description + ' ' +
     renderJsonSchemaValue(property, value) + '</dd>';
 
@@ -194,7 +194,6 @@ function renderJsonSchemaValue(property, value) {
   } else if(value.type === 'object') {
     valueRendering =
       `The <code>${property}</code> object MUST be `;
-      if(property === 'credentialSubject') console.log("CSUBJ", value);
     valueRendering += renderJsonSchemaObject(value);
   }
   else if(value.type === 'string') {
