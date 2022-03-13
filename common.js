@@ -201,7 +201,6 @@ var ccg = {
   }
 };
 
-
 require(["core/pubsubhub"], (respecEvents) => {
   "use strict";
 
@@ -227,10 +226,11 @@ require(["core/pubsubhub"], (respecEvents) => {
 // To ensure a definition appears in the Terminology section, use
 //  and link to it!
 // This is triggered by postProcess in the respec config.
-function restrictRefs(config, document){
+function restrictRefs(utils, content, url){
 
   // Get set of ids internal dfns referenced in the spec body
   const internalDfnLinks = document.querySelectorAll("a.internalDFN");
+
   let internalDfnIds = new Set();
   for (const dfnLink of internalDfnLinks) {
     const dfnHref = dfnLink.href.split("#")[1];
@@ -276,40 +276,6 @@ function restrictRefs(config, document){
       }
     }
   }
-
-}
-
-function _esc(s) {
-  return s.replace(/&/g,'&amp;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;')
-    .replace(/</g,'&lt;');
-}
-
-function reindent(text) {
-  // TODO: use trimEnd when Edge supports it
-  const lines = text.trimRight().split("\n");
-  while (lines.length && !lines[0].trim()) {
-    lines.shift();
-  }
-  const indents = lines.filter(s => s.trim()).map(s => s.search(/[^\s]/));
-  const leastIndent = Math.min(...indents);
-  return lines.map(s => s.slice(leastIndent)).join("\n");
-}
-
-function updateExample(doc, content) {
-  // perform transformations to make it render and prettier
-  return _esc(reindent(unComment(doc, content)));
-}
-
-function unComment(doc, content) {
-  // perform transformations to make it render and prettier
-  return content
-    .replace(/<!--/, '')
-    .replace(/-->/, '')
-    .replace(/< !\s*-\s*-/g, '<!--')
-    .replace(/-\s*- >/g, '-->')
-    .replace(/-\s*-\s*&gt;/g, '--&gt;');
 }
 
 /********************* OAS Experiment *************************/

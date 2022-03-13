@@ -66,8 +66,11 @@
 
     // Uncomment these to use the respec extension that generates a list of
     //   normative statements:
-    preProcess: [/*prepare_reqlist*/],
-    postProcess: [/*add_reqlist_button*/, injectOas, restrictRefs],
+    preProcess: [],
+    postProcess: [injectOas, restrictRefs],
+    lint: {
+      "no-unused-dfns": false
+    },
 
     // list of specification editors
     editors: [{
