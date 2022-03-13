@@ -536,6 +536,13 @@ The following APIs are defined for presenting a Verifiable Credential:
           /exchanges/{exchange-id} /exchanges/{exchange-id}/{transaction-id}"
         ></table>
 
+        <p class="advisement">
+The URL path values <code>exchange-id</code> and <code>transaction-id</code> are
+meaningful to the server but are opaque to the client. While some server
+implementations might use values that happen to be human-readable,  clients are
+strongly advised to not assign semantics to any human-readable values.
+        </p>
+
       <section>
         <h4>Derive Credential</h4>
         <p>
