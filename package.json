@@ -4,8 +4,7 @@
   "description": "Verifiable Credential API",
   "main": "index.js",
   "scripts": {
-    "test": "npx swagger-cli validate api/vc-api.yaml",
-    "build": "npx swagger-cli bundle issuer.yml verifier.yml holder.yml -t yaml -o api/vc-api.yaml"
+    "build": "openapi bundle *.yml --output ./api/bundles/ && openapi join ./api/bundles/*.yml --prefix-tags-with-filename && mv ./openapi.yaml ./api/vc-api.yaml"
   },
   "repository": {
     "type": "git",
