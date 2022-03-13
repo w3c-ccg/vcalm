@@ -23,5 +23,9 @@
   "homepage": "https://github.com/w3c-ccg/vc-api#readme",
   "dependencies": {
     "swagger-cli": "^4.0.4"
+  },
+  "devDependencies": {
+    "@redocly/openapi-cli": "^1.0.0-beta.87",
+    "redoc-cli": "^0.13.8"
   }
 }
