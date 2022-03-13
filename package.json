@@ -1,0 +1,28 @@
+{
+  "name": "vc-api",
+  "version": "0.0.3",
+  "description": "Verifiable Credential API",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx swagger-cli validate api/vc-api.yaml",
+    "build": "npx swagger-cli bundle issuer.yml verifier.yml holder.yml -t yaml -o api/vc-api.yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w3c-ccg/vc-api.git"
+  },
+  "keywords": [
+    "VC",
+    "DID",
+    "W3C"
+  ],
+  "author": "public-credentials@w3.org",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/w3c-ccg/vc-api/issues"
+  },
+  "homepage": "https://github.com/w3c-ccg/vc-api#readme",
+  "dependencies": {
+    "swagger-cli": "^4.0.4"
+  }
+}
