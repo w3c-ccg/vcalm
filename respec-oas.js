@@ -207,13 +207,13 @@ function renderJsonSchemaValue(property, value) {
 
 async function injectOas(config, document) {
   try {
-    let issuerApi = await SwaggerParser.validate('issuer.yml');
+    const issuerApi = await SwaggerParser.validate('issuer.yml');
     console.log('API name: %s, Version: %s',
       issuerApi.info.title, issuerApi.info.version);
-    let verifierApi = await SwaggerParser.validate('verifier.yml');
+    const verifierApi = await SwaggerParser.validate('verifier.yml');
     console.log('API name: %s, Version: %s',
       verifierApi.info.title, verifierApi.info.version);
-    let holderApi = await SwaggerParser.validate('holder.yml');
+    const holderApi = await SwaggerParser.validate('holder.yml');
     console.log('API name: %s, Version: %s',
       holderApi.info.title, holderApi.info.version);
     const apis = [issuerApi, verifierApi, holderApi];
