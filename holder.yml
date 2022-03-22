@@ -58,33 +58,96 @@ paths:
           description: error!
   /exchanges:
     get:
-      summary: provides a discovery endpoint for the exchanges supported by this server endpoint.
+      summary: Provides a discovery endpoint for the exchanges supported by this server endpoint.
       operationId: discoverExchanges
       description: 
-        This endpoint returns a map of the exchange-ids (endpoints) supported by this server, 
-        and the associated protocol supported by that exchange endpoint in an 
-        "exchange-id" -> "protocol" map. The keys in the returned object MUST be a valid 
-        ExchangeId path parameter, and the value field MUST be a string that 
-        references the supported protocol on that endpoint. Protocol strings MUST be 
-        the protocol specification name or type, or a URL to a spec. Clients consuming this 
-        list wishing to use an exchange endpoint MUST recognize and support the protocol identified
-        in the value field. Clients are not expected to dynamically process the protocol specified.    
+        This endpoint returns an array of the exchange-ids (path endpoints) supported by this server, 
+        and the associated protocol supported by that exchange endpoint. The list supports pagination.
+        Clients consuming this list wishing to use an exchange endpoint MUST recognize and support 
+        the protocol identified in the value field. Clients are not expected to dynamically process
+        the protocol specified.   
+      parameters:
+        - name: index
+          in: query
+          description: 
+            The starting index for the list that is meaningful to the server. 
+            If omitted the server must assume the start of the list.
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: 
+            The maximum number of items to return in the response. If omitted the service should 
+            return all remaining items from the start index.
+          required: false
+          schema:
+            type: number
       responses:
         "200":
-          description: a map of the exchange-id endpoints to protocols those exchanges support.
+          description: A map of the exchange-id endpoints to protocols those exchanges support.
           content:
             application/json:
               schema:
-                type: object 
-                additionalProperties: 
-                  type: string
+                required:
+                  - count
+                  - index
+                  - total
+                  - exchanges
+                properties:
+                  count:
+                    type: number
+                    description: The number of elements returned in the array.
+                  total:
+                    type: number
+                    description: The total number of elements available.
+                  exchanges:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: 'the path name of the exchange endpoint. May be a UUID.'
+                        type:
+                          type: string
+                          description: MUST be a string that references the supported protocol on that endpoint.
+                  index:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                        description: 
+                          The index position of the start of the returned list. Examples could be a numerica value, 
+                          a URL, or a value meaningful to the server.
+                      next:
+                        type: string
+                        description: 
+                          The index position for the next set of results (ie, index of the end of this list). 
+                          Examples could be a numerica value, a URL, or a value meaningful to the server.
+
               example:
-                {
-                  "credential-refresh" : "CredentialRefresh2020",
-                  "34901-18388409-1939" : "PresentationExchange1.0",
-                  "credential" : "openid-credential-provider-01",
-                  "salad" : "https://example.com/oas/my-salad.yml" 
-                }
+              {
+                  "count": 3,
+                  "total": 8,
+                  "excahnges" : [
+                    {
+                      "id" : "credential-refresh", 
+                      "type": "CredentialRefresh2020"
+                    },
+                    {
+                      "id": "34901-18388409-1939",
+                      "type" : "PresentationExchange1.0",
+                    },
+                    {
+                      "id" : "salad",
+                      "type" : "https://example.com/oas/my-salad.yml" 
+                  }],
+                  "index": {
+                    "self": 0,
+                    "next" : 3
+                  }
+              }
         "400": 
           description: invalid input
         "500" : 
