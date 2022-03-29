@@ -17,11 +17,7 @@ paths:
       summary: Gets a credential or verifiable credential by ID
       operationId: getCredential
       parameters:
-        - in: path
-          name: id
-          schema:
-            type: string
-            format: uuid
+        - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
         "200":
           description: Credential retrieved
@@ -49,11 +45,7 @@ paths:
       summary: Deletes a credential or verifiable credential by ID
       operationId: deleteCredential
       parameters:
-        - in: path
-          name: id
-          schema:
-            type: string
-            format: uuid
+        - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
         "202":
           description: Credential deleted - this is a 202 by default as soft deletes and processing time are assumed
@@ -140,11 +132,7 @@ paths:
       summary: Gets a presentation or verifiable presentation by ID
       operationId: getPresentation
       parameters:
-        - in: path
-          name: id
-          schema:
-            type: string
-            format: uuid
+        - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
         "200":
           description: Credential retrieved
@@ -170,11 +158,7 @@ paths:
       summary: Deletes a presentation or verifiable presentation by ID
       operationId: deletePresentation
       parameters:
-        - in: path
-          name: id
-          schema:
-            type: string
-            format: uuid
+        - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
         "202":
           description: Presentation deleted - this is a 202 by default as soft deletes and processing time are assumed
