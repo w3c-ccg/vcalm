@@ -10,10 +10,98 @@ info:
     name: GitHub Source Code
     url: https://github.com/w3c-ccg/vc-api
 paths:
+  /credentials/{id}:
+    get:
+      tags:
+       - Credentials
+      summary: Gets a credential or verifiable credential by ID
+      operationId: getCredential
+      parameters:
+        - $ref: "./components/parameters/path/ObjectId.yml"
+      responses:
+        "200":
+          description: Credential retrieved
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "./components/Credential.yml#/components/schemas/Credential"
+                  - $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+        "400":
+          description: Bad Request
+        "401":
+          description: Not Authorized
+        "410":
+          description: Gone! There is no data here
+        "418":
+          description: I'm a teapot - MUST not be returned outside of pre-arranged scenarios between both parties
+        "500":
+          description: Internal Error
+        "501":
+          description: Not Implemented
+    delete:
+      tags:
+       - Credentials
+      summary: Deletes a credential or verifiable credential by ID
+      operationId: deleteCredential
+      parameters:
+        - $ref: "./components/parameters/path/ObjectId.yml"
+      responses:
+        "202":
+          description: Credential deleted - this is a 202 by default as soft deletes and processing time are assumed
+        "400":
+          description: Bad Request
+        "401":
+          description: Not Authorized
+        "410":
+          description: Gone! There is no data here
+        "500":
+          description: Internal Error
+        "501":
+          description: Not Implemented
+  /credentials:
+    get:
+      tags:
+       - Credentials
+      summary: Gets list of credentials or verifiable credentials
+      operationId: getCredentials
+      parameters:
+        - in: query
+          name: type
+          schema:
+            type: array
+            items:
+              type: string
+              oneOf:
+                - "credentials"
+                - "verifiablecredentials"
+                - "all"
+      responses:
+        "200":
+          description: Credentials retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                description: The Credentials
+                items:
+                  anyOf:
+                    - $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+                    - $ref: "./components/Credential.yml#/components/schemas/Credential"
+        "400":
+          description: Bad Request
+        "401":
+          description: Not Authorized
+        "410":
+          description: Gone! There is no data here
+        "500":
+          description: Internal Error
+        "501":
+          description: Not Implemented
   /credentials/derive:
     post:
       tags: 
-       - credential
+       - Credentials
       summary: Derives a credential and returns it in the response body.
       operationId: deriveCredential
       description: Derives a credential and returns it in the response body.
@@ -36,11 +124,99 @@ paths:
           description: Internal Error
         "501":
           description: Not Implemented
+
+  /presentations/{id}:
+    get:
+      tags:
+       - Presentations
+      summary: Gets a presentation or verifiable presentation by ID
+      operationId: getPresentation
+      parameters:
+        - $ref: "./components/parameters/path/ObjectId.yml"
+      responses:
+        "200":
+          description: Credential retrieved
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "./components/Presentation.yml#/components/schemas/Presentation"
+                  - $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+        "400":
+          description: Bad Request
+        "401":
+          description: Not Authorized
+        "410":
+          description: Gone! There is no data here
+        "500":
+          description: Internal Error
+        "501":
+          description: Not Implemented
+    delete:
+      tags:
+       - Presentations
+      summary: Deletes a presentation or verifiable presentation by ID
+      operationId: deletePresentation
+      parameters:
+        - $ref: "./components/parameters/path/ObjectId.yml"
+      responses:
+        "202":
+          description: Presentation deleted - this is a 202 by default as soft deletes and processing time are assumed
+        "400":
+          description: Bad Request
+        "401":
+          description: Not Authorized
+        "410":
+          description: Gone! There is no data here
+        "500":
+          description: Internal Error
+        "501":
+          description: Not Implemented
+  /Presentation:
+    get:
+      tags:
+       - Presentations
+      summary: Gets list of presentations or verifiable presentations
+      operationId: getPresentations
+      parameters:
+        - in: query
+          name: type
+          schema:
+            type: array
+            items:
+              type: string
+              oneOf:
+                - "presentations"
+                - "verifiablepresentations"
+                - "all"
+      responses:
+        "200":
+          description: Presentations retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                description: The Presentations
+                items:
+                  anyOf:
+                    - $ref: "./components/Presentation.yml#/components/schemas/Presentation"
+                    - $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"  
+        "400":
+          description: Bad Request
+        "401":
+          description: Not Authorized
+        "410":
+          description: Gone! There is no data here
+        "500":
+          description: Internal Error
+        "501":
+          description: Not Implemented
+
   /presentations/prove:
     post:
       summary: Proves a presentation and returns it in the response body.
       tags: 
-       - presentation
+       - Presentations
       operationId: provePresentation
       description: Proves a presentation and returns it in the response body.
       requestBody:
@@ -60,11 +236,12 @@ paths:
           description: invalid input!
         "500":
           description: error!
+
   /exchanges/{exchange-id}:
     post:
       summary: Initiates an exchange of information.
       tags: 
-       - exchange
+       - Exchanges
       operationId: initiateExchange
       description:
         A client can use this endpoint to initiate an exchange of a particular
@@ -110,7 +287,7 @@ paths:
     put:
       summary: Receives information related to an existing exchange.
       tags: 
-       - exchange
+       - Exchanges
       operationId: receiveExchangeData
       description:
         A client can use this endpoint to continue the exchange of information
@@ -143,6 +320,7 @@ paths:
           description: Internal server error.
         "501":
           description: Service not implemented.
+
 components:
   schemas:
     DeriveCredentialRequest:
