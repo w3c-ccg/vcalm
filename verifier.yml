@@ -14,7 +14,7 @@ paths:
     post:
       summary: Verifies a verifiableCredential and returns a verificationResult in the response body.
       tags: 
-       - credential
+       - Credentials
       operationId: verifyCredential
       description: Verifies a verifiableCredential and returns a verificationResult in the response body.
       requestBody:
@@ -38,7 +38,7 @@ paths:
     post:
       summary: Verifies a Presentation with or without proofs attached and returns a verificationResult in the response body.
       tags: 
-       - presentation
+       - Presentations
       operationId: verifyPresentation
       description: Verifies a verifiablePresentation and returns a verificationResult in the response body.  Given the possibility of denial of service, buffer overflow, or other style attacks, an implementation is permitted to rate limit or restrict requests against this API endpoint to those requests that contain only a single credential with a 413 or 429 error code as appropriate.
       requestBody:

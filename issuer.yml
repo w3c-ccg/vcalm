@@ -14,7 +14,7 @@ paths:
     post:
       summary: Issues a credential and returns it in the response body.
       tags: 
-       - credential
+       - Credentials
       operationId: issueCredential
       description: Issues a credential and returns it in the response body.
       requestBody:
@@ -38,7 +38,7 @@ paths:
     post:
       summary: Updates the status of an issued credential
       tags: 
-       - credential
+       - Credentials
       operationId: updateCredentialStatus
       description: Updates the status of an issued credential.
       requestBody:

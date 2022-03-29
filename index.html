@@ -22,6 +22,7 @@
     href="https://unpkg.com/reqlist/lib/reqlist.css" />
 
   <script class='remove' src="./common.js"></script>
+  <script class='remove' src="./respec-oas.js"></script>
   <script class="remove" type="text/javascript">
   var respecConfig = {
     // the W3C WG and public mailing list
@@ -66,8 +67,11 @@
 
     // Uncomment these to use the respec extension that generates a list of
     //   normative statements:
-    preProcess: [/*prepare_reqlist*/],
-    postProcess: [/*add_reqlist_button*/, injectOas, restrictRefs],
+    preProcess: [],
+    postProcess: [injectOas, restrictRefs],
+    lint: {
+      "no-unused-dfns": false
+    },
 
     // list of specification editors
     editors: [{
@@ -535,6 +539,13 @@ The following APIs are defined for presenting a Verifiable Credential:
           /credentials/derive /presentations/prove
           /exchanges/{exchange-id} /exchanges/{exchange-id}/{transaction-id}"
         ></table>
+
+        <p class="advisement">
+The URL path values <code>exchange-id</code> and <code>transaction-id</code> are
+meaningful to the server but are opaque to the client. While some server
+implementations might use values that happen to be human-readable,  clients are
+strongly advised to not assign semantics to any human-readable values.
+        </p>
 
       <section>
         <h4>Derive Credential</h4>

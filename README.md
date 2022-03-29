@@ -74,7 +74,7 @@ This entails:
 
 ### Development
 
-To assemble bundled yamls, as well as a master bundel of all definitions
+To assemble bundled yamls, as well as an all-in-one bundle of all definitions
 run the following:
 
 ```bash
@@ -83,10 +83,10 @@ npm run build
 
 This will generate the following files:
 
-- `api/vc-api.yaml` a master file with all specifications rolled into one
-- `api/bundles/issuer.yml` issuer endpoints bundled with no external refs
-- `api/bundles/verifier.yml` verifier endpoints bundled with no external refs
-- `api/bundles/holder.yml` holder endpoints bundled with no external refs
+- `api/vc-api.yaml` - a bundle with all specifications rolled into one
+- `api/bundles/issuer.yml` - issuer endpoints bundled with no external refs
+- `api/bundles/verifier.yml` - verifier endpoints bundled with no external refs
+- `api/bundles/holder.yml` - holder endpoints bundled with no external refs
 
 ## Additional Documentation
 
