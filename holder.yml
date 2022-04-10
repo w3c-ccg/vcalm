@@ -72,10 +72,7 @@ paths:
             type: array
             items:
               type: string
-              oneOf:
-                - "credentials"
-                - "verifiablecredentials"
-                - "all"
+              pattern: "(credentials|verifiablecredentials|all)"
       responses:
         "200":
           description: Credentials retrieved
@@ -100,7 +97,7 @@ paths:
           description: Not Implemented
   /credentials/derive:
     post:
-      tags: 
+      tags:
        - Credentials
       summary: Derives a credential and returns it in the response body.
       operationId: deriveCredential
@@ -172,7 +169,7 @@ paths:
           description: Internal Error
         "501":
           description: Not Implemented
-  /Presentation:
+  /presentations:
     get:
       tags:
        - Presentations
@@ -185,10 +182,7 @@ paths:
             type: array
             items:
               type: string
-              oneOf:
-                - "presentations"
-                - "verifiablepresentations"
-                - "all"
+              pattern: "(presentations|verifiablepresentations|all)"
       responses:
         "200":
           description: Presentations retrieved
@@ -200,7 +194,7 @@ paths:
                 items:
                   anyOf:
                     - $ref: "./components/Presentation.yml#/components/schemas/Presentation"
-                    - $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"  
+                    - $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
         "400":
           description: Bad Request
         "401":
@@ -215,7 +209,7 @@ paths:
   /presentations/prove:
     post:
       summary: Proves a presentation and returns it in the response body.
-      tags: 
+      tags:
        - Presentations
       operationId: provePresentation
       description: Proves a presentation and returns it in the response body.
@@ -240,7 +234,7 @@ paths:
   /exchanges/{exchange-id}:
     post:
       summary: Initiates an exchange of information.
-      tags: 
+      tags:
        - Exchanges
       operationId: initiateExchange
       description:
@@ -286,7 +280,7 @@ paths:
   /exchanges/{exchange-id}/{transaction-id}:
     put:
       summary: Receives information related to an existing exchange.
-      tags: 
+      tags:
        - Exchanges
       operationId: receiveExchangeData
       description:
