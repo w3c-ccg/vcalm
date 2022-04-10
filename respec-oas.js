@@ -68,24 +68,25 @@ function buildEndpointDetails({config, document, apis}) {
     section.appendChild(responsesTable);
 
     // schema for endpoint
-    const schemaSummary = document.createElement('p');
-    schemaSummary.innerHTML =
-      `The ${path} endpoint uses the following schema when receiving a ` +
-      `${verb.toUpperCase()}:`;
-    section.appendChild(schemaSummary);
+    if(endpoint.requestBody) {
+      const schemaSummary = document.createElement('p');
+      schemaSummary.innerHTML =
+        `The ${path} endpoint uses the following schema when receiving a ` +
+        `${verb.toUpperCase()}:`;
+      section.appendChild(schemaSummary);
 
-    const requestSchema =
-      endpoint.requestBody.content['application/json'].schema.properties ||
-      endpoint.requestBody.content['application/json'].schema;
+      const requestSchema =
+        endpoint.requestBody.content['application/json'].schema.properties ||
+        endpoint.requestBody.content['application/json'].schema;
 
-    let requestSchemaHtml = document.createElement('p');
-    requestSchemaHtml.innerHTML = 'RENDERING ERROR'; // default
-    if(requestSchema) {
-      requestSchemaHtml = renderJsonSchema(requestSchema);
+      let requestSchemaHtml = document.createElement('p');
+      requestSchemaHtml.innerHTML = 'RENDERING ERROR'; // default
+      if(requestSchema) {
+        requestSchemaHtml = renderJsonSchema(requestSchema);
+      }
+
+      section.appendChild(requestSchemaHtml);
     }
-
-    section.appendChild(requestSchemaHtml);
-
   }
 }
 
