@@ -477,7 +477,8 @@ The following APIs are defined for issuing a Verifiable Credential:
       </p>
 
       <table class="simple api-summary-table"
-        data-api-path="/credentials/issue /credentials/status"></table>
+        data-api-path="/credentials /credentials/{id}
+          /credentials/issue /credentials/status"></table>
 
       <section>
         <h4>Issue Credential</h4>
@@ -486,6 +487,24 @@ The following APIs are defined for issuing a Verifiable Credential:
 
         <div class="api-detail"
           data-api-endpoint="post /credentials/issue"></div>
+      </section>
+
+      <section>
+        <h4>Get Credentials</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="get /credentials"></div>
+      </section>
+
+      <section>
+        <h4>Get a Specific Credential</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="get /credentials/{id}"></div>
       </section>
 
       <section>
@@ -537,6 +556,7 @@ The following APIs are defined for presenting a Verifiable Credential:
       <table class="simple api-summary-table"
         data-api-path="
           /credentials/derive /presentations/prove
+          /presentations /presentations/{id}
           /exchanges/{exchange-id} /exchanges/{exchange-id}/{transaction-id}"
         ></table>
 
@@ -563,6 +583,25 @@ strongly advised to not assign semantics to any human-readable values.
 
         <div class="api-detail"
           data-api-endpoint="post /presentations/prove"></div>
+      </section>
+
+      <section>
+        <h4>Get Presentations</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="get /presentations"></div>
+      </section>
+
+
+      <section>
+        <h4>Get a Specific Presentation</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="get /credentials/{id}"></div>
       </section>
 
       <section>
