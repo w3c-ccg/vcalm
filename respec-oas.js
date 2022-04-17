@@ -69,28 +69,49 @@ function buildEndpointDetails({config, document, apis}) {
 
     // schema for endpoint
     if(endpoint.requestBody) {
-      const schemaSummary = document.createElement('p');
-      schemaSummary.innerHTML =
-        `The ${path} endpoint uses the following schema when receiving a ` +
-        `${verb.toUpperCase()}:`;
-      section.appendChild(schemaSummary);
-
       const requestSchema =
         endpoint.requestBody.content['application/json'].schema.properties ||
         endpoint.requestBody.content['application/json'].schema;
 
-      let requestSchemaHtml = document.createElement('p');
-      requestSchemaHtml.innerHTML = 'RENDERING ERROR'; // default
-      if(requestSchema) {
-        requestSchemaHtml = renderJsonSchema(requestSchema);
+      const schemaSummary = document.createElement('p');
+      if(requestSchema.anyOf) {
+        schemaSummary.innerHTML = `The ${path} endpoint uses any of ` +
+        `the following schemas when receiving a `;
+      } else {
+        schemaSummary.innerHTML = `The ${path} endpoint uses ` +
+        `the following schema when receiving a `;
       }
+      schemaSummary.innerHTML += `${verb.toUpperCase()}:`;
+      section.appendChild(schemaSummary);
 
-      section.appendChild(requestSchemaHtml);
+      let requestSchemaHtml = document.createElement('p');
+      if(requestSchema) {
+        if(requestSchema.anyOf) {
+          for(const i in requestSchema.anyOf) {
+            const anySchema = requestSchema.anyOf[i];
+            requestSchemaHtml = renderJsonSchema(anySchema.properties || anySchema);
+            section.appendChild(requestSchemaHtml);
+            if(i+1 < requestSchema.anyOf.length) {
+              const nextSchemaSummary = document.createElement('p');
+              nextSchemaSummary.innerHTML = `Alternatively, the ${path} ` +
+              `endpoint can also use the following schema:`;
+              section.appendChild(nextSchemaSummary);
+            }
+          }
+        } else {
+          requestSchemaHtml = renderJsonSchema(requestSchema);
+          section.appendChild(requestSchemaHtml);
+        }
+      } else {
+        requestSchemaHtml.innerHTML = 'RENDERING ERROR'; // default
+        section.appendChild(requestSchemaHtml);
+      }
     }
   }
 }
 
 function renderJsonSchema(schema) {
+  let schemaToRender = schema;
   const requestSchemaTable = document.createElement('table');
   const tableHeader = document.createElement('thead');
   const tableBody = document.createElement('tbody');
@@ -98,14 +119,31 @@ function renderJsonSchema(schema) {
   requestSchemaTable.classList.add('simple');
   tableHeader.innerHTML = '<tr><th>Property</th><th>Description</th></tr>';
 
-  // render every property in the schema
-  for(const property in schema) {
+  // render every property in the complex schema
+  for(const property in schemaToRender) {
+    if(property === 'example') {
+      continue;
+    }
     const subSchema = schema[property];
     let propertyRendering = `<code>${property}</code>`;
     let valueRendering = 'Error: JSON Schema value rendering failure.'; // default
     if(subSchema.type === 'object') {
       propertyRendering = `<code>${property}</code> [object]`;
       valueRendering = renderJsonSchemaObject(subSchema);
+    } else if(Array.isArray(subSchema)) {
+      for(const i in subSchema) {
+        const schemaItem = subSchema[i];
+        if(i < 1) {
+          valueRendering = '';
+        } else if(property === 'allOf') {
+          propertyRendering = 'All of';
+          valueRendering += ' and ';
+        } else {
+          propertyRendering = 'Any of';
+          valueRendering += ' or ';
+        }
+        valueRendering += renderJsonSchemaObject(schemaItem);
+      }
     } else {
       valueRendering = '<pre>' + JSON.stringify(subSchema, null, 2) + '</pre>';
     }
@@ -155,7 +193,12 @@ function renderJsonSchemaObject(schema) {
     }
   } else if(schema.type === 'object') {
     if(!schema.properties) {
-      objectRendering = 'an object.';
+      if(schema.description) {
+        objectRendering =  schema.description.replace(/\.$/, "") +
+          ' (an object)';
+      } else {
+        objectRendering = 'an object';
+      }
     } else {
       objectRendering += 'an object of the following form: <dl>';
       for(property in schema.properties) {
