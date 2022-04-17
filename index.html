@@ -16,6 +16,8 @@
     src="https://www.w3.org/Tools/respec/respec-w3c"></script>
   <script class="remove"
     src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-oas@0.0.1/dist/main.js"></script>
+  <script class="remove"
+    src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-mermaid@1.0.0/dist/main.js"></script>
   <script class="removeOnSave"
     src="https://unpkg.com/reqlist/lib/reqlist.js"></script>
   <link class="removeOnSave" rel="stylesheet" type="text/css"
@@ -67,7 +69,7 @@
 
     // Uncomment these to use the respec extension that generates a list of
     //   normative statements:
-    preProcess: [],
+    preProcess: [window.respecMermaid.createFigures],
     postProcess: [injectOas, restrictRefs],
     lint: {
       "no-unused-dfns": false
@@ -657,7 +659,27 @@ step 2 above.
 A diagram of the steps outlined above is presented below:
         </p>
 
-        <img src="diagrams/exchange-generic.svg">
+        <figure>
+          <pre class="mermaid">
+sequenceDiagram
+    participant H as Holder
+    participant W as Holder App (Wallet)
+    participant I as Issuer/Verifier App
+    autonumber
+    H->>W: Start exchange
+    W->>I: Initiate
+    Note right of W: POST /exchanges/123 - HTTP request to start exchange (e.g., send credentials, get credentials, etc.)
+    I->>W: Verifiable Presentation Request (VPR)
+    Note left of I: VPR includes method of interaction, for purposes of exchange
+    W->>I: Verifiable Presentation (VP)
+    Note right of W: POST /exchanges/123/session-abc - sent via interaction mechanism to meet requirements of exchange
+    I->>W: Verifiable Presentation
+    Note left of I: VP includes result of exchange (e.g., VCs), or VPR with new interactionr equest, or error description
+          </pre>
+          <figcaption>
+A standard exchange between a Holder and an Issuer/Verifier.
+          </figcaption>
+        </figure>
 
         <p class="note">
 The general exchange above can be performed in a way that is fully automated,
