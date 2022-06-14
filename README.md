@@ -74,7 +74,14 @@ This entails:
 
 ### Development
 
-To assemble bundled yamls, as well as an all-in-one bundle of all definitions
+Before committing changes to the OpenAPI spec files, please be sure to run the linter and correct any errors:
+
+```bash
+npm ci
+npm run lint
+```
+
+To assemble bundled `yaml` files, as well as an all-in-one bundle of all definitions
 run the following:
 
 ```bash
