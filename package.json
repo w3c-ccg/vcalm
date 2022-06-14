@@ -4,7 +4,8 @@
   "description": "Verifiable Credential API",
   "main": "index.js",
   "scripts": {
-    "build": "openapi bundle *.yml --output ./api/bundles/ && openapi join ./api/bundles/*.yml --prefix-tags-with-filename && mv ./openapi.yaml ./api/vc-api.yaml"
+    "build": "openapi bundle *.yml --output ./api/bundles/ && openapi join ./api/bundles/*.yml --prefix-tags-with-filename && mv ./openapi.yaml ./api/vc-api.yaml",
+    "serve": "http-server ./api"
   },
   "repository": {
     "type": "git",
@@ -21,11 +22,8 @@
     "url": "https://github.com/w3c-ccg/vc-api/issues"
   },
   "homepage": "https://github.com/w3c-ccg/vc-api#readme",
-  "dependencies": {
-    "swagger-cli": "^4.0.4"
-  },
   "devDependencies": {
-    "@redocly/openapi-cli": "^1.0.0-beta.87",
-    "redoc-cli": "^0.13.8"
+    "@redocly/cli": "^1.0.0-beta.102",
+    "http-server": "^14.1.1"
   }
 }
