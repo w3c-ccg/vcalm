@@ -81,7 +81,7 @@ npm ci
 npm run lint
 ```
 
-To assemble bundled `yaml` files, as well as an all-in-one bundle of all definitions
+To assemble bundled `yaml` files, as well as an all-in-one bundle of all definitions,
 run the following:
 
 ```bash

@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      # Check out repo, setup node, and install dependencies.
+      # Check out repo, set up node, and install dependencies.
       # @see https://github.com/actions/setup-node#usage
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
