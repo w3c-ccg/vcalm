@@ -1,9 +1,9 @@
-#  Verifiable Credential Issuer HTTP API Architecture Model
+#  Verifiable Credential Issuer API Architecture Model
 This document describes the architecture model and context for the Verifiable
-Credential Issuer HTTP API.
+Credential Issuer API.
 
 ## Overview
-The Verifiable Credential Issuer HTTP API is designed to be a consistent API for
+The Verifiable Credential Issuer API is designed to be a consistent API for
 Issuer Services to call in order to generate Verifiable Credentials. This API is
 intended for Issuer Services who are able to manage and secure external
 connections to Holders. This API encapsulates and abstracts the Verifiable
@@ -86,8 +86,8 @@ Credential Issuer API Service; it could be 'local and private' to the Issuer Ser
 or it could be a multi-tenant cloud service. In all cases, securing inbound connections
 is the purpose of this component and outside the scope of this specification.
 
-#### 8. Verifiable Credential Issuer HTTP API Service
-An implementation of the Verifiable Credentials Issuer HTTP API (this spec) that
+#### 8. Verifiable Credential Issuer API Service
+An implementation of the Verifiable Credentials Issuer API (this spec) that
 is capable of generating Verifiable Credentials in accordance with the Issuer's
 policies and approved technologies (including cryptographic methods and data
 formats).
@@ -109,7 +109,7 @@ Issuer Service, but nothing in this architecture prevents the Issuer Service fro
 connecting directly to a registry for other application purposes.
 
 #### 12. External Entities (optional?)
-External entities capable of accessing the Verifiable Credentials Issuer HTTP API.
+External entities capable of accessing the Verifiable Credentials Issuer API.
 Examples may include other Issuer Services, or entities with permission to obtain
 credential status.
 
@@ -134,18 +134,18 @@ governance frameworks. _This is an Issuer Service Application or Governance leve
 may be technically enabled by the Holder and the Issuer-to-Holder Communication Interface_.
 1. Access internal data stores to build the set of claims/properties for the Subject
 to be encoded in the Verifiable Credential document. _Currently this is Issuer Service Application and
-Issuer Subject Database operations, but may become in scope for the HTTP API Service_.
+Issuer Subject Database operations, but may become in scope for the API Service_.
 1. Construct the Verifiable Credential Data Model representation in a compliant
 format. _This is (currently) an Issuer Service Application operation - but may be supported
 by construction and templating APIs when defined_.
 1. **Validate the Credential, generate cryptographic proof for the Credential, and assemble the
 completed the Verifiable Credential for delivery to the Holder. _This is currently
-the operation of the Verifiable Credential Issuer HTTP API Service_.**
+the operation of the Verifiable Credential Issuer API Service_.**
 1. Communicate/deliver the final Verifiable Credential object to the Holder.
 _Currently scoped as an operation of the Issuer Application and Isser-to-Holder
-Communication Interface, but may become a function of the HTTP API Service_.
+Communication Interface, but may become a function of the API Service_.
 1. Maintain an auditable lifecycle for the issued Verifiable Credential (optional).
-_This is an operation of the Issuer HTTP API, but lifecycle decisions are driven
+_This is an operation of the Issuer API, but lifecycle decisions are driven
 by the Issuer Service Application_.    
 
 ## Limitations and Considerations
