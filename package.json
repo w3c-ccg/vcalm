@@ -1,0 +1,31 @@
+{
+  "name": "vc-api",
+  "version": "0.0.3",
+  "description": "Verifiable Credential API",
+  "main": "index.js",
+  "scripts": {
+    "build": "openapi bundle *.yml --output ./api/bundles/ && openapi join ./api/bundles/*.yml --prefix-tags-with-filename && mv ./openapi.yaml ./api/vc-api.yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w3c-ccg/vc-api.git"
+  },
+  "keywords": [
+    "VC",
+    "DID",
+    "W3C"
+  ],
+  "author": "public-credentials@w3.org",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/w3c-ccg/vc-api/issues"
+  },
+  "homepage": "https://github.com/w3c-ccg/vc-api#readme",
+  "dependencies": {
+    "swagger-cli": "^4.0.4"
+  },
+  "devDependencies": {
+    "@redocly/openapi-cli": "^1.0.0-beta.87",
+    "redoc-cli": "^0.13.8"
+  }
+}

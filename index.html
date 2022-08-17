@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Verifiable Credentials HTTP API v0.3</title>
+  <title>Verifiable Credentials API v0.3</title>
   <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
   <!--
     === NOTA BENE ===
@@ -16,12 +16,15 @@
     src="https://www.w3.org/Tools/respec/respec-w3c"></script>
   <script class="remove"
     src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-oas@0.0.1/dist/main.js"></script>
+  <script class="remove"
+    src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-mermaid@1.0.1/dist/main.js"></script>
   <script class="removeOnSave"
     src="https://unpkg.com/reqlist/lib/reqlist.js"></script>
   <link class="removeOnSave" rel="stylesheet" type="text/css"
     href="https://unpkg.com/reqlist/lib/reqlist.css" />
 
   <script class='remove' src="./common.js"></script>
+  <script class='remove' src="./respec-oas.js"></script>
   <script class="remove" type="text/javascript">
   var respecConfig = {
     // the W3C WG and public mailing list
@@ -42,7 +45,7 @@
     edDraftURI: "https://w3c-ccg.github.io/vc-api/",
 
     // subtitle for the spec
-    subtitle: "A HTTP API for Verifiable Credentials lifecycle management",
+    subtitle: "An HTTP API for Verifiable Credentials lifecycle management",
 
     // if you wish the publication date to be other than today, set this
     //publishDate:  "2019-11-07",
@@ -66,8 +69,11 @@
 
     // Uncomment these to use the respec extension that generates a list of
     //   normative statements:
-    preProcess: [/*prepare_reqlist*/],
-    postProcess: [/*add_reqlist_button*/, injectOas, restrictRefs],
+    preProcess: [window.respecMermaid.createFigures],
+    postProcess: [injectOas, restrictRefs],
+    lint: {
+      "no-unused-dfns": false
+    },
 
     // list of specification editors
     editors: [{
@@ -426,7 +432,7 @@ A conforming <dfn>VC API server</dfn> is ...
   </section>
 
   <section>
-    <h2>The VC HTTP API</h2>
+    <h2>The VC API</h2>
     <section>
       <h3>Authorization</h3>
       <p>
@@ -447,7 +453,7 @@ or legacy authorization technologies.
       <section>
         <h4>Forbidden Authorization</h4>
         <p>
-Requests to the VC HTTP API MUST NOT utilize any authorization protocol that
+Requests to the VC API MUST NOT utilize any authorization protocol that
 includes long-lived static credentials such as usernames and passwords or
 similar values in those requests. An example of such a forbidden protocol is
 HTTP Basic Authentication [[RFC7617]].
@@ -473,7 +479,8 @@ The following APIs are defined for issuing a Verifiable Credential:
       </p>
 
       <table class="simple api-summary-table"
-        data-api-path="/credentials/issue /credentials/status"></table>
+        data-api-path="/credentials /credentials/{id}
+          /credentials/issue /credentials/status"></table>
 
       <section>
         <h4>Issue Credential</h4>
@@ -482,6 +489,24 @@ The following APIs are defined for issuing a Verifiable Credential:
 
         <div class="api-detail"
           data-api-endpoint="post /credentials/issue"></div>
+      </section>
+
+      <section>
+        <h4>Get Credentials</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="get /credentials"></div>
+      </section>
+
+      <section>
+        <h4>Get a Specific Credential</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="get /credentials/{id}"></div>
       </section>
 
       <section>
@@ -533,8 +558,16 @@ The following APIs are defined for presenting a Verifiable Credential:
       <table class="simple api-summary-table"
         data-api-path="
           /credentials/derive /presentations/prove
+          /presentations /presentations/{id}
           /exchanges/{exchange-id} /exchanges/{exchange-id}/{transaction-id}"
         ></table>
+
+        <p class="advisement">
+The URL path values <code>exchange-id</code> and <code>transaction-id</code> are
+meaningful to the server but are opaque to the client. While some server
+implementations might use values that happen to be human-readable,  clients are
+strongly advised to not assign semantics to any human-readable values.
+        </p>
 
       <section>
         <h4>Derive Credential</h4>
@@ -563,8 +596,27 @@ the exchange discovery endpoint.
         </p>
         <div class="api-detail"
           data-api-endpoint="post /exchanges/"></div>
-
       </section>
+      
+      <section>
+        <h4>Get Presentations</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="get /presentations"></div>
+      </section>
+
+
+      <section>
+        <h4>Get a Specific Presentation</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="get /credentials/{id}"></div>
+      </section>
+      
       <section>
         <h4>Initiate Exchange</h4>
         <p>
@@ -622,7 +674,27 @@ before actually initiating the exchange.
 A diagram of the steps outlined above is presented below:
         </p>
 
-        <img src="diagrams/exchange-generic.svg">
+        <figure>
+          <pre class="mermaid">
+sequenceDiagram
+    participant H as Holder
+    participant W as Holder App (Wallet)
+    participant I as Issuer/Verifier App
+    autonumber
+    Note right of H: Start exchange
+    W->>I: Initiate
+    Note right of W: POST /exchanges/123 - HTTP request to start exchange (e.g., send credentials, get credentials)
+    I->>W: Verifiable Presentation Request (VPR)
+    Note left of I: VPR includes method of interaction, for purposes of exchange
+    W->>I: Verifiable Presentation (VP)
+    Note right of W: POST /exchanges/123/session-abc - sent via interaction mechanism to meet requirements of exchange
+    I->>W: Verifiable Presentation
+    Note left of I: VP includes result of exchange (e.g., VCs), or VPR with new interaction request, or error description
+          </pre>
+          <figcaption>
+A standard exchange between a Holder and an Issuer/Verifier.
+          </figcaption>
+        </figure>
 
         <p class="note">
 The general exchange above can be performed in a way that is fully automated,
