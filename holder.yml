@@ -306,7 +306,7 @@ paths:
                 {
                   "count": 3,
                   "total": 8,
-                  "excahnges" : [
+                  "exchanges" : [
                     {
                       "id" : "credential-refresh", 
                       "type": "CredentialRefresh2020"
