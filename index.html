@@ -199,7 +199,7 @@ software or service components to realize the VC API for
 exchanging Verifiable Credentials.
       </p>
       <p>
-Each role associates with a role-specific App, Service, and Admin as well
+Each role associates with a role-specific Coordinator, Service, and Admin as well
 as their own dedicated Storage Service. In addition, the Issuer  may
 also manage a Status Service for revocable credentials issued by the Issuer.
       </p>
@@ -207,7 +207,7 @@ also manage a Status Service for revocable credentials issued by the Issuer.
       <figure id="components">
         <img style="margin: auto; display: block;"
        src="diagrams/components.png"
-       alt="VC API Components of Apps, Services, and Admin for Issuers, Verifiers, and Holders">
+       alt="VC API Components of Coordinators, Services, and Admin for Issuers, Verifiers, and Holders">
         <figcaption style="text-align: center;">
 VC API Components. Arrows indicate initiation of flows.
         </figcaption>
@@ -224,7 +224,7 @@ Credential conformant ecosystem.
       <p>
 In addition to aggregating components into a single app, implementers
 may choose to operationalize any given role over any number active
-instances of deployed software. For example, a browser-based Holder App
+instances of deployed software. For example, a browser-based Holder Coordinator
 should be considered as an amalgam of a web browser, various code running
 in that browser, one or more web servers (in the case of cross-origin AJAX
 or remote embedded content), and the code running on that server. Each of
@@ -240,11 +240,11 @@ We define these components as follows:
       <section>
         <h3>Apps</h3>
         <p>
-          <strong>Issuer App &bull; Verifier App &bull; Holder App </strong>
+          <strong>Issuer Coordinator &bull; Verifier Coordinator &bull; Holder Coordinator </strong>
         </p>
         <p>
 Apps execute the business rules and policies set by the associated role.
-Often this is a custom or proprietary App developed specifically for a
+Often this is a custom or proprietary Coordinator developed specifically for a
 single party acting in that role, it is the integration glue that connects
 the controlling party to the VC ecosystem.
         </p>
@@ -255,43 +255,43 @@ also be able to realize this component.
         </p>
         <p>
 With the exception of the Status Service, all role-to-role communication
-is between Apps acting on behalf of its particular actor to fulfill its
+is between Coordinators acting on behalf of its particular actor to fulfill its
 role.
         </p>
         <p>
-The Issuer App executes the rules about who gets what credentials,
+The Issuer Coordinator executes the rules about who gets what credentials,
 including how the parties creating or receiving those credentials are
-authenticated and authorized. Typically the Issuer App integrates the
+authenticated and authorized. Typically the Issuer Coordinator integrates the
 Issuer's back-end system with the Issuer service. This integration uses
 whatever technologies are Appropriate; the interfaces between the Issuer
-App and back-end services are out of scope for the VC-API.  The Issuer App
+App and back-end services are out of scope for the VC-API.  The Issuer Coordinator
 drives the Issuer service.
         </p>
         <p>
-The Verifier App communicates with a Verifier service to first check
+The Verifier Coordinator communicates with a Verifier service to first check
 authenticity and timeliness of a given VC or VP, then Applies the
 Verifier's business rules before ultimately accepting or rejecting that VC
 or VP. Such business rules may include evaluating the Issuer of a
 particular claim or simply checking a configured allow-list. The Verifier
 App exposes an API for submitting VCs to the Verifier per the Verifier's
-policies. For example, the Verifier App may only accept VCs from current
+policies. For example, the Verifier Coordinator may only accept VCs from current
 users of the Verifier's other services. These rules typically require
 bespoke integration with the Verifier's existing back-end.
         </p>
         <p>
-The Holder App executes the business rules for Approving the flow of
+The Holder Coordinator executes the business rules for Approving the flow of
 credentials under the control of the Holder, from Issuers to Verifiers. In
 several deployments this means exposing a user interface that gives
 individual Holders a visual way to authorize or Approve VC storage or
-transfer. Some functionality of the Holder App is commonly referred to as
-a wallet. In the VC API, the Holder App initiates all flows. They request
+transfer. Some functionality of the Holder Coordinator is commonly referred to as
+a wallet. In the VC API, the Holder Coordinator initiates all flows. They request
 VCs from Issuers. They decide if, and when, to share those VCs with
 Verifiers. Within the VC API, there is no way for either the Issuer or the
-Verifier to initiate a VC transfer. In many scenarios, the Holder App is
+Verifier to initiate a VC transfer. In many scenarios, the Holder Coordinator is
 expected to be under the control of an individual human, ensuring a person
 is directly involved in the communication of VCs, even if only at the step
 of authorizing the transfer. However, many VCs are about organizations,
-not individuals. How individuals using Holder Apps related to
+not individuals. How individuals using Holder Coordinators related to
 organizations, and in particular, how organizational credentials are
 securely shared with, and presented by, (legal) agents of those
 organizations is not yet specified as in scope for the VC API.
@@ -306,13 +306,13 @@ organizations is not yet specified as in scope for the VC API.
 Services provide generic VC API functionality, driven by its associated
 App. Designed to enable infrastructure providers to offer VC capability
 through Software-as-a-Service. All services expose network endpoints to
-their authorized Apps, which are themselves operating on behalf of the
+their authorized Coordinators, which are themselves operating on behalf of the
 associated role. Although deployed services MAY provide their own HTML
 interfaces, such interfaces are out of scope for the VC API. Only the
 network endpoints of services are defined herein.
         </p>
         <p>
-The Issuer Service takes requests to issue VCs from authorized Issuer Apps
+The Issuer Service takes requests to issue VCs from authorized Issuer Coordinators
 and returns well-formed, signed Verifiable Credentials. This service MUST
 have access to private keys (or key services which utilize private keys)
 in order to create the proofs for those VCs. The API between the Issuer
@@ -323,7 +323,7 @@ the VC API, but may be addressed by WebKMS or similar specifications.
 The Verifier service takes requests to verify Verifiable Credentials and
 Verifiable Presentations and returns the result of checking their proofs
 and status (if present). The service only checks the authenticity and
-timeliness of the VC; leaving the Verifier App to finish Applying any business rules needed.
+timeliness of the VC; leaving the Verifier Coordinator to finish Applying any business rules needed.
         </p>
         <p>
   The Holder service takes requests to create Verifiable Presentations
@@ -355,8 +355,8 @@ Each actor in the system is expected to store their own verifiable
 credentials, as needed. Several known implementations use secure data
 storage such as encrypted data vaults for storing the Holder's VCs and
 use cryptographic authorizations to grant access to those VCs to
-Verifier Apps, as directed by the Holder. In-browser retrieval of such
-stored credentials can enable web-based Verifier Apps to integrate
+Verifier Coordinators, as directed by the Holder. In-browser retrieval of such
+stored credentials can enable web-based Verifier Coordinators to integrate
 data from the Holder without sharing that data with the Verifier—the
 data is only ever present in the browser. Authorizing third-party
 remote access to Holder storage is likely in-scope for the VC API,
@@ -366,7 +366,7 @@ support a variety of storage and authorization approaches.
         <p>
 The Issuer and Verifier storage solutions may or may not use secure
 data storage. Since all such storage interaction is moderated by the
-bespoke Issuer and Storage Apps, any necessary integrations can simply
+bespoke Issuer and Storage Coordinators, any necessary integrations can simply
 be part of that bespoke customization. We expect different
 implementations to compete on the ease of integration into various
 back-end storage platforms.
@@ -380,7 +380,7 @@ The Admin component is an acknowledgement that each of the other
 components need a way to be configured and managed, without
 prescribing the interfaces or means of that configuration. Some components
 may use JSON files to drive a semi-automated Issuer. Others might
-expose HTML pages. We expect different Apps and Services to compete on
+expose HTML pages. We expect different Coordinators and Services to compete on
 the power, ease, and flexibility of their administration and
 therefore, as of this writing, we anticipate Admin functionality to be
 out of scope for the VC API. However, we actually believe that to the
@@ -589,15 +589,15 @@ strongly advised to not assign semantics to any human-readable values.
 
       <section>
         <h4>Exchange Discovery</h4>
-        <p> 
-Discovery is an optional call for the Holder App to ensure the Holder App can support
-the exchange protocol requirements before calling the endpoint. Apps SHOULD support 
+        <p>
+Discovery is an optional call for the Holder Coordinator to ensure the Holder Coordinator can support
+the exchange protocol requirements before calling the endpoint. Coordinators SHOULD support
 the exchange discovery endpoint.
         </p>
         <div class="api-detail"
           data-api-endpoint="post /exchanges/"></div>
       </section>
-      
+
       <section>
         <h4>Get Presentations</h4>
         <p>
@@ -616,7 +616,7 @@ the exchange discovery endpoint.
         <div class="api-detail"
           data-api-endpoint="get /credentials/{id}"></div>
       </section>
-      
+
       <section>
         <h4>Initiate Exchange</h4>
         <p>
@@ -641,35 +641,35 @@ the exchange discovery endpoint.
         <p>
 The APIs in this specification enables unmediated (automated,
 machine-to-machine) or mediated (person in the loop) exchanges to be
-executed. These exchanges are initiated by a Holder App and responded to by
-any App that implements exchanges. The flows consist of the following steps:
+executed. These exchanges are initiated by a Holder Coordinator and responded to by
+any Coordinator that implements exchanges. The flows consist of the following steps:
         </p>
 
         <ol>
           <li>
-The Holder App contacts the receiving App to request the initiation of a
+The Holder Coordinator contacts the receiving Coordinator to request the initiation of a
 particular exchange.
           </li>
           <li>
-The receiving App responds with a presentation request of some kind to
-authenticate and/or authorize the Holder App and provides the next hop in the
+The receiving Coordinator responds with a presentation request of some kind to
+authenticate and/or authorize the Holder Coordinator and provides the next hop in the
 exchange as a URL.
           </li>
           <li>
-The Holder App responds to the receiving App with a Verifiable Presentation
+The Holder Coordinator responds to the receiving Coordinator with a Verifiable Presentation
 containing information that will satisfy the presentation request.
           </li>
           <li>
-The receiving App responds with a Verifiable Presentation with the newly issued
+The receiving Coordinator responds with a Verifiable Presentation with the newly issued
 Verifiable Credentials or a further presentation request as expressed in
 step 2 above.
           </li>
         </ol>
         <p>
-The Holder App MAY call the App's exchange discovery endpoint to determine if
-the Holder App supports the App's protocol requirements on a particular endpoint, 
+The Holder Coordinator MAY call the Coordinator's exchange discovery endpoint to determine if
+the Holder Coordinator supports the Coordinator's protocol requirements on a particular endpoint,
 before actually initiating the exchange.
-        </p>        
+        </p>
         <p>
 A diagram of the steps outlined above is presented below:
         </p>
@@ -678,8 +678,8 @@ A diagram of the steps outlined above is presented below:
           <pre class="mermaid">
 sequenceDiagram
     participant H as Holder
-    participant W as Holder App (Wallet)
-    participant I as Issuer/Verifier App
+    participant W as Holder Coordinator (Wallet)
+    participant I as Issuer/Verifier Coordinator
     autonumber
     Note right of H: Start exchange
     W->>I: Initiate
