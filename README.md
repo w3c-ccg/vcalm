@@ -41,7 +41,7 @@ presentation of certain scenarios commonly encountered in API definitions,
 especially when dealling with `nullable` parameters or properties.
 
 Contributions to this repo should take place via a Pull Request, and should
-generally reference an issue and related discussion around the topic 
+generally reference an issue and related discussion around the topic
 
 ## Best Practices
 
@@ -51,7 +51,7 @@ Implementations of this API SHOULD NOT be exposed directly over http(s) without
 authorization.  Best Practices around OAuth and other widely accepted standards
 for authentication and/or authorization should be followed.
 
-### Holder APIs 
+### Holder APIs
 
 Holder APIs are optional as many implementations will not need them, however
 they are extremely useful for testing purposes as well as for cases where WebKMS
@@ -74,10 +74,18 @@ This entails:
 
 ### Development
 
-To assemble bundled yamls, as well as an all-in-one bundle of all definitions
+Before committing changes to the OpenAPI spec files, please be sure to run the linter and correct any errors:
+
+```bash
+npm ci
+npm run lint
+```
+
+To assemble bundled `yaml` files, as well as an all-in-one bundle of all definitions,
 run the following:
 
 ```bash
+npm ci
 npm run build
 ```
 
@@ -87,6 +95,12 @@ This will generate the following files:
 - `api/bundles/issuer.yml` - issuer endpoints bundled with no external refs
 - `api/bundles/verifier.yml` - verifier endpoints bundled with no external refs
 - `api/bundles/holder.yml` - holder endpoints bundled with no external refs
+
+To view the generated specifications, execute `npm run serve`. By default, this will start an http server on http://127.0.0.1:8080. Once you have the server started, you can view the documentation in several formats:
+
+- [RapiDoc](http://127.0.0.1:8080/rapidoc.html)
+- [Redocly](http://127.0.0.1:8080/redoc.html)
+- [Swagger](http://127.0.0.1:8080/swagger.html)
 
 ## Additional Documentation
 

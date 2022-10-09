@@ -3,41 +3,32 @@ name: "Build and Publish VC-API Docs"
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  prepare:
+  openapi-build:
     name: "Prepare OAS Artifacts"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: "Build Docs"
-        uses: actions/setup-node@v1
-        with:
-          node-version: '16.x'
-      - run: npm install -g redoc-cli
-      - run: npm install -g @redocly/openapi-cli
-      - run: npm install 
-      - run: npm run build
-      - name: "Upload Generated Docs"
-        uses: actions/upload-artifact@v2
-        with:
-          name: generated-docs
-          path: docs
 
-  deploy:
-    name: "Deploy Docs to GitHub Pages"
-    needs: prepare
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Download Generated Docs"
-        uses: actions/download-artifact@v2
+      # Check out repo, set up node, and install dependencies.
+      # @see https://github.com/actions/setup-node#usage
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          name: generated-docs
+          node-version: 16.x
+          cache: 'npm'
+      - run: npm ci
 
-      - name: Deploy to GitHub Pages
+      # Bundle OpenAPI Yaml Files
+      - name: "Prepare Documentation"
+        run: npm run build
+
+      # Publish `api` subfolder to GitHub Pages
+      - name: Deploy to GH Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{steps.download.outputs.download-path}}
-          
+          publish_dir: ./api
+          destination_dir: api
