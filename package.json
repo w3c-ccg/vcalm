@@ -6,6 +6,7 @@
   "scripts": {
     "build": "openapi bundle *.yml --output ./api/bundles/ && openapi join ./api/bundles/*.yml --prefix-tags-with-filename && mv ./openapi.yaml ./api/vc-api.yaml",
     "serve": "http-server ./api",
+    "serveIndex": "http-server .",
     "lint": "openapi lint *.yml --extends recommended"
   },
   "repository": {
