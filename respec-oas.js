@@ -1,5 +1,4 @@
 function getEndpoint({apis, path}) {
-console.log('getEndpoint', {apis, path});
   let endpoint = {
     post: {
       summary: 'Error: API Endpoint not defined - ' + path
