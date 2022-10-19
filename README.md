@@ -102,6 +102,20 @@ To view the generated specifications, execute `npm run serve`. By default, this 
 - [Redocly](http://127.0.0.1:8080/redoc.html)
 - [Swagger](http://127.0.0.1:8080/swagger.html)
 
+To view changes to the related to the `index.html`, execute `npm run serveIndex`. By default this will start an http server on http://127.0.0.1:8080. Once you have the server started, you can view the `index.html` here:
+
+- [index.html](http://127.0.0.1:8080/index.html)
+
+You can can view the documentation here:
+
+- [RapiDoc](http://127.0.0.1:8080/api/rapidoc.html)
+- [Redocly](http://127.0.0.1:8080/api/redoc.html)
+- [Swagger](http://127.0.0.1:8080/api/swagger.html)
+
+Documentation for the [`http-server` can be found here.](https://www.npmjs.com/package/http-server)
+
+If you need to run on another port, execute `npm run serveIndex -- -p 4543` replacing `4543` with a custom port.
+
 ## Additional Documentation
 
 - [Verifiable Credential Issuer API Architecture Model](architecture.md)
