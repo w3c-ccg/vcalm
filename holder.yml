@@ -376,7 +376,7 @@ paths:
         "500":
           description: Internal server error.
   /exchanges/{exchange-id}/{transaction-id}:
-    put:
+    post:
       summary: Receives information related to an existing exchange.
       tags:
        - Exchanges
