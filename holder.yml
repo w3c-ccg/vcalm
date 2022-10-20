@@ -394,14 +394,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/VerifiablePresentation"
+              $ref: "#/components/schemas/VerifiablePresentationResponse"
       responses:
         "200":
           description: Received data was accepted.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/VerifiablePresentationRequest"
+                $ref: "#/components/schemas/VerifiablePresentationResponse"
         "400":
           description: Received data is malformed.
           content:
@@ -437,7 +437,10 @@ components:
         options:
           $ref: "./components/PresentCredentialOptions.yml#/components/schemas/PresentCredentialOptions"
     ProvePresentationResponse:
-      $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+      type: object
+      properties:
+        verifiablePresentation:
+          $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
     NotifyPresentationAvailableRequest:
       type: object
       properties:
@@ -522,7 +525,10 @@ components:
       $ref: "./components/ErrorResponse.yml#/components/schemas/ErrorResponse"
     StorePresentationRequest:
       $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
-    VerifiablePresentation:
-      $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
     VerifiablePresentationRequest:
       $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
+    VerifiablePresentationResponse:
+      type: object
+      properties:
+        verifiablePresentation:
+          $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
