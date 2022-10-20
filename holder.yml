@@ -408,6 +408,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
+        "404":
+          description: Either the exchange-id, transaction-id, or something related
+                       to the request was not found.
         "500":
           description: Internal server error.
         "501":
