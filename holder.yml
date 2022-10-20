@@ -414,6 +414,9 @@ paths:
           description: Service not implemented.
 
 components:
+  securitySchemes:
+    OAuth2:
+      $ref: "./components/oauth2.yml#/components/securitySchemes/OAuth2"
   schemas:
     DeriveCredentialRequest:
       type: object

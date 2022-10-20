@@ -48,12 +48,18 @@ function buildEndpointDetails({config, document, apis}) {
     // detail each API endpoint
     const [verb, path] = section.dataset.apiEndpoint.split(/\s+/);
     const endpoint = getEndpoint({apis, path})[verb];
-
     // summary for endpoint
     const summary = document.createElement('p');
     summary.innerHTML =
       verb.toUpperCase() + ' ' + path + ' - ' + endpoint.summary;
     section.appendChild(summary);
+    if(Array.isArray(endpoint.security)) {
+      const security = document.createElement('p');
+      security.innerHTML = 'Authorization - ' + endpoint.security.flatMap(entry =>
+        Object.entries(entry).map(([key, value]) => `${key} ${value?.length ? ':' + value : ''}`)
+      )
+      section.appendChild(security);
+    }
 
     // responses for endpoint
     const responsesTable = document.createElement('table');

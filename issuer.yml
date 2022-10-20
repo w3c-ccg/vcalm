@@ -17,6 +17,8 @@ paths:
        - Credentials
       operationId: issueCredential
       description: Issues a credential and returns it in the response body.
+      security:
+        - OAuth2: []
       requestBody:
         content:
           application/json:
@@ -32,6 +34,10 @@ paths:
                 $ref: "#/components/schemas/IssueCredentialResponse"
         "400":
           description: invalid input!
+        "401":
+          description: Missing or invalid auth credentials.
+        "403":
+          description: Incorrect scope or permissions.
         "500":
           description: error!
   /credentials/status:
@@ -41,6 +47,8 @@ paths:
        - Credentials
       operationId: updateCredentialStatus
       description: Updates the status of an issued credential.
+      security:
+        - OAuth2: []
       requestBody:
         content:
           application/json:
@@ -52,11 +60,18 @@ paths:
           description: Credential status successfully updated
         "400":
           description: Bad Request
+        "401":
+          description: Missing or invalid auth credentials.
+        "403":
+          description: Incorrect scope or permissions.
         "404":
           description: Credential not found
         "500":
           description: Internal Server Error
 components:
+  securitySchemes:
+    OAuth2:
+      $ref: "./components/oauth2.yml#/components/securitySchemes/OAuth2"
   schemas:
     IssueCredentialRequest:
       type: object

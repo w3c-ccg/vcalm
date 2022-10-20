@@ -17,6 +17,8 @@ paths:
        - Credentials
       operationId: verifyCredential
       description: Verifies a verifiableCredential and returns a verificationResult in the response body.
+      security:
+        - OAuth2: []
       requestBody:
         content:
           application/json:
@@ -32,6 +34,10 @@ paths:
                 $ref: "#/components/schemas/VerifyCredentialResponse"
         "400":
           description: invalid input!
+        "401":
+          description: Missing or invalid auth credentials.
+        "403":
+          description: Incorrect scope or permissions.
         "500":
           description: error!
   /presentations/verify:
@@ -41,6 +47,8 @@ paths:
        - Presentations
       operationId: verifyPresentation
       description: Verifies a verifiablePresentation and returns a verificationResult in the response body.  Given the possibility of denial of service, buffer overflow, or other style attacks, an implementation is permitted to rate limit or restrict requests against this API endpoint to those requests that contain only a single credential with a 413 or 429 error code as appropriate.
+      security:
+        - OAuth2: []
       requestBody:
         content:
           application/json:
@@ -58,6 +66,10 @@ paths:
                 $ref: "#/components/schemas/VerifyPresentationResponse"
         "400":
           description: Invalid or malformed input
+        "401":
+          description: Missing or invalid auth credentials.
+        "403":
+          description: Incorrect scope or permissions.
         "413":
           description: Payload too large
         "429":
@@ -65,6 +77,9 @@ paths:
         "500":
           description: Internal Server Error
 components:
+  securitySchemes:
+    OAuth2:
+      $ref: "./components/oauth2.yml#/components/securitySchemes/OAuth2"
   schemas:
     VerifyCredentialRequest:
       type: object
