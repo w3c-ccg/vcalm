@@ -56,7 +56,7 @@ components:
       example:
         {
           "query": [{
-            "type": "DIDAuth"
+            "type": "DIDAuthentication"
           }, {
             "type": "QueryByExample",
             "credentialQuery": {
