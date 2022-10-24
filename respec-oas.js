@@ -60,7 +60,6 @@ function buildEndpointDetails({config, document, apis}) {
     responsesTable.setAttribute('class', 'simple');
     responsesTable.innerHTML = '<tr><th>Response</th><th>Description</th><th>Body</th></tr>';
     for(const response in endpoint.responses) {
-console.log({response});
       const responseDetail = endpoint.responses[response];
       const {description, content} = responseDetail;
       const body = getBody(content);
@@ -111,13 +110,22 @@ console.log({response});
   }
 }
 
+/**
+ * Takes in a response's content object and renders any schema found.
+ *
+ * @oaram {object} [content] - Response content.
+ *
+ * @returns {string} A HTML string
+ */
 function getBody(content) {
   if(!content) {
     return '';
   }
   return Object.entries(content).reduce((section, [contentType, {schema}]) => {
+    // just render the schema
     const renderedSchema = renderJsonSchemaObject(schema);
-    return `${section} <p>content-type: ${contentType} <br> ${renderedSchema}<p>`;
+    return `${section} <section style="font-size: 0.75rem">` +
+      `<i>content-type: ${contentType}</i><br>${renderedSchema}</section>`;
   }, '')
 }
 
