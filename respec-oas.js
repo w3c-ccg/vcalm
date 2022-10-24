@@ -58,15 +58,16 @@ function buildEndpointDetails({config, document, apis}) {
     // responses for endpoint
     const responsesTable = document.createElement('table');
     responsesTable.setAttribute('class', 'simple');
-    responsesTable.innerHTML = '<tr><th>Response</th><th>Description</th></tr>';
+    responsesTable.innerHTML = '<tr><th>Response</th><th>Description</th><th>Body</th></tr>';
     for(const response in endpoint.responses) {
+console.log({response});
       const responseDetail = endpoint.responses[response];
-      const {description} = responseDetail;
+      const {description, content} = responseDetail;
+      const body = getBody(content);
       responsesTable.innerHTML +=
-        `<tr><td>${response}</td><td>${description}</td></tr>`;
+        `<tr><td>${response}</td><td>${description}</td><td>${body}</td></tr>`;
     }
     section.appendChild(responsesTable);
-
     // schema for endpoint
     if(endpoint.requestBody) {
       const requestSchema =
@@ -108,6 +109,16 @@ function buildEndpointDetails({config, document, apis}) {
       }
     }
   }
+}
+
+function getBody(content) {
+  if(!content) {
+    return '';
+  }
+  return Object.entries(content).reduce((section, [contentType, {schema}]) => {
+    const renderedSchema = renderJsonSchemaObject(schema);
+    return `${section} <p>content-type: ${contentType} <br> ${renderedSchema}<p>`;
+  }, '')
 }
 
 function renderJsonSchema(schema) {
