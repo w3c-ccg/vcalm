@@ -126,14 +126,18 @@ function getBody(content) {
   if(!content) {
     return document.createElement('span');
   }
+  const initial = document.createElement('section');
+  initial.style['font-size'] = '0.75rem';
   return Object.entries(content).reduce((section, [contentType, {schema}]) => {
     section.appendChild(textEl({el: 'i', text: `content-type: ${contentType}`}));
     section.appendChild(document.createElement('br'));
     if(schema) {
-      section.appendChild(renderJsonSchema(schema));
+      const _el = document.createElement('td');
+      _el.innerHTML = renderJsonSchemaObject(schema);
+      section.appendChild(_el);
     }
     return section;
-  }, document.createElement('section'));
+  }, initial);
 }
 
 /**
