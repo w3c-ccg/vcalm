@@ -63,8 +63,13 @@ function buildEndpointDetails({config, document, apis}) {
       const responseDetail = endpoint.responses[response];
       const {description, content} = responseDetail;
       const body = getBody(content);
-      responsesTable.innerHTML +=
-        `<tr><td>${response}</td><td>${description}</td><td>${body}</td></tr>`;
+      const row = document.createElement('tr');
+      row.appendChild(textEl({text: response}));
+      row.appendChild(textEl({text: description}));
+      const data3 = document.createElement('td');
+      data3.appendChild(body);
+      row.appendChild(data3);
+      responsesTable.appendChild(row);
     }
     section.appendChild(responsesTable);
     // schema for endpoint
@@ -113,21 +118,39 @@ function buildEndpointDetails({config, document, apis}) {
 /**
  * Takes in a response's content object and renders any schema found.
  *
- * @oaram {object} [content] - Response content.
+ * @param {object} [content] - Response content.
  *
- * @returns {string} A HTML string
+ * @returns {HTMLElement} An HTML element.
  */
 function getBody(content) {
   if(!content) {
-    return '';
+    return document.createElement('span');
   }
   return Object.entries(content).reduce((section, [contentType, {schema}]) => {
-    // just render the schema
-    const renderedSchema = renderJsonSchemaObject(schema);
-    return `${section} <section style="font-size: 0.75rem">` +
-      `<i>content-type: ${contentType}</i><br>${renderedSchema}</section>`;
-  }, '')
+    section.appendChild(textEl({el: 'i', text: `content-type: ${contentType}`}));
+    section.appendChild(document.createElement('br'));
+    if(schema) {
+      section.appendChild(renderJsonSchema(schema));
+    }
+    return section;
+  }, document.createElement('section'));
 }
+
+/**
+ * Takes in text and create an element with that textContent.
+ *
+ * @param {object} options - Options to use.
+ * @param {string} [options.el='td'] - An element type.
+ * @param {string} options.text - Text content for an element.
+ *
+ * @returns {object} An html element.
+ */
+function textEl({el = 'td', text}) {
+  const  _el = document.createElement(el);
+  _el.textContent = text;
+  return _el;
+}
+
 
 function renderJsonSchema(schema) {
   let schemaToRender = schema;
