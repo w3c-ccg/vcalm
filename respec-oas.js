@@ -54,23 +54,7 @@ function buildEndpointDetails({config, document, apis}) {
     summary.innerHTML =
       verb.toUpperCase() + ' ' + path + ' - ' + endpoint.summary;
     section.appendChild(summary);
-
-    // responses for endpoint
-    const responsesTable = document.createElement('table');
-    responsesTable.setAttribute('class', 'simple');
-    responsesTable.innerHTML = '<tr><th>Response</th><th>Description</th><th>Body</th></tr>';
-    for(const response in endpoint.responses) {
-      const responseDetail = endpoint.responses[response];
-      const {description, content} = responseDetail;
-      const body = getBody(content);
-      const row = document.createElement('tr');
-      row.appendChild(textEl({text: response}));
-      row.appendChild(textEl({text: description}));
-      const data3 = document.createElement('td');
-      data3.appendChild(body);
-      row.appendChild(data3);
-      responsesTable.appendChild(row);
-    }
+    const responsesTable = buildResponsesTable(endpoint);
     section.appendChild(responsesTable);
     // schema for endpoint
     if(endpoint.requestBody) {
@@ -116,28 +100,55 @@ function buildEndpointDetails({config, document, apis}) {
 }
 
 /**
+ * Builds the responses table for an endpoint.
+ *
+ * @param {object} endpoint - An endpoint object.
+ *
+ * @returns {HTMLElement} A responses a table.
+ */
+function buildResponsesTable(endpoint) {
+    // responses for endpoint
+    const responsesTable = document.createElement('table');
+    responsesTable.setAttribute('class', 'simple');
+    responsesTable.innerHTML = '<tr><th>Response</th><th>Description</th><th>Body</th></tr>';
+    for(const response in endpoint.responses) {
+      const responseDetail = endpoint.responses[response];
+      const {description, content} = responseDetail;
+      const responseSchema = getResponseBodySchema(content);
+      const row = document.createElement('tr');
+      row.appendChild(textEl({text: response}));
+      row.appendChild(textEl({text: description}));
+      const data3 = document.createElement('td');
+      data3.appendChild(responseSchema);
+      row.appendChild(data3);
+      responsesTable.appendChild(row);
+    }
+  return responsesTable;
+}
+
+/**
  * Takes in a response's content object and renders any schema found.
  *
  * @param {object} [content] - Response content.
  *
  * @returns {HTMLElement} An HTML element.
  */
-function getBody(content) {
+function getResponseBodySchema(content) {
   if(!content) {
     return document.createElement('span');
   }
-  const initial = document.createElement('section');
-  initial.style['font-size'] = '0.75rem';
-  return Object.entries(content).reduce((section, [contentType, {schema}]) => {
-    section.appendChild(textEl({el: 'i', text: `content-type: ${contentType}`}));
-    section.appendChild(document.createElement('br'));
+  const section = document.createElement('section');
+  section.style['font-size'] = '0.75rem';
+  return Object.entries(content).reduce((combined, [contentType, {schema}]) => {
+    combined.appendChild(textEl({el: 'i', text: `content-type: ${contentType}`}));
+    combined.appendChild(document.createElement('br'));
     if(schema) {
       const _el = document.createElement('td');
       _el.innerHTML = renderJsonSchemaObject(schema);
-      section.appendChild(_el);
+      combined.appendChild(_el);
     }
-    return section;
-  }, initial);
+    return combined;
+  }, section);
 }
 
 /**
