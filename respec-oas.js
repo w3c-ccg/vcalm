@@ -144,7 +144,21 @@ function getResponseBodySchema(content) {
     combined.appendChild(document.createElement('br'));
     if(schema) {
       const _el = document.createElement('td');
-      _el.innerHTML = renderJsonSchemaObject(schema);
+      if(schema?.type === 'array') {
+        if(schema?.items?.anyOf) {
+          _el.innerHTML = 'Each item in the schema array MUST be one of ';
+          for(const i in schema.items.anyOf) {
+            const anySchema = schema.items.anyOf[i];
+            schemaHtml = renderJsonSchemaObject(anySchema.properties || anySchema);
+           _el.innerHTML += schemaHtml;
+          }
+        } else {
+          _el.innerHTML = 'Each item in the schema array MUST be ';
+          _el.innerHTML += renderJsonSchemaObject(schema.items);
+        }
+      } else {
+        _el.innerHTML = renderJsonSchemaObject(schema);
+      }
       combined.appendChild(_el);
     }
     return combined;
