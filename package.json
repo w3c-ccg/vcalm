@@ -7,7 +7,8 @@
     "build": "openapi bundle *.yml --output ./api/bundles/ && openapi join ./api/bundles/*.yml --prefix-tags-with-filename && mv ./openapi.yaml ./api/vc-api.yaml",
     "serve": "http-server ./api --cors",
     "serveIndex": "http-server . --cors",
-    "lint": "openapi lint *.yml --extends recommended"
+    "lint": "openapi lint *.yml --extends recommended",
+    "eslint": "eslint ."
   },
   "repository": {
     "type": "git",
