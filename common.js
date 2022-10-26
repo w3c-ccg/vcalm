@@ -3,7 +3,7 @@
 /*  ... stolen from Gregg Kellogg of the JSON-LD 1.1 Working Group */
 /*  ... who stole it from Manu Sporny of the JSON-LD 1.0 Working Group */
 /*  ... who stole it from Shane McCarron, that beautiful, beautiful man. */
-var ccg = {
+const ccg = {
   // Add as the respecConfig localBiblio variable
   // Extend or override global respec references
   localBiblio: {
@@ -17,7 +17,7 @@ var ccg = {
       status: "ED",
       publisher: "Decentralized Identifier Working Group"
     },
-    "REST": {
+    REST: {
       title: "Architectural Styles and the Design of Network-based Software Architectures",
       date: "2000",
       href: "http://www.ics.uci.edu/~fielding/pubs/dissertation/",
@@ -55,7 +55,7 @@ var ccg = {
     "HTTP-SIGNATURES": {
       aliasOf: "http-signatures"
     },
-    "MACAROONS": {
+    MACAROONS: {
       title: 'Macaroons',
       // TODO: create spec
       href: 'http://macaroons.io/',
@@ -69,15 +69,15 @@ var ccg = {
       href: 'https://github.com/openbadges/openbadges-specification',
       authors: ['Brian Brennan', 'Mike Larsson', 'Chris McAvoy',
         'Nate Otto', 'Kerri Lemoie'],
-      status:   'BA-DRAFT',
-      publisher:  'Badge Alliance Standard Working Group'
+      status: 'BA-DRAFT',
+      publisher: 'Badge Alliance Standard Working Group'
     },
     'RDF-NORMALIZATION': {
       title: 'RDF Dataset Normalization',
       href: 'http://json-ld.github.io/normalization/spec/',
       authors: ['Dave Longley', 'Manu Sporny'],
-      status:   'CG-DRAFT',
-      publisher:  'Credentials W3C Community Group'
+      status: 'CG-DRAFT',
+      publisher: 'Credentials W3C Community Group'
     },
     "LD-PROOFS": {
       title: "Linked Data Proofs",
@@ -108,7 +108,7 @@ var ccg = {
       ],
       status: "Personal View"
     },
-    "HASHLINK": {
+    HASHLINK: {
       title: "Cryptographic Hyperlinks",
       date: "December 2018",
       href: "https://tools.ietf.org/html/draft-sporny-hashlink-05",
@@ -118,7 +118,7 @@ var ccg = {
       status: "Internet-Draft",
       publisher: "IETF"
     },
-    "BASE58": {
+    BASE58: {
       title: "The Base58 Encoding Scheme",
       date: "October 2020",
       href: "https://tools.ietf.org/html/draft-msporny-base58",
@@ -167,7 +167,7 @@ var ccg = {
       date: "2011",
       publisher: "Information and Privacy Commissioner"
     },
-    "MULTIBASE": {
+    MULTIBASE: {
       title: "The Multibase Encoding Scheme",
       date: "February 2021",
       href: "https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-03",
@@ -201,20 +201,20 @@ var ccg = {
   }
 };
 
-require(["core/pubsubhub"], (respecEvents) => {
+require(["core/pubsubhub"], respecEvents => {
   "use strict";
 
-  respecEvents.sub('end-all', (message) => {
+  respecEvents.sub('end-all', message => {
     // remove data-cite on where the citation is to ourselves.
     const selfDfns = document.querySelectorAll("dfn[data-cite^='" + respecConfig.shortName.toUpperCase() + "#']");
-    for (const dfn of selfDfns) {
+    for(const dfn of selfDfns) {
       delete dfn.dataset.cite;
     }
 
     // Update data-cite references to ourselves.
     const selfRefs = document.querySelectorAll("a[data-cite^='" + respecConfig.shortName.toUpperCase() + "#']");
-    for (const anchor of selfRefs) {
-      anchor.href= anchor.dataset.cite.replace(/^.*#/,"#");
+    for(const anchor of selfRefs) {
+      anchor.href = anchor.dataset.cite.replace(/^.*#/, "#");
       delete anchor.dataset.cite;
     }
 
@@ -226,13 +226,13 @@ require(["core/pubsubhub"], (respecEvents) => {
 // To ensure a definition appears in the Terminology section, use
 //  and link to it!
 // This is triggered by postProcess in the respec config.
-function restrictRefs(utils, content, url){
+function restrictRefs(utils, content, url) {
 
   // Get set of ids internal dfns referenced in the spec body
   const internalDfnLinks = document.querySelectorAll("a.internalDFN");
 
-  let internalDfnIds = new Set();
-  for (const dfnLink of internalDfnLinks) {
+  const internalDfnIds = new Set();
+  for(const dfnLink of internalDfnLinks) {
     const dfnHref = dfnLink.href.split("#")[1];
     internalDfnIds.add(dfnHref);
   }
@@ -240,16 +240,16 @@ function restrictRefs(utils, content, url){
   // Remove unused dfns from the termlist
   const termlist = document.querySelector(".termlist");
   const linkIdsInDfns = [];
-  for (const child of termlist.querySelectorAll("dfn")){
-    if (!internalDfnIds.has(child.id)){
-      let dt = child.closest("dt");
-      let dd = dt.nextElementSibling;
+  for(const child of termlist.querySelectorAll("dfn")) {
+    if(!internalDfnIds.has(child.id)) {
+      const dt = child.closest("dt");
+      const dd = dt.nextElementSibling;
 
       // Get internal links from dfns we're going to remove
       //  because these show up in the dfn-panels later and then
       //  trigger the local-refs-exist linter (see below)
       const linksInDfn = dd.querySelectorAll("a.internalDFN");
-      for (link of linksInDfn) {
+      for(link of linksInDfn) {
         linkIdsInDfns.push(link.id);
       }
 
@@ -263,15 +263,15 @@ function restrictRefs(utils, content, url){
   //  (this seems like a hack, there's probably a better way to hook into respec
   //   before it gets to this point)
   const dfnPanels = document.querySelectorAll(".dfn-panel");
-  for (const panel of dfnPanels) {
-    if (!internalDfnIds.has(panel.querySelector(".self-link").href.split("#")[1])){
+  for(const panel of dfnPanels) {
+    if(!internalDfnIds.has(panel.querySelector(".self-link").href.split("#")[1])) {
       panel.parentNode.removeChild(panel);
     }
 
     // Remove references to dfns we removed which link to other dfns
     const panelLinks = panel.querySelectorAll("li a");
-    for (const link of panelLinks) {
-      if (linkIdsInDfns.includes(link.href.split("#")[1])) {
+    for(const link of panelLinks) {
+      if(linkIdsInDfns.includes(link.href.split("#")[1])) {
         link.parentNode.removeChild(link);
       }
     }

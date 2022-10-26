@@ -80,7 +80,7 @@ function buildEndpointDetails({config, document, apis}) {
             const anySchema = requestSchema.anyOf[i];
             requestSchemaHtml = renderJsonSchema(anySchema.properties || anySchema);
             section.appendChild(requestSchemaHtml);
-            if(i+1 < requestSchema.anyOf.length) {
+            if(i + 1 < requestSchema.anyOf.length) {
               const nextSchemaSummary = document.createElement('p');
               nextSchemaSummary.innerHTML = `Alternatively, the ${path} ` +
               `endpoint can also use the following schema:`;
@@ -107,22 +107,22 @@ function buildEndpointDetails({config, document, apis}) {
  * @returns {HTMLElement} A responses a table.
  */
 function buildResponsesTable(endpoint) {
-    // responses for endpoint
-    const responsesTable = document.createElement('table');
-    responsesTable.setAttribute('class', 'simple');
-    responsesTable.innerHTML = '<tr><th>Response</th><th>Description</th><th>Body</th></tr>';
-    for(const response in endpoint.responses) {
-      const responseDetail = endpoint.responses[response];
-      const {description, content} = responseDetail;
-      const responseSchema = getResponseBodySchema(content);
-      const row = document.createElement('tr');
-      row.appendChild(textEl({text: response}));
-      row.appendChild(textEl({text: description}));
-      const data3 = document.createElement('td');
-      data3.appendChild(responseSchema);
-      row.appendChild(data3);
-      responsesTable.appendChild(row);
-    }
+  // responses for endpoint
+  const responsesTable = document.createElement('table');
+  responsesTable.setAttribute('class', 'simple');
+  responsesTable.innerHTML = '<tr><th>Response</th><th>Description</th><th>Body</th></tr>';
+  for(const response in endpoint.responses) {
+    const responseDetail = endpoint.responses[response];
+    const {description, content} = responseDetail;
+    const responseSchema = getResponseBodySchema(content);
+    const row = document.createElement('tr');
+    row.appendChild(textEl({text: response}));
+    row.appendChild(textEl({text: description}));
+    const data3 = document.createElement('td');
+    data3.appendChild(responseSchema);
+    row.appendChild(data3);
+    responsesTable.appendChild(row);
+  }
   return responsesTable;
 }
 
@@ -166,14 +166,13 @@ function getResponseBodySchema(content) {
  * @returns {object} An html element.
  */
 function textEl({el = 'td', text}) {
-  const  _el = document.createElement(el);
+  const _el = document.createElement(el);
   _el.textContent = text;
   return _el;
 }
 
-
 function renderJsonSchema(schema) {
-  let schemaToRender = schema;
+  const schemaToRender = schema;
   const requestSchemaTable = document.createElement('table');
   const tableHeader = document.createElement('thead');
   const tableBody = document.createElement('tbody');
@@ -231,7 +230,7 @@ function renderJsonSchemaObject(schema) {
       if((index + 1) < schema.anyOf.length) {
         collectedSchemas += ' or ';
       }
-     }
+    }
     return collectedSchemas;
   }
   if(schema.allOf) {
@@ -247,24 +246,24 @@ function renderJsonSchemaObject(schema) {
 
     objectRendering = renderJsonSchemaObject(mergedSchema);
   } else if(schema.oneOf) {
-    objectRendering += ' either '
+    objectRendering += ' either ';
     let itemCount = 0;
     for(item of schema.oneOf) {
       if(item.type === 'string') {
-        objectRendering += 'a string'
+        objectRendering += 'a string';
       } else if(item.type === 'object') {
         objectRendering += renderJsonSchemaObject(item);
       }
 
       itemCount += 1;
       if(itemCount < schema.oneOf.length) {
-        objectRendering += ' or '
+        objectRendering += ' or ';
       }
     }
   } else if(schema.type === 'object') {
     if(!schema.properties) {
       if(schema.description) {
-        objectRendering =  schema.description.replace(/\.$/, "") +
+        objectRendering = schema.description.replace(/\.$/, "") +
           ' (an object)';
       } else {
         objectRendering = 'an object';
@@ -309,8 +308,7 @@ function renderJsonSchemaValue(property, value) {
     valueRendering =
       `The <code>${property}</code> object MUST be `;
     valueRendering += renderJsonSchemaObject(value);
-  }
-  else if(value.type === 'string') {
+  } else if(value.type === 'string') {
     // no-op
   } else {
     valueRendering = '<pre>' + JSON.stringify(value, null, 2) + '</pre>';
@@ -334,8 +332,7 @@ async function injectOas(config, document) {
 
     buildApiSummaryTables({config, document, apis});
     buildEndpointDetails({config, document, apis});
-  }
-  catch(err) {
+  } catch(err) {
     console.error(err);
   }
 }
