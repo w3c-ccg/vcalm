@@ -145,7 +145,7 @@ function getResponseBodySchema(content) {
     if(schema) {
       const _el = document.createElement('td');
       if(schema?.type === 'array') {
-        _el.innerHTML = 'Each item in the array array MUST be ';
+        _el.innerHTML = 'Each item in the array MUST be ';
         _el.innerHTML += renderJsonSchemaObject(schema.items);
       } else {
         _el.innerHTML = renderJsonSchemaObject(schema);
