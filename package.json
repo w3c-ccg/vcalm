@@ -26,6 +26,10 @@
   "homepage": "https://github.com/w3c-ccg/vc-api#readme",
   "devDependencies": {
     "@redocly/cli": "^1.0.0-beta.102",
+    "eslint": "^8.26.0",
+    "eslint-config-digitalbazaar": "^4.1.0",
+    "eslint-plugin-jsdoc": "^39.3.25",
+    "eslint-plugin-unicorn": "^44.0.2",
     "http-server": "^14.1.1"
   }
 }
