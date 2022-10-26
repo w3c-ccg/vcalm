@@ -145,17 +145,8 @@ function getResponseBodySchema(content) {
     if(schema) {
       const _el = document.createElement('td');
       if(schema?.type === 'array') {
-        if(schema?.items?.anyOf) {
-          _el.innerHTML = 'Each item in the schema array MUST be one of ';
-          for(const i in schema.items.anyOf) {
-            const anySchema = schema.items.anyOf[i];
-            schemaHtml = renderJsonSchemaObject(anySchema.properties || anySchema);
-           _el.innerHTML += schemaHtml;
-          }
-        } else {
-          _el.innerHTML = 'Each item in the schema array MUST be ';
-          _el.innerHTML += renderJsonSchemaObject(schema.items);
-        }
+        _el.innerHTML = 'Each item in the array array MUST be ';
+        _el.innerHTML += renderJsonSchemaObject(schema.items);
       } else {
         _el.innerHTML = renderJsonSchemaObject(schema);
       }
@@ -223,9 +214,6 @@ function renderJsonSchema(schema) {
       `<td>${valueRendering}</td></tr>`;
   }
 
-  // tableBody.innerHTML += '<tr><td>DEBUG</td><td><pre>' +
-  //   JSON.stringify(schema, null, 2) + '</pre></td></tr>';
-
   requestSchemaTable.appendChild(tableHeader);
   requestSchemaTable.appendChild(tableBody);
 
@@ -234,7 +222,18 @@ function renderJsonSchema(schema) {
 
 function renderJsonSchemaObject(schema) {
   let objectRendering = '';
-
+  if(schema.anyOf) {
+    let collectedSchemas = '';
+    for(const index in schema.anyOf) {
+      const item = schema.anyOf[index];
+      collectedSchemas += renderJsonSchemaObject(item);
+      // if there are more items in anyOf add an or
+      if((index + 1) < schema.anyOf.length) {
+        collectedSchemas += ' or ';
+      }
+     }
+    return collectedSchemas;
+  }
   if(schema.allOf) {
     const mergedSchema = {
       type: 'object',
