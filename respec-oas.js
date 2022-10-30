@@ -54,8 +54,7 @@ function buildEndpointDetails({config, document, apis}) {
     summary.innerHTML =
       verb.toUpperCase() + ' ' + path + ' - ' + endpoint.summary;
     section.appendChild(summary);
-    const responsesTable = buildResponsesTable(endpoint);
-    section.appendChild(responsesTable);
+
     // schema for endpoint
     if(endpoint.requestBody) {
       const requestSchema =
@@ -96,6 +95,14 @@ function buildEndpointDetails({config, document, apis}) {
         section.appendChild(requestSchemaHtml);
       }
     }
+
+    // responses for endpoint
+    const responsesSummary = document.createElement('p');
+    responsesSummary.innerHTML = `The ${path} endpoint can result ` +
+      `in any of these responses when receiving a ${verb.toUpperCase()}:`;
+    section.appendChild(responsesSummary);
+    const responsesTable = buildResponsesTable(endpoint);
+    section.appendChild(responsesTable);
   }
 }
 
