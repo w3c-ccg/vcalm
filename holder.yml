@@ -31,6 +31,8 @@ paths:
           description: Bad Request
         "401":
           description: Not Authorized
+        "404":
+          description: Credential not found
         "410":
           description: Gone! There is no data here
         "418":
@@ -53,6 +55,8 @@ paths:
           description: Bad Request
         "401":
           description: Not Authorized
+        "404":
+          description: Credential not found
         "410":
           description: Gone! There is no data here
         "500":
@@ -143,6 +147,8 @@ paths:
           description: Bad Request
         "401":
           description: Not Authorized
+        "404":
+          description: Presentation not found
         "410":
           description: Gone! There is no data here
         "500":
@@ -163,6 +169,8 @@ paths:
           description: Bad Request
         "401":
           description: Not Authorized
+        "404":
+          description: Presentation not found
         "410":
           description: Gone! There is no data here
         "500":
