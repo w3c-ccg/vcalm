@@ -16,43 +16,47 @@ components:
       type: object
       description: A Verifiable Presentation Request.
       properties:
-        "query":
-          type: array
-          description: A set of one or more queries sent by the requester.
-          items:
-            type: object
-            properties:
-              "type":
-                type: array
-                description: The type of the query.
-                items:
-                  type: string
-        "challenge":
-          type: string
-          description: A challenge, intended to prevent replay attacks, provided by the requester that is typically expected to be included in the Verifiable Presentation response.
-        "domain":
-          type: string
-          description: A domain, intended to prevent replay attacks, provided by the requester that is typically expected to be included in the Verifiable Presentation response.
-          items:
-            type: string
-        "interact":
-          type: array
-          description: A list of interaction mechanisms that are supported by the server.
-          items:
-            type: object
-            properties:
-              "service":
+        "verifiablePresentationRequest":
+          type: object
+          description: A Verifiable Presentation Request.
+          properties:
+            "query":
+              type: array
+              description: A set of one or more queries sent by the requester.
+              items:
                 type: object
-                description: A service that is supported by the server that is capable of receiving a response to the Verifiable Presentation Request.
                 properties:
                   "type":
                     type: array
-                    description: The type of the service.
+                    description: The type of the query.
                     items:
                       type: string
-                  "serviceEndpoint":
-                    type: string
-                    description: A URL that can be utilized for interacting with the service for the purposes of responding to the Verifiable Presentation Request.
+            "challenge":
+              type: string
+              description: A challenge, intended to prevent replay attacks, provided by the requester that is typically expected to be included in the Verifiable Presentation response.
+            "domain":
+              type: string
+              description: A domain, intended to prevent replay attacks, provided by the requester that is typically expected to be included in the Verifiable Presentation response.
+              items:
+                type: string
+            "interact":
+              type: array
+              description: A list of interaction mechanisms that are supported by the server.
+              items:
+                type: object
+                properties:
+                  "service":
+                    type: object
+                    description: A service that is supported by the server that is capable of receiving a response to the Verifiable Presentation Request.
+                    properties:
+                      "type":
+                        type: array
+                        description: The type of the service.
+                        items:
+                          type: string
+                      "serviceEndpoint":
+                        type: string
+                        description: A URL that can be utilized for interacting with the service for the purposes of responding to the Verifiable Presentation Request.
       example:
         {
           "query": [{

@@ -586,10 +586,7 @@ components:
     StorePresentationRequest:
       $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
     VerifiablePresentationRequest:
-      type: object
-      properties:
-        verifiablePresentationRequest:
-          $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
+      $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
     VerifiablePresentationResponse:
       type: object
       properties:
