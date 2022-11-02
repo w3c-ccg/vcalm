@@ -19,12 +19,15 @@ components:
         id:
           type: "string"
           pattern: "[a-z0-9\\-]{8,}"
+          description: An error id.
         message:
           type: "string"
           minLength: 10
           maxLength: 100
+          description: The error message.
         details:
           type: "object"
+          description: An object with error details.
       required: ["id", "message"]
       example:
         {

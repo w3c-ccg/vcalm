@@ -21,5 +21,6 @@ components:
           properties:
             id:
               type: string
+              description: The issuer id.
       example:
         { "id": "did:key:z6MkjRagNiMu91DduvCvgEsqLZDVzrJzFrwahc4tXLt9DoHd" }
