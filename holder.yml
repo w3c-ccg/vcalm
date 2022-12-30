@@ -13,7 +13,7 @@ paths:
   /credentials/{id}:
     get:
       tags:
-        - Credentials
+       - Credentials
       summary: Gets a credential or verifiable credential by ID
       operationId: getCredential
       parameters:
@@ -27,6 +27,8 @@ paths:
                 oneOf:
                   - $ref: "./components/Credential.yml#/components/schemas/Credential"
                   - $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+        "400":
+          description: Bad Request
         "401":
           description: Not Authorized
         "404":
@@ -48,7 +50,7 @@ paths:
           description: Not Implemented
     delete:
       tags:
-        - Credentials
+       - Credentials
       summary: Deletes a credential or verifiable credential by ID
       operationId: deleteCredential
       parameters:
@@ -69,7 +71,7 @@ paths:
   /credentials:
     get:
       tags:
-        - Credentials
+       - Credentials
       summary: Gets list of credentials or verifiable credentials
       operationId: getCredentials
       parameters:
@@ -105,7 +107,7 @@ paths:
   /credentials/derive:
     post:
       tags:
-        - Credentials
+       - Credentials
       summary: Derives a credential and returns it in the response body.
       operationId: deriveCredential
       description: Derives a credential and returns it in the response body.
@@ -132,7 +134,7 @@ paths:
   /presentations/{id}:
     get:
       tags:
-        - Presentations
+       - Presentations
       summary: Gets a presentation or verifiable presentation by ID
       operationId: getPresentation
       parameters:
@@ -158,7 +160,7 @@ paths:
           description: Not Implemented
     delete:
       tags:
-        - Presentations
+       - Presentations
       summary: Deletes a presentation or verifiable presentation by ID
       operationId: deletePresentation
       parameters:
@@ -179,7 +181,7 @@ paths:
   /presentations:
     get:
       tags:
-        - Presentations
+       - Presentations
       summary: Gets list of presentations or verifiable presentations
       operationId: getPresentations
       parameters:
@@ -217,7 +219,7 @@ paths:
     post:
       summary: Proves a presentation and returns it in the response body.
       tags:
-        - Presentations
+       - Presentations
       operationId: provePresentation
       description: Proves a presentation and returns it in the response body.
       requestBody:
@@ -241,27 +243,27 @@ paths:
     get:
       summary: Provides a discovery endpoint for the exchanges supported by this server endpoint.
       tags:
-        - Exchanges
+       - Exchanges
       operationId: discoverExchanges
-      description:
-        This endpoint returns an array of the exchange-ids (path endpoints) supported by this server,
+      description: 
+        This endpoint returns an array of the exchange-ids (path endpoints) supported by this server, 
         and the associated protocol supported by that exchange endpoint. The list supports pagination.
-        Clients consuming this list wishing to use an exchange endpoint MUST recognize and support
+        Clients consuming this list wishing to use an exchange endpoint MUST recognize and support 
         the protocol identified in the value field. Clients are not expected to dynamically process
-        the protocol specified.
+        the protocol specified.   
       parameters:
         - name: index
           in: query
-          description:
-            The starting index for the list that is meaningful to the server.
+          description: 
+            The starting index for the list that is meaningful to the server. 
             If omitted the server must assume the start of the list.
           required: false
           schema:
             type: string
         - name: limit
           in: query
-          description:
-            The maximum number of items to return in the response. If omitted the service should
+          description: 
+            The maximum number of items to return in the response. If omitted the service should 
             return all remaining items from the start index.
           required: false
           schema:
@@ -291,7 +293,7 @@ paths:
                       properties:
                         id:
                           type: string
-                          description: "the path name of the exchange endpoint. May be a UUID."
+                          description: 'the path name of the exchange endpoint. May be a UUID.'
                         type:
                           type: string
                           description: MUST be a string that references the supported protocol on that endpoint.
@@ -300,46 +302,47 @@ paths:
                     properties:
                       self:
                         type: string
-                        description:
-                          The index position of the start of the returned list. Examples could be a numerica value,
+                        description: 
+                          The index position of the start of the returned list. Examples could be a numerica value, 
                           a URL, or a value meaningful to the server.
                       next:
                         type: string
-                        description:
-                          The index position for the next set of results (ie, index of the end of this list).
+                        description: 
+                          The index position for the next set of results (ie, index of the end of this list). 
                           Examples could be a numerica value, a URL, or a value meaningful to the server.
 
               example:
                 {
                   "count": 3,
                   "total": 8,
-                  "exchanges":
-                    [
-                      {
-                        "id": "credential-refresh",
-                        "type": "CredentialRefresh2020",
-                      },
-                      {
-                        "id": "34901-18388409-1939",
-                        "type": "PresentationExchange1.0",
-                      },
-                      {
-                        "id": "salad",
-                        "type": "https://example.com/oas/my-salad.yml",
-                      },
-                    ],
-                  "index": { "self": 0, "next": 3 },
+                  "exchanges" : [
+                    {
+                      "id" : "credential-refresh", 
+                      "type": "CredentialRefresh2020"
+                    },
+                    {
+                      "id": "34901-18388409-1939",
+                      "type" : "PresentationExchange1.0",
+                    },
+                    {
+                      "id" : "salad",
+                      "type" : "https://example.com/oas/my-salad.yml" 
+                  }],
+                  "index": {
+                    "self": 0,
+                    "next" : 3
+                  }
                 }
-        "400":
+        "400": 
           description: invalid input
-        "500":
+        "500" : 
           description: error
 
   /exchanges/{exchange-id}:
     post:
       summary: Initiates an exchange of information.
       tags:
-        - Exchanges
+       - Exchanges
       operationId: initiateExchange
       description:
         A client can use this endpoint to initiate an exchange of a particular
@@ -357,11 +360,13 @@ paths:
           application/json:
             schema:
               anyOf:
-                - {
+                -
+                  {
                     "type": "object",
-                    "description": "Data necessary to initiate the exchange.",
+                    "description": "Data necessary to initiate the exchange."
                   }
-                - $ref: "#/components/schemas/NotifyPresentationAvailableRequest"
+                -
+                  $ref: "#/components/schemas/NotifyPresentationAvailableRequest"
       responses:
         "200":
           description: Proceed with exchange.
@@ -383,7 +388,7 @@ paths:
     post:
       summary: Receives information related to an existing exchange.
       tags:
-        - Exchanges
+       - Exchanges
       operationId: receiveExchangeData
       description:
         A client can use this endpoint to continue the exchange of information
@@ -393,7 +398,8 @@ paths:
         - $ref: "./components/parameters/path/ExchangeId.yml"
         - $ref: "./components/parameters/path/TransactionId.yml"
       requestBody:
-        description: A Verifiable Presentation.
+        description:
+          A Verifiable Presentation.
         content:
           application/json:
             schema:
@@ -468,8 +474,8 @@ components:
                     {
                       "type":
                         [
-                          "VerifiableCredential",
-                          "CommercialInvoiceCertificate",
+                            "VerifiableCredential",
+                            "CommercialInvoiceCertificate",
                         ],
                       "reason": "Wallet XYZ is ready to selectively disclose new credentials.",
                     },
@@ -501,14 +507,14 @@ components:
                       {
                         "@context":
                           [
-                            "https://www.w3.org/2018/credentials/v1",
-                            "https://w3id.org/traceability/v1",
-                            "https://w3id.org/bbs/v1",
+                              "https://www.w3.org/2018/credentials/v1",
+                              "https://w3id.org/traceability/v1",
+                              "https://w3id.org/bbs/v1",
                           ],
                         "type":
                           [
-                            "VerifiableCredential",
-                            "CommercialInvoiceCertificate",
+                              "VerifiableCredential",
+                              "CommercialInvoiceCertificate",
                           ],
                         "credentialSubject":
                           {
