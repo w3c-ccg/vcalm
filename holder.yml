@@ -32,7 +32,7 @@ paths:
         "401":
           description: Not Authorized
         "404":
-          description: Bad Request
+          description: Not Found
           content:
             application/json:
               schema:
