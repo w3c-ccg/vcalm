@@ -191,7 +191,7 @@ and implementers might find useful:
 
     <ul class="bullet">
       <li>
-<a href="#design-goals"></a> specifies the high level design goals
+<a href="#design-goals-and-rationale"></a> specifies the high level design goals
 that drove the formulation of this specification.
       </li>
       <li>
@@ -228,9 +228,10 @@ defined by this specification.
     </ul>
 
     <section class="informative">
-      <h2>Design Goals</h2>
+      <h2>Design Goals and Rationale</h2>
 
       <p>
+The Verifiable Credentials API is optimized towards the following design goals:
       </p>
 
       <table class="simple">
@@ -248,10 +249,39 @@ Description
         <tbody>
           <tr>
             <td>
-TBD
+Modularity
             </td>
             <td>
-TBD
+Implementers need only implement the APIs that are required for their use case
+enabling modularity between Issuing, Verifying, and Presenting.
+            </td>
+          </tr>
+          <tr>
+            <td>
+Simplicity
+            </td>
+            <td>
+The number of APIs and optionality are kept to a minimum to ensure that they are
+easy to implement and audit from a security standpoint.
+            </td>
+          </tr>
+          <tr>
+            <td>
+Composability
+            </td>
+            <td>
+The APIs are designed to be composable such that complex flows are possible
+using a small number of simple API primitives.
+            </td>
+          </tr>
+          <tr>
+            <td>
+Extensibility
+            </td>
+            <td>
+Extensions to API endpoints are expected and catered to in the API design
+enabling experimentation and the addition of value-added services on top of
+the base API platform.
             </td>
           </tr>
         </tbody>
