@@ -140,7 +140,50 @@ to <a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a> (
 
   <section class="informative">
     <h1>Introduction</h1>
+
     <p>
+The Verifiable Credentials specification [[VC-DATA-MODEL-2.0]] provides a data
+model and serialization to express digital credentials in a way that is
+cryptographically secure, privacy respecting, and machine-verifiable. This
+specification provides a set of HTTP Application Programming Interfaces (HTTP
+APIs) and protocols for issuing, verifying, presenting, and managing Verifiable
+Credentials in such an ecosystem.
+    </p>
+
+    <p>
+When managing <a>verifiable credentials</a>, there are two general types of APIs
+that are contemplated. The first type of APIs are ones that are internal to a
+particular security domain. The second type of APIs are ones that are used to
+communicate between two different security domains. This specification defines
+both types of APIs.
+    </p>
+
+    <p>
+APIs that are internal to a security domain are used by systems that are
+operating on behalf of a particular role such as an Issuer, Verifier, or Holder.
+Even though it is not strictly necessary to define these APIs, there are
+benefits to doing so. One such benefit is that it is useful for the Verifiable
+Credentials ecosystem to have a common understanding of a useful internal
+architectures in a security domain when it comes to managing Verifiable
+Credentials. For example, it can be helpful to software architects to
+understanding what a vetted internal architecture and API looks like when it
+comes to issuing a <a>verifiable credential</a> such that they can speak a
+common language when performing internal systems integration tasks. Knowing that
+a particular architecture has been vetted is also beneficial for architects that
+do not specialize in <a>verifiable credentials</a>. Documented architectures and
+APIs also increase market competition and reduce vendor lock-in and switching
+costs when it comes to selecting vendor solutions.
+    </p>
+
+    <p>
+APIs that are external to a security domain are used by systems that are
+communicating between two different roles in a <a>verifiable credential</a>
+ecosystem, such as an API that is used to communicate presentations between a
+Holder and a Verifier. In order to achieve protocol interoperability in the
+<a>verifiable credentials</a> ecosystem, it is vital that these APIs be
+standardized. The benefits of documenting these APIs are the same for
+documenting the internal APIs; common, vetted architecture and APIs, increased
+market competition, reduced vendor lock-in and switching costs.
     </p>
 
     <section class="informative">
