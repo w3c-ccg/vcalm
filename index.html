@@ -147,43 +147,41 @@ model and serialization to express digital credentials in a way that is
 cryptographically secure, privacy respecting, and machine-verifiable. This
 specification provides a set of HTTP Application Programming Interfaces (HTTP
 APIs) and protocols for issuing, verifying, presenting, and managing Verifiable
-Credentials in such an ecosystem.
+Credentials.
     </p>
 
     <p>
 When managing <a>verifiable credentials</a>, there are two general types of APIs
-that are contemplated. The first type of APIs are ones that are internal to a
-particular security domain. The second type of APIs are ones that are used to
-communicate between two different security domains. This specification defines
+that are contemplated. The first type of APIs are designed to be used within
+a single security domain. The second type of APIs can be used to
+communicate across different security domains. This specification defines
 both types of APIs.
     </p>
 
     <p>
-APIs that are internal to a security domain are used by systems that are
-operating on behalf of a particular role such as an Issuer, Verifier, or Holder.
-Even though it is not strictly necessary to define these APIs, there are
-benefits to doing so. One such benefit is that it is useful for the Verifiable
-Credentials ecosystem to have a common understanding of a useful internal
-architectures in a security domain when it comes to managing Verifiable
-Credentials. For example, it can be helpful to software architects to
-understanding what a vetted internal architecture and API looks like when it
-comes to issuing a <a>verifiable credential</a> such that they can speak a
-common language when performing internal systems integration tasks. Knowing that
+The APIs that are designed to be used within a single security domain are used by
+systems that are operating on behalf of a single role such as an Issuer, Verifier,
+or Holder. One benefit of these APIs for the Verifiable Credentials ecosystem
+is that they define a useful, common, and vetted modular architecture for
+managing Verifiable Credentials. For example, this approach helps software
+architects integrate with common components and speak a common language
+when implementing systems that issue <a>verifiable credentials</a>. Knowing that
 a particular architecture has been vetted is also beneficial for architects that
 do not specialize in <a>verifiable credentials</a>. Documented architectures and
-APIs also increase market competition and reduce vendor lock-in and switching
-costs when it comes to selecting vendor solutions.
+APIs increase market competition and reduce vendor lock-in and switching
+costs.
     </p>
 
     <p>
-APIs that are external to a security domain are used by systems that are
-communicating between two different roles in a <a>verifiable credential</a>
-ecosystem, such as an API that is used to communicate presentations between a
-Holder and a Verifier. In order to achieve protocol interoperability in the
-<a>verifiable credentials</a> ecosystem, it is vital that these APIs be
-standardized. The benefits of documenting these APIs are the same for
-documenting the internal APIs; common, vetted architecture and APIs, increased
-market competition, reduced vendor lock-in and switching costs.
+The APIs that are designed to operate across multiple security domains are
+used by systems that are communicating between two different roles in a
+<a>verifiable credential</a> interaction, such as an API that is used to
+communicate presentations between a Holder and a Verifier. In order to
+achieve protocol interoperability in <a>verifiable credentials</a> interactions,
+it is vital that these APIs be standardized. The additional benefits of
+documenting these APIs are the same for documenting the
+single-security-domain APIs: common, vetted architecture and APIs, increased
+market competition, and reduced vendor lock-in and switching costs.
     </p>
 
     <p>
@@ -209,11 +207,11 @@ the document.
 that can be used with the API.
       </li>
       <li>
-<a href="#issuing"></a> describes both the internal and external APIs for
+<a href="#issuing"></a> describes the APIs for
 issuing <a>verifiable credentials</a> as well as updating their status.
       </li>
       <li>
-<a href="#verifying"></a> specifies the internal APIs for verifying both
+<a href="#verifying"></a> specifies the APIs for verifying both
 <a>verifiable credentials</a> and verifiable presentations.
       </li>
       <li>
