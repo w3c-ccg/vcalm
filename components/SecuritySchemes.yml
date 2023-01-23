@@ -1,0 +1,39 @@
+openapi: 3.0.0
+info:
+  version: "0.0.3-unstable"
+  title: VC API
+  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
+  license:
+    name: W3C Software and Document License
+    url: http://www.w3.org/Consortium/Legal/copyright-software.
+  contact:
+    name: GitHub Source Code
+    url: https://github.com/w3c-ccg/vc-api
+paths:
+components:
+  securitySchemes:
+    noAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: VerifiablePresentation
+
+    zCap:
+      type: http
+      scheme: bearer
+      bearerFormat: VerifiablePresentation
+
+
+    didAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: VerifiablePresentation
+
+    oAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: /oauth2/authorize
+          tokenUrl: /oauth2/token
+          scopes:
+            read: Grants read access
+            write: Grants write access
