@@ -15,13 +15,12 @@ components:
     noAuth:
       type: http
       scheme: bearer
-      bearerFormat: VerifiablePresentation
+      bearerFormat: emptyString
 
     zCap:
       type: http
-      scheme: bearer
-      bearerFormat: VerifiablePresentation
-
+      scheme: signature
+      bearerFormat: AuthorizationCapability
 
     didAuth:
       type: http
