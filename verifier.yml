@@ -1,4 +1,7 @@
 openapi: 3.0.0
+servers:
+  - url: https://verifier.qa.veres.app/verifiers/z1A45ZhWEGMeibHrB15nv8Gk6
+    description: Veres Issuer (Quality Assurance)
 info:
   version: "0.0.3-unstable"
   title: VC Verifier API
@@ -13,8 +16,12 @@ paths:
   /credentials/verify:
     post:
       summary: Verifies a verifiableCredential and returns a verificationResult in the response body.
-      tags: 
+      tags:
        - Credentials
+      security:
+       - noAuth: []
+       - oAuth2: []
+       - zCap: []
       operationId: verifyCredential
       description: Verifies a verifiableCredential and returns a verificationResult in the response body.
       requestBody:
@@ -37,8 +44,12 @@ paths:
   /presentations/verify:
     post:
       summary: Verifies a Presentation with or without proofs attached and returns a verificationResult in the response body.
-      tags: 
+      tags:
        - Presentations
+      security:
+       - noAuth: []
+       - oAuth2: []
+       - zCap: []
       operationId: verifyPresentation
       description: Verifies a verifiablePresentation and returns a verificationResult in the response body.  Given the possibility of denial of service, buffer overflow, or other style attacks, an implementation is permitted to rate limit or restrict requests against this API endpoint to those requests that contain only a single credential with a 413 or 429 error code as appropriate.
       requestBody:
@@ -65,6 +76,8 @@ paths:
         "500":
           description: Internal Server Error
 components:
+  securitySchemes:
+    $ref: "./components/SecuritySchemes.yml#/components/securitySchemes"
   schemas:
     VerifyCredentialRequest:
       type: object

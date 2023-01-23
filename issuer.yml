@@ -1,4 +1,7 @@
 openapi: 3.0.0
+servers:
+  - url: https://issuer.qa.veres.app/issuers/z19mTE4x8KHRaQLgdoYwsfPnU
+    description: Veres Issuer (Quality Assurance)
 info:
   version: "0.0.3-unstable"
   title: VC Issuer API
@@ -13,8 +16,12 @@ paths:
   /credentials/issue:
     post:
       summary: Issues a credential and returns it in the response body.
-      tags: 
+      tags:
        - Credentials
+      security:
+       - noAuth: []
+       - oAuth2: []
+       - zCap: []
       operationId: issueCredential
       description: Issues a credential and returns it in the response body.
       requestBody:
@@ -37,8 +44,12 @@ paths:
   /credentials/status:
     post:
       summary: Updates the status of an issued credential
-      tags: 
+      tags:
        - Credentials
+      security:
+       - noAuth: []
+       - oAuth2: []
+       - zCap: []
       operationId: updateCredentialStatus
       description: Updates the status of an issued credential.
       requestBody:
@@ -57,6 +68,8 @@ paths:
         "500":
           description: Internal Server Error
 components:
+  securitySchemes:
+    $ref: "./components/SecuritySchemes.yml#/components/securitySchemes"
   schemas:
     IssueCredentialRequest:
       type: object
