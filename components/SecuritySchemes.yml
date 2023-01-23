@@ -24,7 +24,7 @@ components:
 
     didAuth:
       type: http
-      scheme: bearer
+      scheme: signature
       bearerFormat: VerifiablePresentation
 
     oAuth2:
