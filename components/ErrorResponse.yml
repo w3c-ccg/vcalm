@@ -16,18 +16,21 @@ components:
       type: object
       description: A response that denotes that an error has occurred.
       properties:
-        id:
+        name:
           type: "string"
+          description: A brief descriptive name for the error.
           pattern: "[a-z0-9\\-]{8,}"
         message:
           type: "string"
+          description: Human-readable detail about the error.
           minLength: 10
           maxLength: 100
         details:
           type: "object"
+          description: Further machine-readable details about the error.
       required: ["id", "message"]
       example:
         {
-          "id": "invalid-json",
+          "name": "Invalid JSON",
           "message": "The provided JSON data was malformed."
         }
