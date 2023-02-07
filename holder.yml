@@ -34,6 +34,8 @@ paths:
         "404":
           description: Not Found
           content:
+            '*/*':
+              example: ''
             application/json:
               schema:
                 $ref: "./components/ErrorResponse.yml#/components/schemas/ErrorResponse"
