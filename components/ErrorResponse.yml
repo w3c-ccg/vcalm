@@ -27,8 +27,8 @@ components:
           maxLength: 100
         details:
           type: "object"
-          description: Further machine-readable details about the error.
-      required: ["id", "message"]
+          description: An object with error details.
+      required: ["name", "message"]
       example:
         {
           "name": "Invalid JSON",
