@@ -38,8 +38,8 @@ paths:
               schema:
                 $ref: "./components/ErrorResponse.yml#/components/schemas/ErrorResponse"
               example:
-                id: not-found
-                message: The requested credential was not found.
+                name: Not found
+                message: The requested credential with this ID was not found.
         "410":
           description: Gone! There is no data here
         "418":
