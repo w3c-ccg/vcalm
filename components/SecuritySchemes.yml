@@ -12,10 +12,9 @@ info:
 paths:
 components:
   securitySchemes:
-    noAuth:
+    networkAuth:
       type: http
-      scheme: bearer
-      bearerFormat: emptyString
+      scheme: sourceIpAccessRules
 
     zCap:
       type: http
@@ -28,11 +27,5 @@ components:
       bearerFormat: VerifiablePresentation
 
     oAuth2:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: /oauth2/authorize
-          tokenUrl: /oauth2/token
-          scopes:
-            read: Grants read access
-            write: Grants write access
+      type: http
+      scheme: bearer

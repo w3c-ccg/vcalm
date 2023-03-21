@@ -18,7 +18,7 @@ paths:
       tags:
        - Credentials
       security:
-       - noAuth: []
+       - networkAuth: []
        - oAuth2: []
        - zCap: []
       summary: Gets a credential or verifiable credential by ID
@@ -52,7 +52,7 @@ paths:
       tags:
        - Credentials
       security:
-       - noAuth: []
+       - networkAuth: []
        - oAuth2: []
        - zCap: []
       summary: Deletes a credential or verifiable credential by ID
@@ -79,7 +79,7 @@ paths:
       tags:
        - Credentials
       security:
-       - noAuth: []
+       - networkAuth: []
        - oAuth2: []
        - zCap: []
       summary: Gets list of credentials or verifiable credentials
@@ -119,7 +119,7 @@ paths:
       tags:
        - Credentials
       security:
-       - noAuth: []
+       - networkAuth: []
        - oAuth2: []
        - zCap: []
       summary: Derives a credential and returns it in the response body.
@@ -151,7 +151,7 @@ paths:
        - Presentations
       summary: Gets a presentation or verifiable presentation by ID
       security:
-       - noAuth: []
+       - networkAuth: []
        - oAuth2: []
        - zCap: []
       operationId: getPresentation
@@ -183,7 +183,7 @@ paths:
        - Presentations
       summary: Deletes a presentation or verifiable presentation by ID
       security:
-       - noAuth: []
+       - networkAuth: []
        - oAuth2: []
        - zCap: []
       operationId: deletePresentation
@@ -210,7 +210,7 @@ paths:
        - Presentations
       summary: Gets list of presentations or verifiable presentations
       security:
-       - noAuth: []
+       - networkAuth: []
        - oAuth2: []
        - zCap: []
       operationId: getPresentations
@@ -251,7 +251,7 @@ paths:
       tags:
        - Presentations
       security:
-       - noAuth: []
+       - networkAuth: []
        - oAuth2: []
        - zCap: []
       operationId: provePresentation
@@ -279,7 +279,7 @@ paths:
       tags:
        - Exchanges
       security:
-       - noAuth: []
+       - networkAuth: []
        - oAuth2: []
        - zCap: []
       operationId: discoverExchanges
@@ -382,7 +382,7 @@ paths:
       tags:
        - Exchanges
       security:
-       - noAuth: []
+       - networkAuth: []
        - oAuth2: []
        - zCap: []
       operationId: initiateExchange
@@ -432,7 +432,7 @@ paths:
       tags:
        - Exchanges
       security:
-       - noAuth: []
+       - networkAuth: []
        - oAuth2: []
        - zCap: []
        - didAuth: []
