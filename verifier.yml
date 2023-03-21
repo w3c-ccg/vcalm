@@ -19,7 +19,7 @@ paths:
       tags:
        - Credentials
       security:
-       - noAuth: []
+       - networkAuth: []
        - oAuth2: []
        - zCap: []
       operationId: verifyCredential
@@ -47,7 +47,7 @@ paths:
       tags:
        - Presentations
       security:
-       - noAuth: []
+       - networkAuth: []
        - oAuth2: []
        - zCap: []
       operationId: verifyPresentation
