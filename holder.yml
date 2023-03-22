@@ -415,7 +415,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/VerifiablePresentationRequest"
+                $ref: "#/components/schemas/VerifiablePresentationRequestBody"
         "400":
           description: Request is malformed.
           content:
@@ -450,7 +450,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/VerifiablePresentationResponse"
+              $ref: "#/components/schemas/VerifiablePresentationBody"
       responses:
         "200":
           description: Received data was accepted.
@@ -458,8 +458,8 @@ paths:
             application/json:
               schema:
                 anyOf:
-                  - $ref: "#/components/schemas/VerifiablePresentationResponse"
-                  - $ref: "#/components/schemas/VerifiablePresentationRequest"
+                  - $ref: "#/components/schemas/VerifiablePresentationBody"
+                  - $ref: "#/components/schemas/VerifiablePresentationRequestBody"
         "400":
           description: Received data is malformed.
           content:
@@ -585,12 +585,12 @@ components:
       $ref: "./components/ErrorResponse.yml#/components/schemas/ErrorResponse"
     StorePresentationRequest:
       $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
-    VerifiablePresentationRequest:
+    VerifiablePresentationRequestBody:
       type: object
       properties:
         verifiablePresentationRequest:
           $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
-    VerifiablePresentationResponse:
+    VerifiablePresentationBody:
       type: object
       properties:
         verifiablePresentation:
