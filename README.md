@@ -1,26 +1,34 @@
-# [VC API](https://github.com/w3c-ccg/vc-api/) Goals
+# [Verifiable Credential API](https://github.com/w3c-ccg/vc-api/) Goals
 
-The W3C CCG VC APIs are a set of RESTful API definitions conforming with the
-[OpenAPI 3.0 Specification](https://swagger.io/specification/) (formerly known
-as Swagger) for the roles of Issuer, Verifier, and Holder as described in the
-[Verifiable Credential Data Model](https://www.w3.org/TR/vc-data-model/)
-specification.  These APIs provide a standard set of interfaces by which
-interoperability may be tested and verified by various parties who leverage
-Verifiable Credentials (VCs).
+The W3C Credentials Community Group Verifiable Credential APIs are a set of
+RESTful API definitions conforming with the [OpenAPI 3.0
+Specification](https://swagger.io/specification/) that support Verifiable
+Credential Lifecycle Management such as Issuing, Holding/Presentation/Exchange,
+and Verification for the roles of Issuer, Holder, and Verifier as described in
+the [Verifiable Credential Data Model](https://www.w3.org/TR/vc-data-model-2.0/)
+specification.
 
-Current versions of the APIs are --
-* [Issuer](https://w3c-ccg.github.io/vc-api/issuer.html)
-* [Holder](https://w3c-ccg.github.io/vc-api/holder.html)
-* [Verifier](https://w3c-ccg.github.io/vc-api/verifier.html)
+These APIs provide a standard set of interfaces by which interoperability may be
+tested and verified by various parties who leverage Verifiable Credentials
+(VCs).
 
-As some implementations may not support all endpoints defined by this
+You can view the latest version of the specification here:
+
+[The Verifiable Credential API](https://github.com/w3c-ccg/vc-api/)
+
+As some implementations might not support all endpoints defined by this
 specification, the APIs provide a clean measure by which to identify which
 methods are or are not implemented when comparing solutions that provide VC
 support across vendors.
 
 Test procedures and specifications are provided as part of this API definition
 to allow for repeatable and automated interoperability testing between solutions
-that interact with Verifiable Credentials.
+that interact with Verifiable Credentials. Some of these tests suites include:
+
+* [VC API Issuer Test Suite](https://w3c-ccg.github.io/vc-api-issuer-test-suite/)
+* [VC API Verifier Test Suite](https://w3c-ccg.github.io/vc-api-verifier-test-suite/)
+* [EdDSA Test Suite](https://w3c-ccg.github.io/di-ed25519-test-suite/)
+* [Status List 2021 Test Suite](https://w3c-ccg.github.io/status-list-2021-test-suite/)
 
 ## Style, Versioning, and Contribution
 This API is versioned in conformance with the [Semantic Versioning 2.0
@@ -34,14 +42,15 @@ Tutorial](https://restfulapi.net/).  The VC API conforms primarily to the
 [controller](https://restfulapi.net/resource-naming/) model as detailed in the
 REST documentation.
 
-The actual standard and specification defined by the vc-api is provided in YAML
+The actual standard and specification defined by the VC-API is provided in YAML
 format and should be referenced directly by developers should questions arise,
 as certain interfaces on top of OpenAPI specifications may differ in their
 presentation of certain scenarios commonly encountered in API definitions,
-especially when dealling with `nullable` parameters or properties.
+especially when dealing with `nullable` parameters or properties.
 
-Contributions to this repo should take place via a Pull Request, and should
-generally reference an issue and related discussion around the topic
+Contributions to this repository should take place via [pull
+requests](https://github.com/w3c-ccg/vc-api/pulls), and should generally
+reference an issue and related discussion around the topic
 
 ## Best Practices
 
@@ -118,5 +127,7 @@ If you need to run on another port, execute `npm run serveIndex -- -p 4543` repl
 
 ## Additional Documentation
 
-- [Verifiable Credential Issuer API Architecture Model](architecture.md)
-- [Verification, Validation, and Veracity](verification.md)
+- [Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/)
+- [Presentation Request](https://w3c-ccg.github.io/vp-request-spec/)
+- [Data Integrity](https://w3c.github.io/vc-data-integrity/)
+- [Status List 2021](https://w3c.github.io/vc-status-list-2021/)
