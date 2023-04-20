@@ -14,18 +14,20 @@ components:
   securitySchemes:
     networkAuth:
       type: http
-      scheme: sourceIpAccessRules
+      scheme: bearer
+      bearerFormat: sourceIpAccessRules
 
     zCap:
       type: http
-      scheme: signature
+      scheme: bearer
       bearerFormat: AuthorizationCapability
 
     didAuth:
       type: http
-      scheme: signature
+      scheme: bearer
       bearerFormat: VerifiablePresentation
 
     oAuth2:
       type: http
       scheme: bearer
+      bearerFormat: VcapiOauth2
