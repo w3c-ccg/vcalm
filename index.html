@@ -1019,20 +1019,22 @@ Connection: keep-alive
 It is considered a bad practice for a <a>verifier</a> to contact an
 <a>issuer</a> about a specific <a>verifiable credential</a>. This 
 practice is known as "phoning home" and can result in a mismatch 
-in privacy expectations for the <a>holder</a> as it allows the 
-<a>issuer</a> to correlate the <a>holder</a> without their knowledge.
+in privacy expectations between <a>holders</a>, <a>issuers</a>,
+<a>verifiers</a>, etc., as it allows <a>issuers</a> to correlate
+<a>holders</a> with <a>verifiable credentials</a> without their
+knowledge.
       </p>
 
       <p>
-Sometimes an issuer can be contacted to get status information in a 
-privacy-respecting manner, such as through a status list that provides 
-herd privacy. This is ok as long as the issuer is not able to correlate 
-a single individual based on the retrieval of the status list.
+Sometimes an <a>issuer</a> can be contacted to get status information in
+a privacy-respecting manner, such as through a status list that provides 
+herd privacy. This is ok as long as the <a>issuer</a> is not able to
+correlate a single individual based on the retrieval of the status list.
       </p>
 
       <p>
 <a>Verifiers</a> are urged to not "phone home" in ways that will create 
-a privacy violation on a specific individual.
+privacy violations for any specific individual(s).
       </p>
 
     </section>
