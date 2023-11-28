@@ -25,3 +25,52 @@ If you added a contributor by mistake, you can remove them in a comment with:
 
 If you are making a pull request on behalf of someone else but you had no
 part in designing the feature, you can remove yourself with the above syntax.
+
+## Pull Request Guidance
+
+The following is informal guidance on how to contribute pull requests.
+
+Please note that even if the text in a PR isn't perfect, you are encouraged to submit it to submit it as a first step to allow others to comment and collaborate on it.
+
+TODO: put a link to 2023-11-28 call where this information was covered.
+
+### How to pick an issue for PR
+Look for the issues tagged with with "Ready for PR".
+Read through the issue and see if one has a good grasp of what is going on.
+
+### Specification Syntax
+[ReSpec](https://respec.org/docs) is the language used to write the spec.
+Therefore, the way to edit the specification is to edit HTML, following ReSpec syntax.
+
+### Key Files
+The key entry point is [index.html](./index.html).
+In many pull request, this may be the only file that is changed.
+
+### Commit Messages
+For commit messages:
+- Use "active voice"
+- Use less than 50 characters
+
+### Pull request branches
+If going to be editing can either make a fork or can ask for editing access to the repo
+If making a significant change, always make a new branch.
+It is advisable to put username in the branch name.
+- This makes it easier to know which branches to delete.
+
+### Pull request descriptions
+
+This issue number should be included the PR description.
+
+There is automation which adds preview and diff links added to the description.
+This is done using a library called "PR Preview", which is configured in pr-preview.json.
+
+*Note: Some things are broken in preview & diff: images, rending of API files*
+
+### Pull request reviewers
+Reviewers should be added by the pull requester.
+A "healthy" number of reviewers is good.
+
+## Edit style guide
+The following are style tips when editing the specification.
+- Try to have max of 80 char (do hard wrap, not auto wrap)
+- Left justify text
