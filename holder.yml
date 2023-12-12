@@ -534,53 +534,6 @@ components:
               },
             ],
         }
-    NotifyPresentationAvailableResponse:
-      type: object
-      properties:
-        query:
-          type: object
-          description: See https://w3c-ccg.github.io/vp-request-spec/#format
-        domain:
-          type: string
-          description: See https://w3id.org/security#domain
-        challenge:
-          type: string
-          description: See https://w3id.org/security#challenge
-      example:
-        {
-          "query":
-            [
-              {
-                "type": "QueryByFrame",
-                "credentialQuery":
-                  {
-                    "frame":
-                      {
-                        "@context":
-                          [
-                              "https://www.w3.org/2018/credentials/v1",
-                              "https://w3id.org/traceability/v1",
-                              "https://w3id.org/bbs/v1",
-                          ],
-                        "type":
-                          [
-                              "VerifiableCredential",
-                              "CommercialInvoiceCertificate",
-                          ],
-                        "credentialSubject":
-                          {
-                            "@explicit": true,
-                            "type": ["CommercialInvoice"],
-                            "purchaseDate": {},
-                            "destinationCountry": {},
-                          },
-                      },
-                  },
-              },
-            ],
-          "domain": "jobs.example.com",
-          "challenge": "3182bdea-63d9-11ea-b6de-3b7c1404d57f",
-        }
     ErrorResponse:
       $ref: "./components/ErrorResponse.yml#/components/schemas/ErrorResponse"
     StorePresentationRequest:
