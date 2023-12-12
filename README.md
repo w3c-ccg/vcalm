@@ -2,7 +2,7 @@
 
 The W3C Credentials Community Group Verifiable Credential APIs are a set of
 RESTful API definitions conforming with the [OpenAPI 3.0
-Specification](https://swagger.io/specification/) that support Verifiable
+Specification](https://swagger.io/specification/v3/) that support Verifiable
 Credential Lifecycle Management such as Issuing, Holding/Presentation/Exchange,
 and Verification for the roles of Issuer, Holder, and Verifier as described in
 the [Verifiable Credential Data Model](https://www.w3.org/TR/vc-data-model-2.0/)
@@ -27,7 +27,7 @@ that interact with Verifiable Credentials. Some of these tests suites include:
 
 * [VC API Issuer Test Suite](https://w3c-ccg.github.io/vc-api-issuer-test-suite/)
 * [VC API Verifier Test Suite](https://w3c-ccg.github.io/vc-api-verifier-test-suite/)
-* [EdDSA Test Suite](https://w3c-ccg.github.io/di-ed25519-test-suite/)
+* [EdDSA Test Suite](https://w3c.github.io/vc-di-ed25519signature2020-test-suite/)
 * [Status List 2021 Test Suite](https://w3c-ccg.github.io/status-list-2021-test-suite/)
 
 ## Style, Versioning, and Contribution
@@ -130,4 +130,4 @@ If you need to run on another port, execute `npm run serveIndex -- -p 4543` repl
 - [Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/)
 - [Presentation Request](https://w3c-ccg.github.io/vp-request-spec/)
 - [Data Integrity](https://w3c.github.io/vc-data-integrity/)
-- [Status List 2021](https://w3c.github.io/vc-status-list-2021/)
+- [Bitstring Status List](https://w3c.github.io/vc-bitstring-status-list/) (fka Status List 2021)
