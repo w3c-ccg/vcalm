@@ -15,7 +15,7 @@ components:
     VerifyOptions:
       type: object
       additionalProperties: false
-      description: Options for specifying how the LinkedDataProof is verified.
+      description: Options for specifying how the DataIntegrityProof is verified.
       properties:
         challenge:
           type: string
