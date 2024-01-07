@@ -1109,6 +1109,51 @@ ecosystem.
     <h2>Security Considerations</h2>
     <p>
     </p>
+
+    <section>
+      <h3>Deletion</h3>
+
+      <p>
+The APIs provided by this specification enable the deletion of
+<a>verifiable credentials</a> and <a>verifiable presentations</a> from
+<a href="#storage-services">storage services</a>. The result of these deletions
+and the side-effects caused by them are out of scope for this specification.
+However, implementers are advised to understand the various ways deletion can be
+implemented. There are at least two types of deletion that are contemplated by
+this specification.
+      </p>
+
+      <p>
+<dfn>Partial deletion</dfn> marks a record for deletion but continues to store
+some or all of the original information. This mode of operation can be useful if
+there are requirements to be able to audit all credentials or presentations over
+a particular time period or if recovering the original credential might be a
+useful feature to provide an entity.
+      </p>
+      <p>
+<dfn>Complete deletion</dfn> purges all information related to a given
+<a>verifiable credential</a> or <a>verifiable presentation</a> in a way that
+is unrecoverable. This mode of operation can be useful when removing information
+that is outdated and beyond the needs of an audit or when responding to any
+sort of "<a href="https://en.wikipedia.org/wiki/Right_to_be_forgotten">right
+to be forgotten</a>" request.
+      </p>
+      <p>
+When deleting a <a>verifiable credential</a>, what to do with the status
+information needs to be considered. Some use cases might call for a deletion
+of a particular <a>verifiable credential</a> to also set the revocation
+and suspension bits of the <a>verifiable credential</a> such that any sort of
+status check for the deleted credential fails and usage of the credential is
+halted.
+      </p>
+      <p>
+Given the scenarios above, it is advisable that implementers allow the
+moderation of what happens after a delete to be programmable such that
+system flexibility is achieved to address any <a>verifiable credential</a> use
+case.
+      </p>
+    </section>
+
   </section>
 
   <section class="appendix">
