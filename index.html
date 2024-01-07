@@ -1013,28 +1013,39 @@ Connection: keep-alive
     </p>
 
     <section>
-      <h3>Phone Home Considered Harmful</h3>
+      <h3>"Phoning Home" Considered Harmful</h3>
 
       <p>
 It is considered a bad privacy practice for a <a>verifier</a> to contact an
-<a>issuer</a> about a specific <a>verifiable credential</a>. This 
-practice is known as "phoning home" and can result in a mismatch 
+<a>issuer</a> about a specific <a>verifiable credential</a>. This
+practice is known as "phoning home" and can result in a mismatch
 in privacy expectations between <a>holders</a>, <a>issuers</a>,
-<a>verifiers</a>, etc., as it allows <a>issuers</a> to correlate
-<a>holders</a> with <a>verifiable credentials</a> without their
-knowledge.
+<a>verifiers</a>, and other parties expressed in a <a>verifiable credential</a>.
+Phoning home enables <a>issuers</a> to correlate unsuspecting parties with
+the usage of certain <a>verifiable credentials</a> which can violate
+privacy expectations that each entity might have regarding the usage
+of those credentials. For example, what is expected by the <a>holder</a> to be
+a private interaction between them and the <a>verifier</a> becomes one where
+the <a>issuer</a> is notified of the interaction.
       </p>
 
       <p>
-Sometimes an <a>issuer</a> can be contacted to get status information in
-a privacy-respecting manner, such as through a status list that provides 
-herd privacy. This is acceptable as long as the <a>issuer</a> is not able to
-exclusively correlate a single verifiable credential based on the retrieval of the status list.
+There are some interactions where contacting the <a>issuer</a> in a
+privacy-preserving manner upholds the privacy expectations of the <a>holder</a>.
+For example, contacting the <a>issuer</a> to get revocation status information
+in a privacy-respecting manner, such as through a status list that provides
+group privacy can be acceptable as long as the <a>issuer</a> is not able to
+single out which <a>verifiable credential</a> is being queried based on the
+retrieval of the status list. For more information on one such mechanism
+see the [[[VC-BITSTRING-STATUS-LIST]]] specification.
       </p>
 
       <p>
-<a>Verifiers</a> are urged to not "phone home" in ways that will create 
-privacy violations.
+<a>Verifiers</a> are urged to not "phone home" in ways that will create
+privacy violations. When retrieving content that is linked to from a
+<a>verifiable credential</a>, using mechanisms such as [[[?OHTTP]]] and
+aggressively caching results can improve the privacy characteristics of the
+ecosystem.
       </p>
 
     </section>
