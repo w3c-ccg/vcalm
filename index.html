@@ -1023,6 +1023,47 @@ Connection: keep-alive
     </p>
 
     <section>
+      <h3>Delegation</h3>
+
+      <p>
+<a>Verifiable credentials</a> [[VC-DATA-MODEL-2.0]] are a standard data model
+designed to mitigate risks of misuse and fraud. As a data model, <a>verifiable
+credentials</a> are protocol-neutral and consider at least two types of
+entities: <a>issuer</a> and <a>subject</a>. When the subject of a <a>verifiable
+credential</a> is a natural person or linked to a natural person, privacy and
+human rights can be impacted by the vastly more efficient processing of
+standardized <a>verifiable credentials</a> as compared to their analog
+ancestors.
+      </p>
+
+      <p>
+Technology, in the form of standardized APIs and protocols for issuing
+<a>verifiable credentials</a>, further enhances the efficiency of processing
+<a>verifiable credentials</a> and adds to the risks of unforeseen privacy and
+human rights consequences.
+      </p>
+
+      <p>
+<a>Verifiable credentials</a> issuance has a request phase and a delivery phase.
+The request might be made by the <a>subject</a> or another role, and delivery
+can be to a client that might or might not be controlled by the subject.
+Delegation is highly relevant for both phases. The <a>issuer</a> might delegate
+processing of the request to a separate entity. The subject, for their part,
+might also delegate the ability to request a <a>verifiable credential</a> to a
+separate entity. The ability to delegate is a third dimension in the enhanced
+efficiency of processing <a>verifiable credentials</a> and has impact on privacy
+and human rights.
+      </p>
+
+      <p>
+The architecture described in this specification is designed for market acceptance through a combination of
+efficiency and respect for privacy and human rights. APIs and protocols for
+<a>verifiable credentials</a> processing do not favor delegation by the issuer
+role over delegation by the subject role.
+      </p>
+    </section>
+
+    <section>
       <h3>"Phoning Home" Considered Harmful</h3>
 
       <p>
