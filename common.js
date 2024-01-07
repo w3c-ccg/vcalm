@@ -72,6 +72,13 @@ const ccg = {
       status: 'BA-DRAFT',
       publisher: 'Badge Alliance Standard Working Group'
     },
+    'OHTTP': {
+      title: 'Oblivious HTTP ',
+      href: 'https://datatracker.ietf.org/doc/html/draft-ietf-ohai-ohttp',
+      authors: ['Martin Thomson', 'Christopher A. Wood'],
+      status: 'Working Group Draft',
+      publisher: 'IETF Oblivious HTTP Application Intermediation'
+    },
     'RDF-NORMALIZATION': {
       title: 'RDF Dataset Normalization',
       href: 'http://json-ld.github.io/normalization/spec/',
