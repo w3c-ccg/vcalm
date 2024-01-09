@@ -33,7 +33,7 @@ The following is informal guidance on how to contribute pull requests.
 Please note that even if the text in a PR isn't perfect, you are encouraged to
 submit it as a first step, to allow others to comment and collaborate on it.
 
-TODO: put a link to 2023-11-28 call where this information was covered.
+A walkthrough session covering PR tips is available in the recording of the [2023-11-28 VC API call](https://meet.w3c-ccg.org/archives/w3c-ccg-vcapi-2023-11-28.mp4).
 
 ### How to pick an issue for PR
 Look for the issues tagged with with "Ready for PR".
