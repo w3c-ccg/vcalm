@@ -18,7 +18,7 @@ components:
       properties:
         type:
           type: string
-          description: Data Integrity proof type.
+          description: Data Integrity Proof type.
         cryptosuite:
           type: string
           description: The name of the cryptographic suite.
