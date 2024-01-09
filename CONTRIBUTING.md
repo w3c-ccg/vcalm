@@ -74,6 +74,12 @@ Reviewers should be added by the pull requester.
 A "healthy" number of reviewers, usually at least 3 people 
 other than yourself, is good.
 
+### Merging Pull Requests
+
+It is recommended to merge PR using a "Rebase merge", rather than a "Squash and merge".
+Merge commits are disabled in order maintain a linear commit history.
+"Rebase and merge" is prefered because it maintains the authorship and commit date information which can be important for determining intellectual property contributions.
+
 ## Edit style guide
 The following are style tips when editing the specification.
 - Try to have max of 80 char (do hard wrap, not auto wrap)
