@@ -71,9 +71,11 @@ rendering of API files*
 
 ### Pull request reviewers
 Reviewers should be added by the pull requester.
-A "healthy" number of reviewers is good.
+A "healthy" number of reviewers, usually at least 3 people 
+other than yourself, is good.
 
 ## Edit style guide
 The following are style tips when editing the specification.
 - Try to have max of 80 char (do hard wrap, not auto wrap)
-- Left justify text
+- Indent HTML to the proper level using two-spaces per level.
+- Left justify prose to the first column
