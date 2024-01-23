@@ -130,4 +130,4 @@ If you need to run on another port, execute `npm run serveIndex -- -p 4543` repl
 - [Verifiable Credentials Data Model](https://w3c.github.io/vc-data-model/)
 - [Presentation Request](https://w3c-ccg.github.io/vp-request-spec/)
 - [Data Integrity](https://w3c.github.io/vc-data-integrity/)
-- [Bitstring Status List](https://w3c.github.io/vc-bitstring-status-list/) (fka Status List 2021)
+- [Bitstring Status List](https://w3c.github.io/vc-bitstring-status-list/) (formerly known as <i>Status List 2021</i>)
