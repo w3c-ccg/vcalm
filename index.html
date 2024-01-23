@@ -1025,7 +1025,7 @@ Connection: keep-alive
 The APIs provided by this specification enable the deletion of
 <a>verifiable credentials</a> and <a>verifiable presentations</a> from
 <a href="#storage-services">storage services</a>. The result of these deletions
-and the side-effects caused by them are out of scope for this specification.
+and the side-effects they might cause are out of scope for this specification.
 However, implementers are advised to understand the various ways deletion can be
 implemented. There are at least two types of deletion that are contemplated by
 this specification.
@@ -1034,31 +1034,30 @@ this specification.
       <p>
 <dfn>Partial deletion</dfn> marks a record for deletion but continues to store
 some or all of the original information. This mode of operation can be useful if
-there are requirements to be able to audit all credentials or presentations over
-a particular time period or if recovering the original credential might be a
-useful feature to provide an entity.
+there are audit requirements for all credentials and/or presentations over
+a particular time period, or if recovering an original credential might be a
+useful feature to provide.
       </p>
       <p>
 <dfn>Complete deletion</dfn> purges all information related to a given
 <a>verifiable credential</a> or <a>verifiable presentation</a> in a way that
 is unrecoverable. This mode of operation can be useful when removing information
-that is outdated and beyond the needs of an audit or when responding to any
+that is outdated and beyond the needs of any audit or when responding to any
 sort of "<a href="https://en.wikipedia.org/wiki/Right_to_be_forgotten">right
 to be forgotten</a>" request.
       </p>
       <p>
-When deleting a <a>verifiable credential</a>, what to do with the status
-information needs to be considered. Some use cases might call for a deletion
+When deleting a <a>verifiable credential</a>, handling of its status
+information needs to be considered. Some use cases might call for deletion
 of a particular <a>verifiable credential</a> to also set the revocation
-and suspension bits of the <a>verifiable credential</a> such that any sort of
-status check for the deleted credential fails and usage of the credential is
+and suspension bits of that <a>verifiable credential</a>, such that any sort of
+status check for the deleted credential fails and use of the credential is
 halted.
       </p>
       <p>
-Given the scenarios above, it is advisable that implementers allow the
-moderation of what happens after a delete to be programmable such that
-system flexibility is achieved to address any <a>verifiable credential</a> use
-case.
+Given the scenarios above, implementers are advised to allow the system actions
+that occur after a delete to be configurable, such that system flexibility is
+sufficient to address any <a>verifiable credential</a> use case.
       </p>
     </section>
 
