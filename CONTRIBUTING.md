@@ -33,7 +33,8 @@ The following is informal guidance on how to contribute pull requests.
 Please note that even if the text in a PR isn't perfect, you are encouraged to
 submit it as a first step, to allow others to comment and collaborate on it.
 
-A walkthrough session covering PR tips is available in the recording of the [2023-11-28 VC API call](https://meet.w3c-ccg.org/archives/w3c-ccg-vcapi-2023-11-28.mp4).
+A walkthrough session covering PR tips is available in the recording of the
+[2023-11-28 VC API call](https://meet.w3c-ccg.org/archives/w3c-ccg-vcapi-2023-11-28.mp4).
 
 ### How to pick an issue for PR
 Look for the issues tagged with with "Ready for PR".
@@ -72,16 +73,18 @@ rendering of API files*
 ### Pull request reviewers
 Reviewers should be added by the pull requester.
 A "healthy" number of reviewers, usually at least 3 people 
-other than yourself, is good.
+other than the PR author, is good.
 
 ### Merging Pull Requests
 
-It is recommended to merge PR using a "Rebase merge", rather than a "Squash and merge".
-Merge commits are disabled in order maintain a linear commit history.
-"Rebase and merge" is prefered because it maintains the authorship and commit date information which can be important for determining intellectual property contributions.
+PRs should be merged using a "Rebase merge", rather than a "Squash and merge".
+Merge commits are disabled to maintain a linear commit history.
+"Rebase and merge" is preferred because it maintains the authorship and commit
+date information which can be important for determining intellectual property
+contributions.
 
 ## Edit style guide
-The following are style tips when editing the specification.
+The following are style tips when editing the specification:
 - Try to have max of 80 char (do hard wrap, not auto wrap)
-- Indent HTML to the proper level using two-spaces per level.
+- Indent HTML to the proper level using two spaces per level.
 - Left justify prose to the first column
