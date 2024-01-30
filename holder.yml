@@ -21,7 +21,7 @@ paths:
        - networkAuth: []
        - oAuth2: []
        - zCap: []
-      summary: Gets a credential or verifiable credential by ID
+      summary: Gets a credential or verifiable credential by ID. To get a credential that does not have credential.id set but has an associated credentialId value, pass credentialId instead.
       operationId: getCredential
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
@@ -55,7 +55,7 @@ paths:
        - networkAuth: []
        - oAuth2: []
        - zCap: []
-      summary: Deletes a credential or verifiable credential by ID
+      summary: Deletes a credential or verifiable credential by ID. To delete a credential that does not have credential.id set but has an associated credentialId value, pass credentialId instead.
       operationId: deleteCredential
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"

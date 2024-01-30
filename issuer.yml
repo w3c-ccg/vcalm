@@ -81,8 +81,8 @@ components:
     IssueCredentialResponse:
       type: object
       properties:
-        verifiableCredential:
-          $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+        IssueCredentialSuccess:
+          $ref: "./components/IssueCredentialSuccess.yml#/components/schemas/IssueCredentialSuccess"
     UpdateCredentialStatus:
       type: object
       description: Request for updating the status of an issued credential.
