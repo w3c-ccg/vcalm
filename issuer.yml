@@ -17,11 +17,11 @@ paths:
     post:
       summary: Issues a credential and returns it in the response body.
       tags:
-       - Credentials
+        - Credentials
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: issueCredential
       description: Issues a credential and returns it in the response body.
       requestBody:
@@ -38,18 +38,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/IssueCredentialResponse"
         "400":
-          description: invalid input!
+          description: >
+            The request could not be processed due to one of the following reasons:
+                        - The provided value of 'issuer' does not match the expected configuration.
+                        - Another condition that results in a Bad Request.
         "500":
           description: error!
   /credentials/status:
     post:
       summary: Updates the status of an issued credential
       tags:
-       - Credentials
+        - Credentials
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: updateCredentialStatus
       description: Updates the status of an issued credential.
       requestBody:
@@ -75,7 +78,7 @@ components:
       type: object
       properties:
         credential:
-          $ref: "./components/Credential.yml#/components/schemas/Credential"
+          $ref: "./components/Credential.yml#/components/schemas/IssueCredential"
         options:
           $ref: "./components/IssueCredentialOptions.yml#/components/schemas/IssueCredentialOptions"
     IssueCredentialResponse:
