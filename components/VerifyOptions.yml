@@ -23,6 +23,9 @@ components:
         domain:
           type: string
           description: The intended domain of validity for the proof. For example website.example
+        returnCredential:
+          type: boolean
+          description: Should the verified credential be returned in its canonical form.
       example:
         {
           "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
@@ -30,4 +33,5 @@ components:
           "created": "2020-04-02T18:48:36Z",
           "domain": "example.com",
           "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8",
+          "returnCredential": true
         }
