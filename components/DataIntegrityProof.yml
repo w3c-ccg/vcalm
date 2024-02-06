@@ -12,13 +12,16 @@ info:
 paths:
 components:
   schemas:
-    LinkedDataProof:
+    DataIntegrityProof:
       type: object
-      description: A JSON-LD Linked Data proof.
+      description: A Data Integrity Proof as defined by the W3C VC Data Integrity specification.
       properties:
         type:
           type: string
-          description: Linked Data Signature Suite used to produce proof.
+          description: Data Integrity Proof type.
+        cryptosuite:
+          type: string
+          description: The name of the cryptographic suite.
         created:
           type: string
           description: Date the proof was created.
@@ -37,17 +40,15 @@ components:
         proofPurpose:
           type: string
           description: The purpose of the proof to be used with verificationMethod.
-        jws:
-          type: string
-          description: Detached JSON Web Signature.
         proofValue:
           type: string
           description: Value of the Linked Data proof.
       example:
         {
-          "type": "Ed25519Signature2018",
-          "created": "2020-04-02T18:28:08Z",
-          "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+          "type": "DataIntegrityProof",
+          "cryptosuite": "ecdsa-rdfc-2019",
+          "created": "2024-01-11T19:14:04Z",
+          "verificationMethod": "https://di.example/issuer#zDnaepBuvsQ8cpsWrVKw8fbpGpvPeNSjVPTWoq6cRqaYzBKVP",
           "proofPurpose": "assertionMethod",
-          "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..YtqjEYnFENT7fNW-COD0HAACxeuQxPKAmp4nIl8jYAu__6IH2FpSxv81w-l5PvE1og50tS9tH8WyXMlXyo45CA",
+          "proofValue": "zXb23ZkdakfJNUhiTEdwyE598X7RLrkjnXEADLQZ7vZyUGXX8cyJZRBkNw813SGsJHWrcpo4Y8hRJ7adYn35Eetq"
         }
