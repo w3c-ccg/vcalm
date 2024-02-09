@@ -482,9 +482,6 @@ components:
       properties:
         verifiableCredential:
           $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
-        frame:
-          type: object
-          description: A JSON-LD frame used for selective disclosure.
         options:
           $ref: "./components/DeriveCredentialOptions.yml#/components/schemas/DeriveCredentialOptions"
     DeriveCredentialResponse:
