@@ -593,15 +593,16 @@ credential subjects are not directly involved.
       </li>
       <li>
 <i>Bound</i>. Bound authorization involves scenarios where the API calls are
-tightly coupled, linked, or bound to another out-of-band process that has
-authenticated the holder/subject to the API interaction. These use cases include,
+tightly coupled, linked, or bound to another process, often out-of-band, that has
+authenticated the holder/subject of the API interaction. These use cases include,
 but are not limited to, issuance of subject-specific identity claims directly to
 the subject in question, or verification of credentials to qualify the holder for
 service at the verifier, for example. Examples of methods to bind activity on one
-channel to a VC API call include CHAPI, OpenID Connect, and the Grant Negotiation
-Authorization protocol. Developers implementing bound authorization will need to
-take steps to ensure the appropriate level of assurance is achieved in the flow
-to properly protect the binding.
+channel to a VC API call include <a href="https://chapi.io/">CHAPI</a> (the
+<a href="https://chapi.io/">Credential Handler API</a>), OIDC (OpenID Connect),
+and GNAP (the Grant Negotiation and Authorization Protocol). Developers implementing
+bound authorization will need to take steps to ensure the appropriate level of
+assurance is achieved in the flow to properly protect the binding.
         </li>
       </ul>
       <p>
