@@ -78,7 +78,7 @@ components:
       type: object
       properties:
         credential:
-          $ref: "./components/Credential.yml#/components/schemas/IssueCredential"
+          $ref: "./components/Credential.yml#/components/schemas/UnsecuredCredential"
         options:
           $ref: "./components/IssueCredentialOptions.yml#/components/schemas/IssueCredentialOptions"
     IssueCredentialResponse:
