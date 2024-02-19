@@ -577,8 +577,8 @@ require conforming <a>VC API clients</a> to utilize secure authorization
 technologies when performing certain types of requests. Each HTTP endpoint
 defined in this document specifies whether or not authorization is required
 when performing a request. With the exception of the class of forbidden 
-authorization protocols discussed later in this section, the VC API is authorization 
-mechanism agnostic.
+authorization protocols discussed later in this section, the VC API is agnostic
+regarding authorization mechanism.
       </p>
       <p>
 The VC API is meant to be generic and useful in many scenarios that require
@@ -596,8 +596,8 @@ may exist as well, to act as an agnostic third party in a trust scenario.
       </li>
       <li>
 <i>Permissioned</i>. Permissioned authorization requires the entity making
-the API call to, for example, have an access control token, or capability
-URL, or invoke a capability from a mutually trusted
+the API call to, for example, have an access control token or a capability
+URL, or to invoke a capability from a mutually trusted
 source. These permissions grant access to the API, but make no assumptions
 about credential subjects, previous interactions, or the like. Permissioned
 access is particularly useful in service-to-service based workflows, where
