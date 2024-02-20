@@ -315,7 +315,7 @@ function renderJsonSchemaValue(property, value) {
     valueRendering =
       `The <code>${property}</code> object MUST be `;
     valueRendering += renderJsonSchemaObject(value);
-  } else if(value.type === 'string') {
+  } else if(value.type === 'string' || value.type === 'boolean') {
     // no-op
   } else {
     valueRendering = '<pre>' + JSON.stringify(value, null, 2) + '</pre>';
