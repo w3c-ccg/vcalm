@@ -464,6 +464,17 @@ timeliness of the VC; leaving the Verifier Coordinator to finish Applying any bu
             (Verifier) &bull; Storage Service (Holder)
           </strong>
         </p>
+      <section>
+        <h3>Workflow Service</h3>
+        <p>
+The Workflow Service provides a way for coordinators to automate specific
+interactions for specific users. Each role (Holder, Issuer, and Verifier)
+can run their own Workflow Service to create and manage exchanges that
+realize particular workflows. Administrators configure the workflow system
+to support particular flows. Then, when the business rules justify it,
+coordinators create exchanges at their Workflow Service and give authorized
+access to those exchanges to any party. 
+        </p>
         <p>
 Each actor in the system is expected to store their own verifiable
 credentials, as needed. Several known implementations use secure data
@@ -565,11 +576,50 @@ might contain hostile actors. As a result, conforming <a>VC API servers</a>
 require conforming <a>VC API clients</a> to utilize secure authorization
 technologies when performing certain types of requests. Each HTTP endpoint
 defined in this document specifies whether or not authorization is required
-when performing a request.
+when performing a request. With the exception of the class of forbidden 
+authorization protocols discussed later in this section, the VC API is agnostic
+regarding authorization mechanism.
       </p>
       <p>
-This section details the authorization technologies that have been contemplated
-for use by conforming implementations. Other equivalent authorization
+The VC API is meant to be generic and useful in many scenarios that require
+the issuance, possession, presentation, and/or verification of Verifiable
+Credentials. To this end, implementers are advised to consider the following
+classifications of use cases:
+      </p>
+      <ul>
+        <li>
+<i>Public</i>. A Public API is one that can be called with no authorization.
+Examples include an open witness or timestamp service (a trusted service that
+can digitally sign a message with a timestamp for an audit trail purpose), or
+an open retail coupon endpoint ("buy one, get one free"). Public verifiers
+might also exist as well, to act as an agnostic third party in a trust scenario.
+      </li>
+      <li>
+<i>Permissioned</i>. Permissioned authorization requires the entity making
+the API call to, for example, have an access control token or a capability
+URL, or to invoke a capability from a mutually trusted
+source. These permissions grant access to the API, but make no assumptions
+about credential subjects, previous interactions, or the like. Permissioned
+access is particularly useful in service-to-service based workflows, where
+credential subjects are not directly involved.
+      </li>
+      <li>
+<i>Bound</i>. Bound authorization involves scenarios where the API calls are
+tightly coupled, linked, or bound to another process, often out-of-band, that has
+authenticated the holder/subject of the API interaction. These use cases include,
+but are not limited to, issuance of subject-specific identity claims directly to
+the subject in question, or verification of credentials to qualify the holder for
+service at the verifier, for example. Examples of methods to bind activity on one
+channel to a VC API call include <a href="https://chapi.io/">CHAPI</a> (the
+<a href="https://chapi.io/">Credential Handler API</a>), OIDC (OpenID Connect),
+and GNAP (the Grant Negotiation and Authorization Protocol). Developers implementing
+bound authorization will need to take steps to ensure the appropriate level of
+assurance is achieved in the flow to properly protect the binding.
+        </li>
+      </ul>
+      <p>
+The rest of this section gives examples of the authorization technologies that have 
+been contemplated for use by conforming implementations. Other equivalent authorization
 technologies can be used. Implementers are cautioned against using non-standard
 or legacy authorization technologies.
       </p>
