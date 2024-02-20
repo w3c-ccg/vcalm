@@ -25,7 +25,10 @@ components:
           description: The intended domain of validity for the proof. For example website.example
         returnCredential:
           type: boolean
-          description: Should the verified credential be returned in its canonical form.
+          description:
+            Should the verified credential be returned in the response.
+            If true, then the verified credential should be returned in the form in which it was verified.
+            If false or not provided, then the verified credential should not be returned.
       example:
         {
           "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
