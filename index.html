@@ -638,9 +638,28 @@ HTTP Basic Authentication [[RFC7617]].
         <h4>OAuth 2.0</h4>
         <p>
 If the OAuth 2.0 Authorization Framework [[RFC6749]] is utilized for authorization,
-the access tokens utilized by clients MAY be OAuth 2.0 Bearer Tokens [[RFC6750]]
-or any other valid OAuth 2.0 token type. Any valid OAuth 2.0 grant type MAY be used
-to request the access tokens.
+it MUST be implemented in the following way.
+        </p>
+        <p>
+OAuth2 tokens for this purpose have an audience of the particular issuer instance:
+e.g. `origin/issuers/zc612332f3`.
+        </p>
+        <p>
+The scopes are generalized to read/write actions on particular endpoints:
+        </p>
+        <ul>
+          <li>
+            `read:/` would allow reading on any API on a particular instance.
+          </li>
+          <li>
+            `write:/` would allow writing on any API on a particular instance.
+          </li>
+        </ul>
+        <p>
+`write:/credentials/issue` would only allow writing to that particular API.
+        </p>
+        <p>
+Other authorization mechanisms that support delegation may be defined in the future.
         </p>
       </section>
 
