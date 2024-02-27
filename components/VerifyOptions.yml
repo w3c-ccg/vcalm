@@ -26,7 +26,7 @@ components:
         returnCredential:
           type: boolean
           description:
-            Should the verified credential be returned in the response.
+            Should the verified credential be returned in the response?
             If true, then the verified credential should be returned in the form in which it was verified.
             If false or not provided, then the verified credential should not be returned.
       example:
