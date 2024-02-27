@@ -638,7 +638,10 @@ HTTP Basic Authentication [[RFC7617]].
         <h4>OAuth 2.0</h4>
         <p>
 If the OAuth 2.0 Authorization Framework [[RFC6749]] is utilized for authorization,
-it MUST be implemented in the following way.
+the access tokens utilized by clients MAY be OAuth 2.0 Bearer Tokens [[RFC6750]]
+or any other valid OAuth 2.0 token type. Any valid OAuth 2.0 grant type MAY be used
+to request the access tokens. However, OAuth 2.0 MUST be implemented in the following 
+way:
         </p>
         <p>
 OAuth2 tokens for this purpose have an audience of the particular issuer instance:
