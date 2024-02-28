@@ -268,7 +268,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ProvePresentationResponse"
+                oneOf:
+                  - $ref: "#/components/schemas/ProvePresentationResponse"
+                  - $ref: "#/components/schemas/ProvePresentationResponseWithChallengeVerificationMetadata"
         "400":
           description: invalid input!
         "500":
@@ -504,6 +506,13 @@ components:
       properties:
         verifiablePresentation:
           $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+    ProvePresentationResponseWithChallengeVerificationMetadata:
+      type: object
+      properties:
+        verifiablePresentation:
+          $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+        ChallengeVerificationMetadata:
+          $ref: "./components/Challenge.yml#/components/schemas/ChallengeVerificationMetadata"
     NotifyPresentationAvailableRequest:
       type: object
       properties:
