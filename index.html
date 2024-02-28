@@ -649,11 +649,12 @@ to request the access tokens.
       <h3>Options</h3>
       <p>
 Some of the endpoints defined in the following sections accept an `options` object.
-The `options` properties are OPTIONAL for every endpoint, as these properties
-are intended to meet per-configuration needs that might vary. However, instance configurations MAY
-prohibit some options from being used in order to preclude clients from passing certain
-data to a given instance. Some configurations MAY also require some options to
-be passed.
+All properties of the `options` object are OPTIONAL when configuring each endpoint,
+as these properties are intended to meet per-deployment needs that might vary.
+Thus, any given endpoint configuration MAY prohibit client use of some `options`
+properties in order to prevent clients from passing certain data to that endpoint.
+Likewise, an endpoint configuration MAY require that clients include some `options`
+properties.
       </p>
     </section>
 
