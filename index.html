@@ -735,7 +735,7 @@ The following APIs are defined for verifying a Verifiable Credential:
       </p>
 
       <table class="simple api-summary-table"
-        data-api-path="/credentials/verify /presentations/verify"></table>
+        data-api-path="/credentials/verify /presentations/verify /challenges"></table>
 
       <section>
         <h4>Verify Credential</h4>
@@ -753,6 +753,18 @@ The following APIs are defined for verifying a Verifiable Credential:
 
         <div class="api-detail"
           data-api-endpoint="post /presentations/verify"></div>
+      </section>
+
+      <section>
+        <h4>Create Challenge</h4>
+        <p>
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="post /challenges"></div>
+        <p>
+The issuer should track the number of times a challenge has been passed to an endpoint as `options.challenge`.
+        </p>
       </section>
 
     </section>
