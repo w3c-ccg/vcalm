@@ -106,6 +106,8 @@ components:
       properties:
         verifiableCredential:
           $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+        options:
+          $ref: "./components/VerifyCredentialOptions.yml#/components/schemas/VerifyCredentialOptions"
     VerifyCredentialResponse:
       $ref: "./components/VerificationResult.yml#/components/schemas/VerificationResult"
     VerifyPresentationRequest:
@@ -114,7 +116,7 @@ components:
         verifiablePresentation:
           $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
         options:
-          $ref: "./components/VerifyOptions.yml#/components/schemas/VerifyOptions"
+          $ref: "./components/VerifyPresentationOptions.yml#/components/schemas/VerifyPresentationOptions"
     ProoflessVerifyPresentationRequest:
       type: object
       properties:

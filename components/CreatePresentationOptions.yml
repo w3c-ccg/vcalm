@@ -12,29 +12,29 @@ info:
 paths:
 components:
   schemas:
-    VerifyOptions:
+    CreatePresentationOptions:
       type: object
       additionalProperties: false
-      description: Options for specifying how the DataIntegrityProof is verified.
+      description: Options for specifying how a Presentation is created
       properties:
+        "type": 
+          type: array
+          description: The JSON-LD type of the presentation.
+          items:
+            type: string
         challenge:
           type: string
           description: A challenge provided by the requesting party of the proof. For example 6e62f66e-67de-11eb-b490-ef3eeefa55f2
         domain:
           type: string
           description: The intended domain of validity for the proof. For example website.example
-        returnCredential:
-          type: boolean
-          description:
-            Should the verified credential be returned in the response?
-            If true, then the verified credential should be returned in the form in which it was verified.
-            If false or not provided, then the verified credential should not be returned.
+        proofPurpose:
+          type: string
+          description: The purpose of the proof to be used with verificationMethod.
       example:
         {
-          "verificationMethod": "did:example:123#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
-          "proofPurpose": "assertionMethod",
-          "created": "2020-04-02T18:48:36Z",
-          "domain": "example.com",
+          "type": ["Ed25519Signature2020"],
           "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8",
-          "returnCredential": true
+          "domain": "example.com",
+          "proofPurpose": "authentication"
         }
