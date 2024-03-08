@@ -34,35 +34,4 @@ components:
         uses:
           type: string
           description: The number of times options.challenge has been used
-    VerificationResultWithChallengeMetadata:
-      type: object
-      additionalProperties: false
-      description: Object summarizing a verification
-      properties:
-        checks:
-          type: array
-          description: The checks performed
-          items:
-            type: string
-        warnings:
-          type: array
-          description: Warnings
-          items:
-            type: string
-        errors:
-          type: array
-          description: Errors
-          items:
-            type: string
-        ChallengeVerificationMetadata:
-          type: object
-          additionalProperties: false
-          description: Metadata about the verification of options.challenge.
-          properties:
-            verified:
-              type: string
-              description: Whether verification of the challenge was successful
-            uses:
-              type: string
-              description: The number of times options.challenge has been used
 
