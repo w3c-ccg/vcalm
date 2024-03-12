@@ -62,11 +62,11 @@ paths:
         description: Parameters for verifying a verifiablePresentation.
       responses:
         "200":
-            description: Verifiable Presentation successfully verified!
-            content:
-              application/json:
-                schema:
-                  $ref: "#/components/schemas/VerifyPresentationResponse"
+          description: Verifiable Presentation successfully verified!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VerifyPresentationResponse"
 
         "400":
           description: Invalid or malformed input
