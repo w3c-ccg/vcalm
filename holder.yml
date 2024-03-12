@@ -268,7 +268,7 @@ paths:
           content:
             application/json:
               schema:
-                  $ref: "#/components/schemas/ProvePresentationResponse"
+                $ref: "#/components/schemas/ProvePresentationResponse"
         "400":
           description: invalid input!
         "500":

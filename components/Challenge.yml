@@ -28,7 +28,7 @@ components:
         verified:
           type: string
           description: Whether verification of the challenge was successful
-        firstVerified:
+        firstVerifiedAt:
           type: string
           description: dateTimeStamp when the challenge was first verified.
         uses:
