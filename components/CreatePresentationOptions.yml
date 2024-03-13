@@ -24,10 +24,10 @@ components:
             type: string
         challenge:
           type: string
-          description: A challenge provided by the requesting party of the proof. For example 6e62f66e-67de-11eb-b490-ef3eeefa55f2
+          description: A challenge provided by the requesting party of the proof. For example, 6e62f66e-67de-11eb-b490-ef3eeefa55f2.
         domain:
           type: string
-          description: The intended domain of validity for the proof. For example website.example
+          description: The intended domain of validity for the proof. For example, website.example.
         proofPurpose:
           type: string
           description: The purpose of the proof to be used with verificationMethod.
