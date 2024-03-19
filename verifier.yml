@@ -79,6 +79,10 @@ paths:
   /challenges:
     post:
       summary: Passing an empty body to this endpoint creates and returns a challenge string in the response body.
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
       operationId: challenge
       description: Creates a challenge to be used as `options.challenge` in future requests.
       responses:
