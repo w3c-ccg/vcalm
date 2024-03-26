@@ -62,13 +62,11 @@ paths:
         description: Parameters for verifying a verifiablePresentation.
       responses:
         "200":
-            description: Verifiable Presentation successfully verified!
-            content:
-              application/json:
-                schema:
-                  oneOf:
-                    - $ref: "#/components/schemas/VerifyPresentationResponse"
-                    - $ref: "#/components/schemas/VerifyPresentationResponseWithChallengeMetadata"
+          description: Verifiable Presentation successfully verified!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VerifyPresentationResponse"
         "400":
           description: Invalid or malformed input
         "413":
@@ -124,7 +122,5 @@ components:
           $ref: "./components/Presentation.yml#/components/schemas/Presentation"
     VerifyPresentationResponse:
       $ref: "./components/VerificationResult.yml#/components/schemas/VerificationResult"
-    VerifyPresentationResponseWithChallengeMetadata:
-      $ref: "./components/Challenge.yml#/components/schemas/VerificationResultWithChallengeMetadata"
     CreateChallengeResponse:
       $ref: "./components/Challenge.yml#/components/schemas/CreateChallengeResult"
