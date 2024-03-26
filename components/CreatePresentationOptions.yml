@@ -23,12 +23,8 @@ components:
         domain:
           type: string
           description: The intended domain of validity for the proof. For example, website.example.
-        proofPurpose:
-          type: string
-          description: The purpose of the proof to be used with verificationMethod.
       example:
         {
           "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8",
-          "domain": "example.com",
-          "proofPurpose": "authentication"
+          "domain": "example.com"
         }
