@@ -244,8 +244,6 @@ paths:
           description: Internal Error
         "501":
           description: Not Implemented
-
-  /presentations/:
     post:
       summary: Creates a presentation and returns it in the response body.
       tags:
