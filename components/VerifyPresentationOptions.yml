@@ -23,15 +23,8 @@ components:
         domain:
           type: string
           description: The intended domain of validity for the proof. For example website.example
-        returnCredential:
-          type: boolean
-          description:
-            Should the verified credential be returned in the response?
-            If true, then the verified credential should be returned in the form in which it was verified.
-            If false or not provided, then the verified credential should not be returned.
       example:
         {
           "domain": "example.com",
-          "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8",
-          "returnCredential": true
+          "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8"
         }
