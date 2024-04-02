@@ -107,7 +107,7 @@ components:
         options:
           $ref: "./components/VerifyCredentialOptions.yml#/components/schemas/VerifyCredentialOptions"
     VerifyCredentialResponse:
-      $ref: "./components/VerificationResult.yml#/components/schemas/VerificationResult"
+      $ref: "./components/VerifyCredentialResult.yml#/components/schemas/VerificationResult"
     VerifyPresentationRequest:
       type: object
       properties:
@@ -121,6 +121,6 @@ components:
         presentation:
           $ref: "./components/Presentation.yml#/components/schemas/Presentation"
     VerifyPresentationResponse:
-      $ref: "./components/VerificationResult.yml#/components/schemas/VerificationResult"
+      $ref: "./components/VerifyPresentationResult.yml#/components/schemas/VerificationResult"
     CreateChallengeResponse:
       $ref: "./components/Challenge.yml#/components/schemas/CreateChallengeResult"
