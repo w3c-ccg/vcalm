@@ -23,8 +23,12 @@ components:
         domain:
           type: string
           description: The intended domain of validity for the proof. For example website.example
+        returnPresentation:
+          type: boolean
+          description: Should the verified presentation be returned in the response? If true, then the verified presentation should be returned in the form in which it was verified. If false or not provided, then the verified presentation should not be returned.
       example:
         {
           "domain": "example.com",
-          "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8"
+          "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8",
+          "returnCredential": true
         }
