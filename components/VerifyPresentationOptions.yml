@@ -30,5 +30,5 @@ components:
         {
           "domain": "example.com",
           "challenge": "d436f0c8-fbd9-4e48-bbb2-55fc5d0920a8",
-          "returnCredential": true
+          "returnPresentation": true
         }
