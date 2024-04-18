@@ -1,0 +1,140 @@
+paths:
+  /workflows:
+    post:
+      summary: Creates a new workflow and returns workflowId in the response body.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: createWorkflow
+      description: Creates a new workflow and returns workflowId in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateWorkflowRequest"
+        description: Parameters for creating a workflow.
+      responses:
+        "200":
+          description: Workflow successfully created!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateWorkflowResponse"
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+
+  /workflows/{workflowId}:
+    get:
+      summary: Gets the configuration of an existing workflow and returns it in the response body.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: getWorkflowConfiguration
+      description: Gets the configuration of an existing workflow and returns it in the response body.
+      responses:
+        "200":
+          description: Workflow configuration retrieved!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetWorkflowResponse"
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+  /workflows/{workflowId}/exchanges:
+    post:
+      summary: Creates a new exchange and returns workflowId in the response body.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: createWorkflow
+      description: Creates a new workflow and returns workflowId in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateExchangeRequest"
+        description: Parameters for creating a workflow.
+      responses:
+        "200":
+          description: Workflow successfully created!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateWorkflowResponse"
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+  /workflows/{workflowId}/exchanges/{exchangeId}:
+    get:
+      summary: Gets the state of an existing exchange and returns it in the response body.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: getWorkflowConfiguration
+      description: Gets the configuration of an existing workflow and returns it in the response body.
+      responses:
+        "200":
+          description: Workflow configuration retrieved!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetExchangeResponse"
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+    post:
+      summary: Participate in an exchange by passing either a.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: createWorkflow
+      description: Creates a new workflow and returns workflowId in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateWorkflowRequest"
+        description: Parameters for creating a workflow.
+      responses:
+        "200":
+          description: Workflow successfully created!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExchangeParticipationResponse"
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+components:
