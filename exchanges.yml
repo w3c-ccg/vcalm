@@ -1,7 +1,18 @@
+openapi: 3.0.0
+info:
+  version: "0.0.3-unstable"
+  title: VC Exchanges API
+  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
+  license:
+    name: W3C Software and Document License
+    url: http://www.w3.org/Consortium/Legal/copyright-software.
+  contact:
+    name: GitHub Source Code
+    url: https://github.com/w3c-ccg/vc-api
 paths:
   /workflows:
     post:
-      summary: Creates a new workflow and returns workflowId in the response body.
+      summary: Passing an empty body to this endpoint creates a new workflow and returns its information in the response body.
       tags:
         - Credentials
       security:
@@ -10,12 +21,6 @@ paths:
         - zCap: []
       operationId: createWorkflow
       description: Creates a new workflow and returns workflowId in the response body.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/CreateWorkflowRequest"
-        description: Parameters for creating a workflow.
       responses:
         "200":
           description: Workflow successfully created!
@@ -29,7 +34,6 @@ paths:
           description: Not Authorized
         "500":
           description: Internal Error
-
   /workflows/{workflowId}:
     get:
       summary: Gets the configuration of an existing workflow and returns it in the response body.
@@ -56,28 +60,22 @@ paths:
           description: Internal Error
   /workflows/{workflowId}/exchanges:
     post:
-      summary: Creates a new exchange and returns workflowId in the response body.
+      summary: Passing an empty body to this endpoint creates a new exchange and returns exchangeId and time to live in the response body.
       tags:
         - Credentials
       security:
         - networkAuth: []
         - oAuth2: []
         - zCap: []
-      operationId: createWorkflow
-      description: Creates a new workflow and returns workflowId in the response body.
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/CreateExchangeRequest"
-        description: Parameters for creating a workflow.
+      operationId: createExchange
+      description: Passing an empty body to this endpoint creates a new exchange and returns exchangeId and time to live in the response body.
       responses:
         "200":
-          description: Workflow successfully created!
+          description: Exchange successfully created!
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/CreateWorkflowResponse"
+                $ref: "#/components/schemas/CreateExchangeResponse"
         "400":
           description: Invalid input
         "401":
@@ -109,28 +107,32 @@ paths:
         "500":
           description: Internal Error
     post:
-      summary: Participate in an exchange by passing either a.
+      summary: Participate in an exchange by passing either a credential to be issued or a Verifiable Presentation.
       tags:
         - Credentials
       security:
         - networkAuth: []
         - oAuth2: []
         - zCap: []
-      operationId: createWorkflow
-      description: Creates a new workflow and returns workflowId in the response body.
+      operationId: participateInExchange
+      description: Participate in an exchange by passing either a credential to be issued or a Verifiable Presentation.
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateWorkflowRequest"
-        description: Parameters for creating a workflow.
+              oneOf:
+              - $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+              - $ref: "./components/Credential.yml#/components/schemas/Credential"
+        description: Either
       responses:
         "200":
-          description: Workflow successfully created!
+          description: Exchange completed!
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ExchangeParticipationResponse"
+                oneOf:
+                  - $ref: "./components/IssueCredentialSuccess.yml#/components/schemas/IssueCredentialSuccess"
+                  - $ref: "./components/VerifyPresentationResult.yml#/components/schemas/VerificationResult"
         "400":
           description: Invalid input
         "401":
@@ -138,3 +140,57 @@ paths:
         "500":
           description: Internal Error
 components:
+  schemas:
+    CreateWorkflowResponse:
+      type: object
+      additionalProperties: false
+      description: Object containing information about a created workflow.
+      properties:
+        workflowId:
+          type: string
+          description: An identifier for the created workflow.
+    GetWorkflowResponse:
+      type: object
+      additionalProperties: false
+      description: Object containing information about a workflow.
+      properties:
+        exchanges:
+          type: array
+          description: The identifiers of the current exchanges associated with the workflow instance.
+          items:
+            type: string
+        authorization:
+          type: array
+          description: Metadata for the authorization mechanisms active on the workflow instance (e.g OAuth tokens, zCaps).
+          items:
+            type: string
+    CreateExchangeResponse:
+      type: object
+      additionalProperties: false
+      description: Object containing information about a created exchange.
+      properties:
+        exchangeId:
+          type: string
+          description: An identifier for the created exchange.
+        ttl:
+          type: string
+          description: The time to live for the created exchange.
+    GetExchangeResponse:
+      type: object
+      additionalProperties: false
+      description: Object containing information about an active exchange.
+      properties:
+        exchangeId:
+          type: string
+          description: An identifier for the exchange.
+        ttl:
+          type: string
+          description: The time to live for the exchange.
+        nextStep:
+          type: string
+          description: The interaction the exchange is expecting to happen next.
+        completedSteps:
+          type: array
+          description: The steps completed by the exchange previously.
+          items:
+            type: string
