@@ -12,7 +12,7 @@ info:
 paths:
   /workflows:
     post:
-      summary: Passing an empty body to this endpoint creates a new workflow and returns its information in the response body.
+      summary: Creates a new workflow and returns its information in the response body.
       tags:
         - Credentials
       security:
@@ -21,6 +21,11 @@ paths:
         - zCap: []
       operationId: createWorkflow
       description: Creates a new workflow and returns workflowId in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateWorkflowRequest"
       responses:
         "200":
           description: Workflow successfully created!
@@ -146,6 +151,36 @@ paths:
           description: Internal Error
 components:
   schemas:
+    CreateWorkflowRequest:
+      type: object
+      additionalProperties: false
+      description: Object containing information for creating a workflow.
+      properties:
+        required:
+          type: object
+          properties:
+            steps:
+              type: object
+              description: A set of semantically named steps to be used in exchanges created on this workflow.
+              items:
+                type: object
+            initialStep:
+              type: string
+              description: The step from the above set that the exchange starts on.
+        options:
+          type: object
+          properties:
+            controller:
+              type: string
+              description: The controller of the instance.
+            authorization:
+              type: object
+              description: Authorization scheme information (e.g. OAuth2 configuration).
+            credentialTemplates:
+              type: array
+              description: One or more VC templates for issuance.
+              items:
+                $ref: "#/components/schemas/VerifiableCredentialTemplate"
     CreateWorkflowResponse:
       type: object
       additionalProperties: false
@@ -159,16 +194,36 @@ components:
       additionalProperties: false
       description: Object containing information about a workflow.
       properties:
-        exchanges:
-          type: array
-          description: The identifiers of the current exchanges associated with the workflow instance.
-          items:
-            type: string
-        authorization:
-          type: array
-          description: Metadata for the authorization mechanisms active on the workflow instance (e.g OAuth tokens, zCaps).
-          items:
-            type: string
+        required:
+          type: object
+          properties:
+            exchanges:
+              type: array
+              description: The identifiers of the current exchanges associated with the workflow instance.
+              items:
+                type: string
+            steps:
+              type: object
+              description: A set of semantically named steps to be used in exchanges created on this workflow.
+              items:
+                type: object
+            initialStep:
+              type: string
+              description: The step from the above set that the exchange starts on.
+        options:
+          type: object
+          properties:
+            controller:
+              type: string
+              description: The controller of the instance.
+            authorization:
+              type: object
+              description: Authorization scheme information (e.g. OAuth2 configuration).
+            credentialTemplates:
+              type: array
+              description: One or more VC templates for issuance.
+              items:
+                $ref: "#/components/schemas/VerifiableCredentialTemplate"
     CreateExchangeRequest:
       type: object
       additionalProperties: false
@@ -223,3 +278,14 @@ components:
           description: The steps completed by the exchange previously.
           items:
             type: string
+    VerifiableCredentialTemplate:
+      type: object
+      additionalProperties: false
+      description: A Verifiable Credential template.
+      properties:
+        type:
+          type: string
+          description: The type of template.
+        template:
+          type: string
+          description: The VC template.
