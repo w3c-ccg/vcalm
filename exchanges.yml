@@ -159,9 +159,9 @@ components:
           properties:
             steps:
               type: object
-              description: A set of semantically named steps to be used in exchanges created on this workflow.
-              items:
-                type: object
+              properties:
+                stepName:
+                  $ref: "#/components/schemas/WorkflowStep"
             initialStep:
               type: string
               description: The step from the above set that the exchange starts on.
@@ -367,5 +367,3 @@ components:
               description: If present, auto-generate the OID4VP authorization request from the VPR. Either this or authorizationRequest must be present, but not both.
             authorizationRequest:
               type: object
-
-        
