@@ -209,7 +209,10 @@ components:
               type: object
               properties:
                 stepName:
-                  $ref: "#/components/schemas/WorkflowStep"
+                  type: object
+                  properties:
+                    step:
+                      $ref: "#/components/schemas/WorkflowStep"
             initialStep:
               type: string
               description: The step from the above set that the exchange starts on.
