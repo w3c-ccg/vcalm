@@ -131,8 +131,14 @@ paths:
           application/json:
             schema:
               oneOf:
-              - $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
-              - $ref: "./components/Credential.yml#/components/schemas/Credential"
+              - type: object
+                properties:
+                  verifiablePresentation:
+                    $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+              - type: object
+                properties:
+                  credential:
+                     $ref: "./components/Credential.yml#/components/schemas/Credential"
         description: Either a credential to be issued or a Verifiable Presentation.
       responses:
         "200":
