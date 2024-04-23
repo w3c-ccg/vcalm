@@ -273,6 +273,13 @@ components:
           description: Template variables to be used in the exchange.
           items:
             type: object
+            properties:
+              type:
+                type: string
+                description: The type of template.
+              template:
+                type: string
+                description: The template itself.
         state:
           type: string
           description: The status ("pending" | "complete" | "invalid") of the exchange, set to "pending" on creation.
@@ -281,24 +288,21 @@ components:
           description: The semantic string ID for the current step.
     ExchangeParticipationResponse:
       type: object
-      additionalProperties: false
       description: Either what the exchange is expecting next or a result of the exchange.
-      properties:
-        response:
-          oneOf:
-            - type: object
-              properties:
-                verifiablePresentationRequest:
-                  $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
-            - type: object
-              properties:
-                verifiablePresentation:
-                  $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
-            - type: object
-              properties:
-                redirectUrl:
-                  type: string
-                  description: The URL the exchange wishes to redirect the client to.
+      oneOf:
+        - type: object
+          properties:
+            verifiablePresentationRequest:
+              $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
+        - type: object
+          properties:
+            verifiablePresentation:
+              $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+        - type: object
+          properties:
+            redirectUrl:
+              type: string
+              description: The URL the exchange wishes to redirect the client to.
     GetExchangeResponse:
       type: object
       additionalProperties: false
@@ -320,7 +324,6 @@ components:
             type: string
     WorkflowStep:
       type: object
-      additionalProperties: false
       description: Object containing information about a workflow step.
       oneOf:
         - $ref: "#/components/schemas/StepData"
@@ -357,10 +360,8 @@ components:
       properties:
         createChallenge:
           type: string
-          description: 
+          description: An optional step directive that tells the exchange to handle challenge management via a VC API verifier service it has a zcap for.
         verifiablePresentationRequest:
-          type: object
-          description: The VPR to send to the user in this step.
           $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
         nextStep:
           type: string
