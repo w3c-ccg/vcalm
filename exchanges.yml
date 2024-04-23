@@ -159,9 +159,11 @@ components:
           properties:
             steps:
               type: object
+              description: One or more steps required to complete an exchange on the workflow.
               properties:
                 stepName:
                   type: object
+                  description: The name of the step.
                   properties:
                     step:
                       $ref: "#/components/schemas/WorkflowStep"
@@ -211,9 +213,11 @@ components:
                 type: string
             steps:
               type: object
+              description: One or more steps required to complete an exchange on the workflow.
               properties:
                 stepName:
                   type: object
+                  description: The name of the step.
                   properties:
                     step:
                       $ref: "#/components/schemas/WorkflowStep"
@@ -243,17 +247,26 @@ components:
                     description: The template itself.
     CreateExchangeRequest:
       type: object
-      additionalProperties: false
       description: Object containing information about the exchange to be created.
       properties:
-        ttl:
-          type: string
-          description: Time to live for the exchange (ms).
-        variables:
-          type: array
-          description: Template variables to be used in the exchange. MAY be empty.
-          items:
-            type: object
+        exchangeInformation:
+          type: object
+          properties:
+            ttl:
+              type: string
+              description: Time to live for the exchange (ms).
+            variables:
+              type: array
+              description: Template variables to be used in the exchange.
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    description: The type of template.
+                  template:
+                    type: string
+                    description: The template itself.
     CreateExchangeResponse:
       type: object
       additionalProperties: false
