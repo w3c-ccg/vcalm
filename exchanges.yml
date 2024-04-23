@@ -39,7 +39,7 @@ paths:
           description: Not Authorized
         "500":
           description: Internal Error
-  /workflows/{workflowId}:
+  /workflows/{localWorkflowId}:
     get:
       summary: Gets the configuration of an existing workflow and returns it in the response body.
       tags:
@@ -63,9 +63,9 @@ paths:
           description: Not Authorized
         "500":
           description: Internal Error
-  /workflows/{workflowId}/exchanges:
+  /workflows/{localWorkflowId}/exchanges:
     post:
-      summary: Passing an empty body to this endpoint creates a new exchange and returns exchangeId and time to live in the response body.
+      summary: Creates a new exchange and returns exchangeId and time to live in the response body.
       tags:
         - Credentials
       security:
@@ -92,7 +92,7 @@ paths:
           description: Not Authorized
         "500":
           description: Internal Error
-  /workflows/{workflowId}/exchanges/{exchangeId}:
+  /workflows/{localWorkflowId}/exchanges/{localExchangeId}:
     get:
       summary: Gets the state of an existing exchange and returns it in the response body.
       tags:
@@ -117,7 +117,7 @@ paths:
         "500":
           description: Internal Error
     post:
-      summary: Participate in an exchange by passing either a credential to be issued or a Verifiable Presentation. Posting an empty body will start the exchange.
+      summary: Participate in an exchange. Posting an empty body will start the exchange or return what the exchange is expecting to complete the next step.
       tags:
         - Credentials
       security:
@@ -125,7 +125,7 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: participateInExchange
-      description: Participate in an exchange by passing either a credential to be issued or a Verifiable Presentation. Posting an empty body will start the exchange.
+      description: Participate in an exchange. Posting an empty body will start the exchange or return what the exchange is expecting to complete the next step.
       requestBody:
         content:
           application/json:
@@ -133,16 +133,14 @@ paths:
               oneOf:
               - $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
               - $ref: "./components/Credential.yml#/components/schemas/Credential"
-        description: Either
+        description: Either a credential to be issued or a Verifiable Presentation.
       responses:
         "200":
-          description: Exchange completed!
+          description: Exchange progressed.
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: "./components/IssueCredentialSuccess.yml#/components/schemas/IssueCredentialSuccess"
-                  - $ref: "./components/VerifyPresentationResult.yml#/components/schemas/VerificationResult"
+                $ref: "#/components/schemas/ExchangeParticipationResponse"
         "400":
           description: Invalid input
         "401":
@@ -180,7 +178,12 @@ components:
               type: array
               description: One or more VC templates for issuance.
               items:
-                $ref: "#/components/schemas/VerifiableCredentialTemplate"
+                type: object
+                properties:
+                  type:
+                    type: string
+                  template:
+                    type: string
     CreateWorkflowResponse:
       type: object
       additionalProperties: false
@@ -188,7 +191,7 @@ components:
       properties:
         workflowId:
           type: string
-          description: An identifier for the created workflow.
+          description: The URL that uniquely identifies the created workflow.
     GetWorkflowResponse:
       type: object
       additionalProperties: false
@@ -204,9 +207,9 @@ components:
                 type: string
             steps:
               type: object
-              description: A set of semantically named steps to be used in exchanges created on this workflow.
-              items:
-                type: object
+              properties:
+                stepName:
+                  $ref: "#/components/schemas/WorkflowStep"
             initialStep:
               type: string
               description: The step from the above set that the exchange starts on.
@@ -223,7 +226,14 @@ components:
               type: array
               description: One or more VC templates for issuance.
               items:
-                $ref: "#/components/schemas/VerifiableCredentialTemplate"
+                type: object
+                properties:
+                  type:
+                    type: string
+                    description: The type of template.
+                  template:
+                    type: string
+                    description: The template itself.
     CreateExchangeRequest:
       type: object
       additionalProperties: false
@@ -244,7 +254,7 @@ components:
       properties:
         exchangeId:
           type: string
-          description: An identifier for the created exchange <exchangeID, absolute URL>.
+          description: The URL that uniquely identifies the exchange.
         sequence:
           type: string
           description: A sequence number for the exchange. Set to "0" on creation.
@@ -259,6 +269,29 @@ components:
         state:
           type: string
           description: The status ("pending" | "complete" | "invalid") of the exchange, set to "pending" on creation.
+        step:
+          type: string
+          description: The semantic string ID for the current step.
+    ExchangeParticipationResponse:
+      type: object
+      additionalProperties: false
+      description: Either what the exchange is expecting next or a result of the exchange.
+      properties:
+        response:
+          oneOf:
+            - type: object
+              properties:
+                verifiablePresentationRequest:
+                  $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
+            - type: object
+              properties:
+                verifiablePresentation:
+                  $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+            - type: object
+              properties:
+                redirectUrl:
+                  type: string
+                  description: The URL the exchange wishes to redirect the client to.
     GetExchangeResponse:
       type: object
       additionalProperties: false
@@ -266,7 +299,7 @@ components:
       properties:
         exchangeId:
           type: string
-          description: An identifier for the exchange <exchangeID, absolute URL>
+          description: The URL that uniquely identifies the exchange.
         ttl:
           type: string
           description: The time to live for the exchange.
@@ -278,6 +311,16 @@ components:
           description: The steps completed by the exchange previously.
           items:
             type: string
+    WorkflowStep:
+      type: object
+      additionalProperties: false
+      description: Object containing information about a workflow step.
+      oneOf:
+        - $ref: "#/components/schemas/StepData"
+        - type: object
+          properties:
+            stepTemplate:
+              $ref: "#/components/schemas/StepTemplate"
     VerifiableCredentialTemplate:
       type: object
       additionalProperties: false
@@ -289,3 +332,40 @@ components:
         template:
           type: string
           description: The VC template.
+    StepTemplate:
+      type: object
+      additionalProperties: false
+      description: A template for a workflow step. Either this must be present or the other step data must be present, but not both sets.
+      properties:
+        type:
+          type: string
+          description: The type of template.
+        template:
+          type: string
+          description: The step template.
+    StepData:
+      type: object
+      additionalProperties: false
+      description: Step data to be included if a template is not used.
+      properties:
+        createChallenge:
+          type: string
+          description: 
+        verifiablePresentationRequest:
+          type: object
+          description: The VPR to send to the user in this step.
+          $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
+        nextStep:
+          type: string
+          description: The name of the next step in the sequence.
+        openId:
+          type: object
+          description: Optional information to trigger OID4VP
+          properties:
+            createAuthorizationRequest:
+              type: string
+              description: If present, auto-generate the OID4VP authorization request from the VPR. Either this or authorizationRequest must be present, but not both.
+            authorizationRequest:
+              type: object
+
+        
