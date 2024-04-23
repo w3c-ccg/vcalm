@@ -161,7 +161,10 @@ components:
               type: object
               properties:
                 stepName:
-                  $ref: "#/components/schemas/WorkflowStep"
+                  type: object
+                  properties:
+                    step:
+                      $ref: "#/components/schemas/WorkflowStep"
             initialStep:
               type: string
               description: The step from the above set that the exchange starts on.
@@ -197,8 +200,9 @@ components:
       additionalProperties: false
       description: Object containing information about a workflow.
       properties:
-        required:
+        stepInformation:
           type: object
+          description: Information about the steps required for the workflow.
           properties:
             exchanges:
               type: array
