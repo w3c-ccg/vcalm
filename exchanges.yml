@@ -184,7 +184,7 @@ components:
               description: The controller of the instance.
             authorization:
               type: object
-              description: Authorization scheme information (e.g. OAuth2 configuration).
+              description: Authorization scheme information (e.g., OAuth2 configuration).
             credentialTemplates:
               type: array
               description: One or more VC templates for issuance.
@@ -238,7 +238,7 @@ components:
               description: The controller of the instance.
             authorization:
               type: object
-              description: Authorization scheme information (e.g. OAuth2 configuration).
+              description: Authorization scheme information (e.g., OAuth2 configuration).
             credentialTemplates:
               type: array
               description: One or more VC templates for issuance.
