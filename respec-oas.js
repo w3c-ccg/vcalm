@@ -31,7 +31,6 @@ function buildComponentTables({config, document, apis}) {
         for(const verb in endpoint) {
           const {servers} = endpoint[verb];
           const tableRow = document.createElement('tr');
-          const expectedCaller = ${servers[0].url};
           tableRow.innerHTML =
             `<td>${verb.toUpperCase()}&nbsp;${path}</td><td>${servers[0].url}</td>`;
           table.appendChild(tableRow);
