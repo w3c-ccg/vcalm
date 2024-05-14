@@ -29,10 +29,10 @@ function buildComponentTables({config, document, apis}) {
       if(path.trim().length > 0) {
         const endpoint = getEndpoint({apis, path});
         for(const verb in endpoint) {
-          const {expectedCaller} = endpoint[verb];
+          const {servers} = endpoint[verb];
           const tableRow = document.createElement('tr');
           tableRow.innerHTML =
-            `<td>${verb.toUpperCase()}&nbsp;${path}</td><td>${expectedCaller}</td>`;
+            `<td>${verb.toUpperCase()}&nbsp;${path}</td><td>${servers[0]}</td>`;
           table.appendChild(tableRow);
         }
       }
