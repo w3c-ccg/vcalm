@@ -19,7 +19,7 @@ function buildComponentTables({config, document, apis}) {
 
   // process every table
   for(const table of apiTables) {
-    // set up the API summary table headers
+    // set up the API component table headers
     const tableHeader = document.createElement('tr');
     tableHeader.innerHTML = '<th>Endpoint</th><th>Expected Caller</th>';
     table.appendChild(tableHeader);
@@ -31,6 +31,7 @@ function buildComponentTables({config, document, apis}) {
         for(const verb in endpoint) {
           const {servers} = endpoint[verb];
           const tableRow = document.createElement('tr');
+          console.log("servers: %s", {servers[0]});
           tableRow.innerHTML =
             `<td>${verb.toUpperCase()}&nbsp;${path}</td><td>${servers[0]}</td>`;
           table.appendChild(tableRow);
