@@ -32,7 +32,7 @@ function buildComponentTables({config, document, apis}) {
           const {servers} = endpoint[verb];
           const tableRow = document.createElement('tr');
           tableRow.innerHTML =
-            `<td>${verb.toUpperCase()}&nbsp;${path}</td><td>${servers[0]}</td>`;
+            `<td>${verb.toUpperCase()}&nbsp;${path}</td><td>${servers[0].url}</td>`;
           table.appendChild(tableRow);
         }
       }
