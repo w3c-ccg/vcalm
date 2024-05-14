@@ -364,8 +364,8 @@ async function injectOas(config, document) {
     const apis = [issuerApi, verifierApi, holderApi];
 
     buildApiSummaryTables({config, document, apis});
-    buildComponentTables({config, document, apis});
     buildEndpointDetails({config, document, apis});
+    buildComponentTables({config, document, apis});
   } catch(err) {
     console.error(err);
   }
