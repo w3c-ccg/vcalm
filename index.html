@@ -687,6 +687,37 @@ All entity bodies in requests and responses sent to or received from the API end
     </section>
 
     <section>
+      <h3>API Component Overview</h3>
+        <p>
+          This section gives an overview of all endpoints in the VC-API by the component the endpoint is expected to be called from. If a compenent is does not have a listing below it means the VC-API does not currently specify any endpoints for that compenent. 
+        </p>
+
+      <h4>Issuer Coordinator</h4>
+      <table class="api-compenent-table"
+        data-api-path="/credentials"></table>
+      
+      <h4>Issuer Service</h4>
+      <table class="api-compenent-table"
+        data-api-path="/credentials/issue /credentials /credentials/{id}"></table>
+      
+      <h4>Status Service</h4>
+      <table class="api-compenent-table"
+        data-api-path="/credentials/status"></table>
+      
+      <h4>Verification Service</h4>
+      <table class="api-compenent-table"
+        data-api-path="/credentials/verify /presentations/verify /challenges"></table>
+      
+      <h4>Holder Service</h4>
+      <table class="api-compenent-table"
+        data-api-path="/credentials/derive /presentations/prove /presentations /presentations/{id}"></table>
+      
+      <h4>Workflow Service</h4>
+      <table class="api-compenent-table"
+        data-api-path=""></table>
+      
+    </section>
+    <section>
       <h3>Issuing</h3>
       <p>
 The following APIs are defined for issuing a Verifiable Credential:
