@@ -366,7 +366,7 @@ async function injectOas(config, document) {
 
     buildApiSummaryTables({config, document, apis});
     buildEndpointDetails({config, document, apis});
-    buildApiSummaryTables({config, document, apis});
+    buildComponentTables({config, document, apis});
   } catch(err) {
     console.error(err);
   }
