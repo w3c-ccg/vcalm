@@ -363,9 +363,9 @@ async function injectOas(config, document) {
       holderApi.info.title, holderApi.info.version);
     const apis = [issuerApi, verifierApi, holderApi];
 
-    //buildApiSummaryTables({config, document, apis});
-    //buildEndpointDetails({config, document, apis});
-    //buildApiSummaryTables({config, document, apis});
+    buildApiSummaryTables({config, document, apis});
+    buildEndpointDetails({config, document, apis});
+    buildApiSummaryTables({config, document, apis});
   } catch(err) {
     console.error(err);
   }
