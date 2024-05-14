@@ -355,17 +355,17 @@ async function injectOas(config, document) {
     const issuerApi = await SwaggerParser.validate('issuer.yml');
     console.log('API name: %s, Version: %s',
       issuerApi.info.title, issuerApi.info.version);
-    const verifierApi = await SwaggerParser.validate('verifier.yml');
+    //const verifierApi = await SwaggerParser.validate('verifier.yml');
     console.log('API name: %s, Version: %s',
       verifierApi.info.title, verifierApi.info.version);
-    const holderApi = await SwaggerParser.validate('holder.yml');
+    //const holderApi = await SwaggerParser.validate('holder.yml');
     console.log('API name: %s, Version: %s',
       holderApi.info.title, holderApi.info.version);
-    const apis = [issuerApi, verifierApi, holderApi];
+    //const apis = [issuerApi, verifierApi, holderApi];
 
-    buildApiSummaryTables({config, document, apis});
-    buildEndpointDetails({config, document, apis});
-    buildApiSummaryTables({config, document, apis});
+    //buildApiSummaryTables({config, document, apis});
+    //buildEndpointDetails({config, document, apis});
+    //buildApiSummaryTables({config, document, apis});
   } catch(err) {
     console.error(err);
   }
