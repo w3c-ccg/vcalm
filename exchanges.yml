@@ -1,4 +1,7 @@
 openapi: 3.0.0
+servers:
+  - url: https://verifier.qa.veres.app/verifiers/z1A45ZhWEGMeibHrB15nv8Gk6
+    description: Veres Verifier (Quality Assurance)
 info:
   version: "0.0.3-unstable"
   title: VC Exchanges and Workflows API
@@ -157,6 +160,8 @@ paths:
         "500":
           description: Internal Error
 components:
+  securitySchemes:
+    $ref: "./components/SecuritySchemes.yml#/components/securitySchemes"
   schemas:
     CreateWorkflowRequest:
       type: object
