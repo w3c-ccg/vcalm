@@ -1,0 +1,7 @@
+name: local-exchange-id
+description: A local identifier for an exchange instance.
+in: path
+required: true
+schema:
+  type: string
+  pattern: "[a-z0-9][a-z0-9\\-]{2,}"

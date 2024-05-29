@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   version: "0.0.3-unstable"
-  title: VC Exchanges API
+  title: VC Exchanges and Workflows API
   description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
   license:
     name: W3C Software and Document License
@@ -50,6 +50,8 @@ paths:
         - zCap: []
       operationId: getWorkflowConfiguration
       description: Gets the configuration of an existing workflow and returns it in the response body.
+      parameters:
+        - $ref: "./components/parameters/path/LocalWorkflowId.yml"
       responses:
         "200":
           description: Workflow configuration retrieved!
@@ -74,6 +76,8 @@ paths:
         - zCap: []
       operationId: createExchange
       description: Creates a new exchange and returns exchangeId and time to live in the response body.
+      parameters:
+        - $ref: "./components/parameters/path/LocalWorkflowId.yml"
       requestBody:
         content:
           application/json:
@@ -103,6 +107,9 @@ paths:
         - zCap: []
       operationId: getExchangeConfiguration
       description: Gets the configuration of an existing exchange and returns it in the response body.
+      parameters:
+        - $ref: "./components/parameters/path/LocalWorkflowId.yml"
+        - $ref: "./components/parameters/path/LocalExchangeId.yml"
       responses:
         "200":
           description: Exchange configuration retrieved!
@@ -350,17 +357,6 @@ components:
           properties:
             stepTemplate:
               $ref: "#/components/schemas/StepTemplate"
-    VerifiableCredentialTemplate:
-      type: object
-      additionalProperties: false
-      description: A Verifiable Credential template.
-      properties:
-        type:
-          type: string
-          description: The type of template.
-        template:
-          type: string
-          description: The VC template.
     StepTemplate:
       type: object
       additionalProperties: false
