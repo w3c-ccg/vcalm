@@ -133,6 +133,9 @@ paths:
         - zCap: []
       operationId: participateInExchange
       description: Participate in an exchange. Posting an empty body will start the exchange or return what the exchange is expecting to complete the next step.
+      parameters:
+        - $ref: "./components/parameters/path/LocalWorkflowId.yml"
+        - $ref: "./components/parameters/path/LocalExchangeId.yml"
       requestBody:
         content:
           application/json:

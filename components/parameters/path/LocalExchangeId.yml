@@ -1,4 +1,4 @@
-name: local-exchange-id
+name: localExchangeId
 description: A local identifier for an exchange instance.
 in: path
 required: true
