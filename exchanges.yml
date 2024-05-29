@@ -137,16 +137,9 @@ paths:
         content:
           application/json:
             schema:
-              oneOf:
-              - type: object
-                properties:
-                  verifiablePresentation:
-                    $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
-              - type: object
-                properties:
-                  credential:
-                     $ref: "./components/Credential.yml#/components/schemas/Credential"
-        description: Either a credential to be issued or a Verifiable Presentation.
+              properties:
+                verifiablePresentation:
+                  $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
       responses:
         "200":
           description: Exchange progressed.
@@ -167,12 +160,14 @@ components:
       additionalProperties: false
       description: Object containing information for creating a workflow.
       properties:
-        required:
+        workflowData:
           type: object
+          additionalProperties: false
+          description: Object containing information for creating a workflow.
           properties:
             steps:
               type: object
-              description: One or more steps required to complete an exchange on the workflow.
+              description: One or more steps required to complete an exchange on the workflow. Passing the steps object is REQUIRED.
               properties:
                 stepName:
                   type: object
@@ -182,26 +177,26 @@ components:
                       $ref: "#/components/schemas/WorkflowStep"
             initialStep:
               type: string
-              description: The step from the above set that the exchange starts on.
-        options:
-          type: object
-          properties:
+              description: The step from the above set that the exchange starts on. Passing intialStep is REQUIRED.
             controller:
               type: string
-              description: The controller of the instance.
+              description: The controller of the instance. Passing controller is OPTIONAL.
             authorization:
-              type: object
-              description: Authorization scheme information (e.g., OAuth2 configuration).
+              type: string
+              description: Authorization scheme information (e.g., OAuth2 configuration). Passing authorization is OPTIONAL.
             credentialTemplates:
               type: array
-              description: One or more VC templates for issuance.
+              description: One or more VC templates for issuance. Passing credentialTemplates is OPTIONAL.
               items:
                 type: object
                 properties:
                   type:
                     type: string
                   template:
-                    type: string
+                      type: string
+            workflowId:
+              type: string
+              description: the ID that will be used for the created workflow. workflowId is OPTIONAL.
     CreateWorkflowResponse:
       type: object
       additionalProperties: false
@@ -215,40 +210,42 @@ components:
       additionalProperties: false
       description: Object containing information about a workflow.
       properties:
-        stepInformation:
+        workflowData:
           type: object
-          description: Information about the steps required for the workflow.
+          additionalProperties: false
+          description: Object containing information about a created workflow.
           properties:
-            exchanges:
-              type: array
-              description: The identifiers of the current exchanges associated with the workflow instance.
-              items:
-                type: string
-            steps:
+            stepInformation:
               type: object
-              description: One or more steps required to complete an exchange on the workflow.
+              description: Information about the steps required for the workflow. Returning stepInformation is REQUIRED.
               properties:
-                stepName:
+                exchanges:
+                  type: array
+                  description: The identifiers of the current exchanges associated with the workflow instance.
+                  items:
+                    type: string
+                steps:
                   type: object
-                  description: The name of the step.
+                  description: One or more steps required to complete an exchange on the workflow.
                   properties:
-                    step:
-                      $ref: "#/components/schemas/WorkflowStep"
-            initialStep:
-              type: string
-              description: The step from the above set that the exchange starts on.
-        options:
-          type: object
-          properties:
+                    stepName:
+                      type: object
+                      description: The name of the step.
+                      properties:
+                        step:
+                          $ref: "#/components/schemas/WorkflowStep"
+                initialStep:
+                  type: string
+                  description: The step from the above set that the exchange starts on.
             controller:
               type: string
-              description: The controller of the instance.
+              description: The controller of the instance. Returning controller is OPTIONAL.
             authorization:
               type: object
-              description: Authorization scheme information (e.g., OAuth2 configuration).
+              description: Authorization scheme information (e.g., OAuth2 configuration). Returning authorization is OPTIONAL.
             credentialTemplates:
               type: array
-              description: One or more VC templates for issuance.
+              description: One or more VC templates for issuance. Returning credentialTemplates is OPTIONAL.
               items:
                 type: object
                 properties:
