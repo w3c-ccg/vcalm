@@ -1,4 +1,4 @@
-name: local-workflow-id
+name: localWorkflowId
 description: A local identifier for a workflow instance.
 in: path
 required: true
