@@ -28,7 +28,7 @@ function buildComponentTables({config, document, apis}) {
     for(const path of table.dataset.apiPath.split(/\s+/)) {
       if(path.trim().length > 0) {
         const endpoint = getEndpoint({apis, path});
-        const expectedCaller = endpoint['x-expectedCaller'];
+        var expectedCaller = endpoint['x-expectedCaller'];
         const tableRow = document.createElement('tr');
         if(expectedCaller === undefined)
         {
