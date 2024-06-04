@@ -1186,25 +1186,27 @@ Connection: keep-alive
         when identifying technical friction impacting interoperability.
       </p>
       </p>
-        Other fields such as [detail](https://www.rfc-editor.org/rfc/rfc9457.html#name-detail), 
-        [instance](https://www.rfc-editor.org/rfc/rfc9457.html#name-instance) 
+        Leveraging other fields such as [detail](https://www.rfc-editor.org/rfc/rfc9457.html#name-detail), 
+        [instance](https://www.rfc-editor.org/rfc/rfc9457.html#name-instance),
         and [type](https://www.rfc-editor.org/rfc/rfc9457.html#name-type) 
-        are encouraged to be leveraged to provide more contextual feedback about the error, 
-        while being conscious of not disclosing sensitive information for security concerns.
+        is encouraged, to provide more contextual feedback about the error, 
+        while being conscious of security concerns and hence not disclosing
+        sensitive information.
       </p>
       <p>
-        Implementers should try to handle all server errors in the best of their capabilities. 
-        Endpoints should avoid returning improperly handled 500 errors in a production 
-        environment leading to potential [information disclosure](https://owasp.org/www-community/Improper_Error_Handling).
+        Implementers should handle all server errors to the best of their capabilities. 
+        Endpoints should avoid returning improperly handled 500 errors in production 
+        environments, as these may lead to [information disclosure](https://owasp.org/www-community/Improper_Error_Handling).
       </p>
       <h4>Relationship between verification and error handling</h4>
       <p>
-        While performing [verification](https://w3c.github.io/vc-data-model/#verification), 
-        an implementer should avoid raising errors and instead gather 
+        An implementer should avoid raising errors while performing
+        [verification](https://w3c.github.io/vc-data-model/#verification), 
+        and instead should gather 
         [ProblemDetails](https://w3c.github.io/vc-data-model/#problem-details) 
         objects to include in the verification results.
       </p>
-      <h4>ProblemDetails Types</h4>
+      <h4>Types of ProblemDetails</h4>
         <h5>[PARSING_ERROR](https://www.w3.org/TR/vc-data-model#PARSING_ERROR)</h5>
         <h5>[STATUS_NOT_UPDATED_ERROR](https://www.w3.org/TR/vc-data-model#STATUS_NOT_UPDATED_ERROR)</h5>
         <h5>[CRYPTOGRAPHIC_SECURITY_ERROR](https://www.w3.org/TR/vc-data-model#CRYPTOGRAPHIC_SECURITY_ERROR)</h5>
