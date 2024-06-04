@@ -29,7 +29,7 @@ function buildComponentTables({config, document, apis}) {
       if(path.trim().length > 0) {
         const endpoint = getEndpoint({apis, path});
         for(const verb in endpoint) {
-          var expectedCaller = endpoint['x-expectedCaller'];
+          const expectedCaller = endpoint[verb]['x-expectedCaller'];
           const tableRow = document.createElement('tr');
           if(expectedCaller === undefined)
           {
