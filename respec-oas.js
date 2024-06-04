@@ -28,15 +28,17 @@ function buildComponentTables({config, document, apis}) {
     for(const path of table.dataset.apiPath.split(/\s+/)) {
       if(path.trim().length > 0) {
         const endpoint = getEndpoint({apis, path});
-        var expectedCaller = endpoint['x-expectedCaller'];
-        const tableRow = document.createElement('tr');
-        if(expectedCaller === undefined)
-        {
-          expectedCaller = "Expected Caller Undefined";;
+        for(const verb in endpoint) {
+          var expectedCaller = endpoint['x-expectedCaller'];
+          const tableRow = document.createElement('tr');
+          if(expectedCaller === undefined)
+          {
+            expectedCaller = "Expected Caller Undefined";;
+          }
+          tableRow.innerHTML =
+            `<td>${verb.toUpperCase()}&nbsp;${path}</td><td>${expectedCaller}</td>`;
+          table.appendChild(tableRow);
         }
-        tableRow.innerHTML =
-          `<td>${verb.toUpperCase()}&nbsp;${path}</td><td>${expectedCaller}</td>`;
-        table.appendChild(tableRow);
       }
     }
   }
