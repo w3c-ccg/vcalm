@@ -1176,41 +1176,56 @@ Connection: keep-alive
     <section>
       <h3>Error Handling</h3>
       <p>
-        Error handling and messaging in the vc-api is designed in accordance with [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html). 
-        Implementers SHOULD include a [status](https://www.rfc-editor.org/rfc/rfc9457.html#name-status) and a [title](https://www.rfc-editor.org/rfc/rfc9457.html#name-title) 
-        in the error response in accordance with the specifics of the endpoints on which the error occurs. 
-        Other fields such as [detail](https://www.rfc-editor.org/rfc/rfc9457.html#name-detail), [instance](https://www.rfc-editor.org/rfc/rfc9457.html#name-instance) and 
-        [type](https://www.rfc-editor.org/rfc/rfc9457.html#name-type) are encouraged to be leveraged to provide more contextual feedback about the error, 
+        Error handling and messaging in the VC-API follows [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html). 
+        Implementers SHOULD include a [status](https://www.rfc-editor.org/rfc/rfc9457.html#name-status) 
+        and a [title](https://www.rfc-editor.org/rfc/rfc9457.html#name-title) 
+        in the error response body relating to the specifics of the endpoint on which the error occurs. 
+      <p>
+      <p>
+        Aligning on error handling and messaging will greatly improve test-suites accuracy 
+        when identifying interoperability technical friction.
+      </p>
+      </p>
+        Other fields such as [detail](https://www.rfc-editor.org/rfc/rfc9457.html#name-detail), 
+        [instance](https://www.rfc-editor.org/rfc/rfc9457.html#name-instance) 
+        and [type](https://www.rfc-editor.org/rfc/rfc9457.html#name-type) 
+        are encouraged to be leveraged to provide more contextual feedback about the error, 
         while being conscious of not disclosing sensitive information for security concerns.
       </p>
       <p>
-        Implementers SHOULD catch all server errors in the best of their capabilities. 
-        Endpoints should avoid returning improperly handled 500 errors in a production environment leading to potential [information disclosure](https://owasp.org/www-community/Improper_Error_Handling).
+        Implementers should try to handle all server errors in the best of their capabilities. 
+        Endpoints should avoid returning improperly handled 500 errors in a production 
+        environment leading to potential [information disclosure](https://owasp.org/www-community/Improper_Error_Handling).
       </p>
-      <h4>Relationship between verification and error codes</h4>
+      <h4>Relationship between verification and error handling</h4>
       <p>
-        While performing verification of a credential and/or presentation, an implementer might be in a situation where they must raise an error.
-        This is an ambigous case between http protocol related errors and VC specification related errors. 
-        Given a verifiableCredential:
-        For cases where the data model is wrong or the proof is invalid, a 400 invalid input should be returned.
-        For cases where the a verificaiton method cannot be resolved, a 404 missing ressource should be returned.
-        For cases where the validity is bad or the status is invalid, a 422 unprocessable entity should be returned, 
-        meaning the verifier has no intention to process the credential further.
-
-        The logic is to differentiate between a verifier's verification processes and validation processes.
-        
-        As thus, the following mapping of status and title should be applied:
-        - For data model errors, return 400: Data Model
-        - For malformed proof, return 400: Proof Malformed
-        - For invalid proof, return 422: Proof Invalid
-        - For invalid credential/presentation, return 422: Validity Period
-        - For failed status checks, return 422: Status Invalid
+        While performing [verification](https://w3c.github.io/vc-data-model/#verification), 
+        an implementer should avoid raising errors and instead gather 
+        [ProblemDetails](https://w3c.github.io/vc-data-model/#problem-details) 
+        objects to include in the verification results.
       </p>
-      <h4>References</h4>
-      <ul>
-        <li>[OWASP cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Error_Handling_Cheat_Sheet.html) on error handling</li>
-
-      </ul>
+      <h4>ProblemDetails Types</h4>
+        <h5>[PARSING_ERROR](https://www.w3.org/TR/vc-data-model#PARSING_ERROR)</h5>
+        <h5>[STATUS_NOT_UPDATED_ERROR](https://www.w3.org/TR/vc-data-model#STATUS_NOT_UPDATED_ERROR)</h5>
+        <h5>[CRYPTOGRAPHIC_SECURITY_ERROR](https://www.w3.org/TR/vc-data-model#CRYPTOGRAPHIC_SECURITY_ERROR)</h5>
+        <h5>[MALFORMED_VALUE_ERROR](https://www.w3.org/TR/vc-data-model#MALFORMED_VALUE_ERROR)</h5>
+        <h5>[RANGE_ERROR](https://www.w3.org/TR/vc-data-model#RANGE_ERROR)</h5>
+        <h5>[UNRESOLVABLE_DID_ERROR](https://www.w3.org/TR/vc-data-model#UNRESOLVABLE_DID_ERROR)</h5>
+        <h5>[STATUS_WARNING](https://www.w3.org/TR/vc-data-model#STATUS_WARNING)</h5>
+        <h5>[VALIDITY_PERIOD_WARNING](https://www.w3.org/TR/vc-data-model#VALIDITY_PERIOD_WARNING)</h5>
+        <h5>[CONTROLLER_MISMATCH_WARNING](https://www.w3.org/TR/vc-data-model#CONTROLLER_MISMATCH_WARNING)</h5> #141
+      <h4>Verification Response</h4>
+      <code>
+        {
+          "verified": false,
+          "document": {},
+          "mediaType": "",
+          "controller": "",
+          "controllerDocument": {},
+          "warnings": [ProblemDetails],
+          "errors": [ProblemDetails]
+        }
+    </code>
     </section>
 
   </section>
