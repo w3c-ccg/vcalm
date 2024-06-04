@@ -1,0 +1,397 @@
+openapi: 3.0.0
+servers:
+  - url: https://verifier.qa.veres.app/verifiers/z1A45ZhWEGMeibHrB15nv8Gk6
+    description: Veres Verifier (Quality Assurance)
+info:
+  version: "0.0.3-unstable"
+  title: VC Exchanges and Workflows API
+  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
+  license:
+    name: W3C Software and Document License
+    url: http://www.w3.org/Consortium/Legal/copyright-software.
+  contact:
+    name: GitHub Source Code
+    url: https://github.com/w3c-ccg/vc-api
+paths:
+  /workflows:
+    post:
+      summary: Creates a new workflow and returns its information in the response body.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: createWorkflow
+      description: Creates a new workflow and returns workflowId in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateWorkflowRequest"
+      responses:
+        "200":
+          description: Workflow successfully created!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateWorkflowResponse"
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+  /workflows/{localWorkflowId}:
+    get:
+      summary: Gets the configuration of an existing workflow and returns it in the response body.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: getWorkflowConfiguration
+      description: Gets the configuration of an existing workflow and returns it in the response body.
+      parameters:
+        - $ref: "./components/parameters/path/LocalWorkflowId.yml"
+      responses:
+        "200":
+          description: Workflow configuration retrieved!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetWorkflowResponse"
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+  /workflows/{localWorkflowId}/exchanges:
+    post:
+      summary: Creates a new exchange and returns exchangeId and time to live in the response body.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: createExchange
+      description: Creates a new exchange and returns exchangeId and time to live in the response body.
+      parameters:
+        - $ref: "./components/parameters/path/LocalWorkflowId.yml"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateExchangeRequest"
+      responses:
+        "200":
+          description: Exchange successfully created!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateExchangeResponse"
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+  /workflows/{localWorkflowId}/exchanges/{localExchangeId}:
+    get:
+      summary: Gets the state of an existing exchange and returns it in the response body.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: getExchangeConfiguration
+      description: Gets the configuration of an existing exchange and returns it in the response body.
+      parameters:
+        - $ref: "./components/parameters/path/LocalWorkflowId.yml"
+        - $ref: "./components/parameters/path/LocalExchangeId.yml"
+      responses:
+        "200":
+          description: Exchange configuration retrieved!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetExchangeResponse"
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+    post:
+      summary: Participate in an exchange. Posting an empty body will start the exchange or return what the exchange is expecting to complete the next step.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: participateInExchange
+      description: Participate in an exchange. Posting an empty body will start the exchange or return what the exchange is expecting to complete the next step.
+      parameters:
+        - $ref: "./components/parameters/path/LocalWorkflowId.yml"
+        - $ref: "./components/parameters/path/LocalExchangeId.yml"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                verifiablePresentation:
+                  $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+      responses:
+        "200":
+          description: Exchange progressed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExchangeParticipationResponse"
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+components:
+  securitySchemes:
+    $ref: "./components/SecuritySchemes.yml#/components/securitySchemes"
+  schemas:
+    CreateWorkflowRequest:
+      type: object
+      additionalProperties: false
+      description: Object containing information for creating a workflow.
+      properties:
+        workflowData:
+          type: object
+          additionalProperties: false
+          description: Object containing information for creating a workflow.
+          properties:
+            steps:
+              type: object
+              description: One or more steps required to complete an exchange on the workflow. Passing the steps object is REQUIRED.
+              properties:
+                stepName:
+                  type: object
+                  description: The name of the step.
+                  properties:
+                    step:
+                      $ref: "#/components/schemas/WorkflowStep"
+            initialStep:
+              type: string
+              description: The step from the above set that the exchange starts on. Passing intialStep is REQUIRED.
+            controller:
+              type: string
+              description: The controller of the instance. Passing controller is OPTIONAL.
+            authorization:
+              type: string
+              description: Authorization scheme information (e.g., OAuth2 configuration). Passing authorization is OPTIONAL.
+            credentialTemplates:
+              type: array
+              description: One or more VC templates for issuance. Passing credentialTemplates is OPTIONAL.
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                  template:
+                      type: string
+            workflowId:
+              type: string
+              description: the ID that will be used for the created workflow. workflowId is OPTIONAL.
+    CreateWorkflowResponse:
+      type: object
+      additionalProperties: false
+      description: Object containing information about a created workflow.
+      properties:
+        workflowId:
+          type: string
+          description: The URL that uniquely identifies the created workflow.
+    GetWorkflowResponse:
+      type: object
+      additionalProperties: false
+      description: Object containing information about a workflow.
+      properties:
+        workflowData:
+          type: object
+          additionalProperties: false
+          description: Object containing information about a created workflow.
+          properties:
+            stepInformation:
+              type: object
+              description: Information about the steps required for the workflow. Returning stepInformation is REQUIRED.
+              properties:
+                exchanges:
+                  type: array
+                  description: The identifiers of the current exchanges associated with the workflow instance.
+                  items:
+                    type: string
+                steps:
+                  type: object
+                  description: One or more steps required to complete an exchange on the workflow.
+                  properties:
+                    stepName:
+                      type: object
+                      description: The name of the step.
+                      properties:
+                        step:
+                          $ref: "#/components/schemas/WorkflowStep"
+                initialStep:
+                  type: string
+                  description: The step from the above set that the exchange starts on.
+            controller:
+              type: string
+              description: The controller of the instance. Returning controller is OPTIONAL.
+            authorization:
+              type: object
+              description: Authorization scheme information (e.g., OAuth2 configuration). Returning authorization is OPTIONAL.
+            credentialTemplates:
+              type: array
+              description: One or more VC templates for issuance. Returning credentialTemplates is OPTIONAL.
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    description: The type of template.
+                  template:
+                    type: string
+                    description: The template itself.
+    CreateExchangeRequest:
+      type: object
+      description: Object containing information about the exchange to be created.
+      properties:
+        exchangeInformation:
+          type: object
+          properties:
+            ttl:
+              type: string
+              description: Time to live for the exchange (ms).
+            variables:
+              type: array
+              description: Template variables to be used in the exchange.
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    description: The type of template.
+                  template:
+                    type: string
+                    description: The template itself.
+    CreateExchangeResponse:
+      type: object
+      additionalProperties: false
+      description: Object containing information about a created exchange.
+      properties:
+        exchangeId:
+          type: string
+          description: The URL that uniquely identifies the exchange.
+        sequence:
+          type: string
+          description: A sequence number for the exchange. Set to "0" on creation.
+        ttl:
+          type: string
+          description: The time to live for the created exchange.
+        variables:
+          type: array
+          description: Template variables to be used in the exchange.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: The type of template.
+              template:
+                type: string
+                description: The template itself.
+        state:
+          type: string
+          description: The status ("pending" | "complete" | "invalid") of the exchange, set to "pending" on creation.
+        step:
+          type: string
+          description: The semantic string ID for the current step.
+    ExchangeParticipationResponse:
+      type: object
+      description: Either what the exchange is expecting next or a result of the exchange.
+      oneOf:
+        - type: object
+          properties:
+            verifiablePresentationRequest:
+              $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
+        - type: object
+          properties:
+            verifiablePresentation:
+              $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+        - type: object
+          properties:
+            redirectUrl:
+              type: string
+              description: The URL the exchange wishes to redirect the client to.
+    GetExchangeResponse:
+      type: object
+      additionalProperties: false
+      description: Object containing information about an active exchange.
+      properties:
+        exchangeId:
+          type: string
+          description: The URL that uniquely identifies the exchange.
+        ttl:
+          type: string
+          description: The time to live for the exchange.
+        nextStep:
+          type: string
+          description: The interaction the exchange is expecting to happen next.
+        completedSteps:
+          type: array
+          description: The steps completed by the exchange previously.
+          items:
+            type: string
+    WorkflowStep:
+      type: object
+      description: Object containing information about a workflow step.
+      oneOf:
+        - $ref: "#/components/schemas/StepData"
+        - type: object
+          properties:
+            stepTemplate:
+              $ref: "#/components/schemas/StepTemplate"
+    StepTemplate:
+      type: object
+      additionalProperties: false
+      description: A template for a workflow step. Either this must be present or the other step data must be present, but not both sets.
+      properties:
+        type:
+          type: string
+          description: The type of template.
+        template:
+          type: string
+          description: The step template.
+    StepData:
+      type: object
+      additionalProperties: false
+      description: Step data to be included if a template is not used.
+      properties:
+        createChallenge:
+          type: string
+          description: An optional step directive that tells the exchange to handle challenge management via a VC API verifier service it has a zcap for.
+        verifiablePresentationRequest:
+          $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
+        nextStep:
+          type: string
+          description: The name of the next step in the sequence.
+        openId:
+          type: object
+          description: Optional information to trigger OID4VP
+          properties:
+            createAuthorizationRequest:
+              type: string
+              description: If present, auto-generate the OID4VP authorization request from the VPR. Either this or authorizationRequest must be present, but not both.
+            authorizationRequest:
+              type: object
