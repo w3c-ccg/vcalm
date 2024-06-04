@@ -24,6 +24,7 @@ paths:
         - zCap: []
       operationId: createWorkflow
       description: Creates a new workflow and returns workflowId in the response body.
+      x-expectedCaller: Administrators
       requestBody:
         content:
           application/json:
@@ -53,6 +54,7 @@ paths:
         - zCap: []
       operationId: getWorkflowConfiguration
       description: Gets the configuration of an existing workflow and returns it in the response body.
+      x-expectedCaller: Administrators
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
       responses:
@@ -79,6 +81,7 @@ paths:
         - zCap: []
       operationId: createExchange
       description: Creates a new exchange and returns exchangeId and time to live in the response body.
+      x-expectedCaller: Owner Coordinator
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
       requestBody:
@@ -110,6 +113,7 @@ paths:
         - zCap: []
       operationId: getExchangeConfiguration
       description: Gets the configuration of an existing exchange and returns it in the response body.
+      x-expectedCaller: Owner Coordinator
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
         - $ref: "./components/parameters/path/LocalExchangeId.yml"
@@ -136,6 +140,7 @@ paths:
         - zCap: []
       operationId: participateInExchange
       description: Participate in an exchange. Posting an empty body will start the exchange or return what the exchange is expecting to complete the next step.
+      x-expectedCaller: Anyone
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
         - $ref: "./components/parameters/path/LocalExchangeId.yml"

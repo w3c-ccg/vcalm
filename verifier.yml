@@ -23,7 +23,7 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: verifyCredential
-      servers: [{url: "Verification Coordinator"}]
+      x-expectedCaller: "Verification Coordinator"
       description: Verifies a verifiableCredential and returns a verificationResult in the response body.
       requestBody:
         content:
@@ -52,7 +52,7 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: verifyPresentation
-      servers: [{url: "Verification Coordinator"}]
+      x-expectedCaller: "Verification Coordinator"
       description: Verifies a verifiablePresentation and returns a verificationResult in the response body.  Given the possibility of denial of service, buffer overflow, or other style attacks, an implementation is permitted to rate limit or restrict requests against this API endpoint to those requests that contain only a single credential with a 413 or 429 error code as appropriate.
       requestBody:
         content:
@@ -85,7 +85,7 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: challenge
-      servers: [{url: "Verification Coordinator"}]
+      x-expectedCaller: "Verification Coordinator"
       description: Creates a challenge to be used as `options.challenge` in future requests.
       responses:
         "200":

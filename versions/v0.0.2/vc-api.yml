@@ -23,7 +23,7 @@ paths:
         - Issuer
       summary: Issues a credential and returns it in the response body.
       operationId: issueCredential
-      servers: [{url:"Issuer Coordinator"}]
+      x-expectedCaller: "Issuer Coordinator"
       description: Issues a credential and returns it in the response body.
       requestBody:
         content:
@@ -48,7 +48,7 @@ paths:
         - Holder
       summary: Derives a credential and returns it in the response body.
       operationId: deriveCredential
-      servers: [{url:"Holder Coordinator"}]
+      x-expectedCaller: "Holder Coordinator"
       description: Derives a credential and returns it in the response body.
       requestBody:
         content:
@@ -75,7 +75,7 @@ paths:
         - Issuer
       summary: Updates the status of an issued credential
       operationId: updateCredentialStatus
-      servers: [{url:"Status Service"}]
+      x-expectedCaller: "Status Service"
       description: Updates the status of an issued credential.
       requestBody:
         content:
@@ -98,7 +98,7 @@ paths:
         - Holder
       summary: Proves a presentation and returns it in the response body.
       operationId: provePresentation
-      servers: [{url:"Holder Coordinator"}]
+      x-expectedCaller: "Holder Coordinator"
       description: Proves a presentation and returns it in the response body.
       requestBody:
         content:
@@ -123,7 +123,7 @@ paths:
         - Verifier
       summary: Verifies a verifiableCredential and returns a verificationResult in the response body.
       operationId: verifyCredential
-      servers: [{url:"Verification Coordinator"}]
+      x-expectedCaller: "Verification Coordinator"
       description: Verifies a verifiableCredential and returns a verificationResult in the response body.
       requestBody:
         content:
@@ -148,7 +148,7 @@ paths:
         - Verifier
       summary: Verifies a Presentation with or without proofs attached and returns a verificationResult in the response body.
       operationId: verifyPresentation
-      servers: [{url:"Verification Coordinator"}]
+      x-expectedCaller: "Verification Coordinator"
       description: Verifies a verifiablePresentation and returns a verificationResult in the response body.  Given the possibility of denial of service, buffer overflow, or other style attacks, an implementation is permitted to rate limit or restrict requests against this API endpoint to those requests that contain only a single credential with a 413 or 429 error code as appropriate.
       requestBody:
         content:
