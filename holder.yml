@@ -22,6 +22,7 @@ paths:
        - oAuth2: []
        - zCap: []
       summary: Gets a credential or verifiable credential by ID. To get a credential that does not have credential.id set but has an associated credentialId value, pass credentialId instead.
+      x-expectedCaller: "Issuer Coordinator"
       operationId: getCredential
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
@@ -56,6 +57,7 @@ paths:
        - oAuth2: []
        - zCap: []
       summary: Deletes a credential or verifiable credential by ID. To delete a credential that does not have credential.id set but has an associated credentialId value, pass credentialId instead.
+      x-expectedCaller: "Issuer Coordinator"
       operationId: deleteCredential
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
@@ -84,6 +86,7 @@ paths:
        - zCap: []
       summary: Gets list of credentials or verifiable credentials
       operationId: getCredentials
+      x-expectedCaller: "Holder Coordinator or Issuer Coordinator"
       parameters:
         - in: query
           name: type
@@ -125,6 +128,7 @@ paths:
       summary: Derives a credential and returns it in the response body.
       operationId: deriveCredential
       description: Derives a credential and returns it in the response body.
+      x-expectedCaller: "Holder Coordinator"
       requestBody:
         content:
           application/json:
@@ -155,6 +159,7 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: getPresentation
+      x-expectedCaller: "Holder Coordinator"
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
@@ -187,6 +192,7 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: deletePresentation
+      x-expectedCaller: "Holder Coordinator"
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
@@ -214,6 +220,7 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: getPresentations
+      x-expectedCaller: "Holder Coordinator"
       parameters:
         - in: query
           name: type
@@ -253,6 +260,7 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: createPresentation
+      x-expectedCaller: "Holder Coordinator"
       description: Creates a presentation and returns it in the response body.
       requestBody:
         content:

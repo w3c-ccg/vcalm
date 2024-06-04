@@ -14,6 +14,36 @@ function getEndpoint({apis, path}) {
   return endpoint;
 }
 
+function buildComponentTables({config, document, apis}) {
+  const apiTables = document.querySelectorAll("table.api-component-table");
+
+  // process every table
+  for(const table of apiTables) {
+    // set up the API component table headers
+    const tableHeader = document.createElement('tr');
+    tableHeader.innerHTML = '<th>Endpoint</th><th>Expected Caller</th>';
+    table.appendChild(tableHeader);
+
+    // summarize each API endpoint
+    for(const path of table.dataset.apiPath.split(/\s+/)) {
+      if(path.trim().length > 0) {
+        const endpoint = getEndpoint({apis, path});
+        for(const verb in endpoint) {
+          var expectedCaller = endpoint[verb]['x-expectedCaller'];
+          const tableRow = document.createElement('tr');
+          if(expectedCaller === undefined)
+          {
+            expectedCaller = "Expected Caller Undefined";;
+          }
+          tableRow.innerHTML =
+            `<td>${verb.toUpperCase()}&nbsp;${path}</td><td>${expectedCaller}</td>`;
+          table.appendChild(tableRow);
+        }
+      }
+    }
+  }
+}
+
 function buildApiSummaryTables({config, document, apis}) {
   const apiTables = document.querySelectorAll("table.api-summary-table");
 
@@ -342,6 +372,7 @@ async function injectOas(config, document) {
 
     buildApiSummaryTables({config, document, apis});
     buildEndpointDetails({config, document, apis});
+    buildComponentTables({config, document, apis});
   } catch(err) {
     console.error(err);
   }

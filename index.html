@@ -687,6 +687,62 @@ All entity bodies in requests and responses sent to or received from the API end
     </section>
 
     <section>
+      <h3>API Component Overview</h3>
+        <p>
+          This section gives an overview of all endpoints in the VC-API by the component the endpoint is expected be callable from. 
+          If a component does not have a listing below it means the VC-API does not currently specify any endpoints for that component. 
+        </p>
+
+      <h4>Issuer Coordinator</h4>
+      <p>
+        Below are all endpoints expected to be exposed by the Issuer Coordinator, along with the component
+        that is expected to call the endpoint
+      </p>
+      <table class="simple api-component-table"
+        data-api-path="/credentials"></table>
+      
+      <h4>Issuer Service</h4>
+      <p>
+        Below are all endpoints expected to be exposed by the Issuer Service, along with the component
+        that is expected to call the endpoint
+      </p>
+      <table class="simple api-component-table"
+        data-api-path="/credentials/issue /credentials /credentials/{id}"></table>
+      
+      <h4>Status Service</h4>
+      <p>
+        Below are all endpoints expected to be exposed by the Status Service, along with the component
+        that is expected to call the endpoint
+      </p>
+      <table class="simple api-component-table"
+        data-api-path="/credentials/status"></table>
+      
+      <h4>Verification Service</h4>
+      <p>
+        Below are all endpoints expected to be exposed by the Verification Service, along with the component
+        that is expected to call the endpoint
+      </p>
+      <table class="simple api-component-table"
+        data-api-path="/credentials/verify /presentations/verify /challenges"></table>
+      
+      <h4>Holder Service</h4>
+      <p>
+        Below are all endpoints expected to be exposed by the Holder Service, along with the component
+        that is expected to call the endpoint
+      </p>
+      <table class="simple api-component-table"
+        data-api-path="/credentials/derive /presentations/prove /presentations /presentations/{id}"></table>
+      
+      <h4>Workflow Service</h4>
+      <p>
+        Below are all endpoints expected to be exposed by the Workflow Service, along with the component
+        that is expected to call the endpoint
+      </p>
+      <table class="simple api-component-table"
+        data-api-path="/workflows /workflows/{localWorkflowId} /workflows/{localWorkflowId}/exchanges /workflows/{localWorkflowId}/exchanges/{localExchangeId}"></table>
+      
+    </section>
+    <section>
       <h3>Issuing</h3>
       <p>
 The following APIs are defined for issuing a Verifiable Credential:
