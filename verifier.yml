@@ -39,8 +39,6 @@ paths:
                 $ref: "#/components/schemas/VerifyCredentialResponse"
         "400":
           description: invalid input!
-        "500":
-          description: error!
   /presentations/verify:
     post:
       summary: Verifies a Presentation with or without proofs attached and returns a verificationResult in the response body.
@@ -73,8 +71,6 @@ paths:
           description: Payload too large
         "429":
           description: Request rate limit exceeded.
-        "500":
-          description: Internal Server Error
   /challenges:
     post:
       summary: Passing an empty body to this endpoint creates and returns a challenge string in the response body.
@@ -93,8 +89,6 @@ paths:
                 $ref: "#/components/schemas/CreateChallengeResponse"
         "400":
           description: Invalid or malformed input
-        "500":
-          description: Internal server error
 components:
   securitySchemes:
     $ref: "./components/SecuritySchemes.yml#/components/securitySchemes"
