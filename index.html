@@ -1276,8 +1276,8 @@ Connection: keep-alive
         Errors are `ProblemDetails` relating to cryptography, data model and malformed context.
         Warnings are `ProblemDetails` relating to statuses and validity periods.
 
-        The `VerificationResponse` object MUST have the `verified` value set to `false` if an error is included.
-        The `VerificationResponse` object MUST have the `verified` value set to `true` if no errors are included.
+        If an error is included, the `verified` property of the `VerificationResponse` object MUST be set to `false`.
+        If no errors are included, the `verified` property of the `VerificationResponse` object MUST be set to `true`.
 
         <pre class="example"
           title="Verification Response">
