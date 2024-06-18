@@ -45,10 +45,6 @@ paths:
           description: Gone! There is no data here
         "418":
           description: I'm a teapot - MUST not be returned outside of pre-arranged scenarios between both parties
-        "500":
-          description: Internal Error
-        "501":
-          description: Not Implemented
     delete:
       tags:
        - Credentials
@@ -72,10 +68,6 @@ paths:
           description: Credential not found
         "410":
           description: Gone! There is no data here
-        "500":
-          description: Internal Error
-        "501":
-          description: Not Implemented
   /credentials:
     get:
       tags:
@@ -113,10 +105,6 @@ paths:
           description: Not Authorized
         "410":
           description: Gone! There is no data here
-        "500":
-          description: Internal Error
-        "501":
-          description: Not Implemented
   /credentials/derive:
     post:
       tags:
@@ -144,10 +132,6 @@ paths:
                 $ref: "#/components/schemas/DeriveCredentialResponse"
         "400":
           description: Invalid Request
-        "500":
-          description: Internal Error
-        "501":
-          description: Not Implemented
 
   /presentations/{id}:
     get:
@@ -179,10 +163,6 @@ paths:
           description: Presentation not found
         "410":
           description: Gone! There is no data here
-        "500":
-          description: Internal Error
-        "501":
-          description: Not Implemented
     delete:
       tags:
        - Presentations
@@ -206,10 +186,6 @@ paths:
           description: Presentation not found
         "410":
           description: Gone! There is no data here
-        "500":
-          description: Internal Error
-        "501":
-          description: Not Implemented
   /presentations:
     get:
       tags:
@@ -247,10 +223,6 @@ paths:
           description: Not Authorized
         "410":
           description: Gone! There is no data here
-        "500":
-          description: Internal Error
-        "501":
-          description: Not Implemented
     post:
       summary: Creates a presentation and returns it in the response body.
       tags:
@@ -277,8 +249,6 @@ paths:
                 $ref: "#/components/schemas/CreatePresentationResponse"
         "400":
           description: invalid input!
-        "500":
-          description: error!
   /exchanges:
     get:
       summary: Provides a discovery endpoint for the exchanges supported by this server endpoint.
@@ -385,8 +355,6 @@ paths:
                 }
         "400":
           description: invalid input
-        "500" :
-          description: error
 
   /exchanges/{exchange-id}:
     post:
@@ -434,10 +402,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
-        "501":
-          description: Service not implemented.
-        "500":
-          description: Internal server error.
   /exchanges/{exchange-id}/{transaction-id}:
     post:
       summary: Receives information related to an existing exchange.
@@ -480,10 +444,6 @@ paths:
                 $ref: "#/components/schemas/ErrorResponse"
         "404":
           description: The associated exchange or transaction was not found.
-        "500":
-          description: Internal server error.
-        "501":
-          description: Service not implemented.
 
 components:
   securitySchemes:

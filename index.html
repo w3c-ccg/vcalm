@@ -464,6 +464,7 @@ timeliness of the VC; leaving the Verifier Coordinator to finish Applying any bu
             (Verifier) &bull; Storage Service (Holder)
           </strong>
         </p>
+      </section>
       <section>
         <h3>Workflow Service</h3>
         <p>
@@ -1231,6 +1232,65 @@ Connection: keep-alive
 }
         </pre>
       </section>
+    </section>
+
+    <section>
+      <h3>Error Handling</h3>
+      <p>
+        Error handling and messaging in the VC-API aligns with Problem Details for HTTP APIs [[RFC9457]]. 
+        Implementers SHOULD include a status and a title in the error response body 
+        relating to the specifics of the endpoint on which the error occurs. 
+      <p>
+      <p>
+        Aligning on error handling and messaging will greatly improve test-suites accuracy 
+        when identifying technical friction impacting interoperability.
+      </p>
+      </p>
+        Leveraging other fields such as detail, instance and type is encouraged, 
+        to provide more contextual feedback about the error, 
+        while being conscious of security concerns and hence not disclosing sensitive information.
+      </p>
+      <p>
+        Implementers should handle all server errors to the best of their capabilities. 
+        Endpoints should avoid returning improperly handled 500 errors in production 
+        environments, as these may lead to information disclosure.
+      </p>
+      <h4>Relationship between verification, validation and error handling</h4>
+      <p>
+        It is recommended to avoid raising errors while performing verification, 
+        and instead gather ProblemDetails objects to include in the verification results.
+      </p>
+      <h4>Types of ProblemDetails</h4>
+        An implementer can refer to the [[VC-DATA-MODEL-2.0]] and the [[VC-BITSTRING-STATUS-LIST]] for currently defined ProblemDetails types.
+        <pre class="example"
+          title="ProblemDetails">
+          {
+            "type": "https://www.w3.org/TR/vc-data-model#CRYPTOGRAPHIC_SECURITY_ERROR",
+            "status": 400,
+            "title": "CRYPTOGRAPHIC_SECURITY_ERROR",
+            "detail": "The cryptographic security mechanism couldn't be verified. This is likely due to a malformed proof or an invalid verificationMethod."
+          }
+        </pre>
+      <h4>Verification Response</h4>
+        <h5>Errors and Warnings</h5>
+        Errors are `ProblemDetails` relating to cryptography, data model and malformed context.
+        Warnings are `ProblemDetails` relating to statuses and validity periods.
+
+        The `VerificationResponse` object MUST have the `verified` value set to `false` if an error is included.
+        The `VerificationResponse` object MUST have the `verified` value set to `true` if no errors are included.
+
+        <pre class="example"
+          title="Verification Response">
+          {
+            "verified": false,
+            "document": verifiableCredential,
+            "mediaType": "application/vc",
+            "controller": issuer,
+            "controllerDocument": didDocument,
+            "warnings": [ProblemDetails],
+            "errors": [ProblemDetails]
+          }
+        </pre>
     </section>
 
   </section>
