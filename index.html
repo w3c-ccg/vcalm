@@ -1273,11 +1273,11 @@ Connection: keep-alive
         </pre>
       <h4>Verification Response</h4>
         <h5>Errors and Warnings</h5>
-        Errors are `ProblemDetails` relating to cryptography, data model and malformed context.
+        Errors are `ProblemDetails` relating to cryptography, data model, and malformed context.
         Warnings are `ProblemDetails` relating to statuses and validity periods.
 
-        If an error is included, the `verified` property of the `VerificationResponse` object MUST be set to `false`.
-        If no errors are included, the `verified` property of the `VerificationResponse` object MUST be set to `true`.
+        If an error is included, the `verified` property of the `VerificationResponse` object
+        MUST be set to `false`; if no errors are included, it MUST be set to `true`.
 
         <pre class="example"
           title="Verification Response">
