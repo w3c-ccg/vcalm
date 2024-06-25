@@ -686,7 +686,16 @@ properties.
 All entity bodies in requests and responses sent to or received from the API endpoints defined by this specification MUST be serialized as JSON and include the `Content-Type` header with a media type value of `application/json`. 
       </p>
     </section>
-
+    <section>
+      <h3>Handling Unknown Options and Data</h3>
+      <p>
+Many of the endpoints defined in the following sections receive data and options in request bodies.
+      </p>
+      <p>
+Implementations MUST throw an error if an endpoint receives data, options, or option values that it
+does not understand or know how to process.
+      </p>
+    </section>
     <section>
       <h3>API Component Overview</h3>
         <p>
