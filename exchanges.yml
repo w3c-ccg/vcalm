@@ -132,8 +132,7 @@ paths:
           description: Internal Error
     post:
       summary: Participate in an exchange. Posting an empty body will start the exchange or return
-        what the exchange is expecting to complete the next step. Posting a Verifiable Presentation Request
-        to start the exchange will result in either a Verifiable Presentation or a Verifiable 
+        to start the exchange will result in either a Verifiable Presentation, a Verifiable 
         Presentation Request that conforms to the client's request, or a 4xx error.
       tags:
         - Credentials
