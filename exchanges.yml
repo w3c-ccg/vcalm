@@ -131,7 +131,11 @@ paths:
         "500":
           description: Internal Error
     post:
-      summary: Participate in an exchange. Posting an empty body will start the exchange or return what the exchange is expecting to complete the next step.
+      summary: Participate in an exchange. Posting an empty body will start the exchange or return
+        what the exchange is expecting to complete the next step. Posting a Verifiable Presentation Request with `query.type`
+        set to "VerifiablePresentationRequest" to start the exchange will result in either a Verifiable Presentation Request 
+        response from the server, if the server will need a Verifiable Presentation from the client during the exchange, or a
+        400 error if the server will issue in response to an empty body.
       tags:
         - Credentials
       security:
@@ -148,9 +152,15 @@ paths:
         content:
           application/json:
             schema:
-              properties:
-                verifiablePresentation:
-                  $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+              oneOf:
+                - type: object
+                  properties:
+                    verifiablePresentationRequest:
+                      $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
+                - type: object
+                  properties:
+                    verifiablePresentation:
+                      $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
       responses:
         "200":
           description: Exchange progressed.
