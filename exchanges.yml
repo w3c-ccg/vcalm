@@ -133,9 +133,8 @@ paths:
     post:
       summary: Participate in an exchange. Posting an empty body will start the exchange or return
         what the exchange is expecting to complete the next step. Posting a Verifiable Presentation Request
-        to start the exchange will result in either a Verifiable Presentation Request response from the server,
-        if the server will need a Verifiable Presentation from the client during the exchange, or a
-        4XX error if the server will issue in response to an empty body.
+        to start the exchange will result in either a Verifiable Presentation or a Verifiable 
+        Presentation Request that conforms to the client's request, or a 4xx error.
       tags:
         - Credentials
       security:
