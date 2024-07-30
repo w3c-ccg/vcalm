@@ -14,7 +14,7 @@ tested and verified by various parties who leverage Verifiable Credentials
 
 You can view the latest version of the specification here:
 
-[The Verifiable Credential API](https://github.com/w3c-ccg/vc-api/)
+[The Verifiable Credential API](https://w3c-ccg.github.io/vc-api/)
 
 As some implementations might not support all endpoints defined by this
 specification, the APIs provide a clean measure by which to identify which
