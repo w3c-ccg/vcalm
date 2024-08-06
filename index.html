@@ -1019,11 +1019,11 @@ sequenceDiagram
     autonumber
     Note right of H: Start exchange
     W->>I: Initiate
-    Note right of W: POST /exchanges/123 - HTTP request to start exchange (e.g., send credentials, get credentials)
+    Note right of W: POST /workflows/123/exchanges/123 - HTTP request to start exchange (e.g., send credentials, get credentials)
     I->>W: Verifiable Presentation Request (VPR)
     Note left of I: VPR includes method of interaction, for purposes of exchange
     W->>I: Verifiable Presentation (VP)
-    Note right of W: POST /exchanges/123/session-abc - sent via interaction mechanism to meet requirements of exchange
+    Note right of W: POST /workflows/123/exchanges/123/session-abc - sent via interaction mechanism to meet requirements of exchange
     I->>W: Verifiable Presentation
     Note left of I: VP includes result of exchange (e.g., VCs), or VPR with new interaction request, or error description
           </pre>
