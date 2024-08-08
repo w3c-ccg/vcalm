@@ -237,11 +237,6 @@ components:
               type: object
               description: Information about the steps required for the workflow. Returning stepInformation is REQUIRED.
               properties:
-                exchanges:
-                  type: array
-                  description: The identifiers of the current exchanges associated with the workflow instance.
-                  items:
-                    type: string
                 steps:
                   type: object
                   description: One or more steps required to complete an exchange on the workflow.
