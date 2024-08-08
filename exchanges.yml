@@ -223,7 +223,7 @@ components:
     CreateWorkflowResponse:
       type: object
       additionalProperties: false
-      description: Response containing the workflowData Object created.
+      description: Response containing the created workflowData Object.
       properties:
         workflowData:
           type: object
