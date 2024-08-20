@@ -183,7 +183,7 @@ components:
       additionalProperties: false
       description: Object containing information for creating a workflow.
       properties:
-        workflowData:
+        config:
           type: object
           additionalProperties: false
           description: Object containing information for creating a workflow.
@@ -223,9 +223,9 @@ components:
     CreateWorkflowResponse:
       type: object
       additionalProperties: false
-      description: Response containing the created workflowData Object.
+      description: Response containing the created workflow config Object.
       properties:
-        workflowData:
+        config:
           type: object
           additionalProperties: false
           description: Object containing information about a created workflow.
@@ -269,7 +269,7 @@ components:
       additionalProperties: false
       description: Object containing information about a workflow.
       properties:
-        workflowData:
+        config:
           type: object
           additionalProperties: false
           description: Object containing information about a created workflow.
