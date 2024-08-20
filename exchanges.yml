@@ -233,23 +233,19 @@ components:
             id:
               type: string
               description: The URL that uniquely identifies the created workflow.
-            stepInformation:
+            steps:
               type: object
-              description: Information about the steps required for the workflow. Returning stepInformation is REQUIRED.
+              description: One or more steps required to complete an exchange on the workflow.
               properties:
-                steps:
+                stepName:
                   type: object
-                  description: One or more steps required to complete an exchange on the workflow.
+                  description: The name of the step.
                   properties:
-                    stepName:
-                      type: object
-                      description: The name of the step.
-                      properties:
-                        step:
-                          $ref: "#/components/schemas/WorkflowStep"
-                initialStep:
-                  type: string
-                  description: The step from the above set that the exchange starts on.
+                    step:
+                      $ref: "#/components/schemas/WorkflowStep"
+            initialStep:
+              type: string
+              description: The step from the above set that the exchange starts on.
             controller:
               type: string
               description: The controller of the instance. Returning controller is OPTIONAL.
@@ -278,28 +274,24 @@ components:
           additionalProperties: false
           description: Object containing information about a created workflow.
           properties:
-            stepInformation:
+            exchanges:
+              type: array
+              description: The identifiers of the current exchanges associated with the workflow instance.
+              items:
+                type: string
+            steps:
               type: object
-              description: Information about the steps required for the workflow. Returning stepInformation is REQUIRED.
+              description: One or more steps required to complete an exchange on the workflow.
               properties:
-                exchanges:
-                  type: array
-                  description: The identifiers of the current exchanges associated with the workflow instance.
-                  items:
-                    type: string
-                steps:
+                stepName:
                   type: object
-                  description: One or more steps required to complete an exchange on the workflow.
+                  description: The name of the step.
                   properties:
-                    stepName:
-                      type: object
-                      description: The name of the step.
-                      properties:
-                        step:
-                          $ref: "#/components/schemas/WorkflowStep"
-                initialStep:
-                  type: string
-                  description: The step from the above set that the exchange starts on.
+                    step:
+                      $ref: "#/components/schemas/WorkflowStep"
+            initialStep:
+              type: string
+              description: The step from the above set that the exchange starts on.
             controller:
               type: string
               description: The controller of the instance. Returning controller is OPTIONAL.
