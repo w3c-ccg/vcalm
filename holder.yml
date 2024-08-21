@@ -469,7 +469,11 @@ components:
       type: object
       properties:
         verifiablePresentation:
-          $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+          type: object
+          description: A JSON-LD Verifiable Presentation with a proof.
+          oneOf:
+            - $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+            - $ref: "./components/EnvelopedVerifiablePresentation.yml#/components/schemas/EnvelopedVerifiablePresentation"
     NotifyPresentationAvailableRequest:
       type: object
       properties:

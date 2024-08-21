@@ -1,0 +1,35 @@
+openapi: 3.0.0
+info:
+  version: "0.0.3-unstable"
+  title: VC API
+  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
+  license:
+    name: W3C Software and Document License
+    url: http://www.w3.org/Consortium/Legal/copyright-software.
+  contact:
+    name: GitHub Source Code
+    url: https://github.com/w3c-ccg/vc-api
+paths:
+components:
+  schemas:
+    EnvelopedVerifiablePresentation:
+      type: object
+      description: An object used to express an enveloped verifiable presentation.
+      properties:
+        "@context":
+          type: array
+          description: The JSON-LD context of the enveloped verifiable presentation.
+          items:
+            type: string
+        "id":
+          type: string
+          description: This MUST be a "data:" scheme URL [RFC2397] that expresses a secured verifiable presentation using an enveloping security scheme.
+        "type":
+          type: string
+          description: This MUST be EnvelopedVerifiablePresentation.
+      example:
+        {
+          "@context": "https://www.w3.org/ns/credentials/v2",
+          "id": "data:application/vp+jwt,eyJraWQiO...zhwGfQ",
+          "type": "EnvelopedVerifiablePresentation"
+        }
