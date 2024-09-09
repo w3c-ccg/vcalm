@@ -922,11 +922,11 @@ credentials. Examples of VC API workflows include, but are not limited to:
       </p>
       <ul class="bullet">
         <li>
-Issuing an employee membership credential to an employee who has logged into a
+Issuing an employee membership credential to an employee who has logged in to a
 coordinator website.
         </li>
         <li>
-Issuing a vehicle title credential in exchange for the presentation of a
+Issuing a vehicle title credential after receiving a presentation of a
 driver's license credential.
         </li>
         <li>
@@ -945,9 +945,9 @@ is not limited to, information about the steps that define the workflow and any
 credential templates that will be used to issue verifiable credentials. The
 steps that define the workflow might also be templates, enabling additional
 flexibility. If a workflow involves the issuance of verifiable credentials, or
-the verification presentations or credentials, then the workflow instance
+the verification of presentations or credentials, then the workflow instance
 configuration can include authorization capabilities to use one or more VC API
-issuer and / or verification services.
+issuer and/or verification services.
       </p>
       <p>
 Once a workflow instance exists, authorization to create and query particular
@@ -994,7 +994,7 @@ to have and that the exchange client is not.
       <p>
 How the exchange URL is transmitted from a coordinator to an exchange client is
 out of scope for this specification. Known mechanisms for sharing the exchange
-URL with the client include using the Credential Handler API (aka CHAPI), a QR
+URL with the client include the Credential Handler API (aka CHAPI), a QR
 code, or a universal link.
       </p>
       <p>
@@ -1003,7 +1003,7 @@ also designed to be executable with additional protocols. For example, an
 exchange could potentially also be executable via protocols such as OID4VCI,
 OID4VP, and DIDComm. Which protocols are supported depend on the workflow
 service implementation, the complexity of the workflow the exchange is based
-off of, and the options provided by the coordinator when the exchange was
+on, and the options provided by the coordinator when the exchange was
 created.
       </p>
       <p>
@@ -1014,8 +1014,8 @@ indicating that the VC API protocol ought to be used. Alternatively, the
 exchange URL could be included as the "credential_issuer" in an OID4VCI
 credential offer, or as the "client_id" of an OID4VP authorization request,
 indicating that OID4VCI or OID4VP, respectively, ought to be used. This section
-focuses on how an exchange client uses VC API to interact with the exchange,
-but see appendix X to see how to combine VC API exchanges with other protocols
+focuses on how an exchange client uses VC API to interact with the exchange;
+see appendix __** fill me in! **__ to see how to combine VC API exchanges with other protocols
 such as OID4VCI, OID4VP, and DIDComm.
       </p>
       <p>
@@ -1025,37 +1025,37 @@ object that includes zero or more of the following properties and values:
       </p>
       <ul class="bullet">
         <li>
-`verifiablePresentationRequest`: A Verifiable Presentation Request. This is
-used by one party in the exchange to request information from the other party.
-        </li>
-        <li>
-`verifiablePresentation`: A Verifiable Presentation. This is used by one party
-to provide information requested by the other party or simply offered by the
-sender.
-        </li>
-        <li>
 `redirectUrl`: A URL that can be used to continue an interaction at another
-location. One use case for this is to redirect the user of an exchange client
+location. One use case for this is to send the user of an exchange client
 back to a coordinator website after an exchange has completed.
         </li>
         <li>
-Any custom properties and values might also be included, but are expected to
-trigger errors in implementations if they are not recognized.
+`verifiablePresentation`: A Verifiable Presentation. This is used by one party
+in an exchange to provide information to the other party, either because the
+latter requested it or because the former is simply offering it.
+        </li>
+        <li>
+`verifiablePresentationRequest`: A Verifiable Presentation Request. This is
+used by one party in an exchange to request information from the other party.
         </li>
       </ul>
       <p>
-To initiate the exchange using the VC API protocol, the exchange client
-performs an HTTP POST sending a JSON object as the request body. In the
-simplest case, the JSON object is empty (`{}`), for the case when the client
-has no constraints of its own on the exchange, i.e., it has nothing to request
-from the other party. The workflow service responds with its own JSON object
-in the response body.
+Custom properties and values might also be included, but are expected to
+trigger errors in implementations that do not recognize them.
       </p>
       <p>
-If that object is empty, the exchange is complete and nothing is requested nor
-offered to the exchange client. If the object includes
+To initiate an exchange using the VC API protocol, an exchange client
+performs an HTTP POST sending a JSON object as the request body. In the
+simplest case, when the client has no constraints of its own on the exchange
+&mdash; i.e., it has nothing to request from the other party &mdash; the
+JSON object is empty (`{}`). The workflow service responds with its own JSON
+object in the response body.
+      </p>
+      <p>
+If that response object is empty, the exchange is complete and nothing is
+requested from nor offered to the exchange client. If the object includes
 `verifiablePresentationRequest`, then the exchange is not yet complete and
-some additional information is requested, based on the contents of the
+some additional information is requested, as specified by the contents of the
 associated verifiable presentation request. If the object includes
 `verifiablePresentation`, then some information is offered, such as issued
 verifiable credentials or verifiable credentials provided in response to the
@@ -1064,26 +1064,26 @@ is complete and the workflow service recommends that the client proceed to
 another place to continue the interaction in another form.
       </p>
       <p>
-Using these basic primitives, many verifiable credential use cases can be
-implemented. Either exchange party is capable of requesting verifiable
-presentations with one or more verifiable credentials that are required to
-establish trust or gain authorization capabilities and either party is
-capable of presenting credentials of their own or that they have issued.
-Specific workflows can be configured to expect specific presentations and
-credentials and reject deviations from the expected flow of information. When
-a workflow service determines that a particular message is not acceptable, it
-raises an error by responding with a `4xx` HTTP status message and a JSON error
-object that expresses information about the error.
+Many verifiable credential use cases can be implemented using these basic
+primitives. Either party to an exchange is capable of requesting verifiable
+presentations and of providing one or more verifiable credentials that might
+be necessary to establish trust and/or gain authorization capabilities, and
+either party is capable of presenting credentials that they hold or that they
+have issued. Specific workflows can be configured to expect specific
+presentations and credentials and to reject deviations from the expected flow
+of information. When a workflow service determines that a particular message
+is not acceptable, it raises an error by responding with a `4xx` HTTP status
+message and a JSON error object that expresses information about the error.
       </p>
       <p>
-Therefore, the VC API exchange design approach is layered: it aims to provide
-a minimal communication message layer and set of primitives that enable most
-use cases to be implemented via specific verifiable presentation requests and
-verifiable credentials at a layer above. See the appendices below for examples
-of workflows and exchanges that use specific verifiable presentation requests
-and verifiable credentials. <span class="issue">These examples will be
-added later.</span>
+The VC API exchange design approach is layered: it aims to provide a minimal
+communication message layer and a set of primitives that enable most use cases
+to be implemented via specific verifiable presentation requests and verifiable
+credentials at a layer above. See the appendices that follow for examples of
+workflows and exchanges that use specific verifiable presentation requests and
+verifiable credentials.
       </p>
+      <span class="issue">These examples will be added later.</span>
       <p>
 The following APIs are defined for using workflows and exchanges for credential use cases that require crossing trust boundaries:
       </p>
