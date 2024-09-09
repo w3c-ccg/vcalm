@@ -927,12 +927,183 @@ the exchange discovery endpoint.
     <section>
       <h3>Workflows and Exchanges</h3>
       <p>
+A VC API workflow defines a particular set of steps for exchanging verifiable
+credentials between two parties across a trust boundary. Each step can involve
+the issuance, verification, transmission, or presentation of verifiable
+credentials. Examples of VC API workflows include, but are not limited to:
+      </p>
+      <ul class="bullet">
+        <li>
+Issuing an employee membership credential to an employee who has logged into a
+coordinator website.
+        </li>
+        <li>
+Issuing a vehicle title credential in exchange for the presentation of a
+driver's license credential.
+        </li>
+        <li>
+Verification of the presentation of a permanent resident credential.
+        </li>
+        <li>
+Receipt of newly issued, single use proof of age credentials.
+        </li>
+      </ul>
+      <p>
+Workflow instances are expected to be created by administrators, for use with,
+for example, coordinator websites. A workflow instance is created by performing
+an HTTP POST to the workflow service's `/workflows` endpoint. The HTTP request
+body includes the configuration for the workflow instance. This includes, but
+is not limited to, information about the steps that define the workflow and any
+credential templates that will be used to issue verifiable credentials. The
+steps that define the workflow might also be templates, enabling additional
+flexibility. If a workflow involves the issuance of verifiable credentials, or
+the verification presentations or credentials, then the workflow instance
+configuration can include authorization capabilities to use one or more VC API
+issuer and / or verification services.
+      </p>
+      <p>
+Once a workflow instance exists, authorization to create and query particular
+workflow interactions, called VC API exchanges, can be given to coordinators.
+      </p>
+      <p>
+A VC API exchange represents a particular interaction based on a given VC API
+workflow. The interaction will take place between an exchange client and the
+workflow service. Exchanges are expected to be transitory, only existing as
+long as the interaction takes to complete. The workflow service stores state
+information about each exchange such as whether the exchange is pending,
+active, or complete, as well as the current step in the workflow, any
+workflow-specific variables and data, and any verifiable presentations and
+credentials received while the exchange executes.
+      </p>
+      <p>
+An issuer, verifier, or holder coordinator is responsible for creating
+exchanges. The coordinator creates an exchange by performing an HTTP POST to
+the `/exchanges` subpath of a chosen workflow, on the workflow service. The
+HTTP request body includes a time-to-live (TTL) for the exchange and any
+variables to be used to populate the workflow's templates for the particular
+exchange. The request body can also include configuration options to enable the
+exchange to be executed using additional protocols beyond VC API. Once the
+exchange is created, an exchange URL that identifies the exchange and enables
+interaction with it is returned to the coordinator.
+      </p>
+      <p>
+The exchange URL is given to the exchange client so that it can initiate the
+exchange. Initiating the exchange does not require any authorization beyond the
+exchange URL. Depending on the workflow service implementation, exchange URLs
+can also be capability URLs (i.e., the URL is an unguessable secret such that
+only whomever is given the URL can initiate the exchange). If the workflow that
+the exchange is based on requires any additional authorization beyond the
+possession of the exchange URL, this is to be obtained during the exchange,
+not at its initiation.
+      </p>
+      <p>
+The exchange URL can also be used by the coordinator to query the current
+state of the exchange as it progresses and to obtain information associated
+with the exchange that the workflow service has stored. Querying the exchange
+in this way requires additional authorization that the coordinator is expected
+to have and that the exchange client is not.
+      </p>
+      <p>
+How the exchange URL is transmitted from a coordinator to an exchange client is
+out of scope for this specification. Known mechanisms for sharing the exchange
+URL with the client include using the Credential Handler API (aka CHAPI), a QR
+code, or a universal link.
+      </p>
+      <p>
+VC API exchanges can be executed using the VC API exchange protocol but are
+also designed to be executable with additional protocols. For example, an
+exchange could potentially also be executable via protocols such as OID4VCI,
+OID4VP, and DIDComm. Which protocols are supported depend on the workflow
+service implementation, the complexity of the workflow the exchange is based
+off of, and the options provided by the coordinator when the exchange was
+created.
+      </p>
+      <p>
+The exchange client is expected to initiate the exchange using a protocol that
+is compatible with how the client received the exchange URL. For example, the
+exchange URL could have been provided over CHAPI with a protocol identifier
+indicating that the VC API protocol ought to be used. Alternatively, the
+exchange URL could be included as the "credential_issuer" in an OID4VCI
+credential offer, or as the "client_id" of an OID4VP authorization request,
+indicating that OID4VCI or OID4VP, respectively, ought to be used. This section
+focuses on how an exchange client uses VC API to interact with the exchange,
+but see appendix X to see how to combine VC API exchanges with other protocols
+such as OID4VCI, OID4VP, and DIDComm.
+      </p>
+      <p>
+Exchanges that are executed using the VC API protocol involve messages sent as
+request and response bodies over HTTP. Each message consists of a simple JSON
+object that includes zero or more of the following properties and values:
+      </p>
+      <ul class="bullet">
+        <li>
+`verifiablePresentationRequest`: A Verifiable Presentation Request. This is
+used by one party in the exchange to request information from the other party.
+        </li>
+        <li>
+`verifiablePresentation`: A Verifiable Presentation. This is used by one party
+to provide information requested by the other party or simply offered by the
+sender.
+        </li>
+        <li>
+`redirectUrl`: A URL that can be used to continue an interaction at another
+location. One use case for this is to redirect the user of an exchange client
+back to a coordinator website after an exchange has completed.
+        </li>
+        <li>
+Any custom properties and values might also be included, but are expected to
+trigger errors in implementations if they are not recognized.
+        </li>
+        <li>
+      </ul>
+      <p>
+To initiate the exchange using the VC API protocol, the exchange client
+performs an HTTP POST sending a JSON object as the request body. In the
+simplest case, the JSON object is empty (`{}`), for the case when the client
+has no constraints of its own on the exchange, i.e., it has nothing to request
+from the other party. The workflow service responds with its own JSON object
+in the response body.
+      </p>
+      <p>
+If that object is empty, the exchange is complete and nothing is requested nor
+offered to the exchange client. If the object includes
+`verifiablePresentationRequest`, then the exchange is not yet complete and
+some additional information is requested, based on the contents of the
+associated verifiable presentation request. If the object includes
+`verifiablePresentation`, then some information is offered, such as issued
+verifiable credentials or verifiable credentials provided in response to the
+exchange client's request. If the object includes `redirectUrl`, the exchange
+is complete and the workflow service recommends that the client proceed to
+another place to continue the interaction in another form.
+      </p>
+      <p>
+Using these basic primitives, many verifiable credential use cases can be
+implemented. Either exchange party is capable of requesting verifiable
+presentations with one or more verifiable credentials that are required to
+establish trust or gain authorization capabilities and either party is
+capable of presenting credentials of their own or that they have issued.
+Specific workflows can be configured to expect specific presentations and
+credentials and reject deviations from the expected flow of information. When
+a workflow service determines that a particular message is not acceptable, it
+raises an error by responding with a `4xx` HTTP status message and a JSON error
+object that expresses information about the error.
+      </p>
+      <p>
+Therefore, the VC API exchange design approach is layered: it aims to provide
+a minimal communication message layer and set of primitives that enable most
+use cases to be implemented via specific verifiable presentation requests and
+verifiable credentials at a layer above. See the appendices below for examples
+of workflows and exchanges that use specific verifiable presentation requests
+and verifiable credentials. <span class="issue">These examples will be
+added later.</span>
+      </p>
+      <p>
 The following APIs are defined for using workflows and exchanges for credential use cases that require crossing trust boundaries:
       </p>
 
       <table class="simple api-summary-table"
         data-api-path="/workflows /workflows/{localWorkflowId} /workflows/{localWorkflowId}/exchanges /workflows/{localWorkflowId}/exchanges/{localExchangeId}"></table>
-    
+
       <section>
         <h4>Create Workflow</h4>
         <p>
