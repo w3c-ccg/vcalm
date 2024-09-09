@@ -1058,11 +1058,12 @@ requested from nor offered to the exchange client. If the object includes
 `verifiablePresentationRequest`, then the exchange is not yet complete and
 some additional information is requested, as specified by the contents of the
 associated verifiable presentation request. If the object includes
-`verifiablePresentation`, then some information is offered, such as issued
-verifiable credentials or verifiable credentials provided in response to the
-exchange client's request. If the object includes `redirectUrl`, the exchange
-is complete and the workflow service recommends that the client proceed to
-another place to continue the interaction in another form.
+`verifiablePresentation`, then some information is offered, such as
+verifiable credentials issued to the holder operating the exchange client or
+verifiable credentials with information about the exchange server's operator
+based on the exchange client's request. If the object includes `redirectUrl`,
+the exchange is complete and the workflow service recommends that the client
+proceed to another place to continue the interaction in another form.
       </p>
       <p>
 Many verifiable credential use cases can be implemented using these basic
