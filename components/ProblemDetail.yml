@@ -12,7 +12,7 @@ info:
 paths:
 components:
   schemas:
-    ProblemDetail:
+    ProblemDetails:
       type:
         type: string
         description: URL identifying the type of problem.
