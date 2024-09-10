@@ -25,3 +25,9 @@ components:
       detail:
         type: string
         description: Longer human-readable string for the problem.
+      example: { 
+        "type": "https://www.w3.org/TR/vc-data-model#PARSING_ERROR", 
+        "code": -64, 
+        "title": "PARSING_ERROR", 
+        "detail": "There was an error while parsing input.", 
+      }
