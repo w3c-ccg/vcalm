@@ -933,7 +933,7 @@ driver's license credential.
 Verification of the presentation of a permanent resident credential.
         </li>
         <li>
-Receipt of newly issued, single use proof of age credentials.
+Receipt of one or more newly-issued single-use proof of age credentials.
         </li>
       </ul>
       <p>
@@ -998,13 +998,13 @@ URL with the client include the Credential Handler API (aka CHAPI), a QR
 code, or a universal link.
       </p>
       <p>
-VC API exchanges can be executed using the VC API exchange protocol but are
-also designed to be executable with additional protocols. For example, an
-exchange could potentially also be executable via protocols such as OID4VCI,
-OID4VP, and DIDComm. Which protocols are supported depend on the workflow
-service implementation, the complexity of the workflow the exchange is based
-on, and the options provided by the coordinator when the exchange was
-created.
+VC API exchanges are designed to be executable using other protocols in
+addition to the VC API exchange protocol; for example, an exchange could
+potentially be executable with any of the OID4VCI, OID4VP, DIDComm, and
+VC API exchange protocols. Which protocols are supported by a given workflow
+depend on the workflow service implementation, the complexity of the workflow
+the exchange is based on, and the options provided by the coordinator when
+the exchange was created.
       </p>
       <p>
 The exchange client is expected to initiate the exchange using a protocol that
