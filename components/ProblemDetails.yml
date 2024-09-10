@@ -16,9 +16,6 @@ components:
       type:
         type: string
         description: URL identifying the type of problem.
-      code:
-        type: integer
-        description: Integer that identifies the type of the problem.
       title:
         type: string
         description: Short but specific human-readable string for the problem.
@@ -27,7 +24,6 @@ components:
         description: Longer human-readable string for the problem.
       example: { 
         "type": "https://www.w3.org/TR/vc-data-model#PARSING_ERROR", 
-        "code": -64, 
         "title": "PARSING_ERROR", 
         "detail": "There was an error while parsing input.", 
       }
