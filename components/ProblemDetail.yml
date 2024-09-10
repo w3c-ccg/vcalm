@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  version: "0.0.3-unstable"
+  title: VC API
+  description: This is an Experimental Open API Specification for the [VC Data Model](https://www.w3.org/TR/vc-data-model/).
+  license:
+    name: W3C Software and Document License
+    url: http://www.w3.org/Consortium/Legal/copyright-software.
+  contact:
+    name: GitHub Source Code
+    url: https://github.com/w3c-ccg/vc-api
+paths:
+components:
+  schemas:
+    ProblemDetail:
+      type:
+        type: string
+        description: URL identifying the type of problem.
+      code:
+        type: integer
+        description: Integer that identifies the type of the problem.
+      title:
+        type: string
+        description: Short but specific human-readable string for the problem.
+      detail:
+        type: string
+        description: Longer human-readable string for the problem.
