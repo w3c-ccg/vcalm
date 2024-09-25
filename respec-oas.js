@@ -285,11 +285,16 @@ function renderJsonSchemaObject(schema) {
   } else if(schema.oneOf) {
     objectRendering += ' either ';
     let itemCount = 0;
-    for(item of schema.oneOf) {
+    for(const item of schema.oneOf) {
       if(item.type === 'string') {
         objectRendering += 'a string';
       } else if(item.type === 'object') {
         objectRendering += renderJsonSchemaObject(item);
+      } else if(item.type === 'array') {
+        objectRendering += 'an array';
+        if(item.items) {
+          objectRendering += ` of ${item.items.type}(s)`;
+        }
       }
 
       itemCount += 1;
@@ -307,7 +312,7 @@ function renderJsonSchemaObject(schema) {
       }
     } else {
       objectRendering += 'an object of the following form: <dl>';
-      for(property in schema.properties) {
+      for(const property in schema.properties) {
         const value = schema.properties[property];
         objectRendering += renderJsonSchemaProperty(property, value);
       }
