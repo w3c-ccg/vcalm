@@ -13,15 +13,17 @@ paths:
 components:
   schemas:
     ProblemDetails:
-      type:
-        type: string
-        description: URL identifying the type of problem.
-      title:
-        type: string
-        description: Short but specific human-readable string for the problem.
-      detail:
-        type: string
-        description: Longer human-readable string for the problem.
+      type: object
+      properties:
+        type:
+          type: string
+          description: URL identifying the type of problem.
+        title:
+          type: string
+          description: Short but specific human-readable string for the problem.
+        detail:
+          type: string
+          description: Longer human-readable string for the problem.
       example: { 
         "type": "https://www.w3.org/TR/vc-data-model#PARSING_ERROR", 
         "title": "PARSING_ERROR", 
