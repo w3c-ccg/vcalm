@@ -669,6 +669,18 @@ Other authorization mechanisms that support delegation might be defined in the f
 
     </section>
     <section>
+      <h3>Service Instances</h3>
+      <p>
+Service configuration MAY be determined by administrators on per instance basis.
+Instance configuration MAY include, but is not limited to, credential format, key options, credential status mechanisms, and/or credential templates.
+Administrators SHOULD configure service instances such that `options` included in client requests cannot result in incorrect action or problematic responses by the service.
+      </p>
+      <p>
+A coordinator instance MAY have access to multiple service instances in order to support different use cases.
+Runtime discovery of service instance configuration is not supported by the VC API as it is expected that services are known to coordinator at the time of coordinator deployment.
+      </p>
+    </section>
+    <section>
       <h3>Options</h3>
       <p>
 Some of the endpoints defined in the following sections accept an `options` object.
