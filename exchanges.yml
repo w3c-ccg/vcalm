@@ -386,35 +386,39 @@ components:
       additionalProperties: false
       description: Object containing information about an active exchange.
       properties:
-        exchangeId:
-          type: string
-          description: The URL that uniquely identifies the exchange.
-        ttl:
-          type: string
-          description: The time to live for the exchange.
-        nextStep:
-          type: string
-          description: The interaction the exchange is expecting to happen next.
-        completedSteps:
-          type: array
-          description: The steps completed by the exchange previously.
-          items:
-            type: string
-        state:
-          type: string
-          description: The status ("pending" | "complete" | "invalid") of the exchange, set to "pending" on creation.
-        variables:
-          type: array
-          description: Template variables to be used in the exchange.
-          items:
-            type: object
-            properties:
-              type:
+        exchange:
+          type: object
+          description: The active exchange.
+          properties:
+            exchangeId:
+              type: string
+              description: The URL that uniquely identifies the exchange.
+            ttl:
+              type: string
+              description: The time to live for the exchange.
+            nextStep:
+              type: string
+              description: The interaction the exchange is expecting to happen next.
+            completedSteps:
+              type: array
+              description: The steps completed by the exchange previously.
+              items:
                 type: string
-                description: The type of template.
-              template:
-                type: string
-                description: The template itself.
+            state:
+              type: string
+              description: The status ("pending" | "complete" | "invalid") of the exchange, set to "pending" on creation.
+            variables:
+              type: array
+              description: Template variables to be used in the exchange.
+              items:
+                type: object
+                properties:
+                  type:
+                    type: string
+                    description: The type of template.
+                  template:
+                    type: string
+                    description: The template itself.
     WorkflowStep:
       type: object
       description: Object containing information about a workflow step.
