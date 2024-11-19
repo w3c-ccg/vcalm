@@ -401,7 +401,7 @@ components:
               description: The current step in the exchange.
             state:
               type: string
-              description: The status ("pending" | "complete" | "invalid") of the exchange, set to "pending" on creation.
+              description: The status ("pending" | "active" | "complete" | "invalid") of the exchange, set to "pending" on creation.
             variables:
               type: object
               description: Template variables to be used in the exchange.
