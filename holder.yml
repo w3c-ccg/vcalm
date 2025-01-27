@@ -93,12 +93,15 @@ paths:
           content:
             application/json:
               schema:
-                type: array
+                type: object
                 description: The Credentials
-                items:
-                  anyOf:
-                    - $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
-                    - $ref: "./components/Credential.yml#/components/schemas/Credential"
+                properties:
+                  results:
+                    type: array
+                    items:
+                      anyOf:
+                        - $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+                        - $ref: "./components/EnvelopedVerifiableCredential.yml#/components/schemas/EnvelopedVerifiableCredential"
         "400":
           description: Bad Request
         "401":
