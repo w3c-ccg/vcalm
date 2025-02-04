@@ -1122,14 +1122,14 @@ verifiable credentials.
       </p>
       <span class="issue">These examples will be added later.</span>
       <p>
-VC API exchanges are expected to be short-lived but they can be combined with other mechanisms to enable longer interactions.
-Examples of other mechanisms include SMS, email, web notifications, or phone calls.
+A given interaction with a VC API exchange is expected to be short-lived but other mechanisms can be used to enable longer or multi-stage interactions.
+Examples of other interaction mechanisms include SMS, email, web notifications, or phone calls.
 This approach simplifies digital wallet implementation and allows
 existing mechanisms to be reused without reinvention within
 the VC API. The Web or native platforms are expected to enable
 additional interactions via applications (such as Web browsers)
 or other platform features.
-For example, in asynchronous issuance, a holder requests a credential but must wait for processing.
+For example, in asynchronous issuance, a holder requests a credential but waits for processing.
 In such cases, VC API components (such as an issuer coordinator) make
 use of mechanisms outside the VC API to notify the holder when their
 credential is ready for collection.
