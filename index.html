@@ -1295,7 +1295,7 @@ requires an individual to intervene.
       <p>
 When an implementation detects an anomaly while processing a document, a
 <dfn>ProblemDetails</dfn> object can be used to report the issue to other
-software systems. The interface for these objects follow [[RFC9457]]
+software systems. The interfaces for these objects follow [[RFC9457]]
 to encode the data. A [=ProblemDetails=] [=map=] consists of the following
 properties:
       </p>
@@ -1388,11 +1388,11 @@ instead gather ProblemDetails objects to include in the verification results.
         <h3>Verification Errors vs. Warnings</h3>
 
         <p>
-This specification defines a distinction between a verification error vs. a
+This specification defines a distinction between a verification error and a
 verification warning. Errors are `ProblemDetails` relating to cryptography,
 data model, and malformed context and are unrecoverable. Warnings are
-`ProblemDetails` relating to statuses and validity periods and might be
-recoverable or where the subsequent action is at the discretion of the
+`ProblemDetails` relating to status and validity periods and might be
+recoverable or leave the subsequent action to the discretion of the
 application.
         </p>
 
