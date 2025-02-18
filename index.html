@@ -672,13 +672,13 @@ Other authorization mechanisms that support delegation might be defined in the f
       <h3>Service Instances</h3>
       <p>
 The APIs defined in this specification presume that they are attached to a
-specific instance of some kind with an associated configuration that has been
-put in place by a systems administrator. When a client calls an endpoint on a
+specific instance with an associated configuration that has been
+put in place by a system administrator. When a client calls an endpoint on a
 particular instance, the instance uses the configuration and options provided by
 the client to execute the action.
       </p>
       <p>
-For example, the `/credentials/issue` endpoint is expected to be at the end of a
+For example, the `/credentials/issue` endpoint can be provided at the end of a
 longer URL such as `/instances/12345/credentials/issue`. In this case, it is the
 instance that is configured to know which cryptographic key to use for issuance,
 whether or not a status list is involved, the type of credential to issue, the
@@ -687,15 +687,16 @@ credential format, and what additional options are possible on the endpoint.
       <p>
 Software clients that call a particular instance might not have the capability
 to configure an instance, or be aware of the setup that the administrator did on
-the instance. Administration endpoints for configuring instances could be
+the instance other than the requisite details to make appropriate use of it.
+Administration endpoints for configuring instances could be
 provided by implementations but are not necessary to expose as HTTP APIs;
 configuration can also be done through configuration files or graphical
 interfaces.
       </p>
       <p class="note"
-         title="Use cases can use multiple instances for complex flows">
+         title="A coordinator can use multiple service instances">
 A coordinator instance can have access to multiple service instances in order to
-support different use cases. Runtime discovery of service instance configuration
+support different use cases or a use case with complex flows. Runtime discovery of service instance configuration
 is not supported by the VC API as services are expected to be known by the
 coordinator at the time of coordinator deployment.
       </p>
