@@ -259,11 +259,6 @@ components:
       additionalProperties: false
       description: Object containing information about a workflow.
       properties:
-        exchanges:
-          type: array
-          description: The identifiers of the current exchanges associated with the workflow instance.
-          items:
-            type: string
         steps:
           type: object
           description: One or more steps required to complete an exchange on the workflow.
