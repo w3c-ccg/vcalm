@@ -80,8 +80,10 @@ components:
       properties:
         credentialId:
           type: string
+          description: Identifies the credential (the identifier does not have to appear in the VC itself).
         credentialStatus:
           type: object
+          description: Identifies the specific status list entry to update.
           required: ['type', 'statusPurpose']
           additionalProperties: false
           properties:
@@ -97,6 +99,10 @@ components:
               type: string
         status:
           type: boolean
+          description: Specifies the new status.
+        indexAllocator:
+          type: string
+          description: For services to use which indexes are being used/assigned to VCs.
       example:
         {
           "credentialId": "0fc754bc-fc32-46a0-aec1-a5ef385e7ea0",
