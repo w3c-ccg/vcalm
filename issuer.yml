@@ -53,7 +53,7 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: updateCredentialStatus
-      x-expectedCaller: "Verifier Service"
+      x-expectedCaller: "Issuer Service"
       description: Updates the status of an issued credential.
       requestBody:
         content:
