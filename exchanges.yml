@@ -183,133 +183,118 @@ components:
       additionalProperties: false
       description: Object containing information for creating a workflow.
       properties:
-        config:
+        steps:
           type: object
-          additionalProperties: false
-          description: Object containing information for creating a workflow.
+          description: One or more steps required to complete an exchange on the workflow. Passing the steps object is REQUIRED.
           properties:
-            steps:
+            stepName:
               type: object
-              description: One or more steps required to complete an exchange on the workflow. Passing the steps object is REQUIRED.
+              description: The name of the step.
               properties:
-                stepName:
-                  type: object
-                  description: The name of the step.
-                  properties:
-                    step:
-                      $ref: "#/components/schemas/WorkflowStep"
-            initialStep:
-              type: string
-              description: The step from the above set that the exchange starts on. Passing intialStep is REQUIRED.
-            controller:
-              type: string
-              description: The controller of the instance. Passing controller is OPTIONAL.
-            authorization:
-              type: string
-              description: Authorization scheme information (e.g., OAuth2 configuration). Passing authorization is OPTIONAL.
-            credentialTemplates:
-              type: array
-              description: One or more VC templates for issuance. Passing credentialTemplates is OPTIONAL.
-              items:
-                type: object
-                properties:
-                  type:
-                    type: string
-                  template:
-                      type: string
-            id:
-              type: string
-              description: The ID that will be used for the created workflow. Passing an ID is OPTIONAL.
+                step:
+                  $ref: "#/components/schemas/WorkflowStep"
+        initialStep:
+          type: string
+          description: The step from the above set that the exchange starts on. Passing intialStep is REQUIRED.
+        controller:
+          type: string
+          description: The controller of the instance. Passing controller is OPTIONAL.
+        authorization:
+          type: string
+          description: Authorization scheme information (e.g., OAuth2 configuration). Passing authorization is OPTIONAL.
+        credentialTemplates:
+          type: array
+          description: One or more VC templates for issuance. Passing credentialTemplates is OPTIONAL.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              template:
+                  type: string
+        id:
+          type: string
+          description: The ID that will be used for the created workflow. Passing an ID is OPTIONAL.
     CreateWorkflowResponse:
       type: object
       additionalProperties: false
       description: Response containing the created workflow config Object.
       properties:
-        config:
+        id:
+          type: string
+          description: The URL that uniquely identifies the created workflow.
+        steps:
           type: object
-          additionalProperties: false
-          description: Object containing information about a created workflow.
+          description: One or more steps required to complete an exchange on the workflow.
           properties:
-            id:
-              type: string
-              description: The URL that uniquely identifies the created workflow.
-            steps:
+            stepName:
               type: object
-              description: One or more steps required to complete an exchange on the workflow.
+              description: The name of the step.
               properties:
-                stepName:
-                  type: object
-                  description: The name of the step.
-                  properties:
-                    step:
-                      $ref: "#/components/schemas/WorkflowStep"
-            initialStep:
-              type: string
-              description: The step from the above set that the exchange starts on.
-            controller:
-              type: string
-              description: The controller of the instance. Returning controller is OPTIONAL.
-            authorization:
-              type: object
-              description: Authorization scheme information (e.g., OAuth2 configuration). Returning authorization is OPTIONAL.
-            credentialTemplates:
-              type: array
-              description: One or more VC templates for issuance. Returning credentialTemplates is OPTIONAL.
-              items:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    description: The type of template.
-                  template:
-                    type: string
-                    description: The template itself.
+                step:
+                  $ref: "#/components/schemas/WorkflowStep"
+        initialStep:
+          type: string
+          description: The step from the above set that the exchange starts on.
+        controller:
+          type: string
+          description: The controller of the instance. Returning controller is OPTIONAL.
+        authorization:
+          type: object
+          description: Authorization scheme information (e.g., OAuth2 configuration). Returning authorization is OPTIONAL.
+        credentialTemplates:
+          type: array
+          description: One or more VC templates for issuance. Returning credentialTemplates is OPTIONAL.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: The type of template.
+              template:
+                type: string
+                description: The template itself.
     GetWorkflowResponse:
       type: object
       additionalProperties: false
       description: Object containing information about a workflow.
       properties:
-        config:
+        exchanges:
+          type: array
+          description: The identifiers of the current exchanges associated with the workflow instance.
+          items:
+            type: string
+        steps:
           type: object
-          additionalProperties: false
-          description: Object containing information about a created workflow.
+          description: One or more steps required to complete an exchange on the workflow.
           properties:
-            exchanges:
-              type: array
-              description: The identifiers of the current exchanges associated with the workflow instance.
-              items:
-                type: string
-            steps:
+            stepName:
               type: object
-              description: One or more steps required to complete an exchange on the workflow.
+              description: The name of the step.
               properties:
-                stepName:
-                  type: object
-                  description: The name of the step.
-                  properties:
-                    step:
-                      $ref: "#/components/schemas/WorkflowStep"
-            initialStep:
-              type: string
-              description: The step from the above set that the exchange starts on.
-            controller:
-              type: string
-              description: The controller of the instance. Returning controller is OPTIONAL.
-            authorization:
-              type: object
-              description: Authorization scheme information (e.g., OAuth2 configuration). Returning authorization is OPTIONAL.
-            credentialTemplates:
-              type: array
-              description: One or more VC templates for issuance. Returning credentialTemplates is OPTIONAL.
-              items:
-                type: object
-                properties:
-                  type:
-                    type: string
-                    description: The type of template.
-                  template:
-                    type: string
-                    description: The template itself.
+                step:
+                  $ref: "#/components/schemas/WorkflowStep"
+        initialStep:
+          type: string
+          description: The step from the above set that the exchange starts on.
+        controller:
+          type: string
+          description: The controller of the instance. Returning controller is OPTIONAL.
+        authorization:
+          type: object
+          description: Authorization scheme information (e.g., OAuth2 configuration). Returning authorization is OPTIONAL.
+        credentialTemplates:
+          type: array
+          description: One or more VC templates for issuance. Returning credentialTemplates is OPTIONAL.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: The type of template.
+              template:
+                type: string
+                description: The template itself.
     CreateExchangeRequest:
       type: object
       description: Object containing information about the exchange to be created.
