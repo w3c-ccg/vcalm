@@ -411,7 +411,7 @@ components:
       description: Step data to be included if a template is not used.
       properties:
         createChallenge:
-          type: string
+          type: boolean
           description: An optional step directive that tells the exchange to handle challenge management via a VC API verifier service it has a zcap for.
         verifiablePresentationRequest:
           $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
