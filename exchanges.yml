@@ -340,7 +340,7 @@ components:
                 description: The template itself.
         state:
           type: string
-          description: The status ("pending" | "complete" | "invalid") of the exchange, set to "pending" on creation.
+          description: The status ("pending" | "active" | "complete" | "invalid") of the exchange, set to "pending" on creation.
         step:
           type: string
           description: The semantic string ID for the current step.
