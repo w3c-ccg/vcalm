@@ -15,7 +15,7 @@ info:
 paths:
   /workflows:
     post:
-      summary: Creates a new workflow and returns its information in the response body.
+      summary: Creates a new workflow and returns location of workflow metadata in a response header.
       tags:
         - Credentials
       security:
@@ -23,7 +23,7 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: createWorkflow
-      description: Creates a new workflow and returns workflowId in the response body.
+      description: Creates a new workflow and returns location of workflow metadata in a response header.
       x-expectedCaller: Administrators
       requestBody:
         content:
@@ -75,7 +75,7 @@ paths:
           description: Internal Error
   /workflows/{localWorkflowId}/exchanges:
     post:
-      summary: Creates a new exchange and returns exchange metadata in the response body.
+      summary: Creates a new exchange and returns location of exchange metadata in a response header.
       tags:
         - Credentials
       security:
@@ -83,7 +83,7 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: createExchange
-      description: Creates a new exchange and returns exchange metadata in the response body.
+      description: Creates a new exchange and returns location of exchange metadata in a response header.
       x-expectedCaller: Owner Coordinator
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
