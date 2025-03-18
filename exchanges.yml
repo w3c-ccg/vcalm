@@ -372,28 +372,24 @@ components:
       additionalProperties: false
       description: Object containing information about an active exchange.
       properties:
-        exchange:
+        id:
+          type: string
+          description: The local exchange ID that identifies the exchange.
+        sequence:
+          type: number
+          description: A sequence number for the exchange. Set to 0 on creation.
+        ttl:
+          type: string
+          description: The time to live for the exchange.
+        step:
+          type: string
+          description: The current step in the exchange.
+        state:
+          type: string
+          description: The status ("pending" | "active" | "complete" | "invalid") of the exchange, set to "pending" on creation.
+        variables:
           type: object
-          description: The active exchange.
-          properties:
-            id:
-              type: string
-              description: The local exchange ID that identifies the exchange.
-            sequence:
-              type: number
-              description: A sequence number for the exchange. Set to 0 on creation.
-            ttl:
-              type: string
-              description: The time to live for the exchange.
-            step:
-              type: string
-              description: The current step in the exchange.
-            state:
-              type: string
-              description: The status ("pending" | "active" | "complete" | "invalid") of the exchange, set to "pending" on creation.
-            variables:
-              type: object
-              description: Template variables to be used in the exchange.
+          description: Template variables to be used in the exchange.
     WorkflowStep:
       type: object
       description: Object containing information about a workflow step.
