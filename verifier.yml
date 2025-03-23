@@ -29,10 +29,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/VerifyCredentialRequest"
-          application/vc:
-            schema:
-              $ref: "#/components/schemas/VerifyEnvelopedCredentialRequest"
+              oneOf:
+                - $ref: "#/components/schemas/VerifyCredentialRequest"
+                - $ref: "#/components/schemas/VerifyEnvelopedCredentialRequest"
         description: Parameters for verifying a verifiableCredential.
       responses:
         "200":
@@ -62,9 +61,7 @@ paths:
               oneOf:
                 - $ref: "#/components/schemas/VerifyPresentationRequest"
                 - $ref: "#/components/schemas/ProoflessVerifyPresentationRequest"
-          application/vp:
-            schema:
-              $ref: "#/components/schemas/VerifyEnvelopedPresentationRequest"
+                - $ref: "#/components/schemas/VerifyEnvelopedPresentationRequest"
         description: Parameters for verifying a verifiablePresentation.
       responses:
         "200":
