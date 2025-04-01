@@ -1040,7 +1040,9 @@ long as the interaction takes to complete. The workflow service stores state
 information about each exchange such as whether the exchange is pending,
 active, or complete, as well as the current step in the workflow, any
 workflow-specific variables and data, and any verifiable presentations and
-credentials received while the exchange executes.
+credentials received while the exchange executes. While there is no technical
+limitation on the number of steps in a workflow, implementers might want to use
+a default maximum number of steps to prevent bugs.
       </p>
       <p>
 An issuer, verifier, or holder coordinator is responsible for creating
