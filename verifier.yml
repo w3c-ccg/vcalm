@@ -29,7 +29,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/VerifyCredentialRequest"
+              oneOf:
+                - $ref: "#/components/schemas/VerifyCredentialRequest"
+                - $ref: "#/components/schemas/VerifyEnvelopedCredentialRequest"
         description: Parameters for verifying a verifiableCredential.
       responses:
         "200":
@@ -59,6 +61,7 @@ paths:
               oneOf:
                 - $ref: "#/components/schemas/VerifyPresentationRequest"
                 - $ref: "#/components/schemas/ProoflessVerifyPresentationRequest"
+                - $ref: "#/components/schemas/VerifyEnvelopedPresentationRequest"
         description: Parameters for verifying a verifiablePresentation.
       responses:
         "200":
@@ -103,6 +106,13 @@ components:
           $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
         options:
           $ref: "./components/VerifyCredentialOptions.yml#/components/schemas/VerifyCredentialOptions"
+    VerifyEnvelopedCredentialRequest:
+      type: object
+      properties:
+        verifiableCredential:
+          $ref: "./components/EnvelopedVerifiableCredential.yml#/components/schemas/EnvelopedVerifiableCredential"
+        options:
+          $ref: "./components/VerifyCredentialOptions.yml#/components/schemas/VerifyCredentialOptions"
     VerifyCredentialResponse:
       $ref: "./components/VerifyCredentialResult.yml#/components/schemas/VerificationResult"
     VerifyPresentationRequest:
@@ -110,6 +120,13 @@ components:
       properties:
         verifiablePresentation:
           $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+        options:
+          $ref: "./components/VerifyPresentationOptions.yml#/components/schemas/VerifyPresentationOptions"
+    VerifyEnvelopedPresentationRequest:
+      type: object
+      properties:
+        verifiablePresentation:
+          $ref: "./components/EnvelopedVerifiablePresentation.yml#/components/schemas/EnvelopedVerifiablePresentation"
         options:
           $ref: "./components/VerifyPresentationOptions.yml#/components/schemas/VerifyPresentationOptions"
     ProoflessVerifyPresentationRequest:
