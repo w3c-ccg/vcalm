@@ -351,7 +351,7 @@ components:
           $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
         nextStep:
           type: string
-          description: The name of the next step in the sequence. Passing nextStep is OPTIONAL. Explicitly, this field should not be present on the final step configuration. While there is no technical limitation to the number of steps in a workflow, we recommend limiting it to 10.
+          description: The name of the next step in the sequence. Passing nextStep is OPTIONAL. This field should NOT be present on the final step configuration. While there is no technical limitation to the number of steps in a workflow, we recommend limiting it to 10.
         openId:
           type: object
           description: Optional information to trigger OID4VP
