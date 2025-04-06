@@ -78,27 +78,75 @@
     };
   </script>
   <style>
-  pre .highlight {
-    font-weight: bold;
-    color: green;
-  }
-  pre .comment {
-    color: SteelBlue;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  code a[href] {
-    color: inherit;
-    border-bottom: none;
-  }
-  code a[href]:hover {
-    border-bottom: 1px solid #c63501;
-  }
-  table.column-width-50 td {
-    width: 50%;
-  }
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+pre .highlight {
+  font-weight: bold;
+  color: Green;
+}
+pre .subject {
+  font-weight: bold;
+  color: RoyalBlue;
+}
+pre .property {
+  font-weight: bold;
+  color: DarkGoldenrod;
+}
+pre .comment {
+  font-weight: bold;
+  color: SteelBlue;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+code a[href] {
+  color: inherit;
+  border-bottom: none;
+}
+code a[href]:hover {
+  border-bottom: 1px solid #c63501;
+}
+ol.algorithm {
+  counter-reset: numsection;
+  list-style-type: none;
+}
+ol.algorithm li {
+  margin: 0.5em 0;
+}
+ol.algorithm li:before {
+  font-weight: bold;
+  counter-increment: numsection;
+  content: counters(numsection, ".") ") ";
+}
+table.simple {
+  border-collapse: collapse;
+  margin: 25px 0;
+  min-width: 75%;
+  border: 1px solid #dddddd;
+}
+table.simple thead tr {
+  background-color: #005a9c;
+  color: #ffffff;
+  text-align: left;
+}
+table.simple th,
+table.simple td {
+  padding: 12px 15px;
+  vertical-align: top;
+  text-align: left;
+}
+table.simple tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+table.simple tbody tr:nth-of-type(even) {
+  background-color: #00000008;
+}
+table.simple tbody tr:last-of-type {
+  border-bottom: 2px solid #005a9c;
+}
   </style>
 </head>
 <body data-cite="vc-data-model">

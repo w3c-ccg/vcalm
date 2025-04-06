@@ -20,9 +20,11 @@ function buildComponentTables({config, document, apis}) {
   // process every table
   for(const table of apiTables) {
     // set up the API component table headers
-    const tableHeader = document.createElement('tr');
+    const tableHeader = document.createElement('thead');
+    const tableBody = document.createElement('tbody');
     tableHeader.innerHTML = '<th>Endpoint</th><th>Expected Caller</th>';
     table.appendChild(tableHeader);
+    table.appendChild(tableBody);
 
     // summarize each API endpoint
     for(const path of table.dataset.apiPath.split(/\s+/)) {
@@ -37,7 +39,7 @@ function buildComponentTables({config, document, apis}) {
           }
           tableRow.innerHTML =
             `<td>${verb.toUpperCase()}&nbsp;${path}</td><td>${expectedCaller}</td>`;
-          table.appendChild(tableRow);
+          tableBody.appendChild(tableRow);
         }
       }
     }
@@ -50,9 +52,11 @@ function buildApiSummaryTables({config, document, apis}) {
   // process every table
   for(const table of apiTables) {
     // set up the API summary table headers
-    const tableHeader = document.createElement('tr');
+    const tableHeader = document.createElement('thead');
+    const tableBody = document.createElement('tbody');
     tableHeader.innerHTML = '<th>Endpoint</th><th>Description</th>';
     table.appendChild(tableHeader);
+    table.appendChild(tableBody);
 
     // summarize each API endpoint
     for(const path of table.dataset.apiPath.split(/\s+/)) {
@@ -63,7 +67,7 @@ function buildApiSummaryTables({config, document, apis}) {
           const tableRow = document.createElement('tr');
           tableRow.innerHTML =
             `<td>${verb.toUpperCase()}&nbsp;${path}</td><td>${summary}</td>`;
-          table.appendChild(tableRow);
+          tableBody.appendChild(tableRow);
         }
       }
     }
@@ -131,8 +135,8 @@ function buildEndpointDetails({config, document, apis}) {
     responsesSummary.innerHTML = `The ${path} endpoint can result ` +
       `in any of these responses when receiving a ${verb.toUpperCase()}:`;
     section.appendChild(responsesSummary);
-    const responsesTable = buildResponsesTable(endpoint);
-    section.appendChild(responsesTable);
+    const table = buildResponsesTable(endpoint);
+    section.appendChild(table);
   }
 }
 
@@ -145,22 +149,27 @@ function buildEndpointDetails({config, document, apis}) {
  */
 function buildResponsesTable(endpoint) {
   // responses for endpoint
-  const responsesTable = document.createElement('table');
-  responsesTable.setAttribute('class', 'simple');
-  responsesTable.innerHTML = '<tr><th>Response</th><th>Description</th><th>Body</th></tr>';
+  const table = document.createElement('table');
+  const tableHeader = document.createElement('thead');
+  const tableBody = document.createElement('tbody');
+  table.setAttribute('class', 'simple');
+  tableHeader.innerHTML = '<th>Response</th><th>Body</th>';
+  table.appendChild(tableHeader);
+  table.appendChild(tableBody);
   for(const response in endpoint.responses) {
     const responseDetail = endpoint.responses[response];
     const {description, content} = responseDetail;
     const responseSchema = getResponseBodySchema(content);
     const row = document.createElement('tr');
+    const descNode = document.createElement('td');
+    descNode.appendChild(textEl({el: 'span', text: description}));
+    descNode.appendChild(document.createElement('br'));
+    descNode.appendChild(responseSchema);
     row.appendChild(textEl({text: response}));
-    row.appendChild(textEl({text: description}));
-    const data3 = document.createElement('td');
-    data3.appendChild(responseSchema);
-    row.appendChild(data3);
-    responsesTable.appendChild(row);
+    row.appendChild(descNode);
+    tableBody.appendChild(row);
   }
-  return responsesTable;
+  return table;
 }
 
 /**
