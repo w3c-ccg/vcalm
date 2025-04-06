@@ -11,19 +11,12 @@
   -->
 
   <script class="remove"
-    src="https://unpkg.com/browse/jquery/dist/jquery.min.js"></script>
-  <script class="remove"
     src="https://www.w3.org/Tools/respec/respec-w3c"></script>
   <script class="remove"
     src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-oas@0.0.1/dist/main.js"></script>
   <script class="remove"
-    src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-mermaid@1.0.1/dist/main.js"></script>
-  <script class="removeOnSave"
-    src="https://unpkg.com/reqlist/lib/reqlist.js"></script>
-  <link class="removeOnSave" rel="stylesheet" type="text/css"
-    href="https://unpkg.com/reqlist/lib/reqlist.css" />
+    src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-mermaid@1.2.0/dist/main.js"></script>
 
-  <script class='remove' src="./common.js"></script>
   <script class='remove' src="./respec-oas.js"></script>
   <script class="remove" type="text/javascript">
   var respecConfig = {
@@ -59,8 +52,8 @@
     pluralize: true,
 
     // extend the bibliography entries
-    localBiblio: ccg.localBiblio,
-    xref: ["web-platform", "infra"],
+    localBiblio: {},
+    xref: ["web-platform", "infra", "vc-data-model-2.0"],
     github: {
       repoURL: "https://github.com/w3c-ccg/vc-api/",
       branch: "main"
@@ -70,7 +63,7 @@
     // Uncomment these to use the respec extension that generates a list of
     //   normative statements:
     preProcess: [window.respecMermaid.createFigures],
-    postProcess: [injectOas, restrictRefs],
+    postProcess: [injectOas],
     lint: {
       "no-unused-dfns": false
     },
@@ -291,8 +284,8 @@ the base API platform.
       <section>
         <h3>Design Guidelines</h3>
         <p>
-          A <a href="https://restfulapi.net/">RESTful API</a> approach was used as a basis for the specification. 
-          Some endpoints use what is referred to as the 'controller' resource naming style. 
+          A <a href="https://restfulapi.net/">RESTful API</a> approach was used as a basis for the specification.
+          Some endpoints use what is referred to as the 'controller' resource naming style.
           [[[?json-schema]]] is used to define the acceptable inputs to the APIs.
         </p>
       </section>
@@ -463,13 +456,13 @@ timeliness of the VC; leaving the Verifier Coordinator to finish Applying any bu
         <p>
         The Status Service provides a privacy-preserving means for publishing
         and checking the status of any Verifiable Credentials issued by the
-        Issuer. Implementers of verifier services are encouraged to understand the 
-        privacy implications of checking status by referring to the respective 
+        Issuer. Implementers of verifier services are encouraged to understand the
+        privacy implications of checking status by referring to the respective
         status specification used by the verifiable credential.
         </p>
         <p>
-          For specific mechanisms by which to manage Verifiable Credential statuses, 
-          it's recommended to refer to external well known specifications, such as the 
+          For specific mechanisms by which to manage Verifiable Credential statuses,
+          it's recommended to refer to external well known specifications, such as the
           [[VC-BITSTRING-STATUS-LIST]].
         </p>
       </section>
@@ -1523,7 +1516,7 @@ see the [[[VC-BITSTRING-STATUS-LIST]]] specification.
       <p>
 <a>Verifiers</a> are urged to not "phone home" in ways that will create
 privacy violations. When retrieving content that is linked from a
-<a>verifiable credential</a>, using mechanisms such as [[[?OHTTP]]] and
+<a>verifiable credential</a>, using mechanisms such as [[[?RFC9458]]] and
 aggressively caching results can improve the privacy characteristics of the
 ecosystem.
       </p>
@@ -1589,17 +1582,17 @@ sufficient to address any <a>verifiable credential</a> use case.
       <p>
         In most cases, simply verifying the proof might not be sufficient to properly handle the received data.
         Verifier services are expected to configure additional validation steps based on their use cases. To define such
-        additional validations, implementers can refer to specifications such as 
+        additional validations, implementers can refer to specifications such as
         <a data-cite="?VC-DATA-INTEGRITY#resource-integrity">Section 2.3: Resource Integrity</a> and
         <a data-cite="?VC-DATA-INTEGRITY#Contexts and Vocabularies">Section 2.4: Contexts and Vocabularies</a>
-        in the [[[?VC-DATA-INTEGRITY]]] specification where further information can be found about 
+        in the [[[?VC-DATA-INTEGRITY]]] specification where further information can be found about
         context handling and integrity verification.
       </p>
       <p>
         Improper validation will often lead to security vulnerabilities.
       </p>
       <p>
-        Additional validation steps can be accounted for when returning a verification response object, 
+        Additional validation steps can be accounted for when returning a verification response object,
         through the problem details.
       </p>
     </section>
