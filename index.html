@@ -1415,6 +1415,29 @@ the transmission of the interaction URL is performed via a QR Code
 Bluetooth (wireless medium).
       </p>
 
+      <section>
+        <h4>Interaction URL Format</h4>
+        <p>
+The format for the <dfn>interaction URL</dfn> MUST conform to the syntax for the
+[[[URL]]]. The interaction URL SHOULD be an HTTPS URL where the path segment
+ends with the `/interactions/` path, a transaction-specific `interactionId`, and
+the interaction URL version number which MUST be `iuv=1`. The URL SHOULD be
+opaque and require no URL syntax processing before it is fetched by the
+receiving system.
+        </p>
+        <p>
+When the [=interaction URL=] is fetched using an `Accept` header of
+`application/json`, a single JSON object containing a `protocols` [=map=] MUST
+be returned.
+        </p>
+        <p>
+When the [=interaction URL=] is fetched using any unrecognized `Accept`
+header, an `text/html` document MUST be returned with instructions to scan the
+URL using software that understands how to process interaction URLs.
+        </p>
+      </section>
+
+
     </section>
 
     <section>
