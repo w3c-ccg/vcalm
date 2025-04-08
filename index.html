@@ -1437,6 +1437,28 @@ URL using software that understands how to process interaction URLs.
         </p>
       </section>
 
+      <section>
+        <h4>Interaction QR Code Format</h4>
+        <p>
+The format for an <dfn>interaction QR Code</dfn> MUST be an [=interaction URL=]
+expressed as a QR code according to [[[ISO18004]]]. To ensure broad
+interoperability, the length of the [=interaction URL=] SHOULD be as short as
+possible, SHOULD NOT exceed 400 alphanumeric characters, and MUST NOT exceed
+4,296 alphanumeric characters. An example of an interaction QR code can be found
+below:
+        </p>
+
+        <figure id="roles">
+          <img style="margin: auto; width: 33%; display: block;"
+         src="./diagrams/interaction-qr-code.png"
+         alt="A square image filled with black and white dots that is encoding
+a interaction URL">
+          <figcaption style="text-align: center;">
+An interaction QR code for `https://app.example/interactions/z8n38Dp7a?iuv=1`
+          </figcaption>
+        </figure>
+
+      </section>
 
     </section>
 
