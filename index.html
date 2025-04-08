@@ -1460,6 +1460,29 @@ An interaction QR code for `https://app.example/interactions/z8n38Dp7a?iuv=1`
 
       </section>
 
+      <section>
+        <h4>Interaction Protocols Response</h4>
+        <p>
+Performing a retrieval of the [=interaction URL=] results in a list of
+protocols that the local system can use to interact with the remote
+system. For example, performing an HTTP GET on the
+`https://app.example/interactions/z8n38Dp7a?iuv=1` [=interaction URL=] might
+result in the following response:
+        </p>
+
+        <pre class="example nohighlight" title="">
+{
+  protocols: {
+    "website": "https://app.example/redirects/z8j3kfk2lQ",
+    "vc-api": "https://app.example/workflows/123/exchanges/987",
+    "oid4vp": "https://app.example/workflows/567/exchanges/432"
+  }
+}
+        </pre>
+
+      </section>
+
+
     </section>
 
     <section>
