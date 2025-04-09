@@ -1420,22 +1420,17 @@ Bluetooth (wireless medium).
         <h4>Interaction URL Format</h4>
         <p>
 The format for the <dfn>interaction URL</dfn> MUST conform to the syntax for the
-[[[URL]]]. The interaction URL SHOULD be an HTTPS URL where the path segment
-ends with the `/interactions/` path, a transaction-specific `interactionId`, and
-the interaction URL version number which MUST be `iuv=1`. The URL SHOULD be
-opaque and require no URL syntax processing before it is fetched by the
-receiving system.
+[[[URL]]] and contain an `iuv` query parameter encoding the
+interaction URL version number, which MUST be `1`. The interaction URL SHOULD be
+an HTTPS URL where the path segment ends with the `/interactions/` path and a
+transaction-specific interaction identifier. The URL SHOULD be opaque and
+require no URL syntax processing before it is fetched by the receiving system.
+An example of such a URL is shown below:
         </p>
-        <p>
-When the [=interaction URL=] is fetched using an `Accept` header of
-`application/json`, a single JSON object containing a `protocols` [=map=] MUST
-be returned.
-        </p>
-        <p>
-When the [=interaction URL=] is fetched using any unrecognized `Accept`
-header, an `text/html` document MUST be returned with instructions to scan the
-URL using software that understands how to process interaction URLs.
-        </p>
+
+        <pre class="example nohighlight" title="An interaction URL">
+https://app.example/interactions/z8n38Dp7a?iuv=1
+        </pre>
       </section>
 
       <section>
@@ -1464,9 +1459,16 @@ An interaction QR code for `https://app.example/interactions/z8n38Dp7a?iuv=1`
       <section>
         <h4>Interaction Protocols Response</h4>
         <p>
-Performing a retrieval of the [=interaction URL=] results in a list of
-protocols that the local system can use to interact with the remote
-system. For example, performing an HTTP GET on the
+Performing a retrieval of the [=interaction URL=] results in instructions
+on how to start an interaction with the remote system.
+        </p>
+
+        <p>
+When the [=interaction URL=] is fetched using an `Accept` header of
+`application/json`, a single JSON object containing a `protocols` [=map=] MUST
+be returned where each [=map/key=] is a protocol identifier and each
+[=map/value=] is a URL that can be used to initiate the interaction. For
+example, performing an HTTP GET on the
 `https://app.example/interactions/z8n38Dp7a?iuv=1` [=interaction URL=] might
 result in the following response:
         </p>
@@ -1480,6 +1482,12 @@ result in the following response:
   }
 }
         </pre>
+
+        <p>
+When the [=interaction URL=] is fetched using any unrecognized `Accept` header,
+a `text/html` document MUST be returned with directions instructing a human
+being to use specific software that understands how to process interaction URLs.
+        </p>
 
       </section>
 
