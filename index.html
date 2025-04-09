@@ -1493,7 +1493,7 @@ system sends data using an HTTP POST to instruct the remote system where to
 send the individual. An example of the POST data is shown below:
         </p>
 
-        <pre class="example nohighlight" title="Example of a website redirect request">
+        <pre class="example nohighlight" title="A website interaction protocol redirect request">
 {
   "url": "https://website.example/transactions/8372974",
   "purpose": "Checkout at ShopCo",
@@ -1503,6 +1503,43 @@ send the individual. An example of the POST data is shown below:
 
       </section>
 
+      <section>
+        <h4>`vc-api` Interaction Protocol</h4>
+        <p>
+The `vc-api` interaction protocol is used to initiate a specific [=exchange=]
+as described in Section [[[#participate-in-an-exchange]]].
+        </p>
+
+        <pre class="example nohighlight" title="A VC-API interaction protocol request">
+{
+  "verifiablePresentationRequest": {
+    "query": [{
+      "type": "QueryByExample",
+      "credentialQuery": [{
+        "reason": "Please provide your student ID.",
+        "example": {
+          "@context": [
+            "https://www.w3.org/ns/credentials/v2",
+            "https://www.w3.org/ns/credentials/examples/v2",
+          ],
+          "type": "StudentIdCredential",
+          "credentialSubject": {
+            "studentId": ""
+          },
+        },
+        "trustedIssuer": [{
+          "required": true,
+          "issuer": "did:web:university.example"
+        }]
+      }]
+    }],
+    "challenge": "5e34826e-14da-11f0-98a5-8b1c0a196728",
+    "domain": "university.example"
+  }
+}
+        </pre>
+
+      </section>
 
     </section>
 
