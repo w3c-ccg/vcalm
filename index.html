@@ -1046,10 +1046,11 @@ the exchange discovery endpoint.
     <section>
       <h3>Workflows and Exchanges</h3>
       <p>
-A VC API workflow defines a particular set of steps for exchanging verifiable
-credentials between two parties across a trust boundary. Each step can involve
-the issuance, verification, transmission, or presentation of verifiable
-credentials. Examples of VC API workflows include, but are not limited to:
+A VC API <dfn>workflow</dfn> defines a particular set of steps for exchanging
+verifiable credentials between two parties across a trust boundary. Each step
+can involve the issuance, verification, transmission, or presentation of
+verifiable credentials. Examples of VC API workflows include, but are not
+limited to:
       </p>
       <ul class="bullet">
         <li>
@@ -1069,28 +1070,28 @@ Receipt of one or more newly-issued single-use proof of age credentials.
       </ul>
       <p>
 Workflow instances are expected to be created by administrators, for use with,
-for example, coordinator websites. A workflow instance is created by performing
-an HTTP POST to the workflow service's `/workflows` endpoint. The HTTP request
-body includes the configuration for the workflow instance. This includes, but
-is not limited to, information about the steps that define the workflow and any
-credential templates that will be used to issue verifiable credentials. The
-steps that define the workflow might also be templates, enabling additional
-flexibility. If a workflow involves the issuance of verifiable credentials, or
-the verification of presentations or credentials, then the workflow instance
-configuration can include authorization capabilities to use one or more VC API
-issuer and/or verification services.
+for example, coordinator websites. A workflow instance is created by
+performing an HTTP POST to the workflow service's `/workflows` endpoint. The
+HTTP request body includes the configuration for the workflow instance. This
+includes, but is not limited to, information about the steps that define the
+workflow and any credential templates that will be used to issue verifiable
+credentials. The steps that define the workflow might also be templates,
+enabling additional flexibility. If a workflow involves the issuance of
+verifiable credentials, or the verification of presentations or credentials,
+then the workflow instance configuration can include authorization capabilities
+to use one or more VC API issuer and/or verification services.
       </p>
       <p>
 Once a workflow instance exists, authorization to create and query particular
 workflow interactions, called VC API exchanges, can be given to coordinators.
       </p>
       <p>
-A VC API exchange represents a particular interaction based on a given VC API
-workflow. The interaction will take place between an exchange client and the
-workflow service. Exchanges are expected to be transitory, only existing as
-long as the interaction takes to complete. The workflow service stores state
-information about each exchange such as whether the exchange is pending,
-active, or complete, as well as the current step in the workflow, any
+A VC API <dfn>exchange</dfn> represents a particular interaction based on a
+given VC API workflow. The interaction will take place between an exchange
+client and the workflow service. Exchanges are expected to be transitory, only
+existing as long as the interaction takes to complete. The workflow service
+stores state information about each exchange such as whether the exchange is
+pending, active, or complete, as well as the current step in the workflow, any
 workflow-specific variables and data, and any verifiable presentations and
 credentials received while the exchange executes. While there is no technical
 limitation on the number of steps in a workflow, implementers might want to use
