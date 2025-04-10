@@ -1090,7 +1090,7 @@ A VC API <dfn>exchange</dfn> represents a particular interaction based on a
 given VC API workflow. The interaction will take place between an exchange
 client and the workflow service. Exchanges are expected to be transitory, only
 existing as long as the interaction takes to complete. The workflow service
-stores state information about each exchange such as whether the exchange is
+stores state information about each exchange, such as whether the exchange is
 pending, active, or complete, as well as the current step in the workflow, any
 workflow-specific variables and data, and any verifiable presentations and
 credentials received while the exchange executes. While there is no technical
@@ -1372,7 +1372,7 @@ requires an individual to intervene.
       <p>
 It is useful for an implementation to communicate how to start interacting with
 it to another implementation. This bootstrapping process is called
-<em>initiating an <dfn>interaction</dfn></em>, which communicates what protocols
+<em>initiating an <dfn>interaction</dfn></em>, and communicates what protocols
 each implementation supports as well as how to start a particular interaction
 with the implementation.
       </p>
@@ -1411,15 +1411,15 @@ A Holder-initiated exchange using a QR Code
       <p class="note" title="Multiple interaction initiation variations are possible">
 While the example above is a [=holder=]-initiated interaction, [=issuers=] and
 [=verifiers=] are also capable of initiating an interaction. Similarly, while
-the transmission of the interaction URL is performed via a QR Code
-(optical medium), the interaction URL can also be transmitted over NFC or
+the transmission of the interaction URL here is performed via a QR Code
+(optical medium), an interaction URL can also be transmitted over NFC or
 Bluetooth (wireless medium).
       </p>
 
       <section>
         <h4>Interaction URL Format</h4>
         <p>
-The format for the <dfn>interaction URL</dfn> MUST conform to the syntax for the
+The format of the <dfn>interaction URL</dfn> MUST conform to the syntax for the
 [[[URL]]] and contain an `iuv` query parameter encoding the
 interaction URL version number, which MUST be `1`. The interaction URL SHOULD be
 an HTTPS URL where the path segment ends with the `/interactions/` path and a
@@ -1436,7 +1436,7 @@ https://app.example/interactions/z8n38Dp7a?iuv=1
       <section>
         <h4>Interaction QR Code Format</h4>
         <p>
-The format for an <dfn>interaction QR Code</dfn> MUST be an [=interaction URL=]
+An <dfn>interaction QR Code</dfn> MUST be an [=interaction URL=]
 expressed as a QR code according to [[[ISO18004]]]. To ensure broad
 interoperability, the length of the [=interaction URL=] SHOULD be as short as
 possible, SHOULD NOT exceed 400 alphanumeric characters, and MUST NOT exceed
