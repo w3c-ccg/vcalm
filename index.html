@@ -1420,12 +1420,11 @@ Bluetooth (wireless medium).
         <h4>Interaction URL Format</h4>
         <p>
 The format of the <dfn>interaction URL</dfn> MUST conform to the syntax for the
-[[[URL]]] and contain an `iuv` query parameter encoding the
-interaction URL version number, which MUST be `1`. The interaction URL SHOULD be
-an HTTPS URL where the path segment ends with the `/interactions/` path and a
-transaction-specific interaction identifier. The URL SHOULD be opaque and
-require no URL syntax processing before it is fetched by the receiving system.
-An example of such a URL is shown below:
+[[[URL]]] and contain an `iuv` query parameter encoding the interaction URL
+version number, which MUST be `1`. The interaction URL SHOULD be an HTTPS URL
+that contains a transaction-specific interaction identifier. The URL SHOULD be
+opaque and require no URL syntax processing before it is fetched by the
+receiving system. An example of such a URL is shown below:
         </p>
 
         <pre class="example nohighlight" title="An interaction URL">
@@ -1487,6 +1486,15 @@ result in the following response:
 When the [=interaction URL=] is fetched using any unrecognized `Accept` header,
 a `text/html` document MUST be returned with directions instructing a human
 being to use specific software that understands how to process interaction URLs.
+        </p>
+
+        <p class="note" title="Mapping to exchange URLs">
+Some coordinator implementations will implement the protocols endpoint as a pass
+through to a protocols endpoint for an exchange instance. For example, a GET on
+`https://app.example/interactions/z8n38Dp7a?iuv=1` will result in a pass-through
+GET on `https://app.example/workflows/123/instances/987/protocols`, which would
+return the response above. Implementing interaction URLs in this way can
+provide an easier implementation path.
         </p>
 
       </section>
