@@ -1377,8 +1377,8 @@ each implementation supports as well as how to start a particular interaction
 with the implementation.
       </p>
       <p>
-A high-level overview of a [=verifier=] initiating an interaction by generating
-a QR Code and proceeding with the `vcapi` protocol:
+A high-level overview of a [=verifier=] generating an interaction URL, using a
+QR Code to share it with a [=holder=], and proceeding with the `vcapi` protocol:
       </p>
       <figure>
         <pre class="mermaid">
@@ -1407,13 +1407,14 @@ sequenceDiagram
   end
         </pre>
         <figcaption>
-A Holder-initiated exchange using a QR Code
+A verifier-initiated interaction using a QR Code
         </figcaption>
       </figure>
 
       <p>
-A high-level overview of a [=holder=] initiating an interaction by generating a
-QR Code and proceeding with the `website` protocol:
+A high-level overview of a [=holder=] generating an interaction URL, using a QR
+Code to share it with a [=verifier=], and proceeding with the `website`
+protocol:
       </p>
       <figure>
         <pre class="mermaid">
@@ -1441,7 +1442,7 @@ sequenceDiagram
   end
         </pre>
         <figcaption>
-A Holder-initiated exchange using a QR Code
+A holder-initiated interaction using a QR Code
         </figcaption>
       </figure>
 
