@@ -1377,8 +1377,43 @@ each implementation supports as well as how to start a particular interaction
 with the implementation.
       </p>
       <p>
-A high-level overview of a Holder initiating an interaction using a QR Code and
-a VC API Exchange is shown below:
+A high-level overview of a [=verifier=] initiating an interaction by generating
+a QR Code and proceeding with the `vcapi` protocol:
+      </p>
+      <figure>
+        <pre class="mermaid">
+sequenceDiagram
+  participant H as Holder
+  participant B as Browser
+  participant W as Holder Coordinator (Wallet)
+  participant V as Verifier Coordinator
+  autonumber
+  H->>B: Click "Share credential"
+  B->>V: Request interaction QR Code
+  V->>V: Generate QR Code
+  V->>B: Display QR Code
+  Note left of V: https://verifier.example/interactions/123?iuv=1
+  H->>W: Start scanning QR Code
+  W->>B: Scan QR Code
+  W->>V: Get available interaction protocols
+  Note left of V: GET https://verifier.example/interactions/123?iuv=1
+  V->>W: Return interaction protocols
+  Note left of V: (VC API, OID4, NFC, Bluetooth, etc.)
+  W->>H: Acquire consent to proceed
+  Note right of H: verifier.example is requesting credentials, proceed?
+  W->>W: Select appropriate protocol
+  opt "vcapi" protocol example
+  W->>V: Initiate workflow exchange
+  end
+        </pre>
+        <figcaption>
+A Holder-initiated exchange using a QR Code
+        </figcaption>
+      </figure>
+
+      <p>
+A high-level overview of a [=holder=] initiating an interaction by generating a
+QR Code and proceeding with the `website` protocol:
       </p>
       <figure>
         <pre class="mermaid">
@@ -1393,28 +1428,22 @@ sequenceDiagram
   H->>V: Present QR Code
   V->>V: Scan QR Code and decode URL
   V->>W: Get available interaction protocols
-  Note left of V: GET &lt;https://wallet.example/interactions/&lt;interactionId>?wi_api=&lt;api_version>
+  Note left of V: GET https://wallet.example/interactions/456?iuv=1
   W->>V: Return interaction protocols
   Note left of V: (VC API, OID4, NFC, Bluetooth, etc.)
   V->>V: Select appropriate protocol
   V->>W: Transmit protocol selection and options
+  opt "website" protocol example
   W->>H: Request consent to proceed
   Note right of H: "Open browser to verifier.example?"
-  H->>W: Confirm consent start exchange
-  W->>V: Start exchange
+  H->>W: Confirm consent to go to website
+  W->>V: Go to website
+  end
         </pre>
         <figcaption>
 A Holder-initiated exchange using a QR Code
         </figcaption>
       </figure>
-
-      <p class="note" title="Multiple interaction initiation variations are possible">
-While the example above is a [=holder=]-initiated interaction, [=issuers=] and
-[=verifiers=] are also capable of initiating an interaction. Similarly, while
-the transmission of the interaction URL here is performed via a QR Code
-(optical medium), an interaction URL can also be transmitted over NFC or
-Bluetooth (wireless medium).
-      </p>
 
       <section>
         <h4>Interaction URL Format</h4>
