@@ -1821,6 +1821,46 @@ ecosystem.
     </p>
 
     <section>
+      <h3>Use of HTTPS for Interaction URLs</h3>
+
+      <p>
+This specification strongly suggests the use of HTTPS for interaction URLs
+for the following reasons:
+      </p>
+
+      <ul>
+        <li>
+The HTTPS URL used in an interaction firmly establishes trust in the
+interaction based on the existing and well understood same-origin trust model
+used by browsers.
+        </li>
+        <li>
+The initial URL provided establishes trust such that subsequent protocols used
+in the interaction can be simply and safely delegated or outsourced to other
+systems, some of which can be in a separate domain.
+        </li>
+        <li>
+Graphical interfaces that need to gather consent can use domain names, which
+are understood well enough by the general population to combat phishing attacks.
+        </li>
+        <li>
+Protocols that require stronger verification of any party can use
+protocol-specific mechanisms, such as [=verifiable credentials=], to verify
+the [=holder=], [=issuer=], or [=verifier=] during a particular protocol
+exchange.
+        </li>
+      </ul>
+
+      <p>
+Using protocol schemes that are not rooted in the HTTPS trust model requires
+separate encryption protocol, key management, and trust models to be used, which
+are often less broadly developed and deployed and require much more development
+and analysis to determine the threat and privacy model.
+      </p>
+
+    </section>
+
+    <section>
       <h3>Deletion</h3>
 
       <p>
