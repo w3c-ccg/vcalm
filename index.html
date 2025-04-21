@@ -1421,7 +1421,7 @@ Bluetooth (wireless medium).
         <p>
 The format of the <dfn>interaction URL</dfn> MUST conform to the syntax for the
 [[[URL]]] and contain an `iuv` query parameter encoding the interaction URL
-version number, which MUST be `1`. The interaction URL SHOULD be an HTTPS URL
+version number, which MUST be `1` when using this version of the VC API. The interaction URL SHOULD be an HTTPS URL
 that contains a transaction-specific interaction identifier. The URL SHOULD be
 opaque and require no URL syntax processing before it is fetched by the
 receiving system. An example of such a URL is shown below:
@@ -1492,7 +1492,7 @@ being to use specific software that understands how to process interaction URLs.
 Some coordinator implementations will implement the protocols endpoint as a pass
 through to a protocols endpoint for an exchange instance. For example, a GET on
 `https://app.example/interactions/z8n38Dp7a?iuv=1` will result in a pass-through
-GET on `https://app.example/workflows/123/instances/987/protocols`, which would
+GET on `https://app.example/workflows/123/exchanges/987/protocols`, which would
 return the response above. Implementing interaction URLs in this way can
 provide an easier implementation path.
         </p>
@@ -1545,7 +1545,6 @@ as described in Section [[[#participate-in-an-exchange]]].
           },
         },
         "trustedIssuer": [{
-          "required": true,
           "issuer": "did:web:university.example"
         }]
       }]
