@@ -1376,9 +1376,18 @@ it to another implementation. This bootstrapping process is called
 each implementation supports as well as how to start a particular interaction
 with the implementation.
       </p>
+      <p class="note" title="Interactions are application, use case, and protocol agnostic">
+While the specification of interactions reside in this document, the
+general approach is use case, application, and protocol agnostic. The approach
+can be used to pair two or more applications that desire to bootstrap into a
+particular protocol over any transmission medium such as a web browser,
+QR Code (optical medium), or NFC (wireless medium) where the protocol does not
+need to involve the VC API.
+      </p>
       <p>
-A high-level overview of a [=verifier=] generating an interaction URL, using a
-QR Code to share it with a [=holder=], and proceeding with the `vcapi` protocol:
+The sequence diagram below outlines a [=verifier=] generating an interaction
+URL, using a QR Code to share it with a [=holder=], and proceeding with the
+`vcapi` protocol:
       </p>
       <figure>
         <pre class="mermaid">
@@ -1412,9 +1421,9 @@ A verifier-initiated interaction using a QR Code
       </figure>
 
       <p>
-A high-level overview of a [=holder=] generating an interaction URL, using a QR
-Code to share it with a [=verifier=], and proceeding with the `website`
-protocol:
+The sequence diagram below outlines a [=holder=] generating an interaction URL,
+using a QR Code to share it with a [=verifier=], and proceeding with the
+`website` protocol:
       </p>
       <figure>
         <pre class="mermaid">
