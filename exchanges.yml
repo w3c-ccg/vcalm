@@ -263,7 +263,7 @@ components:
       properties:
         expires:
           type: string
-          description: The date and time (as specified by ISO 8601) that the exchange expires.
+          description: The date and time (expressed as an XML Schema dateTimeStamp) that the exchange expires.
         variables:
           type: object
           description: Template variables to be used in the exchange.
@@ -300,7 +300,7 @@ components:
           description: A sequence number for the exchange. Set to 0 on creation.
         expires:
           type: string
-          description: The date and time (as specified by ISO 8601) that the exchange expires.
+          description: The date and time (expressed as an XML Schema dateTimeStamp) that the exchange expires.
         step:
           type: string
           description: The current step in the exchange.
