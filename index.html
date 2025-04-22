@@ -1385,6 +1385,42 @@ QR Code (optical medium), or NFC (wireless medium) &mdash; where the protocol
 does not need to involve the VC API.
       </p>
       <p>
+The sequence diagram below outlines an [=issuer=] generating an interaction
+URL, using a QR Code to share it with a [=holder=], and proceeding with the
+`vcapi` protocol:
+      </p>
+      <figure>
+        <pre class="mermaid">
+sequenceDiagram
+  participant H as Holder
+  participant B as Browser
+  participant W as Holder Coordinator (Wallet)
+  participant I as Issuer Coordinator
+  autonumber
+  H->>B: Click "Receive credential"
+  B->>I: Request interaction QR Code
+  I->>I: Generate QR Code
+  I->>B: Display QR Code
+  Note left of I: https://issuer.example/interactions/123?iuv=1
+  H->>W: Start scanning QR Code
+  W->>B: Scan QR Code
+  W->>I: Get available interaction protocols
+  Note left of V: GET https://issuer.example/interactions/123?iuv=1
+  I->>W: Return interaction protocols
+  Note left of I: (VC API, OID4, NFC, Bluetooth, etc.)
+  W->>W: Select appropriate protocol
+  opt "vcapi" protocol example
+  W->>I: Initiate workflow exchange
+  W->>H: Acquire consent to proceed
+  Note right of H: issuer.example is offering credentials, accept?  
+  end
+        </pre>
+        <figcaption>
+An issuer-initiated interaction using a QR Code
+        </figcaption>
+      </figure>
+
+      <p>
 The sequence diagram below outlines a [=verifier=] generating an interaction
 URL, using a QR Code to share it with a [=holder=], and proceeding with the
 `vcapi` protocol:
