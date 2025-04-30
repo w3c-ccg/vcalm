@@ -1393,8 +1393,8 @@ URL, using a QR Code to share it with a [=holder=], and proceeding with the
         <pre class="mermaid">
 sequenceDiagram
   participant H as Holder
-  participant B as Browser
   participant W as Holder Coordinator (Wallet)
+  participant B as Browser
   participant I as Issuer Coordinator
   autonumber
   H->>B: Click "Receive credential"
@@ -1405,14 +1405,14 @@ sequenceDiagram
   H->>W: Start scanning QR Code
   W->>B: Scan QR Code
   W->>I: Get available interaction protocols
-  Note left of V: GET https://issuer.example/interactions/123?iuv=1
+  Note left of I: GET https://issuer.example/interactions/123?iuv=1
   I->>W: Return interaction protocols
   Note left of I: (VC API, OID4, NFC, Bluetooth, etc.)
   W->>W: Select appropriate protocol
   opt "vcapi" protocol example
   W->>I: Initiate workflow exchange
   W->>H: Acquire consent to proceed
-  Note right of H: issuer.example is offering credentials, accept?  
+  Note right of H: issuer.example is offering credentials, accept?
   end
         </pre>
         <figcaption>
@@ -1429,8 +1429,8 @@ URL, using a QR Code to share it with a [=holder=], and proceeding with the
         <pre class="mermaid">
 sequenceDiagram
   participant H as Holder
-  participant B as Browser
   participant W as Holder Coordinator (Wallet)
+  participant B as Browser
   participant V as Verifier Coordinator
   autonumber
   H->>B: Click "Share credential"
