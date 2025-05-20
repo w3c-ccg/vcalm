@@ -897,9 +897,9 @@ type other than `application/vc`, such as `application/vc+sd-jwt`.
           data-api-endpoint="post /credentials/issue"></div>
 
         <p>
-If a use case requires an issuing instance to attach multiple proofs to the
-provided `credential`, it MUST attach all of these proofs with a single call 
-to the `/credentials/issue` endpoint.
+If a use case requires an issuer instance to attach multiple proofs to the
+provided `credential`, the instance MUST attach all of these proofs during 
+a single call to the `/credentials/issue` endpoint.
         </p>
         <p>
 If a provided `credential` already contains one or more proofs,
