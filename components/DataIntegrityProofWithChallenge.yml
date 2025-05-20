@@ -50,7 +50,7 @@ components:
           "created": "2024-01-11T19:14:04Z",
           "domain": "domain.example",
           "challenge": "ce2e12b0-35a0-11f0-85df-7bcb79038e44",
-          "verificationMethod": "https://di.example/issuer#zDnaepBuvsQ8cpsWrVKw8fbpGpvPeNSjVPTWoq6cRqaYzBKVP",
-          "proofPurpose": "assertionMethod",
+          "verificationMethod": "https://di.example/holder#zDnadqAtcdP6agfXsTWu5darHnbGyTDkKGFYmn8dQraYzCJMZ",
+          "proofPurpose": "authentication",
           "proofValue": "zXb23ZkdakfJNUhiTEdwyE598X7RLrkjnXEADLQZ7vZyUGXX8cyJZRBkNw813SGsJHWrcpo4Y8hRJ7adYn35Eetq"
         }
