@@ -888,7 +888,9 @@ This endpoint is used to issue a [=verifiable credential=].
         <p class="note" title="Issued credential media types">
 An `EnvelopedVerifiableCredential` can be returned in the response in order to
 issue credentials with a media type other than `application/vc`, such as
-`application/mdoc` or `application/vc+sd-jwt`.
+`application/mdoc`, `application/vc+sd-jwt`,
+`application/vcb;barcode-format=qr_code`, or
+`application/vcb;barcode-format=pdf417`.
         </p>
 
         <div class="api-detail"
@@ -940,6 +942,15 @@ The following APIs are defined for verifying a Verifiable Credential:
       <section>
         <h4>Verify Credential</h4>
         <p>
+This endpoint is used to verify a [=verifiable credential=].
+        </p>
+
+        <p class="note" title="Verify credential media types">
+An `EnvelopedVerifiableCredential` can be provided in the request in order to
+verify credentials with a media type other than `application/vc`, such as
+`application/mdoc`, `application/vc+sd-jwt`,
+`application/vcb;barcode-format=qr_code`, or
+`application/vcb;barcode-format=pdf417`.
         </p>
 
         <div class="api-detail"
