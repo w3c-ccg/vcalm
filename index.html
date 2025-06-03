@@ -886,11 +886,11 @@ This endpoint is used to issue a [=verifiable credential=].
         </p>
 
         <p class="note" title="Issued credential media types">
-An `EnvelopedVerifiableCredential` can be returned in the response in order to
-issue credentials with a media type other than `application/vc`, such as
+To issue credentials with a media type other than `application/vc` — such as
 `application/mdoc`, `application/vc+sd-jwt`,
 `application/vcb;barcode-format=qr_code`, or
-`application/vcb;barcode-format=pdf417`.
+`application/vcb;barcode-format=pdf417` — an `EnvelopedVerifiableCredential`
+can be returned in the response.
         </p>
 
         <div class="api-detail"
@@ -898,7 +898,7 @@ issue credentials with a media type other than `application/vc`, such as
 
         <p>
 If a use case requires an issuer instance to attach multiple proofs to the
-provided `credential`, the instance MUST attach all of these proofs during
+provided `credential`, the instance MUST attach all of these proofs with
 a single call to the `/credentials/issue` endpoint.
         </p>
         <p>
@@ -946,11 +946,11 @@ This endpoint is used to verify a [=verifiable credential=].
         </p>
 
         <p class="note" title="Verify credential media types">
-An `EnvelopedVerifiableCredential` can be provided in the request in order to
-verify credentials with a media type other than `application/vc`, such as
+To verify credentials with a media type other than `application/vc`, such as
 `application/mdoc`, `application/vc+sd-jwt`,
 `application/vcb;barcode-format=qr_code`, or
-`application/vcb;barcode-format=pdf417`.
+`application/vcb;barcode-format=pdf417` — an `EnvelopedVerifiableCredential`
+can be provided in the request.
         </p>
 
         <div class="api-detail"
