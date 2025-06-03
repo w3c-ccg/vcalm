@@ -1127,7 +1127,9 @@ The exchange URL is given to the exchange client so that it can initiate the
 exchange. Note that while the exchange URL is given to the coordinator to then
 provide it to the exchange client, the actual exchange is performed between the
 exchange client and the workflow service; the coordinator is not involved after
-providing the exchange URL to the exchange client.
+providing the exchange URL to the exchange client. To be clear: a
+coordinator can still use its own exchange client for any
+use case that requires it to execute the exchange itself.
       </p>
       <p>
 Initiating the exchange does not require any authorization beyond the
