@@ -33,6 +33,26 @@ components:
           additionalProperties: false
           description: Verification results to be included as a more verbose output. Keys are mapped to properties from the Verifiable Credential Data Model which are subject to validations.
           properties:
+            challenge:
+              type: object
+              description: If provided in the verification options, the result of validating the security challenge across all proofs provided.
+              properties:
+                valid:
+                  type: boolean
+                  description: Result of validating the security challenge across all proofs provided.
+                input:
+                  type: string
+                  description: The challenge input string.
+            domain:
+              type: object
+              description: If provided in the verification options, the result of validating the security domain across all proofs provided.
+              properties:
+                valid:
+                  type: boolean
+                  description: Result of validating the security domain across all proofs provided.
+                input:
+                  type: string
+                  description: The security domain input string.
             holder:
               type: object
               description: Result from validating the holder, if any.
