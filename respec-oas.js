@@ -251,8 +251,17 @@ function renderJsonSchema(schema) {
         }
         valueRendering += renderJsonSchemaObject(schemaItem);
       }
+    } else if(subSchema.type === 'array') {
+      propertyRendering += ` [${subSchema.type}]`;
+      valueRendering = 'An array where each item MUST be ' +
+        renderJsonSchemaObject(subSchema.items);
+    } else if(subSchema.type === 'string' || subSchema.type === 'boolean') {
+      propertyRendering += ` [${subSchema.type}]`;
+      valueRendering = subSchema.description;
     } else {
-      valueRendering = '<pre>' + JSON.stringify(subSchema, null, 2) + '</pre>';
+      console.log('Value rendering error:', subSchema);
+      valueRendering = 'RENDER ERROR: <pre>' +
+        JSON.stringify(subSchema, null, 2) + '</pre>';
     }
     tableBody.innerHTML +=
       `<tr><td style='vertical-align: top;'>${propertyRendering}</td>` +
@@ -348,8 +357,7 @@ function renderJsonSchemaValue(property, value) {
   if(value.type === 'array') {
     valueRendering = `Each item in the <code>${property}</code> array MUST be `;
     if(value.items.type === 'object') {
-      valueRendering += 'an object of the following form:';
-      //typeDetails += renderJsonSchemaValue(property, value);
+      valueRendering += renderJsonSchemaObject(value.items);
     } else if(value.items.type === 'string') {
       valueRendering += 'a string.';
     } else {
@@ -359,10 +367,13 @@ function renderJsonSchemaValue(property, value) {
     valueRendering =
       `The <code>${property}</code> object MUST be `;
     valueRendering += renderJsonSchemaObject(value);
-  } else if(value.type === 'string' || value.type === 'boolean') {
+  } else if(value.type === 'string' || value.type === 'integer' ||
+    value.type === 'boolean') {
     // no-op
   } else {
-    valueRendering = '<pre>' + JSON.stringify(value, null, 2) + '</pre>';
+    console.log('Value rendering error:', value);
+    valueRendering = 'RENDER ERROR: <pre>' +
+      JSON.stringify(value, null, 2) + '</pre>';
   }
 
   return valueRendering;

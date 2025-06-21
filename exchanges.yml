@@ -224,8 +224,10 @@ components:
             properties:
               type:
                 type: string
+                description: The type of template.
               template:
-                  type: string
+                type: string
+                description: The template itself.
         id:
           type: string
           description: The ID that will be used for the created workflow. Passing an ID is OPTIONAL.
@@ -312,7 +314,7 @@ components:
           type: string
           description: The local exchange ID that identifies the exchange.
         sequence:
-          type: number
+          type: integer
           description: A sequence number for the exchange. Set to 0 on creation.
         expires:
           type: string
