@@ -3,21 +3,13 @@
 <head>
   <title>Verifiable Credentials API v0.7</title>
   <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
-  <!--
-    === NOTA BENE ===
-    For the three scripts below, if your spec resides on dev.w3 you can check
-    them out in the same tree and use relative links so that they'll work
-    offline.
-  -->
-
   <script class="remove"
     src="https://www.w3.org/Tools/respec/respec-w3c"></script>
   <script class="remove"
-    src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-oas@0.0.1/dist/main.js"></script>
+    src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-oas@0.8.0/dist/main.js"></script>
   <script class="remove"
     src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-mermaid@1.2.0/dist/main.js"></script>
 
-  <script class='remove' src="./respec-oas.js"></script>
   <script class="remove" type="text/javascript">
   var respecConfig = {
     // the W3C WG and public mailing list
@@ -70,7 +62,7 @@
     // Uncomment these to use the respec extension that generates a list of
     //   normative statements:
     preProcess: [window.respecMermaid.createFigures],
-    postProcess: [injectOas],
+    postProcess: [window.respecOas.injectOas],
     lint: {
       "no-unused-dfns": false
     },
