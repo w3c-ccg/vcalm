@@ -14,7 +14,7 @@ function getEndpoint({apis, path}) {
   return endpoint;
 }
 
-function buildComponentTables({config, document, apis}) {
+function buildComponentTables({document, apis}) {
   const apiTables = document.querySelectorAll("table.api-component-table");
 
   // process every table
@@ -31,14 +31,13 @@ function buildComponentTables({config, document, apis}) {
       if(path.trim().length > 0) {
         const endpoint = getEndpoint({apis, path});
         for(const verb in endpoint) {
-          var expectedCaller = endpoint[verb]['x-expectedCaller'];
+          let expectedCaller = endpoint[verb]['x-expectedCaller'];
           const tableRow = document.createElement('tr');
-          if(expectedCaller === undefined)
-          {
-            expectedCaller = "Expected Caller Undefined";;
+          if(expectedCaller === undefined) {
+            expectedCaller = "Expected Caller Undefined";
           }
-          tableRow.innerHTML =
-            `<td>${verb.toUpperCase()}&nbsp;${path}</td><td>${expectedCaller}</td>`;
+          tableRow.innerHTML = `<td>${verb.toUpperCase()}&nbsp;${path}</td>` +
+            `<td>${expectedCaller}</td>`;
           tableBody.appendChild(tableRow);
         }
       }
@@ -46,7 +45,7 @@ function buildComponentTables({config, document, apis}) {
   }
 }
 
-function buildApiSummaryTables({config, document, apis}) {
+function buildApiSummaryTables({document, apis}) {
   const apiTables = document.querySelectorAll("table.api-summary-table");
 
   // process every table
@@ -74,7 +73,7 @@ function buildApiSummaryTables({config, document, apis}) {
   }
 }
 
-function buildEndpointDetails({config, document, apis}) {
+function buildEndpointDetails({document, apis}) {
   const apiDetailSections = document.querySelectorAll(".api-detail");
 
   // process every detail section
@@ -111,7 +110,8 @@ function buildEndpointDetails({config, document, apis}) {
         if(requestSchema.anyOf) {
           for(const i in requestSchema.anyOf) {
             const anySchema = requestSchema.anyOf[i];
-            requestSchemaHtml = renderJsonSchema(anySchema.properties || anySchema);
+            requestSchemaHtml =
+              renderJsonSchema(anySchema.properties || anySchema);
             section.appendChild(requestSchemaHtml);
             if(i + 1 < requestSchema.anyOf.length) {
               const nextSchemaSummary = document.createElement('p');
@@ -186,7 +186,8 @@ function getResponseBodySchema(content) {
   const section = document.createElement('section');
   section.style['font-size'] = '0.75rem';
   return Object.entries(content).reduce((combined, [contentType, {schema}]) => {
-    combined.appendChild(textEl({el: 'i', text: `content-type: ${contentType}`}));
+    combined.appendChild(
+      textEl({el: 'i', text: `content-type: ${contentType}`}));
     combined.appendChild(document.createElement('br'));
     if(schema) {
       const _el = document.createElement('td');
@@ -233,7 +234,8 @@ function renderJsonSchema(schema) {
     }
     const subSchema = schema[property];
     let propertyRendering = `<code>${property}</code>`;
-    let valueRendering = 'Error: JSON Schema value rendering failure.'; // default
+    let valueRendering =
+      'Error: JSON Schema value rendering failure.';
     if(subSchema.type === 'object') {
       propertyRendering = `<code>${property}</code> [object]`;
       valueRendering = renderJsonSchemaObject(subSchema);
@@ -293,8 +295,8 @@ function renderJsonSchemaObject(schema) {
       type: 'object',
       properties: {}
     };
-    for(item of schema.allOf) {
-      for(property in item.properties) {
+    for(const item of schema.allOf) {
+      for(const property in item.properties) {
         mergedSchema.properties[property] = item.properties[property];
       }
     }
@@ -379,6 +381,7 @@ function renderJsonSchemaValue(property, value) {
   return valueRendering;
 }
 
+/* eslint-disable no-unused-vars, no-undef */
 async function injectOas(config, document) {
   try {
     const issuerApi = await SwaggerParser.validate('issuer.yml');
@@ -402,3 +405,4 @@ async function injectOas(config, document) {
     console.error(err);
   }
 }
+/* eslint-enable no-unused-vars, no-undef */
