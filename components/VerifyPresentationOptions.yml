@@ -19,10 +19,10 @@ components:
       properties:
         challenge:
           type: string
-          description: A challenge provided by the requesting party of the proof. For example, <code>6e62f66e-67de-11eb-b490-ef3eeefa55f2</code>.
+          description: A challenge provided by the requesting party of the proof; for example, <code>6e62f66e-67de-11eb-b490-ef3eeefa55f2</code>.
         domain:
           type: string
-          description: The intended domain of validity for the proof. For example, <code>website.example</code>.
+          description: The intended domain of validity for the proof; for example, <code>website.example</code>.
         returnPresentation:
           type: boolean
           description: Whether or not to return the verified presentation. If true, then the verified presentation MUST be returned. If false or not provided, then the verified presentation MUST NOT be returned.
