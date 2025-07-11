@@ -224,7 +224,7 @@ components:
       properties:
         steps:
           type: object
-          description: One or more steps required to complete an exchange on the workflow. The keys are step names and values are step configurations.
+          description: One or more steps required to complete an exchange on the workflow. The keys are step names and the values are step configurations.
           properties:
             theNameOfTheStep:
               $ref: "#/components/schemas/WorkflowStep"
