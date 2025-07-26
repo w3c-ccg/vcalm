@@ -1302,10 +1302,48 @@ challenge is bound to an exchange, that challenge ceases to be valid at the date
       <section>
         <h4>Get Exchange Protocols</h4>
         <p>
+This endpoint provides a mechanism for a client to query an exchange for all of
+the protocols that it supports. A single exchange can support many protocols
+that are capable of achieving the goals of the exchange, such as the issuance
+of a [=verifiable credential=] into a digital wallet.
         </p>
 
         <div class="api-detail"
           data-api-endpoint="get /workflows/{localWorkflowId}/exchanges/{localExchangeId}/protocols"></div>
+
+        <p>
+This endpoint also enables the website operator to delegate the authority to
+execute the exchange to a third party, such as a service provider, by delegating
+that trust through the HTTPS domain. For example, the website `brand.example`
+can delegate the operation of the exchange to a partner `saas.example` by using
+the `saas.example` domain in the list of protocols.
+        </p>
+
+        <figure>
+          <pre class="mermaid">
+sequenceDiagram
+    participant W as Holder Coordinator (Wallet)
+    participant I as Issuer/Verifier Coordinator (brand.example)
+    participant S as Exchange Service (saas.example)
+    autonumber
+    Note right of W: Wallet retrieves protocol options
+    W->>I: GET /workflows/123/exchanges/456/protocols
+    I->>W: Returns list of protocols understood by the exchange
+    Note right of W: Wallet selects a supported protocol
+    W->>W: Wallet picks protocol to saas.example
+    W->>S: Wallet executes interaction protocol via saas.example
+          </pre>
+          <figcaption>
+An example of a wallet using a protocol to a delegated exchange service.
+          </figcaption>
+        </figure>
+
+        <p>
+This enables the client to depend on their trust in `brand.example` to delegate
+the operation of the exchange to a third party in the same way that a website
+links to resources from other domains to render a web page.
+        </p>
+
       </section>
 
       <section>
