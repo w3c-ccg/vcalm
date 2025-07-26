@@ -356,7 +356,7 @@ components:
           properties:
             interact:
               type: string
-              description: A URL that can be used during exchange flows with a human in the loop.
+              description: A URL that can be used during exchange flows with a human in the loop. See the section on the <a href="#dfn-interaction-url">interact URL format</a> for more details.
             vcapi:
               type: string
               description: The URL to use when initiating a VC API exchange.
