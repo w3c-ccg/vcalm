@@ -493,8 +493,8 @@ The <dfn>issuer service</dfn> takes requests to issue VCs from authorized Issuer
 Coordinators and returns well-formed, signed VCs. This
 service MUST have access to private keys (or key services which utilize private
 keys) in order to create the proofs for those VCs. The API between the Issuer
-service and its associated key service is believed to be out of scope for the VC
-API, but may be addressed by WebKMS or similar specifications.
+service and its associated cryptographic key management service is
+out of scope for the VC API.
         </p>
         <p>
 The <dfn>verifier service</dfn> takes requests to verify Verifiable Credentials
