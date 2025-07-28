@@ -237,12 +237,9 @@ components:
       additionalProperties: false
       description: Object containing information for creating a workflow.
       properties:
-        steps:
-          type: object
-          description: One or more steps required to complete an exchange on the workflow. Passing the steps object is REQUIRED. The keys are step names and the values are step configurations.
-          properties:
-            theNameOfTheStep:
-              $ref: "#/components/schemas/WorkflowStep"
+        id:
+          type: string
+          description: The ID that will be used for the created workflow. Passing an ID is OPTIONAL.
         initialStep:
           type: string
           description: The step from the above set that the exchange starts on. Passing intialStep is REQUIRED.
@@ -272,29 +269,30 @@ components:
               template:
                 type: string
                 description: The template itself.
-        id:
-          type: string
-          description: The ID that will be used for the created workflow. Passing an ID is OPTIONAL.
+        steps:
+          type: object
+          description: One or more steps required to complete an exchange on the workflow. Passing the steps object is REQUIRED. The keys are one or more step names, where each STEP_NAME is replaced by the name of a step (such as <code>request-employee-id</code>), and the values are step configurations.
+          properties:
+            STEP_NAME:
+              $ref: "#/components/schemas/WorkflowStep"
+
     GetWorkflowResponse:
       type: object
       additionalProperties: false
       description: Object containing information about a workflow.
       properties:
-        steps:
-          type: object
-          description: One or more steps required to complete an exchange on the workflow. The keys are step names and the values are step configurations.
-          properties:
-            theNameOfTheStep:
-              $ref: "#/components/schemas/WorkflowStep"
+        id:
+          type: string
+          description: The ID that will be used for the created workflow. Passing an ID is OPTIONAL.
         initialStep:
           type: string
-          description: The step from the above set that the exchange starts on.
+          description: The step from the above set that the exchange starts on. Passing intialStep is REQUIRED.
         controller:
           type: string
-          description: The controller of the instance. Returning controller is OPTIONAL.
+          description: The controller of the instance. Passing controller is OPTIONAL.
         authorization:
           type: object
-          description: Authorization scheme information (e.g., OAuth2 configuration). Returning authorization is OPTIONAL.
+          description: Authorization scheme information (e.g., OAuth2 configuration). Passing authorization is OPTIONAL.
           properties:
             oauth2:
               type: object
@@ -305,7 +303,7 @@ components:
                   description: OAuth2 issuer config URL.
         credentialTemplates:
           type: array
-          description: One or more VC templates for issuance. Returning credentialTemplates is OPTIONAL.
+          description: One or more VC templates for issuance. Passing credentialTemplates is OPTIONAL.
           items:
             type: object
             properties:
@@ -315,6 +313,12 @@ components:
               template:
                 type: string
                 description: The template itself.
+        steps:
+          type: object
+          description: One or more steps required to complete an exchange on the workflow. The keys are one or more step names, where each STEP_NAME is replaced by the name of a step (such as <code>request-employee-id</code>), and the values are step configurations.
+          properties:
+            STEP_NAME:
+              $ref: "#/components/schemas/WorkflowStep"
     CreateExchangeRequest:
       type: object
       description: Object containing information about the exchange to be created.
