@@ -904,18 +904,18 @@ a single call to the `/credentials/issue` endpoint.
         </p>
        <p>
 If a provided `credential` already contains one or more proofs,
-the behavior is determined by the issuer instance configuration. An issuing instance 
-SHOULD be configured to handle existing proofs in one of the following ways:
+the behavior is determined by the configuration of the issuer instance. An issuing 
+instance SHOULD be configured to handle existing proofs in one of the following ways:
       </p>
       <ul>
         <li>
-          <strong>Proof Sets</strong>: Append its proofs to the list of existing proofs 
+          <strong>Proof Sets</strong>: Append their proofs to the list of existing proofs 
           provided by the caller, converting a single proof value to an array of 
           proof values if necessary, creating a proof set where multiple proofs exist 
           in parallel.
         </li>
         <li>
-          <strong>Proof Chains</strong>: Append its proofs to create a proof chain 
+          <strong>Proof Chains</strong>: Append their proofs to create a proof chain 
           where proofs are linked in a specific sequence, potentially using properties 
           like <code>previousProof</code> to establish the chain relationship.
         </li>
@@ -926,7 +926,7 @@ SHOULD be configured to handle existing proofs in one of the following ways:
         </li>
       </ul>
       <p>
-The specific approach used depends on the issuer instance configuration and 
+The specific approach used depends on the configuration of the issuer instance and 
 the intended use case for the verifiable credential.
       </p>
       </section>
