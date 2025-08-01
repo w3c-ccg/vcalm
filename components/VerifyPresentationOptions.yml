@@ -14,8 +14,14 @@ components:
   schemas:
     VerifyPresentationOptions:
       type: object
-      additionalProperties: false
+      additionalProperties: true
       description: Options for specifying how a presentation is verified.
+
+        Implementations MAY extend this object with additional properties to control
+        verification behavior, such as enabling/disabling verification of contained
+        credentials for debugging purposes, or controlling specific aspects of
+        credential verification (status checks, validity periods, proof verification, etc.).
+      
       properties:
         challenge:
           type: string
