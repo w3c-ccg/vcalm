@@ -424,15 +424,22 @@ components:
         verifiablePresentationRequest:
           $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
         presentationSchema:
-          type: object
-          description: The presentation schema to use when validating a presentation in the current step.
-          properties:
-            types:
-              type: string
-              description: The type of presentation schema, such as <code>JsonSchema</code>.
-            jsonSchema:
-              type: object
-              description: The JSON Schema object to use if the <code>type</code> is <code>JsonSchema</code>.
+          oneOf:
+            - type: object
+              description: A JSON Schema describing the validation to be performed on the presentation.
+              properties:
+                  type:
+                    type: string
+                    description: The value MUST be <code>JsonSchema</code>.
+                  jsonSchema:
+                    type: object
+                    description: The JSON Schema object to use when validating the presentation.
+            - type: object
+              description: An alternate presentation schema format to use when validating a presentation in the current step. Additional properties are expected for a specific presentation schema type, but are beyond the scope of this specification.
+              properties:
+                types:
+                  type: string
+                  description: The type of presentation schema mechanism to use when validating the presentation.
         nextStep:
           type: string
           description: The name of the next step in the sequence. Passing nextStep is OPTIONAL. This field MUST NOT be present on the final step configuration.
