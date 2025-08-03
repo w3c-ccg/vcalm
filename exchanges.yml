@@ -440,6 +440,23 @@ components:
                 types:
                   type: string
                   description: The type of presentation schema mechanism to use when validating the presentation.
+        verifyPresentationResponseSchema:
+          oneOf:
+            - type: object
+              description: A JSON Schema describing the validation to be performed on the result of verifying the presentation.
+              properties:
+                  type:
+                    type: string
+                    description: The value MUST be <code>JsonSchema</code>.
+                  jsonSchema:
+                    type: object
+                    description: The JSON Schema object to use when validating the result of verifying the presentation.
+            - type: object
+              description: An alternate presentation schema format to use on the result of verifying a presentation in the current step. Additional properties are expected for a specific presentation schema type, but are beyond the scope of this specification.
+              properties:
+                types:
+                  type: string
+                  description: The type of presentation schema mechanism to use when validating the result of verifying the presentation.
         nextStep:
           type: string
           description: The name of the next step in the sequence. Passing nextStep is OPTIONAL. This field MUST NOT be present on the final step configuration.
