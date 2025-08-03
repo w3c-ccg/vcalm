@@ -904,29 +904,29 @@ a single call to the `/credentials/issue` endpoint.
         </p>
        <p>
 If a provided `credential` already contains one or more proofs,
-the behavior is determined by the configuration of the issuer instance. An issuing 
+the behavior is determined by the configuration of the issuer instance. An issuing
 instance SHOULD be configured to handle existing proofs in one of the following ways:
       </p>
       <ul>
         <li>
-          <strong>Proof Sets</strong>: Append new proofs to the list of existing proofs 
-          provided by the caller, first converting any existing single proof to a list 
-          if necessary. Here there is no binding to any existing proofs; the new proofs 
+          <strong>Proof Sets</strong>: Append new proofs to the list of existing proofs
+          provided by the caller, first converting any existing single proof to a list
+          if necessary. Here there is no binding to any existing proofs; the new proofs
           exist in parallel with those previously provided by the caller.
         </li>
         <li>
-          <strong>Proof Chains</strong>: Append new proofs to create or extend an existing 
-          proof chain. Here proofs are linked in a specific sequence, potentially using the 
+          <strong>Proof Chains</strong>: Append new proofs to create or extend an existing
+          proof chain. Here proofs are linked in a specific sequence, potentially using the
           <code>previousProof</code> property to establish the chain relationship.
         </li>
         <li>
-          <strong>Error Handling</strong>: Return an error if <code>credential</code> 
-          values that contain existing <code>proof</code> values are provided, when 
+          <strong>Error Handling</strong>: Return an error if <code>credential</code>
+          values that contain existing <code>proof</code> values are provided, when
           the instance is configured to only accept credentials without existing proofs.
         </li>
       </ul>
       <p>
-The specific approach used depends on the configuration of the issuer instance and 
+The specific approach used depends on the configuration of the issuer instance and
 the intended use case for the verifiable credential.
       </p>
       </section>
@@ -1103,7 +1103,7 @@ verifiable credentials between two parties across a trust boundary. Each step
 can involve the issuance, verification, transmission, and/or presentation of
 verifiable credentials. Workflows are designed to support both linear sequences
 of steps and more complex patterns including branching logic and repeated steps,
-enabling sophisticated interactions between the parties involved. Examples of VC API 
+enabling sophisticated interactions between the parties involved. Examples of VC API
 workflows include, but are not limited to, the following:
       </p>
       <ul class="bullet">
@@ -1314,7 +1314,116 @@ while a `localExchangeId` or `localWorkflowId` refers to a specific element in t
 
         <div class="api-detail"
           data-api-endpoint="post /workflows"></div>
-      </section>
+
+        <p>
+For the `openId` options above, specifically the values
+`createAuthorizationRequest` and `authorizationRequest`, the example below
+is provided to help developers understand what an OID4VP Authorization Request
+looks like:
+        </p>
+
+        <pre class="example nohighlight" title="An OID4VP Authorization Request">
+{
+  "response_type": "vp_token",
+  "presentation_definition": {
+    "id": "f1bd224a-0fed-469a-b64a-dad7cf63fd98",
+    "input_descriptors": [
+      {
+        "id": "77d50c71-95ef-442c-a372-f32e17634fab",
+        "constraints": {
+          "fields": [
+            {
+              "path": [
+                "$['@context']"
+              ],
+              "filter": {
+                "type": "array",
+                "contains": {
+                  "type": "string",
+                  "const": "https://www.w3.org/ns/credentials/v2"
+                }
+              }
+            },
+            {
+              "path": [
+                "$['type']"
+              ],
+              "filter": {
+                "type": "array",
+                "contains": {
+                  "type": "string",
+                  "const": "VerifiableCredential"
+                }
+              }
+            },
+            {
+              "path": [
+                "$['credentialSubject']['name']"
+              ],
+              "filter": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "purpose": "We require a name credential to display your name when you post messages."
+      }
+    ]
+  },
+  "response_mode": "direct_post",
+  "client_metadata": {
+    "vp_formats_supported": {
+      "ldp_vc": {
+        "proof_type_values": [
+          "DataIntegrityProof",
+          "Ed25519Signature2020"
+        ],
+        "cryptosuite_values": [
+          "ecdsa-rdfc-2019",
+          "eddsa-rdfc-2022"
+        ]
+      }
+    },
+    "vp_formats": {
+      "jwt_vp": {
+        "alg": [
+          "EdDSA",
+          "Ed25519",
+          "ES256",
+          "ES384"
+        ]
+      },
+      "jwt_vp_json": {
+        "alg": [
+          "EdDSA",
+          "Ed25519",
+          "ES256",
+          "ES384"
+        ]
+      },
+      "di_vp": {
+        "proof_type": [
+          "ecdsa-rdfc-2019",
+          "eddsa-rdfc-2022",
+          "Ed25519Signature2020"
+        ]
+      },
+      "ldp_vp": {
+        "proof_type": [
+          "ecdsa-rdfc-2019",
+          "eddsa-rdfc-2022",
+          "Ed25519Signature2020"
+        ]
+      }
+    }
+  },
+  "client_id": "https://some.example/workflows/z1A7ojitBF3pGpVzW17MgU7zm/exchanges/z1ACKwiBiXmuGjpKAdKMpBZXB/openid/client/authorization/response",
+  "client_id_scheme": "redirect_uri",
+  "response_uri": "https://some.example/workflows/z1A7ojitBF3pGpVzW17MgU7zm/exchanges/z1ACKwiBiXmuGjpKAdKMpBZXB/openid/client/authorization/response",
+  "nonce": "z1ACKwiBiXmuGjpKAdKMpBZXB"
+}
+        </pre>
+        </section>
 
       <section>
         <h4>Get Workflow Configuration</h4>
