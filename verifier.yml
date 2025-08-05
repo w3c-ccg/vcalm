@@ -70,8 +70,8 @@ paths:
         using the <code>/credentials/verify</code> endpoint.
         
         Given the possibility of denial of service, buffer overflow, or other attacks, an implementation 
-        is permitted to apply rate limits or restrict requests against this API endpoint as needed using
-        a <code>413</code> or <code>429</code> response error code as appropriate.
+        is permitted to apply rate limits or otherwise restrict requests against this API endpoint 
+        as needed using a <code>413</code>, <code>429</code>, or other response error code as appropriate.
       requestBody:
         content:
           application/json:
