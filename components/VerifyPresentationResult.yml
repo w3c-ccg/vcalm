@@ -19,7 +19,7 @@ components:
       properties:
         verified:
           type: boolean
-          description: Overall verification assertion of the VerifiablePresentation. This is set to `True` if the VP and all checked VCs passed verification; otherwise, `False`. See error handling section for more guidance around errors, warnings, and validation and verification steps.
+          description: Overall verification assertion of the VerifiablePresentation. This is set to `True` if the VerifiablePresentation and all contained VerifiableCredentials passed verification; otherwise, `False`. See error handling section for more guidance around errors and warnings, and validation and verification steps.
         verifiablePresentation:
           type: object
           description: The VerifiablePresentation used as the verification input.
@@ -31,12 +31,12 @@ components:
         results:
           type: object
           additionalProperties: false
-          description: Detailed verification results for both presentation and all credentials contained within it, by default. Keys are mapped to properties from the Verifiable Credential Data Model which are subject to validations.
+          description: Detailed verification results for both VerifiablePresentation and all VerifiableCredentials contained within it, by default. Keys are mapped to properties from the Verifiable Credential Data Model which are subject to validations.
           properties:
             presentation:
               type: object
               additionalProperties: false
-              description: Verification results specific to the VerifiablePresentation itself (not its contained VCs).
+              description: Verification results specific to the VerifiablePresentation itself (not its contained VerifiableCredentials).
               properties:
                 challenge:
                   type: object
@@ -88,49 +88,49 @@ components:
                           $ref: "./ProblemDetails.yml#/components/schemas/ProblemDetails"
             credentials:
               type: object
-              description: Verification results for the credentials contained in the presentation.
+              description: Verification results for the VerifiableCredentials contained in the VerifiablePresentation.
               additionalProperties: false
               properties:
                 summary:
                   type: object
-                  description: Summary counts providing a quick overview of credential verification results.
+                  description: Summary counts providing a quick overview of VerifiableCredential verification results.
                   additionalProperties: false
                   properties:
                     totalCount:
                       type: integer
-                      description: Total number of VCs in the presentation.
+                      description: Total number of VerifiableCredentials in the VerifiablePresentation.
                     checkedCount:
                       type: integer
-                      description: Number of VCs that were actually verified.
+                      description: Number of VerifiableCredentials that were actually verified.
                     skippedCount:
                       type: integer
-                      description: Number of VCs that were skipped due to options or configuration.
+                      description: Number of VerifiableCredentials that were skipped due to options or configuration.
                     passedCount:
                       type: integer
-                      description: Number of checked VCs that passed verification.
+                      description: Number of checked VerifiableCredentials that passed verification.
                     failedCount:
                       type: integer
-                      description: Number of checked VCs that failed verification.
+                      description: Number of checked VerifiableCredentials that failed verification.
                 results:
                   type: array
-                  description: Detailed verification results for each VC in the presentation, in the same order as they appear in the verifiableCredential array.
+                  description: Detailed verification results for each VerifiableCredential in the VerifiablePresentation, in the same order as they appear in the verifiableCredential array.
                   items:
                     type: object
-                    description: Verification results for a single VC.
+                    description: Verification results for a single VerifiableCredential.
                     additionalProperties: false
                     properties:
                       index:
                         type: integer
-                        description: Index of this VC in the VP's verifiableCredential array.
+                        description: Index of this VerifiableCredential in the VerifiablePresentation's verifiableCredential array.
                       wasChecked:
                         type: boolean
-                        description: Whether this VC was actually verified. If false, detailed verification properties will not be present.
+                        description: Whether this VerifiableCredential was actually verified. If false, detailed verification properties will not be present.
                       verified:
                         type: boolean
-                        description: Whether this specific VC pass verification. Only meaningful if wasChecked is true.
+                        description: Whether this specific VerifiableCredential pass verification. Only meaningful if wasChecked is true.
                       skipReason:
                         type: boolean
-                        description: Explanation of why verification was skipped for this VC. Only present if wasChecked is false.
+                        description: Explanation of why verification was skipped for this VerifiableCredential. Only present if wasChecked is false.
                       validFrom:
                         type: object
                         description: Results of validating the validFrom property, if present in the verifiableCredential. Only present if wasChecked is true.
@@ -200,7 +200,7 @@ components:
                                 $ref: "./ProblemDetails.yml#/components/schemas/ProblemDetails"
                       problemDetails:
                         type: array
-                        description: Issues specific to this individual VC, present regardless of wasChecked status.
+                        description: Issues specific to this individual VerifiableCredential, present regardless of wasChecked status.
                         items:
                           $ref: "./ProblemDetails.yml#/components/schemas/ProblemDetails"
       example: {
