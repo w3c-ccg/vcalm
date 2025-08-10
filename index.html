@@ -1007,18 +1007,18 @@ all <a>verifiable credentials</a> contained within it.
 The verification process includes:
         </p>
         <ul>
-          <li>Verifying the presentation's own proof (including domain 
+          <li>Verifying the presentation's own proof (including domain
 and challenge validation)</li>
-          <li>Verifying each contained verifiable credential's proof, 
+          <li>Verifying each contained verifiable credential's proof,
 status, and validity period(s)</li>
-          <li>Checking that the holder in the presentation matches 
+          <li>Checking that the holder in the presentation matches
 the verification method used in the presentation's proof</li>
         </ul>
 
         <p>
-Business rule validation (such as verifying that credential subjects 
-match the presentation holder, or authorization policies about who can 
-present which credentials) is outside the scope of this verification 
+Business rule validation (such as verifying that credential subjects
+match the presentation holder, or authorization policies about who can
+present which credentials) is outside the scope of this verification
 endpoint and should be performed by the calling application.
         </p>
 
@@ -1111,7 +1111,7 @@ following form:
   An OPTIONAL, unique [=string=] that is provided by a [=verifier=] to a
   [=holder=] during a specific [=presentation request=]. The [=holder=] includes
   this data in a [=verifiable presentation=] to the [=verifier=], protecting the
-  [=verifier=] against <a data-cite="?VC-DATA-MODEL-2.0#replay-attack">replay 
+  [=verifier=] against <a data-cite="?VC-DATA-MODEL-2.0#replay-attack">replay
   attacks</a>.
           </dd>
         </dl>
@@ -2284,7 +2284,7 @@ result in the following response:
   "protocols": {
     "website": "https://app.example/redirects/z8j3kfk2lQ",
     "vcapi": "https://saas.example/workflows/123/exchanges/987",
-    "oid4vp": "openid4vp://?client_id=https%3A%2F%2Fapp.example%2Fworkflows%2F123%2Fexchanges%2F987%2Fopenid%2Fclient%2Fauthorization%2Fresponse&request_uri=https%3A%2F%2Fapp.example%2Fworkflows%2F123%2Fexchanges%2F987%2Fopenid%2Fclient%2Fauthorization%2Frequest'"
+    "OID4VP": "openid4vp://?client_id=https%3A%2F%2Fapp.example%2Fworkflows%2F123%2Fexchanges%2F987%2Fopenid%2Fclient%2Fauthorization%2Fresponse&request_uri=https%3A%2F%2Fapp.example%2Fworkflows%2F123%2Fexchanges%2F987%2Fopenid%2Fclient%2Fauthorization%2Frequest'"
   }
 }
         </pre>
