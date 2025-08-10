@@ -58,6 +58,7 @@
       branch: "main"
     },
     includePermalinks: false,
+    maxTocLevel: 3,
 
     // Uncomment these to use the respec extension that generates a list of
     //   normative statements:
@@ -1039,6 +1040,495 @@ The instance should create a challenge for use during verification, and track th
 
     </section>
 
+    <section>
+      <h3>Requesting a Presentation</h3>
+
+      <p>
+When working with [=verifiable credentials=], and [=decentralized
+identifier=]-based authentication, a client application often needs to request
+data from a holder coordinator, verifier coordinator, or issuer
+coordinator. This section describes the general format of those requests and
+provides a concrete verifiable presentation request format as well.
+      </p>
+
+      <section>
+        <h4>Verifiable Presentation Request</h4>
+
+        <p>
+A <dfn data-lt="presentation request">verifiable presentation request</dfn> is a
+request made by a [=verifier=] for a [=presentation=] by a [=holder=]. To make a
+request for one or more credentials wrapped in a [=verifiable presentation=], a
+[=verifier=] constructs a JSON request describing one or more credentials that
+it wishes to receive from the [=holder=]. The general format for a request looks
+like the following:
+        </p>
+
+        <pre class="example nohighlight" title="The general form of a verifiable presentation request">
+{
+  <span class="comment">// one or more requests for verifiable credentials</span>
+  "query": [{
+    "type": "QueryByExample",
+    <span class="comment">// query details specific to QBE...</span>
+  }, {
+    "type": "DigitalCredentialQueryLanguage",
+    <span class="comment">// query details specific to DCQL...</span>
+  }],
+  <span class="comment">// The target security domain, such as a website domain, to include in
+  // the verifiable presentation</span>
+  "domain": "domain.example",
+
+  <span class="comment">// The random challenge string to include in the verifiable presentation</span>
+  "challenge": "f63cb0d2-760e-11f0-a2b1-67febb854a5f",
+}
+        </pre>
+
+        <p>
+The `query` property serves as the main extension point mechanism for requests
+for data in the presentation. While this document defines a common query
+mechanism (see Section [[[#query-by-example]]]), all query objects are of the
+following form:
+        </p>
+
+        <dl>
+          <dt>query</dt>
+          <dd>
+  A REQUIRED property that specifies the information requested by the
+  [=verifier=]. The value MUST be one or more [=maps=] where each [=map=] MUST
+  define a `type` property with an associated [=string=] value.
+          </dd>
+          <dt><dfn class="export">domain</dfn></dt>
+          <dd>
+  An OPTIONAL [=string=] that is provided by a [=verifier=] to a [=holder=] during
+  a [=presentation request=]. The [=holder=] checks to ensure that the data is
+  associated with the domain, such as a website domain, that they are interacting
+  with, and if it is, includes the data in a [=verifiable presentation=]. A domain
+  is used to ensure that the [=holder=] limits their [=verifiable presentation=]
+  to a specific [=verifier=] in order to protect against
+  <a data-cite="?VC-DATA-MODEL-2.0#replay-attack">replay attacks</a>.
+          </dd>
+          <dt><dfn class="export">challenge</dfn></dt>
+          <dd>
+  An OPTIONAL, unique [=string=] that is provided by a [=verifier=] to a
+  [=holder=] during a specific [=presentation request=]. The [=holder=] includes
+  the data in a [=verifiable presentation=] to the [=verifier=] to protect against
+  <a data-cite="?VC-DATA-MODEL-2.0#replay-attack">replay attacks</a>.
+          </dd>
+        </dl>
+
+      </section>
+
+      <section>
+        <h3>Query By Example</h3>
+
+        <p>
+The "query by example" credential query format is designed to enable developers
+to easily request the [=claims=] that they need to perform a particular business
+process from one or more [=verifiable credentials=]. The query can also
+specify other information, such as one or more [=issuers=] that are trusted by
+the [=verifier=].
+        </p>
+
+        <pre class="example nohighlight" title="A Query By Example query">
+{
+  "query": [
+    {
+      "type": "QueryByExample",
+      "credentialQuery": [
+        {
+          // One or more example query entries
+          "required": false, // (Optional) Defaults to 'true' if omitted
+          // (Optional) Reason for requesting this credential that
+          // may be shown to a user by their wallet software
+          "reason": "We need you to prove your eligibility to work.",
+          "example": {
+            "@context": ["https://www.w3.org/2018/credentials/v1", "https://w3id.org/citizenship/v1"],
+            "type": "PermanentResidentCard",
+            // (Optional) You can request a specific subject id
+            "credentialSubject": {
+              "id": "...",
+              "name": "..."
+            },
+            // (Optional) Specify only credentials of a particular schema
+            "credentialSchema": {
+              "id": "urn:foo:1234",
+              "type": "SomeType"
+            }
+          },
+          // (Optional) Specify credentials from a particular issuer only
+          "trustedIssuer": [
+            {
+              "required": true,
+              "issuer": "urn:some:required:issuer"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      // Another example query
+      "type": "AnotherQueryType"
+      // ...
+    }
+  ],
+  "challenge": "3182bdea-63d9-11ea-b6de-3b7c1404d57f",
+  // the domain that will be digitally signed in the authentication
+  // proof that will be attached to the VerifiablePresentation
+  // response, identifying the recipient
+  "domain": "jobs.example.com"
+}
+        </pre>
+
+      </section>
+
+      <section>
+        <h3>DID Authentication</h3>
+
+        <p>
+This section defines how a <a>verifier</a> can request that a
+<a>holder</a> perform Decentralized Identifier-based Authentication
+[[?DID-CORE]]. In its simplest form, the authentication protocol is comprised
+of a challenge by the <a>verifier</a> and a response by a <a>holder</a>:
+        </p>
+
+        <pre class="example" title="A DID Authentication request">
+{
+  "query": [{
+    "type": "DIDAuthentication",
+    "acceptedMethods": [{"method": "example"}]
+  }],
+  "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
+  "domain": "example.com"
+}
+        </pre>
+
+        <p>
+The DID Authentication request above specifies that the <a>verifier</a> would
+like the <a>holder</a> to demonstrate control over a DID by generating a
+digital signature over the provided challenge. The <a>holder</a> might respond
+by providing the following response:
+        </p>
+
+        <pre class="example" title="A DID Authentication response">
+{
+  "@context": ["https://www.w3.org/ns/credentials/v2"],
+  "type": "VerifiablePresentation",
+  "holder": "did:example:12345",
+  "proof": {
+    "type": "DataIntegrityProof",
+    "cryptosuite": "eddsa-rdfc-2022",
+    "verificationMethod": "did:example:12345#key-1",
+    "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
+    "domain": "example.com",
+    "created": "2024-02-25T14:58:42Z",
+    "proofPurpose": "authentication",
+    "proofValue": "z3FXQjecWufY46...UAUL5n2Brbx"
+  }
+}
+        </pre>
+
+        <p class="issue">
+The DID Authentication examples shown in this document use a new proof type
+called `DataIntegrityProof` which is currently under development in the
+<a href="https://www.w3.org/2017/vc/WG/">W3C Verifiable Credentials Working
+Group</a>.
+        </p>
+
+        <section>
+          <h3>The DID Authentication Query Format</h3>
+
+          <p>
+The DID Authentication query format enables a <a>verifier</a> to request that
+a <a>holder</a> authenticate in specific ways. A DID Authentication query MUST
+be of the following form:
+          </p>
+          <table class="simple">
+            <tr>
+              <th>Property</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>
+a REQUIRED string value that MUST be set to <code>DIDAuthentication</code>.
+              </td>
+            </tr>
+            <tr>
+              <td>acceptedMethods</td>
+              <td>
+An optional array of objects that expresses the <a>verifier</a> would accept
+any DID Method listed. Each object in the array MUST contain a property called
+`method` with a value that is a DID Method name, and MAY contain other
+properties that are specific to the DID Method. Valid example values
+include: <code>[{"method": "key"}]</code> and
+<code>[{"method": "key"}, {"method": "web"}]</code>.
+              </td>
+            </tr>
+            <tr>
+              <td>acceptedCryptosuites</td>
+              <td>
+An optional array of objects that conveys the cryptography suites that MUST be
+used by the <a>holder</a> to generate a cryptographic proof. Each object in the
+array MUST contain a property called `cryptosuite` with a value that is a
+cryptosuite name, and MAY contain other properties that are specific to the
+cryptosuite. Valid example values include:
+<code>[{"cryptosuite": "eddsa-rdfc-2022"}]</code> and
+<code>[{"cryptosuite": "ecdsa-rdfc-2019"}, {"cryptosuite": "bbs-2023"}]</code>.
+              </td>
+            </tr>
+          </table>
+
+          <p>
+The following example demonstrates that the <a>verifier</a> would like the
+<a>holder</a> to use the DID Web method and a data integrity ECDSA
+cryptography suite to authenticate over the established communication channel,
+such as the Credential Handler API (CHAPI):
+          </p>
+
+          <pre class="example"
+            title="A DID Authentication request using did:web and ecdsa-rdfc-2019">
+{
+  "query": [{
+    "type": "DIDAuthentication",
+    "acceptedMethods": [{"method": "key"}],
+    "acceptedCryptosuites": [{"cryptosuite": "ecdsa-rdfc-2019"}]
+  }],
+  "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
+  "domain": "example.com"
+}
+          </pre>
+
+          <p>
+The next example demonstrates that the <a>verifier</a> would like the
+<a>holder</a> to use either the DID Key or DID Web method, and the standard
+EdDSA data integrity cryptography suite, and optionally also include a
+cryptographic proof that they are capable of performing a data integrity BBS
+proof, and authenticate over a different communication channel, in this case
+using a Verifiable Credential API HTTP endpoint:
+          </p>
+
+          <pre class="example" title="A complex DID Authentication request">
+{
+  "query": [{
+    "type": "DIDAuthentication",
+    "acceptedMethods": [{"method": "key"}, {"method": "web"}],
+    "acceptedCryptosuites": [{"cryptosuite": "ecdsa-rdfc-2019"}]
+  }, {
+    "type": "DIDAuthentication",
+    "required": false,
+    "acceptedMethods": [{"method": "key"}, {"method": "web"}],
+    "acceptedCryptosuites": [{"cryptosuite": "bbs-2023"}]
+  }],
+  "challenge": "zLEwtBYgQVNR4tyeo",
+  "domain": "didauth.example"
+}
+          </pre>
+
+        </section>
+
+        <section>
+          <h3>The DID Authentication Response Format</h3>
+
+          <p>
+The DID Authentication response format enables a <a>holder</a> to
+provide the information requested by the <a>verifier</a>. A DID Authentication
+response MUST be a <a>verifiable presentation</a> of the following form:
+          </p>
+          <table class="simple">
+            <tr>
+              <th>Property</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>type</td>
+              <td>
+a REQUIRED string value that MUST be set to <code>VerifiablePresentation</code>.
+              </td>
+            </tr>
+            <tr>
+              <td>holder</td>
+              <td>
+a REQUIRED string value that MUST be set to a specific DID that is of the
+type that was requested in the DID Authentication query.
+              </td>
+            </tr>
+            <tr>
+              <td>proof</td>
+              <td>
+a REQUIRED value that MUST be one or more specific digital proof types that
+were requested in the DID Authentication query. Each proof object MUST
+include the `domain` and `challenge` values that were provided in the DID
+Authentication query. <a>Holder</a> implementations MUST ensure that the `domain` specified
+by the <a>verifier</a> matches the domain used for the current channel of
+communication.
+              </td>
+            </tr>
+        </table>
+
+        <p class="advisement">
+It is vital that a <a>holder</a> implementation check the `domain` provided by the
+`verifier` against the domain used for the current channel of communication. If
+this is not done, a dishonest <a>verifier</a> could then replay the message
+to a domain that is not their own. For example, a dishonest <a>verifier</a>
+operating from the `evil.example` domain could retrieve a challenge from your
+bank, specify a domain value of `yourbank.example`, and then replay
+your response to your bank to get access to your financial accounts. This
+attack is mitigated as long as implementations ensure that the appropriate
+domain is used when generating the <a>verifiable presentation</a>.
+        </p>
+
+        <p>
+The example below demonstrates a simple DID Authentication response.
+        </p>
+
+        <pre class="example"
+          title="A DID Authentication response using did:key">
+{
+  "@context": ["https://www.w3.org/ns/credentials/v2"],
+  "type": "VerifiablePresentation",
+  "holder": "did:example:12345",
+  "proof": {
+    "type": "DataIntegrityProof",
+    "cryptosuite": "eddsa-rdfc-2022",
+    "verificationMethod": "did:example:12345#key-1",
+    "challenge": "99612b24-63d9-11ea-b99f-4f66f3e4f81a",
+    "domain": "example.com",
+    "created": "2024-02-25T14:58:42Z",
+    "proofPurpose": "authentication",
+    "proofValue": "z3FXQjecWufY46...UAUL5n2Brbx"
+  }
+}
+        </pre>
+      </section>
+      </section>
+
+      <section>
+        <h3>Authorization Capability Request</h3>
+
+        <p>
+This query type would be included in a request to ask for Authorization
+Capabilities or "zcaps" in the Verifiable Presentation.
+        </p>
+
+        <pre class="example nohighlight" title="A zCap Request query">
+{
+  query: [{
+    type: 'ZcapQuery',
+    capabilityQuery: [{
+      referenceId: `a-memorable-name`,
+      allowedAction: ['read', 'write'],
+      invoker: 'did:key:1234',
+      delegator: 'did:key:1234'
+      invocationTarget: {
+        type: 'urn:edv:documents'
+      }
+    }, {
+      referenceId: `another-memorable-name`,
+      allowedAction: 'sign',
+      invoker: 'did:key:1234',
+      delegator: 'did:key:1234',
+      invocationTarget: {
+        type: 'Ed25519VerificationKey2018',
+        proofPurpose: 'assertionMethod'
+      }
+    }],
+    challenge: '111112b24-63d9-11ea-b99f-4f66f3e4f81a'
+  }]
+}
+        </pre>
+    </section>
+
+    <section>
+      <h3>Logical Operations in Queries</h3>
+
+      <p>
+In Verifiable Presentation Requests, the structuring and retrieval of
+information rely on the use of logical operations. "AND" and "OR" operations
+play crucial roles in defining the path to desired data.
+      </p>
+
+      <section>
+        <h3>Top-Level Queries ("AND" Operation)</h3>
+
+        <p>
+At the top-most level of the request structure, different types of queries are
+expected to be processed as "AND" operations. Each query is a unique condition
+that needs to be met to fulfill the request. This means, each query listed in
+the top-level array is an independent requirement.
+        </p>
+
+        <p>
+In this example, there are two queries: `APopularQueryType` and
+`AnotherQueryType`. The "AND" operation here indicates that both these conditions
+need to be met in order to fulfill the request.
+        </p>
+
+        <pre class="example" title="Multiple credentials requested at once using top-level queries">
+{
+  "query": [
+    // "and"
+    {
+      "type": 'APopularQueryType',
+      // query details ...
+    },
+    // "and"
+    {
+      "type": 'AnotherQueryType',
+      // query details ...
+    }
+  ]
+}
+        </pre>
+      </section>
+
+      <section>
+        <h3>Nested Queries ("OR" Operation)</h3>
+
+        <p>
+Within a specific query type, an "OR" operation can be defined. This operation
+indicates that one or more of the nested conditions needs to be met. When
+all credentialQuery objects are optional, they are interpreted as "OR"
+operations within their context. This enables flexible and forgiving data
+retrieval where optional conditions can refine the results when possible, but
+their absence will not halt the process.
+        </p>
+
+        <p>
+In this `QueryByExample` type, we have a `credentialQuery` array where all
+queries are optional. The "OR" operation suggests that fulfilling any one of the
+listed conditions within `credentialQuery` will enhance the results, but is not
+a requirement for the request to be valid or fulfilled. If none of the optional
+`credentialQuery` conditions are met, the request will still proceed with the
+other conditions outside the `credentialQuery` scope, which are interpreted with
+an "AND" operation.
+        </p>
+
+        <pre class="example" title="">
+{
+  "query": [
+    // "and"
+    {
+      "type": "QueryByExample",
+      "credentialQuery": [
+        // "or"
+        {
+          "required": false,
+          ...
+        },
+        // "or"
+        {
+          "required": false,
+          ...
+        },
+      ]
+    },
+    // "and"
+    { ... }
+  ]
+}
+        </pre>
+      </section>
+    </section>
+    </section>
 
     <section>
       <h3>Presenting</h3>
@@ -1798,10 +2288,10 @@ result in the following response:
         </pre>
 
         <p>
-The protocol response enables delegation of protocol execution to third-party service 
-providers through the HTTPS domain trust model, similar to the delegation mechanism 
-described in the <a href="#get-exchange-protocols">Get Exchange Protocols</a> section. 
-For example, the website `app.example` can delegate the operation of the exchange to a partner 
+The protocol response enables delegation of protocol execution to third-party service
+providers through the HTTPS domain trust model, similar to the delegation mechanism
+described in the <a href="#get-exchange-protocols">Get Exchange Protocols</a> section.
+For example, the website `app.example` can delegate the operation of the exchange to a partner
 `saas.example` by using the `saas.example` domain in the list of protocols.
         </p>
 
