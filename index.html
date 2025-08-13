@@ -1045,10 +1045,10 @@ The instance should create a challenge for use during verification, and track th
 
       <p>
 When working with [=verifiable credentials=], and [=decentralized
-identifier=]-based authentication, a client application often needs to request
-data from a holder coordinator, verifier coordinator, or issuer
-coordinator. This section describes the general format of those requests and
-provides a concrete verifiable presentation request format as well.
+identifier=]-based authentication, one party often needs to request
+data from another. This section describes the general format of those
+requests and provides a concrete verifiable presentation request format
+as well.
       </p>
 
       <section>
@@ -1056,7 +1056,7 @@ provides a concrete verifiable presentation request format as well.
 
         <p>
 A <dfn data-lt="presentation request">verifiable presentation request</dfn> is a
-request made by a [=verifier=] for a [=presentation=] by a [=holder=]. To make a
+request a [=verifier=] makes to a [=holder=] for a [=presentation=]. To make a
 request for one or more credentials wrapped in a [=verifiable presentation=], a
 [=verifier=] constructs a JSON request describing one or more credentials that
 it wishes to receive from the [=holder=]. The general format for a request looks
@@ -1098,20 +1098,21 @@ following form:
           </dd>
           <dt><dfn class="export">domain</dfn></dt>
           <dd>
-  An OPTIONAL [=string=] that is provided by a [=verifier=] to a [=holder=] during
+  An OPTIONAL [=string=] that a [=verifier=] provides to a [=holder=] during
   a [=presentation request=]. The [=holder=] checks to ensure that the data is
   associated with the domain, such as a website domain, that they are interacting
   with, and if it is, includes the data in a [=verifiable presentation=]. A domain
   is used to ensure that the [=holder=] limits their [=verifiable presentation=]
-  to a specific [=verifier=] in order to protect against
+  to a specific [=verifier=], protecting the [=verifier=] against
   <a data-cite="?VC-DATA-MODEL-2.0#replay-attack">replay attacks</a>.
           </dd>
           <dt><dfn class="export">challenge</dfn></dt>
           <dd>
   An OPTIONAL, unique [=string=] that is provided by a [=verifier=] to a
   [=holder=] during a specific [=presentation request=]. The [=holder=] includes
-  the data in a [=verifiable presentation=] to the [=verifier=] to protect against
-  <a data-cite="?VC-DATA-MODEL-2.0#replay-attack">replay attacks</a>.
+  this data in a [=verifiable presentation=] to the [=verifier=], protecting the
+  [=verifier=] against <a data-cite="?VC-DATA-MODEL-2.0#replay-attack">replay 
+  attacks</a>.
           </dd>
         </dl>
 
@@ -1122,8 +1123,8 @@ following form:
 
         <p>
 The "query by example" credential query format is designed to enable developers
-to easily request the [=claims=] that they need to perform a particular business
-process from one or more [=verifiable credentials=]. The query can also
+to easily request the [=claims=] that they need from one or more [=verifiable
+credentials=], to enable a particular business process. The query can also
 specify other information, such as one or more [=issuers=] that are trusted by
 the [=verifier=].
         </p>
@@ -1249,28 +1250,29 @@ be of the following form:
             <tr>
               <td>type</td>
               <td>
-a REQUIRED string value that MUST be set to <code>DIDAuthentication</code>.
+A REQUIRED string value that MUST be set to <code>DIDAuthentication</code>.
               </td>
             </tr>
             <tr>
               <td>acceptedMethods</td>
               <td>
-An optional array of objects that expresses the <a>verifier</a> would accept
+An optional array of objects expressing that the <a>verifier</a> would accept
 any DID Method listed. Each object in the array MUST contain a property called
 `method` with a value that is a DID Method name, and MAY contain other
 properties that are specific to the DID Method. Valid example values
-include: <code>[{"method": "key"}]</code> and
+include <code>[{"method": "key"}]</code> and
 <code>[{"method": "key"}, {"method": "web"}]</code>.
               </td>
             </tr>
             <tr>
               <td>acceptedCryptosuites</td>
               <td>
-An optional array of objects that conveys the cryptography suites that MUST be
-used by the <a>holder</a> to generate a cryptographic proof. Each object in the
+An optional array of objects that conveys the cryptography suites among which
+the <a>holder</a> MUST choose when generating a cryptographic proof to be
+submitted to this <a>verifier</a>. Each object in the
 array MUST contain a property called `cryptosuite` with a value that is a
 cryptosuite name, and MAY contain other properties that are specific to the
-cryptosuite. Valid example values include:
+cryptosuite. Valid example values include
 <code>[{"cryptosuite": "eddsa-rdfc-2022"}]</code> and
 <code>[{"cryptosuite": "ecdsa-rdfc-2019"}, {"cryptosuite": "bbs-2023"}]</code>.
               </td>
@@ -1298,12 +1300,12 @@ such as the Credential Handler API (CHAPI):
           </pre>
 
           <p>
-The next example demonstrates that the <a>verifier</a> would like the
-<a>holder</a> to use either the DID Key or DID Web method, and the standard
-EdDSA data integrity cryptography suite, and optionally also include a
+In the next example, the <a>verifier</a> would like the
+<a>holder</a> to use either the DID Key or DID Web method, with the standard
+EdDSA data integrity cryptography suite; optionally include a
 cryptographic proof that they are capable of performing a data integrity BBS
-proof, and authenticate over a different communication channel, in this case
-using a Verifiable Credential API HTTP endpoint:
+proof; and authenticate over a different communication channel, in this case
+using a Verifiable Credential API HTTP endpoint.
           </p>
 
           <pre class="example" title="A complex DID Authentication request">
@@ -1341,20 +1343,20 @@ response MUST be a <a>verifiable presentation</a> of the following form:
             <tr>
               <td>type</td>
               <td>
-a REQUIRED string value that MUST be set to <code>VerifiablePresentation</code>.
+A REQUIRED string value that MUST be set to <code>VerifiablePresentation</code>.
               </td>
             </tr>
             <tr>
               <td>holder</td>
               <td>
-a REQUIRED string value that MUST be set to a specific DID that is of the
+A REQUIRED string value that MUST be set to a specific DID that is of the
 type that was requested in the DID Authentication query.
               </td>
             </tr>
             <tr>
               <td>proof</td>
               <td>
-a REQUIRED value that MUST be one or more specific digital proof types that
+A REQUIRED value that MUST be one or more specific digital proof types that
 were requested in the DID Authentication query. Each proof object MUST
 include the `domain` and `challenge` values that were provided in the DID
 Authentication query. <a>Holder</a> implementations MUST ensure that the `domain` specified
@@ -1366,8 +1368,8 @@ communication.
 
         <p class="advisement">
 It is vital that a <a>holder</a> implementation check the `domain` provided by the
-`verifier` against the domain used for the current channel of communication. If
-this is not done, a dishonest <a>verifier</a> could then replay the message
+`verifier` against the domain used for the current channel of communication. If a
+<a>holder</a> fails to do so, a dishonest <a>verifier</a> could then replay the message
 to a domain that is not their own. For example, a dishonest <a>verifier</a>
 operating from the `evil.example` domain could retrieve a challenge from your
 bank, specify a domain value of `yourbank.example`, and then replay
@@ -1458,7 +1460,7 @@ the top-level array is an independent requirement.
 
         <p>
 In this example, there are two queries: `APopularQueryType` and
-`AnotherQueryType`. The "AND" operation here indicates that both these conditions
+`AnotherQueryType`. The implicit "AND" operation here indicates that both these conditions
 need to be met in order to fulfill the request.
         </p>
 
@@ -1484,11 +1486,11 @@ need to be met in order to fulfill the request.
         <h3>Nested Queries ("OR" Operation)</h3>
 
         <p>
-Within a specific query type, an "OR" operation can be defined. This operation
-indicates that one or more of the nested conditions needs to be met. When
-all credentialQuery objects are optional, they are interpreted as "OR"
+Within a specific query type, an "OR" operation can be applied, by nesting one or more conditions within the top-level query. This operation
+indicates that _one or more_ of the nested conditions needs to be met; it does not require that _all_ of the nested conditions be met. When
+all `credentialQuery` objects are optional, they are interpreted as "OR"
 operations within their context. This enables flexible and forgiving data
-retrieval where optional conditions can refine the results when possible, but
+retrieval where optional conditions will refine the results when possible, but
 their absence will not halt the process.
         </p>
 
@@ -2288,11 +2290,11 @@ result in the following response:
         </pre>
 
         <p>
-The protocol response enables delegation of protocol execution to third-party service
+The protocol response enables protocol execution to be delegated to third-party service
 providers through the HTTPS domain trust model, similar to the delegation mechanism
 described in the <a href="#get-exchange-protocols">Get Exchange Protocols</a> section.
 For example, the website `app.example` can delegate the operation of the exchange to a partner
-`saas.example` by using the `saas.example` domain in the list of protocols.
+`saas.example` by including the `saas.example` domain in the list of protocols.
         </p>
 
         <p>
