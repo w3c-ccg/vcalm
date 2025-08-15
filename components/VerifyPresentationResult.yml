@@ -95,132 +95,10 @@ components:
                         items:
                           $ref: "./ProblemDetails.yml#/components/schemas/ProblemDetails"
             credentials:
-              type: object
-              description: Verification results for the VerifiableCredentials contained in the VerifiablePresentation.
-              additionalProperties: false
-              properties:
-                summary:
-                  type: object
-                  description: Summary counts providing a quick overview of VerifiableCredential verification results.
-                  additionalProperties: false
-                  properties:
-                    totalCount:
-                      type: integer
-                      description: Total number of VerifiableCredentials in the VerifiablePresentation.
-                    checkedCount:
-                      type: integer
-                      description: Number of VerifiableCredentials that were actually verified.
-                    skippedCount:
-                      type: integer
-                      description: Number of VerifiableCredentials that were skipped due to options or configuration.
-                    passedCount:
-                      type: integer
-                      description: Number of checked VerifiableCredentials that passed verification.
-                    failedCount:
-                      type: integer
-                      description: Number of checked VerifiableCredentials that failed verification.
-                results:
-                  type: array
-                  description: Detailed verification results for each VerifiableCredential in the 
-                    VerifiablePresentation, in the same order as they appear in the verifiableCredential array.
-                  items:
-                    type: object
-                    description: Verification results for a single VerifiableCredential.
-                    additionalProperties: false
-                    properties:
-                      index:
-                        type: integer
-                        description: Index of this VerifiableCredential in the VerifiablePresentation's 
-                          verifiableCredential array.
-                      wasChecked:
-                        type: boolean
-                        description: Whether this VerifiableCredential was actually verified. If false, 
-                          detailed verification properties will not be present.
-                      verified:
-                        type: boolean
-                        description: Whether this specific VerifiableCredential pass verification. 
-                          Only meaningful if <code>wasChecked</code> is <code>true</code>.
-                      skipReason:
-                        type: boolean
-                        description: Explanation of why verification was skipped for this VerifiableCredential. 
-                          Only present if <code>wasChecked</code> is <code>false</code>.
-                      validFrom:
-                        type: object
-                        description: Results of validating the validFrom property, if present in the 
-                          verifiableCredential. Only present if <code>wasChecked</code> is <code>true</code>.
-                        properties:
-                          valid:
-                            type: boolean
-                            description: Validation result.
-                          input:
-                            type: string
-                            description: The validFrom value.
-                      validUntil:
-                        type: object
-                        description: Results of validating the validUntil property, if present in the 
-                          verifiableCredential. Only present if <code>wasChecked</code> is <code>true</code>.
-                        properties:
-                          valid:
-                            type: boolean
-                            description: Validation result.
-                          input:
-                            type: string
-                            description: The validUntil value.
-                      credentialSchema:
-                        type: array
-                        description: Results from validating the credentialSchema objects if any. 
-                          Only present <code>wasChecked</code> is <code>true</code>.
-                        items:
-                          type: object
-                          description: Results from validating a credentialSchema object.
-                          properties:
-                            valid:
-                              type: boolean
-                              description: Results of validating the credentialSchema object.
-                            input:
-                              type: string
-                              description: The credentialSchema object.
-                      credentialStatus:
-                        type: array
-                        description: Results from validating the credentialStatus objects if any. 
-                          Only present if <code>wasChecked</code> is <code>true</code>.
-                        items:
-                          type: object
-                          description: Results of validating a credentialStatus object.
-                          properties:
-                            value:
-                              type: integer
-                              description: Value of the statusEntry Bit.
-                            valid:
-                              type: boolean
-                              description: Results of validating the credentialStatus object.
-                            input:
-                              type: object
-                              description: The credentialStatus object.
-                      proof:
-                        type: array
-                        description: Results from validating the proof objects if any. 
-                          Only present if <code>wasChecked</code> is <code>true</code>.
-                        items:
-                          type: object
-                          description: Results of validating a proof object.
-                          properties:
-                            valid:
-                              type: boolean
-                              description: Results of validating the proof object.
-                            input:
-                              type: object
-                              description: The proof object.
-                            problemDetails:
-                              type: array
-                              description: Issues specific to this proof.
-                              items:
-                                $ref: "./ProblemDetails.yml#/components/schemas/ProblemDetails"
-                      problemDetails:
-                        type: array
-                        description: Issues specific to this individual VerifiableCredential, present regardless of <code>wasChecked</code> status.
-                        items:
-                          $ref: "./ProblemDetails.yml#/components/schemas/ProblemDetails"
+              type: array
+              description: Detailed verification results for each VerifiableCredential in the VerifiablePresentation.
+              items:
+                $ref: "./VerifyCredentialResult.yml#/components/schemas/VerificationResult"
       example: {
         "verified": false,
         "verifiablePresentation": {},
@@ -259,91 +137,128 @@ components:
             }
            ]
           },
-          "credentials": {
-            "summary": {
-              "totalCount": 3,
-              "checkedCount": 2,
-              "skippedCount": 1,
-              "passedCount": 1,
-              "failedCount": 1
-            },
-            results: [
-              {
-                "index": 0,
-                "wasChecked": true,
-                "verified": true,
+          "credentials": [
+            {
+              "verified": true,
+              "credential": {
+                "@context": [
+                  "https://www.w3.org/ns/credentials/v2",
+                  "https://www.w3.org/ns/credentials/examples/v2"
+                ],
+                "id": "http://example.gov/credentials/3732",
+                "type": ["VerifiableCredential", "DriverLicense"],
+                "issuer": "did:example:dmv456",
+                "validFrom": "2023-01-01T00:00:00Z",
+                "validUntil": "2027-01-01T00:00:00Z",
+                "credentialSubject": {
+                  "id": "did:example:alice123",
+                  "licenseNumber": "DL123456789"
+                }
+              },
+              "problemDetails": [],
+              "results": {
                 "validFrom": {
                   "valid": true,
-                  "input": "2020-03-16T22:37:26.544Z"
+                  "input": "2023-01-01T00:00:00Z"
                 },
                 "validUntil": {
                   "valid": true,
-                  "input": "2025-03-16T22:37:26.544Z"
+                  "input": "2027-01-01T00:00:00Z"
                 },
                 "credentialStatus": [
                   {
                     "value": 0,
                     "valid": true,
-                    "input": {}
+                    "input": {
+                      "id": "https://example.com/status/3#94567",
+                      "type": "BitstringStatusListEntry",
+                      "statusPurpose": "revocation",
+                      "statusListIndex": "94567",
+                      "statusListCredential": "https://example.com/status/3"
+                    }
                   }
                 ],
                 "proof": [
                   {
                     "valid": true,
-                    "input": {},
+                    "input": {
+                      "type": "DataIntegrityProof",
+                      "cryptosuite": "eddsa-rdfc-2022",
+                      "created": "2023-01-01T10:00:00Z",
+                      "verificationMethod": "did:example:dmv456#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+                      "proofPurpose": "assertionMethod",
+                      "proofValue": "z3dY5z8x7h5b8k2dqKwJ5J8j7h5k8m3qKvJ2j7qJ5h8gYZ4h8x7h5b8k2dqKwJ5J8j7h5k8m3qKvJ2j7qJ5h8gYZ4h8x7h5b8k2dqKwJ5J8j7h5k8m3qKvJ2j7qJ"
+                    },
                     "problemDetails": []
                   }
+                ]
+              }
+            },
+            {
+              "verified": false,
+              "credential": {
+                "@context": [
+                  "https://www.w3.org/ns/credentials/v2",
+                  "https://www.w3.org/ns/credentials/examples/v2"
                 ],
-                "problemDetails": []
+                "id": "http://example.gov/credentials/3733",
+                "type": ["VerifiableCredential", "UniversityDegree"],
+                "issuer": "did:example:university789",
+                "validFrom": "2020-01-01T00:00:00Z",
+                "validUntil": "2022-12-31T23:59:59Z",
+                "credentialSubject": {
+                  "id": "did:example:alice123",
+                  "degree": {
+                    "type": "BachelorDegree",
+                    "name": "Bachelor of Science"
+                  }
+                }
               },
-              {
-                "index": 1,
-                "wasChecked": true,
-                "verified": false,
+              "problemDetails": [
+                {
+                  "type": "https://www.w3.org/TR/vc-data-model-2.0#CREDENTIAL_EXPIRED",
+                  "title": "Credential expired",
+                  "detail": "The credential's validUntil date of '2022-12-31T23:59:59Z' has passed."
+                }
+              ],
+              "results": {
                 "validFrom": {
                   "valid": true,
-                  "input": "2020-03-16T22:37:26.544Z"
+                  "input": "2020-01-01T00:00:00Z"
                 },
                 "validUntil": {
                   "valid": false,
-                  "input": "2022-03-16T22:37:26.544Z"
+                  "input": "2022-12-31T23:59:59Z"
                 },
                 "credentialStatus": [
                   {
-                    "value": 1,
-                    "valid": false,
-                    "input": {}
+                    "value": 0,
+                    "valid": true,
+                    "input": {
+                      "id": "https://example.com/status/4#12345",
+                      "type": "BitstringStatusListEntry",
+                      "statusPurpose": "revocation",
+                      "statusListIndex": "12345",
+                      "statusListCredential": "https://example.com/status/4"
+                    }
                   }
                 ],
                 "proof": [
                   {
-                    "valid": false,
-                    "input": {},
-                    "problemDetails": [
-                      {
-                        "type": "https://www.w3.org/TR/vc-data-model-2.0/#CRYPTOGRAPHIC_SECURITY_ERROR",
-                        "title": "Cryptographic security error",
-                        "details": "The proof signature verification failed. The signature does not match the expected value for the given verification method."
-                      }
-                    ]
-                  }
-                ],
-                "problemDetails": [
-                  {
-                    "type": "https://www.w3.org/TR/vc-data-model-2.0/#CREDENTIAL_EXPIRED",
-                    "title": "Credential expired",
-                    "details": "The credential's validUntil date of '2022-03-16T22:37:26.544Z' has passed."
+                    "valid": true,
+                    "input": {
+                      "type": "DataIntegrityProof",
+                      "cryptosuite": "eddsa-rdfc-2022",
+                      "created": "2020-01-01T10:00:00Z",
+                      "verificationMethod": "did:example:university789#z6MksHh7qHWvybLg5QTPPdG2DgEjjduBDArV9EF9mRiRzMBN",
+                      "proofPurpose": "assertionMethod",
+                      "proofValue": "z8m9N4p5q6r7s8t9u0v1w2x3y4z5a6b7c8d9e0f1g2h3i4j5k6l7m8n9o0p1q2r3s4t5u6v7w8x9y0z1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v"
+                    },
+                    "problemDetails": []
                   }
                 ]
-              },
-              {
-                "index": 2,
-                "wasChecked": false,
-                "verified": false,
-                "skipReason": "VC verification disabled via options",
-                "problemDetails": []
               }
-            ],
-          }
+            }
+          ]
         }
       }
