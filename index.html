@@ -1286,8 +1286,15 @@ An optional array of objects expressing that the [=verifier=] would accept
 any DID Method listed. Each object in the array MUST contain a property called
 `method` with a value that is a DID Method name, and MAY contain other
 properties that are specific to the DID Method. Valid example values
-include <code>[{"method": "key"}]</code> and
-<code>[{"method": "key"}, {"method": "web"}]</code>.
+include:
+<ul>
+  <li>
+<code>[{"method": "key"}]</code>
+  </li>
+  <li>
+<code>[{"method": "key"}, {"method": "web"}]</code>
+  </li>
+</ul>
               </td>
             </tr>
             <tr>
@@ -1298,9 +1305,15 @@ the [=holder=] MUST choose when generating a cryptographic proof to be
 submitted to this [=verifier=]. Each object in the
 array MUST contain a property called `cryptosuite` with a value that is a
 cryptosuite name, and MAY contain other properties that are specific to the
-cryptosuite. Valid example values include
-<code>[{"cryptosuite": "eddsa-rdfc-2022"}]</code> and
-<code>[{"cryptosuite": "ecdsa-rdfc-2019"}, {"cryptosuite": "bbs-2023"}]</code>.
+cryptosuite. Valid example values include:
+<ul>
+  <li>
+<code>[{"cryptosuite": "eddsa-rdfc-2022"}]</code>
+  </li>
+  <li>
+<code>[{"cryptosuite": "ecdsa-rdfc-2019"}, {"cryptosuite": "bbs-2023"}]</code>
+  </li>
+</ul>
               </td>
             </tr>
           </table>
