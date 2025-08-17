@@ -19,9 +19,9 @@ components:
       properties:
         verified:
           type: boolean
-          description: Overall verification assertion of the VerifiablePresentation. This is set to 
-            <code>true</code> if the VerifiablePresentation and all checked VerifiableCredentials 
-            passed verification; otherwise, <code>false</code>. See error handling section for more 
+          description: Overall verification assertion of the VerifiablePresentation. This is set to
+            <code>true</code> if the VerifiablePresentation and all checked VerifiableCredentials
+            passed verification; otherwise, <code>false</code>. See error handling section for more
             guidance around errors and warnings, and validation and verification steps.
         verifiablePresentation:
           type: object
@@ -34,58 +34,58 @@ components:
         results:
           type: object
           additionalProperties: false
-          description: Detailed verification results for both VerifiablePresentation and all 
-            VerifiableCredentials contained within it, by default. Keys are mapped to properties 
+          description: Detailed verification results for both VerifiablePresentation and all
+            VerifiableCredentials contained within it, by default. Keys are mapped to properties
             from the Verifiable Credential Data Model which are subject to validations.
           properties:
             presentation:
               type: object
               additionalProperties: false
-              description: Verification results specific to the VerifiablePresentation itself 
+              description: Verification results specific to the VerifiablePresentation itself
                 (not its contained VerifiableCredentials).
               properties:
                 challenge:
                   type: object
-                  description: If provided in the verification options, the result of validating 
+                  description: If provided in the verification options, the result of verifying
                     the security challenge across all proofs provided.
                   properties:
-                    valid:
+                    verified:
                       type: boolean
-                      description: Result of validating the security challenge across all proofs provided.
+                      description: Result of verifying the security challenge across all proofs provided.
                     input:
                       type: string
                       description: The challenge input string.
                 domain:
                   type: object
-                  description: If provided in the verification options, the result of validating the 
+                  description: If provided in the verification options, the result of verifying the
                     security domain across all proofs provided.
                   properties:
-                    valid:
+                    verified:
                       type: boolean
-                      description: Result of validating the security domain across all proofs provided.
+                      description: Result of verifying the security domain across all proofs provided.
                     input:
                       type: string
                       description: The security domain input string.
                 holder:
                   type: object
-                  description: Result from validating the holder, if any.
+                  description: Result from verifying the holder, if any.
                   properties:
-                    valid:
+                    verified:
                       type: boolean
-                      description: Result of validating the holder.
+                      description: Result of verifying the holder.
                     input:
                       type: string
                       description: The holder input string.
                 proof:
                   type: array
-                  description: Results from validating the proof objects if any.
+                  description: Results from verifying the proof objects if any.
                   items:
                     type: object
-                    description: Results from validating a proof object.
+                    description: Results from verifying a proof object.
                     properties:
-                      valid:
+                      verified:
                         type: boolean
-                        description: Results of validating the proof object.
+                        description: Results of verifying the proof object.
                       input:
                         type: object
                         description: The proof object.
