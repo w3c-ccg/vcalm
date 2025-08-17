@@ -1094,17 +1094,14 @@ like the following:
   <span class="comment">// one or more requests for verifiable credentials</span>
   "query": [{
     "type": "QueryByExample",
-    <span class="comment">// query details specific to QBE...</span>
-  }, {
-    "type": "DigitalCredentialQueryLanguage",
-    <span class="comment">// query details specific to DCQL...</span>
+    <span class="comment">// query details specific to QueryByExample...</span>
   }],
   <span class="comment">// The target security domain, such as a website domain, to include in
   // the verifiable presentation</span>
   "domain": "domain.example",
 
   <span class="comment">// The random challenge string to include in the verifiable presentation</span>
-  "challenge": "f63cb0d2-760e-11f0-a2b1-67febb854a5f",
+  "challenge": "f63cb0d2-760e-11f0-a2b1-67febb854a5f"
 }
         </pre>
 
@@ -1157,51 +1154,36 @@ the [=verifier=].
 
         <pre class="example nohighlight" title="A Query By Example query">
 {
-  "query": [
-    {
-      "type": "QueryByExample",
-      "credentialQuery": [
-        {
-          // One or more example query entries
-          "required": false, // (Optional) Defaults to 'true' if omitted
-          // (Optional) Reason for requesting this credential that
-          // may be shown to a user by their wallet software
-          "reason": "We need you to prove your eligibility to work.",
-          "example": {
-            "@context": ["https://www.w3.org/2018/credentials/v1", "https://w3id.org/citizenship/v1"],
-            "type": "PermanentResidentCard",
-            // (Optional) You can request a specific subject id
-            "credentialSubject": {
-              "id": "...",
-              "name": "..."
-            },
-            // (Optional) Specify only credentials of a particular schema
-            "credentialSchema": {
-              "id": "urn:foo:1234",
-              "type": "SomeType"
-            }
-          },
-          // (Optional) Specify credentials from a particular issuer only
-          "trustedIssuer": [
-            {
-              "required": true,
-              "issuer": "urn:some:required:issuer"
-            }
-          ]
+  "query": [{
+    "type": "QueryByExample",
+    "credentialQuery": [{
+      <span class="comment">// (Optional) Defaults to 'true' if omitted</span>
+      "required": false,
+      <span class="comment">// (Optional) Reason for requesting this credential that
+      // may be shown to a user by their software</span>
+      "reason": "We need to know if you are an alumni of this school.",
+      <span class="comment">// (Mandatory) An example of the credential being requested</span>
+      "example": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://www.w3.org/ns/credentials/examples/v2"
+        ],
+        "type": "ExampleAlumniCredential",
+        <span class="comment">// (Optional) Select credential based on credential subject type</span>
+        "credentialSubject": {
+          "type": "Alumni"
         }
-      ]
-    },
-    {
-      // Another example query
-      "type": "AnotherQueryType"
-      // ...
-    }
-  ],
+      },
+      <span class="comment">// (Optional) Specify credentials from a particular authority or
+      // delegate of the authority</span>
+      "authority": [{
+        "required": true,
+        "issuer": "did:web:authority.example"
+      }]
+    }]
+  }],
   "challenge": "3182bdea-63d9-11ea-b6de-3b7c1404d57f",
-  // the domain that will be digitally signed in the authentication
-  // proof that will be attached to the VerifiablePresentation
-  // response, identifying the recipient
-  "domain": "jobs.example.com"
+  "domain": "reunion.example"
 }
         </pre>
 
@@ -1445,15 +1427,22 @@ The example below demonstrates a simple DID Authentication response.
       <section>
         <h3>Authorization Capability Request</h3>
 
+        <p class="issue">
+It is highly unlikely that Authorization Capability queries and responses
+will be standardized at this time. This example is provided to demonstrate that
+verifiable credentials and mDLs/mdocs are not the only type of credential
+that can be queried.
+        </p>
+
         <p>
 This query type would be included in a request to ask for Authorization
 Capabilities or "zcaps" in the Verifiable Presentation.
         </p>
 
-        <pre class="example nohighlight" title="A zCap Request query">
+        <pre class="example nohighlight" title="An Authorization Capability Request query">
 {
   query: [{
-    type: 'ZcapQuery',
+    type: 'AuthorizationCapabilityQuery',
     capabilityQuery: [{
       referenceId: `a-memorable-name`,
       allowedAction: ['read', 'write'],
@@ -1492,31 +1481,31 @@ play crucial roles in defining the path to desired data.
 
         <p>
 At the top-most level of the request structure, different types of queries are
-expected to be processed as "AND" operations. Each query is a unique condition
-that needs to be met to fulfill the request. This means, each query listed in
-the top-level array is an independent requirement.
+expected to be processed as "AND" operations if each one's `required` property
+is set to `true`. Each query is a unique condition that needs to be met to
+fulfill the request. This means, each query listed in the top-level array is an
+independent requirement.
         </p>
 
         <p>
-In this example, there are two queries: `APopularQueryType` and
-`AnotherQueryType`. The implicit "AND" operation here indicates that both these conditions
+In this example, there are two queries with the `required` flag set to `true`.
+This results in an "AND" operation, indicating that both of these conditions
 need to be met in order to fulfill the request.
         </p>
 
         <pre class="example" title="Multiple credentials requested at once using top-level queries">
 {
-  "query": [
-    // "and"
-    {
-      "type": 'APopularQueryType',
-      // query details ...
-    },
-    // "and"
-    {
-      "type": 'AnotherQueryType',
-      // query details ...
-    }
-  ]
+  "query": [{
+    "type": "QueryByExample",
+    "required": true,
+    // query details ...
+  },
+  // "AND"
+  {
+    "type": 'DigitalCredentialQueryLanguage',
+    "required": true,
+    // query details ...
+  }]
 }
         </pre>
       </section>
@@ -1544,30 +1533,22 @@ other conditions outside the `credentialQuery` scope, which are interpreted with
 an "AND" operation.
         </p>
 
-        <pre class="example" title="">
+        <pre class="example" title="Queries for alternate credentials where any match will succeed">
 {
-  "query": [
-    // "and"
-    {
-      "type": "QueryByExample",
-      "credentialQuery": [
-        // "or"
-        {
-          "required": false,
-          ...
-        },
-        // "or"
-        {
-          "required": false,
-          ...
-        },
-      ]
-    },
-    // "and"
-    { ... }
-  ]
+  "query": [{
+    "type": "QueryByExample",
+    "required": false,
+    // query details ...
+  },
+  // "OR"
+  {
+    "type": 'DigitalCredentialQueryLanguage',
+    "required": false,
+    // query details ...
+  }]
 }
         </pre>
+
       </section>
     </section>
     </section>
