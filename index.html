@@ -1438,27 +1438,25 @@ Capabilities or "zcaps" in the Verifiable Presentation.
 
         <pre class="example nohighlight" title="An Authorization Capability Request query">
 {
-  query: [{
-    type: 'AuthorizationCapabilityQuery',
-    capabilityQuery: [{
-      referenceId: `a-memorable-name`,
-      allowedAction: ['read', 'write'],
-      invoker: 'did:key:1234',
-      delegator: 'did:key:1234'
-      invocationTarget: {
-        type: 'urn:edv:documents'
+  "query": [{
+    "type": "AuthorizationCapabilityQuery",
+    "capabilityQuery": [{
+      "referenceId": "a-memorable-name",
+      "allowedAction": ["read", "write"],
+      "controller": "did:example:1234",
+      "invocationTarget": {
+        "type": "urn:edv:documents"
       }
     }, {
-      referenceId: `another-memorable-name`,
-      allowedAction: 'sign',
-      invoker: 'did:key:1234',
-      delegator: 'did:key:1234',
-      invocationTarget: {
-        type: 'Ed25519VerificationKey2018',
-        proofPurpose: 'assertionMethod'
+      "referenceId": "another-memorable-name",
+      "allowedAction": "sign",
+      "controller": "did:example:1234",
+      "invocationTarget": {
+        "type": "Multikey",
+        "proofPurpose": "assertionMethod"
       }
     }],
-    challenge: '111112b24-63d9-11ea-b99f-4f66f3e4f81a'
+    challenge: "111112b24-63d9-11ea-b99f-4f66f3e4f81a"
   }]
 }
         </pre>
@@ -1497,7 +1495,7 @@ these conditions need to be met in order to fulfill the request.
   },
   // "AND"
   {
-    "type": 'DigitalCredentialQueryLanguage',
+    "type": "DigitalCredentialQueryLanguage",
     "group": "certification",
     // query details ...
   }]
@@ -1523,7 +1521,7 @@ one another.
   },
   // "OR"
   {
-    "type": 'DigitalCredentialQueryLanguage',
+    "type": "DigitalCredentialQueryLanguage",
     "group": "job-experience",
     // query details ...
   }]
