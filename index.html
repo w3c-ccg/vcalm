@@ -1157,8 +1157,6 @@ the [=verifier=].
   "query": [{
     "type": "QueryByExample",
     "credentialQuery": [{
-      <span class="comment">// (Optional) Defaults to 'true' if omitted</span>
-      "required": false,
       <span class="comment">// (Optional) Reason for requesting this credential that
       // may be shown to a user by their software</span>
       "reason": "We need to know if you are an alumni of this school.",
@@ -1177,7 +1175,6 @@ the [=verifier=].
       <span class="comment">// (Optional) Specify credentials from a particular authority or
       // delegate of the authority</span>
       "authority": [{
-        "required": true,
         "issuer": "did:web:authority.example"
       }]
     }]
@@ -1481,29 +1478,27 @@ play crucial roles in defining the path to desired data.
 
         <p>
 At the top-most level of the request structure, different types of queries are
-expected to be processed as "AND" operations if each one's `required` property
-is set to `true`. Each query is a unique condition that needs to be met to
-fulfill the request. This means, each query listed in the top-level array is an
-independent requirement.
+expected to be processed as "AND" operations if each one's `group` property
+is set to the same value.
         </p>
 
         <p>
-In this example, there are two queries with the `required` flag set to `true`.
-This results in an "AND" operation, indicating that both of these conditions
-need to be met in order to fulfill the request.
+In this example, there are two queries with the `group` flag set to
+`certification`. This results in an "AND" operation, indicating that both of
+these conditions need to be met in order to fulfill the request.
         </p>
 
         <pre class="example" title="Multiple credentials requested at once using top-level queries">
 {
   "query": [{
     "type": "QueryByExample",
-    "required": true,
+    "group": "certification",
     // query details ...
   },
   // "AND"
   {
     "type": 'DigitalCredentialQueryLanguage',
-    "required": true,
+    "group": "certification",
     // query details ...
   }]
 }
@@ -1514,36 +1509,22 @@ need to be met in order to fulfill the request.
         <h3>Nested Queries ("OR" Operation)</h3>
 
         <p>
-Within a specific query type, an "OR" operation can be applied, by nesting one
-or more conditions within the top-level query. This operation indicates that
-_one or more_ of the nested conditions needs to be met; it does not require that
-_all_ of the nested conditions be met. When all `credentialQuery` objects are
-optional, they are interpreted as "OR" operations within their context. This
-enables flexible and forgiving data retrieval where optional conditions will
-refine the results when possible, but their absence will not halt the process.
-        </p>
-
-        <p>
-In this `QueryByExample` type, we have a `credentialQuery` array where all
-queries are optional. The "OR" operation suggests that fulfilling any one of the
-listed conditions within `credentialQuery` will enhance the results, but is not
-a requirement for the request to be valid or fulfilled. If none of the optional
-`credentialQuery` conditions are met, the request will still proceed with the
-other conditions outside the `credentialQuery` scope, which are interpreted with
-an "AND" operation.
+Within a specific query type, an "OR" operation can be applied, by either not
+specifying the `group` or providing `group` values that are different from
+one another.
         </p>
 
         <pre class="example" title="Queries for alternate credentials where any match will succeed">
 {
   "query": [{
     "type": "QueryByExample",
-    "required": false,
+    "group": "college-degree",
     // query details ...
   },
   // "OR"
   {
     "type": 'DigitalCredentialQueryLanguage',
-    "required": false,
+    "group": "job-experience",
     // query details ...
   }]
 }
