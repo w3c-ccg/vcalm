@@ -56,7 +56,7 @@ paths:
         - zCap: []
       operationId: updateCredentialStatus
       x-expectedCaller:
-        - Issuer Service
+        - Issuer Coordinator
       description: Updates the status of an issued credential.
       requestBody:
         content:

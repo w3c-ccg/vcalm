@@ -25,6 +25,7 @@ paths:
       x-expectedCaller:
         - Holder Coordinator
         - Issuer Coordinator
+        - Workflow Service
       operationId: getCredential
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
@@ -112,6 +113,7 @@ paths:
       operationId: getPresentation
       x-expectedCaller:
         - Holder Coordinator
+        - Workflow Service
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
@@ -205,6 +207,7 @@ paths:
       operationId: createPresentation
       x-expectedCaller:
         - Holder Coordinator
+        - Workflow Service
       description: Creates a presentation and returns it in the response body.
       requestBody:
         content:
