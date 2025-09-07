@@ -245,10 +245,10 @@ components:
           description: The step from the above set that the exchange starts on. Passing intialStep is REQUIRED.
         controller:
           type: string
-          description: An OPTIONAL property that specifies the root controller of the instance, which can be used by systems supporting Authorization Capabilities (ZCAPs). This value can be used in conjunction with the <code>authorization</code> property to simultaneously allow other authorization mechanisms.
+          description: An OPTIONAL property that specifies the root controller of the instance, which can be used by systems supporting authorization mechanisms like Authorization Capabilities (ZCAPs), which rely on object capabilities. This value can be used in conjunction with the <code>authorization</code> property to simultaneously allow other authorization mechanisms.
         authorization:
           type: object
-          description: An OPTIONAL property that specifies authorization scheme information for the endpoint such as an OAuth2 configuration.
+          description: An OPTIONAL property that specifies authorization scheme information for the endpoint, such as an OAuth2 configuration.
           properties:
             oauth2:
               type: object
