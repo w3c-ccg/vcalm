@@ -50,7 +50,25 @@
         href: "https://www.iso.org/standard/83389.html",
         status: "Published",
         publisher: "ISO"
-      }
+      },
+      "DCAPI": {
+        title: "Digital Credential API",
+        href: "https://www.w3.org/TR/digital-credentials/",
+        status: "WD",
+        publisher: "W3C"
+      },
+      "OID4VCI": {
+        title: "OpenID for Verifiable Credential Issuance v1.0",
+        href: "https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html",
+        status: "WD",
+        publisher: "OpenID Foundation"
+      },
+      "OID4VP": {
+        title: "OpenID for Verifiable Presentations v1.0",
+        href: "https://openid.net/specs/openid-4-verifiable-presentations-1_0.html",
+        status: "WD",
+        publisher: "OpenID Foundation"
+      },
     },
     xref: ["web-platform", "infra", "vc-data-model-2.0"],
     github: {
@@ -2719,6 +2737,41 @@ response object, through the problem details.
       </p>
     </section>
 
+  </section>
+
+  <section class="appendix">
+    <h2>Alternatives Considered</h2>
+
+    <p>
+The lifecycle of a [=verifiable credential=] includes the creation of a
+[=workflow=], an initial interaction to engage in an [=exchange=], issuance,
+holding, status management, presentation, verification, and validation. This
+specification defines an HTTP-based API for [=verifiable credential=] lifecycle
+management. There are other specifications, such as the [[[DCAPI]]],
+[[[OID4VCI]]], and [[[OID4VP]]] that might be confused with this specification.
+This section explains how this specification is different from other
+specifications in the ecosystem.
+    </p>
+
+    <p>
+Fundamentally, this specification is the only specification that is focused on
+the entire lifecycle management of [=verifiable credentials=]. It is agnostic to
+credential format, credential query language, and credential protocol. Any
+credential format that is expressible as a [=verifiable credential=] or an
+<a href="VC-DATA-MODEL-2.0#enveloped-verifiable-credentials">enveloped
+verifiable credential</a> can be used with this specification. Similarly,
+credential delivery protocols such as [[[OID4VCI]]] or [[[OID4VP]]] can be used
+in [=interactions=] and [=exchanges=] defined by this specification. Finally,
+this specification supports multiple credential query languages to provide for
+flexibility as technologies improve and market verticals specialize.
+    </p>
+
+    <p>
+This specification defines APIs for the entirety of [=verifiable credential=]
+lifecycle management because not doing so creates opportunities for vendor
+lock-in. No other specification exists that provides interfaces that prevent
+vendor lock throughout the lifecycle management of [=verifiable credentials=].
+    </p>
   </section>
 
   <section class="appendix">
