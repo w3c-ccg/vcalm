@@ -618,14 +618,31 @@ well as those yet to be written.
 
     <section id="conformance">
 
-      <p>
-      </p>
      <p>
-A conforming <dfn>VCALM client</dfn> is ...
+A conforming <dfn>issuer service implementation</dfn> MUST provide the interface
+described in Section [[[#issue-credential]]] and Section [[[#update-status]]].
+Other interfaces described in Section [[[#issuing]]] MAY also be provided.
+     </p>
+
+     <p>
+A conforming <dfn>verifier service implementation</dfn> MUST provide the
+interface described in Section [[[#verify-credential]]] and Section
+[[[#verify-presentation]]]. Other interfaces described in Section
+[[[#verifying]]] MAY also be provided.
+     </p>
+
+     <p>
+A conforming <dfn>holder service implementation</dfn> MUST provide the interface
+described in Section [[[#get-exchange-protocols]]], Section
+[[[#participate-in-an-exchange]]], and Section [[[#create-presentation]]].
+Conformance to protocols, query languages, and data formats described in Section
+[[[#initiating-interactions]]], Section [[[#requesting-a-presentation]]],
+Section [[[#presenting]]], and Section [[[#workflows-and-exchanges]]], and
+Section MAY also be provided.
      </p>
 
       <p>
-A conforming <dfn>VCALM server</dfn> is ...
+All implementations MAY provide functionality beyond this specification.
       </p>
 
     </section>
