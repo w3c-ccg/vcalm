@@ -2007,8 +2007,8 @@ the `saas.example` domain in the list of protocols.
         <figure>
           <pre class="mermaid">
 sequenceDiagram
-    participant W as [=holder coordinator=] (Wallet)
-    participant I as Issuer/[=verifier coordinator=] (brand.example)
+    participant W as Holder Coordinator (Wallet)
+    participant I as Issuer/Verifier Coordinator (brand.example)
     participant S as Exchange Service (saas.example)
     autonumber
     Note right of W: Wallet retrieves protocol options
@@ -2217,7 +2217,7 @@ A verifier-initiated interaction using a QR Code
       <p>
 The sequence diagram below outlines a [=holder=] generating an interaction URL,
 using a QR Code to share it with a [=verifier=], and proceeding with the
-`website` protocol:
+`inviteRequest` protocol:
       </p>
       <figure>
         <pre class="mermaid">
@@ -2237,7 +2237,7 @@ sequenceDiagram
   Note left of V: (VCALM, OID4VP, NFC, Bluetooth, etc.)
   V->>V: Select appropriate protocol
   V->>W: Transmit protocol selection and options
-  opt "website" protocol example
+  opt "inviteRequest" protocol example
   W->>H: Request consent to proceed
   Note right of H: "Open browser to verifier.example?"
   H->>W: Confirm consent to go to website
@@ -2308,7 +2308,7 @@ result in the following response:
         <pre class="example nohighlight" title="A list of protocols supported for a given interaction">
 {
   "protocols": {
-    "website": "https://app.example/redirects/z8j3kfk2lQ",
+    "inviteRequest": "https://app.example/requests/z8j3kfk2lQ",
     "vcapi": "https://saas.example/workflows/123/exchanges/987",
     "OID4VP": "openid4vp://?client_id=https%3A%2F%2Fapp.example%2Fworkflows%2F123%2Fexchanges%2F987%2Fopenid%2Fclient%2Fauthorization%2Fresponse&request_uri=https%3A%2F%2Fapp.example%2Fworkflows%2F123%2Fexchanges%2F987%2Fopenid%2Fclient%2Fauthorization%2Frequest'"
   }
@@ -2342,19 +2342,19 @@ provide an easier implementation path.
       </section>
 
       <section>
-        <h4>`website` Interaction Protocol</h4>
+        <h4>`inviteRequest` Interaction Protocol</h4>
         <p>
-The `website` interaction protocol is used by a local system to signal to the
-remote system that it would like to redirect the remote system to a specific
-URL, such as a website where an individual can engage in a use-case specific
-interaction. If the `website` interaction protocol is selected, the local
-system sends data using an HTTP POST to instruct the remote system where to
-send the individual. An example of the POST data is shown below:
+The `inviteRequest` interaction protocol is used by a local system to signal to
+the remote system that it would like an invitation to a remote system via a
+specific URL, such as a website where an individual can engage in a use-case
+specific interaction. If the `inviteRequest` interaction protocol is selected,
+the local system sends data using an HTTP POST to instruct the remote system
+where to send the individual. An example of the POST data is shown below:
         </p>
 
-        <pre class="example nohighlight" title="A website interaction protocol redirect request">
+        <pre class="example nohighlight" title="A response to an invitation request">
 {
-  "url": "https://website.example/interactions/8372974",
+  "url": "https://website.example/transactions/8372974",
   "purpose": "Checkout at ShopCo",
   "referenceId": "417bcaf2-14d9-11f0-99d7-9f094678517b"
 }
