@@ -582,18 +582,20 @@ any authorized party.
         </p>
       </section>
       <section>
-        <h3>Admin</h3>
+        <h3>Administration</h3>
         <p><strong>Issuer Admin &bull; Holder Admin &bull; Verifier Admin</strong></p>
         <p>
-The Admin component is an acknowledgement that each of the other components need
-a way to be configured and managed, without prescribing the interfaces or means
-of that configuration. Some components may use JSON files to drive a
-semi-automated Issuer. Others might expose HTML pages. We expect different
-Coordinators and Services to compete on the power, ease, and flexibility of
-their administration and therefore, as of this writing, we anticipate Admin
-functionality to be out of scope for this API. However, we actually believe
-that to the extent we can standardize configuration setting across
-implementations, the more substitutable each component.
+The Administration component is an acknowledgement that each of the other
+components need a way to be configured and managed, without prescribing the
+interfaces or means of that configuration. Some components might use JSON files
+to drive a semi-automated [=exchange=]. Others might expose HTML pages. It is
+expected that different implementations will compete on the power, ease, and
+flexibility of their administration and therefore, configuration is largely out
+of scope for this specification. There are some places where some configuration
+mechanisms are provided, such as in Section [[[#create-workflow]]], where there
+was broad agreement to standardize some configuration parameters. As the market
+matures, other areas of configuration standardization might occur in future
+versions of this specification.
         </p>
       </section>
       <section>
