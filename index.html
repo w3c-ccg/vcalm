@@ -2370,11 +2370,19 @@ implimenter of this interaction mechanism make use of a unique ID:
   "referenceId": "417bcaf2-14d9-11f0-99d7-9f094678517b"
 }
         </pre>
-        <pre class="example nohighlight" title="A response to an invitation request, for a possible generic website interaction">
+        <pre class="example nohighlight" title="A response to an invitation request, for filling out an online form">
 {
-  "url": "https://website.example/interaction/7864165",
+  "url": "https://website.example/forms/7864165",
   "purpose": "Fill out online form",
   "referenceId": "d4a6e5b8-1715-4654-8e47-e68b311756d1"
+}
+        </pre>
+      </section>
+        <pre class="example nohighlight" title="A response to an invitation request that would restart the interaction protocol negotiation and reverse its directionality.">
+{
+  "url": "https://website.example/interactions/54896572?iuv=1",
+  "purpose": "Renegotiate interaction protocol",
+  "referenceId": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
 }
         </pre>
       </section>
