@@ -17,18 +17,18 @@
     wgPublicList: "public-credentials",
 
     // the specification's short name, as in http://www.w3.org/TR/short-name/
-    shortName: "vc-api",
+    shortName: "vcalm",
 
     // specification status (e.g., WD, LCWD, NOTE, etc.). If in doubt use ED.
     specStatus: "CG-DRAFT",
 
     // W3C Candidate Recommendation information
     //crEnd: "2021-05-04",
-    //implementationReportURI: "https://w3c.github.io/vc-api-test-suite/",
+    //implementationReportURI: "https://w3c.github.io/vcalm-test-suite/",
 
     // Editor's Draft URL
-    latestVersion: "https://w3c-ccg.github.io/vc-api/",
-    //edDraftURI: "https://w3c-ccg.github.io/vc-api/",
+    latestVersion: "https://w3c-ccg.github.io/vcalm/",
+    //edDraftURI: "https://w3c-ccg.github.io/vcalm/",
 
 
     // subtitle for the spec
@@ -74,7 +74,7 @@
     },
     xref: ["web-platform", "infra", "vc-data-model-2.0"],
     github: {
-      repoURL: "https://github.com/w3c-ccg/vc-api/",
+      repoURL: "https://github.com/w3c-ccg/vcalm/",
       branch: "main"
     },
     includePermalinks: false,
@@ -202,7 +202,7 @@ the weekly meetings that coordinate activity around this specification.
 
     <p>
 Comments regarding this document are welcome. Please file issues
-directly on <a href="https://github.com/w3c-ccg/vc-api/issues/">GitHub</a>,
+directly on <a href="https://github.com/w3c-ccg/vcalm/issues/">GitHub</a>,
 or send them
 to <a href="mailto:public-credentials@w3.org">public-credentials@w3.org</a> (
 <a href="mailto:public-credentials-request@w3.org?subject=subscribe">subscribe</a>,
@@ -2207,7 +2207,7 @@ sequenceDiagram
   I->>W: Return interaction protocols
   Note left of I: (VCALM, OID4VP, NFC, Bluetooth, etc.)
   W->>W: Select appropriate protocol
-  opt "vcapi" protocol example
+  opt "vcalm" protocol example
   W->>I: Initiate workflow exchange
   W->>H: Acquire consent to proceed
   Note right of H: issuer.example is offering credentials, accept?
@@ -2245,7 +2245,7 @@ sequenceDiagram
   W->>H: Acquire consent to proceed
   Note right of H: verifier.example is requesting credentials, proceed?
   W->>W: Select appropriate protocol
-  opt "vcapi" protocol example
+  opt "vcalm" protocol example
   W->>V: Initiate workflow exchange
   end
         </pre>
@@ -2349,7 +2349,7 @@ result in either of the following responses:
 {
   "protocols": {
     "inviteRequest": "https://saas.example/workflows/123/exchanges/987/invite-request/response",
-    "vcapi": "https://saas.example/workflows/123/exchanges/987",
+    "vcalm": "https://saas.example/workflows/123/exchanges/987",
     "OID4VP": "openid4vp://?client_id=https%3A%2F%2Fapp.example%2Fworkflows%2F123%2Fexchanges%2F987%2Fopenid%2Fclient%2Fauthorization%2Fresponse&request_uri=https%3A%2F%2Fapp.example%2Fworkflows%2F123%2Fexchanges%2F987%2Fopenid%2Fclient%2Fauthorization%2Frequest'"
   }
 }
@@ -2499,7 +2499,7 @@ The following problem description types are defined by this specification:
 
       <dl>
         <dt id="UNKNOWN_OPTION_PROVIDED">
-https://www.w3.org/TR/vc-api#UNKNOWN_OPTION_PROVIDED
+https://www.w3.org/TR/vcalm#UNKNOWN_OPTION_PROVIDED
         </dt>
         <dd>
 An option that is unknown to the implementation was provided to the API call.
