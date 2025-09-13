@@ -2296,7 +2296,7 @@ result in either of the following responses:
   }
 }
         </pre>
-        
+
         <pre class="example nohighlight" title="The degenerate case where the list of protocols only includes the inviteRequest option.">
 {
   "protocols": {
@@ -2304,7 +2304,7 @@ result in either of the following responses:
   }
 }
         </pre>
-              
+
         <p>
 The protocol response enables protocol execution to be delegated to third-party
 service providers through the HTTPS domain trust model, similar to the
@@ -2340,31 +2340,24 @@ specific URL, such as a website where an individual can engage in a use-case
 specific interaction. If the `inviteRequest` interaction protocol is selected,
 the local system sends data using an HTTP POST to instruct the remote system
 where to send the individual. A couple examples of the POST data are shown below.
-These examples intend to highlight that this specification does not state any 
+These examples intend to highlight that this specification does not state any
 requirements as to how the "url" field is formatted, but does recommend that an
 implimenter of this interaction mechanism make use of a unique ID:
         </p>
 
-        <pre class="example nohighlight" title="A response to an invitation request, for the purpose of checking out at a store">
+        <pre class="example nohighlight" title="A response to an invitation request, for checking out at a store">
 {
   "url": "https://website.example/checkout/8372974",
   "purpose": "Checkout at ShopCo",
   "referenceId": "417bcaf2-14d9-11f0-99d7-9f094678517b"
 }
         </pre>
-        <pre class="example nohighlight" title="A response to an invitation request, for filling out an online form">
+
+        <pre class="example nohighlight" title="A response to an invitation request, to fill out an online form">
 {
   "url": "https://website.example/forms/7864165",
   "purpose": "Fill out online form",
   "referenceId": "d4a6e5b8-1715-4654-8e47-e68b311756d1"
-}
-        </pre>
-      </section>
-        <pre class="example nohighlight" title="A response to an invitation request that would restart the interaction protocol negotiation and reverse its directionality.">
-{
-  "url": "https://website.example/interactions/54896572?iuv=1",
-  "purpose": "Renegotiate interaction protocol",
-  "referenceId": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
 }
         </pre>
       </section>
