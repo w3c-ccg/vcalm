@@ -1,0 +1,1148 @@
+openapi: 3.0.0
+servers:
+  - url: https://verifier.qa.veres.app/verifiers/z1A45ZhWEGMeibHrB15nv8Gk6
+    description: Veres Verifier (Quality Assurance)
+info:
+  version: "0.9-unstable"
+  title: Verifiable Credential API for Lifecycle Management
+  description: Provides the data model and HTTP APIs to issue, verify, present, and manage data used in the Verifiable Credentials ecosystem.
+  license:
+    name: W3C Software and Document License
+    url: http://www.w3.org/Consortium/Legal/copyright-software.
+  contact:
+    name: GitHub Source Code
+    url: https://github.com/w3c-ccg/vcalm
+paths:
+  /credentials/issue:
+    post:
+      summary: Issues a credential and returns it in the response body.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: issueCredential
+      x-expectedCaller: "Issuer Coordinator"
+      description: Issues a credential and returns it in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IssueCredentialRequest"
+        description: Parameters for issuing the credential.
+      responses:
+        "201":
+          description: Credential successfully issued!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IssueCredentialResponse"
+        "400":
+          description: >
+            The request could not be processed due to one of the following reasons:
+                        - The provided value of 'issuer' does not match the expected configuration.
+                        - Another condition that results in a Bad Request.
+  /credentials/status:
+    post:
+      summary: Updates the status of an issued credential
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: updateCredentialStatus
+      x-expectedCaller: "Issuer Service"
+      description: Updates the status of an issued credential.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateCredentialStatusRequest"
+        description: Parameters for updating the status of the issued credential.
+      responses:
+        "200":
+          description: Credential status successfully updated
+        "400":
+          description: Bad Request
+        "404":
+          description: Credential not found
+  /workflows:
+    post:
+      summary: Creates a new workflow and returns location of workflow metadata in a response header.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: createWorkflow
+      description: Creates a new workflow and returns location of workflow metadata in a response header.
+      x-expectedCaller: Administrators
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateWorkflowRequest"
+      responses:
+        "201":
+          description: Workflow successfully created (with data)
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uri
+                description: The HTTP URL used to retrieve workflow metadata.
+                example: https://issuer.example.com/workflows/123
+        "204":
+          description: Workflow successfully created (without data)
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uri
+                description: The HTTP URL used to retrieve workflow metadata.
+                example: https://issuer.example.com/workflows/123
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+  /workflows/{localWorkflowId}:
+    get:
+      summary: Gets the configuration of an existing workflow and returns it in the response body.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: getWorkflowConfiguration
+      description: Gets the configuration of an existing workflow and returns it in the response body.
+      x-expectedCaller: Administrators
+      parameters:
+        - $ref: "./components/parameters/path/LocalWorkflowId.yml"
+      responses:
+        "200":
+          description: Workflow configuration retrieved!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetWorkflowResponse"
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+  /workflows/{localWorkflowId}/exchanges:
+    post:
+      summary: Creates a new exchange and returns location of exchange metadata in a response header.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: createExchange
+      description: Creates a new exchange and returns location of exchange metadata in a response header.
+      x-expectedCaller: Owner Coordinator
+      parameters:
+        - $ref: "./components/parameters/path/LocalWorkflowId.yml"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateExchangeRequest"
+      responses:
+        "201":
+          description: Exchange successfully created (with data)
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uri
+                description: The HTTP URL used to retrieve exchange metadata.
+                example: https://issuer.example.com/workflows/123/exchanges/abc
+        "204":
+          description: Exchange successfully created (without data)
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uri
+                description: The HTTP URL used to retrieve exchange metadata.
+                example: https://issuer.example.com/workflows/123/exchanges/abc
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+  /workflows/{localWorkflowId}/exchanges/{localExchangeId}:
+    get:
+      summary: Gets the state of an existing exchange and returns it in the response body.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: getExchangeConfiguration
+      description: Gets the configuration of an existing exchange and returns it in the response body.
+      x-expectedCaller: Owner Coordinator
+      parameters:
+        - $ref: "./components/parameters/path/LocalWorkflowId.yml"
+        - $ref: "./components/parameters/path/LocalExchangeId.yml"
+      responses:
+        "200":
+          description: Exchange configuration retrieved!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetExchangeResponse"
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+    post:
+      summary: Participate in an exchange. Posting an empty body will start the exchange or return
+        what the exchange is expecting to complete the next step. Posting a Verifiable Presentation Request
+        will result in either a 4xx error or one of the following - a Verifiable Presentation
+        or Verifiable Presentation Request that conforms to the client's request. If a Verifiable Presentation
+        is sent, an additional Verifiable Presentation Request may also be sent to continue the exchange.
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: participateInExchange
+      description: Participate in an exchange. Posting an empty body will start the exchange or return what the exchange is expecting to complete the next step.
+      x-expectedCaller: Anyone
+      parameters:
+        - $ref: "./components/parameters/path/LocalWorkflowId.yml"
+        - $ref: "./components/parameters/path/LocalExchangeId.yml"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - type: object
+                  properties:
+                    verifiablePresentationRequest:
+                      $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
+                - type: object
+                  properties:
+                    verifiablePresentation:
+                      $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+      responses:
+        "200":
+          description: Exchange progressed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExchangeParticipationResponse"
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+  /workflows/{localWorkflowId}/exchanges/{localExchangeId}/protocols:
+    get:
+      summary: Gets the supported protocols for interacting with a specific exchange.
+      tags:
+        - Exchanges
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: getSupportedProtocolsConfiguration
+      description: Gets the supported protocols for interacting with a specific exchange.
+      x-expectedCaller:
+        - Verification Coordinator
+        - Holder Coordinator
+      parameters:
+        - $ref: "./components/parameters/path/LocalWorkflowId.yml"
+        - $ref: "./components/parameters/path/LocalExchangeId.yml"
+      responses:
+        "200":
+          description: Protocols understood by the exchange.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetExchangeProtocolsResponse"
+        "400":
+          description: Invalid input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+  /credentials/{id}:
+    get:
+      tags:
+       - Credentials
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
+      summary: Gets a credential or verifiable credential by ID. To get a credential that does not have credential.id set but has an associated credentialId value, pass credentialId instead.
+      x-expectedCaller: "Issuer Coordinator"
+      operationId: getCredential
+      parameters:
+        - $ref: "./components/parameters/path/ObjectId.yml"
+      responses:
+        "200":
+          description: Credential retrieved
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "./components/VerifiableCredentialResponse.yml#/components/schemas/VerifiableCredentialResponse"
+        "400":
+          description: Bad Request
+        "401":
+          description: Not Authorized
+        "404":
+          description: Credential not found
+        "410":
+          description: Gone! There is no data here
+        "418":
+          description: I'm a teapot - MUST not be returned outside of pre-arranged scenarios between both parties
+    delete:
+      tags:
+       - Credentials
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
+      summary: Deletes a credential or verifiable credential by ID. To delete a credential that does not have credential.id set but has an associated credentialId value, pass credentialId instead.
+      x-expectedCaller:
+        - Issuer Coordinator
+        - Holder Coordinator
+      operationId: deleteCredential
+      parameters:
+        - $ref: "./components/parameters/path/ObjectId.yml"
+      responses:
+        "202":
+          description: Credential deleted - this is a 202 by default as soft deletes and processing time are assumed
+        "400":
+          description: Bad Request
+        "401":
+          description: Not Authorized
+        "404":
+          description: Credential not found
+        "410":
+          description: Gone! There is no data here
+  /credentials/derive:
+    post:
+      tags:
+       - Credentials
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
+      summary: Derives a credential and returns it in the response body.
+      operationId: deriveCredential
+      description: Derives a credential and returns it in the response body.
+      x-expectedCaller: "Holder Coordinator"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeriveCredentialRequest"
+        description: Parameters for deriving the credential.
+      responses:
+        "201":
+          description: Credential derived successfully.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeriveCredentialResponse"
+        "400":
+          description: Invalid Request
+
+  /presentations/{id}:
+    get:
+      tags:
+       - Presentations
+      summary: Gets a presentation or verifiable presentation by ID
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
+      operationId: getPresentation
+      x-expectedCaller: "Holder Coordinator"
+      parameters:
+        - $ref: "./components/parameters/path/ObjectId.yml"
+      responses:
+        "200":
+          description: Credential retrieved
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "./components/Presentation.yml#/components/schemas/Presentation"
+                  - $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+        "400":
+          description: Bad Request
+        "401":
+          description: Not Authorized
+        "404":
+          description: Presentation not found
+        "410":
+          description: Gone! There is no data here
+    delete:
+      tags:
+       - Presentations
+      summary: Deletes a presentation or verifiable presentation by ID
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
+      operationId: deletePresentation
+      x-expectedCaller: "Holder Coordinator"
+      parameters:
+        - $ref: "./components/parameters/path/ObjectId.yml"
+      responses:
+        "202":
+          description: Presentation deleted - this is a 202 by default as soft deletes and processing time are assumed
+        "400":
+          description: Bad Request
+        "401":
+          description: Not Authorized
+        "404":
+          description: Presentation not found
+        "410":
+          description: Gone! There is no data here
+  /presentations:
+    get:
+      tags:
+       - Presentations
+      summary: Gets list of presentations or verifiable presentations
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
+      operationId: getPresentations
+      x-expectedCaller: "Holder Coordinator"
+      parameters:
+        - in: query
+          name: type
+          schema:
+            type: array
+            items:
+              type: string
+              pattern: "(presentations|verifiablepresentations|all)"
+      responses:
+        "200":
+          description: Presentations retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                description: The Presentations
+                items:
+                  anyOf:
+                    - $ref: "./components/Presentation.yml#/components/schemas/Presentation"
+                    - $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+        "400":
+          description: Bad Request
+        "401":
+          description: Not Authorized
+        "410":
+          description: Gone! There is no data here
+    post:
+      summary: Creates a presentation and returns it in the response body.
+      tags:
+       - Presentations
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
+      operationId: createPresentation
+      x-expectedCaller: "Holder Coordinator"
+      description: Creates a presentation and returns it in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreatePresentationRequest"
+        description: Parameters for creating the presentation.
+      responses:
+        "201":
+          description: Presentation successfully created!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreatePresentationResponse"
+        "400":
+          description: invalid input!
+  /exchanges:
+    get:
+      summary: Provides a discovery endpoint for the exchanges supported by this server endpoint.
+      tags:
+       - Exchanges
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
+      operationId: discoverExchanges
+      description:
+        This endpoint returns an array of the exchange-ids (path endpoints) supported by this server,
+        and the associated protocol supported by each exchange endpoint. The list supports pagination.
+
+        Clients consuming this list and wishing to use an exchange endpoint MUST recognize and support
+        the protocol identified in the value field. Clients are not expected to dynamically process
+        the protocol specified.
+      parameters:
+        - name: index
+          in: query
+          description:
+            The starting index for the list that is meaningful to the server.
+            If omitted, the server must assume the start of the list.
+
+          required: false
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description:
+            The maximum number of items to return in the response. If omitted, the service should
+
+            return all remaining items from the start index.
+          required: false
+          schema:
+            type: number
+      responses:
+        "200":
+          description: A map of the exchange-id endpoints to protocols those exchanges support.
+          content:
+            application/json:
+              schema:
+                required:
+                  - count
+                  - index
+                  - total
+                  - exchanges
+                properties:
+                  count:
+                    type: number
+                    description: The number of elements returned in the array.
+                  total:
+                    type: number
+                    description: The total number of elements available.
+                  exchanges:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: the path name of the exchange endpoint. May be a UUID.
+
+                        type:
+                          type: string
+                          description: MUST be a string that references the protocol supported on that endpoint.
+                  index:
+                    type: object
+                    properties:
+                      self:
+                        type: string
+                        description:
+                          The index position of the start of the returned list. Examples could be a numerical value,
+
+                          a URL, or a value meaningful to the server.
+                      next:
+                        type: string
+                        description:
+                          The index position for the next set of results (i.e., index of the end of this list).
+                          Examples could be a numerical value, a URL, or a value meaningful to the server.
+
+
+              example:
+                {
+                  "count": 3,
+                  "total": 8,
+                  "exchanges" : [
+                    {
+                      "id" : "credential-refresh",
+                      "type": "CredentialRefresh2020"
+                    },
+                    {
+                      "id": "34901-18388409-1939",
+                      "type" : "PresentationExchange1.0",
+                    },
+                    {
+                      "id" : "salad",
+                      "type" : "https://example.com/oas/my-salad.yml"
+                  }],
+                  "index": {
+                    "self": "0",
+                    "next" : "3"
+                  }
+                }
+        "400":
+          description: invalid input
+
+  /exchanges/{exchange-id}:
+    post:
+      summary: Initiates an exchange of information.
+      tags:
+       - Exchanges
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
+      operationId: initiateExchange
+      description:
+        A client can use this endpoint to initiate an exchange of a particular
+        type. The client can include HTTP POST information related to the
+        details of exchange it would like to initiate. If the server understands
+        the request, it returns a Verifiable Presentation Request. A request
+        that the server cannot understand results in an error.
+      parameters:
+        - $ref: "./components/parameters/path/ExchangeId.yml"
+      requestBody:
+        description:
+          Information related to the type of exchange the client would like
+          to start.
+        content:
+          application/json:
+            schema:
+              anyOf:
+                -
+                  {
+                    "type": "object",
+                    "description": "Data necessary to initiate the exchange."
+                  }
+                -
+                  $ref: "#/components/schemas/NotifyPresentationAvailableRequest"
+      responses:
+        "200":
+          description: Proceed with exchange.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VerifiablePresentationRequestBody"
+        "400":
+          description: Request is malformed.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /credentials/verify:
+    post:
+      summary: Verifies a verifiableCredential and returns a verificationResult in the response body.
+      tags:
+       - Credentials
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
+      operationId: verifyCredential
+      x-expectedCaller: "Verification Coordinator"
+      description: Verifies a verifiableCredential and returns a verificationResult in the response body.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "#/components/schemas/VerifyCredentialRequest"
+                - $ref: "#/components/schemas/VerifyEnvelopedCredentialRequest"
+        description: Parameters for verifying a verifiableCredential.
+      responses:
+        "200":
+          description: Verifiable Credential successfully verified!
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VerifyCredentialResponse"
+        "400":
+          description: invalid input!
+  /presentations/verify:
+    post:
+      summary: Verifies a Presentation and all Verifiable Credentials it contains, returning detailed verification results.
+      tags:
+       - Presentations
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
+      operationId: verifyPresentation
+      x-expectedCaller: "Verification Coordinator"
+      description: |
+        Verifies a verifiablePresentation and, by default, all verifiable credentials
+        contained within it.
+
+        The verification process includes verifying the presentation's own proof (including domain
+        and challenge validation, if provided); verifying each contained verifiable credential's proof,
+        status, and validity period(s); and checking that the holder in the presentation matches the
+        verification method used in the presentation's proof.
+
+        Business rule validation (such as verifying that credential subjects match the presentation holder)
+        is outside the scope of this verification endpoint and should be performed by the calling application.
+
+        The API is compositional: when credential verification is disabled or limited via
+        implementation-specific options, individual credentials can be verified separately
+        using the <code>/credentials/verify</code> endpoint.
+
+        Given the possibility of denial of service, buffer overflow, or other attacks, an implementation
+        is permitted to apply rate limits or otherwise restrict requests against this API endpoint
+        as needed, using a <code>413</code>, <code>429</code>, or other response error code as appropriate.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "#/components/schemas/VerifyPresentationRequest"
+                - $ref: "#/components/schemas/ProoflessVerifyPresentationRequest"
+                - $ref: "#/components/schemas/VerifyEnvelopedPresentationRequest"
+        description: Parameters for verifying a verifiablePresentation.
+      responses:
+        "200":
+          description: |
+
+            Verification process completed successfully. The response body contains detailed results
+            indicating whether the presentation and its contained credentials passed or failed verification.
+            A <code>200</code> status indicates the verification process itself succeeded, regardless of whether
+            the presentation and/or credentials were determined to be valid or invalid.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VerifyPresentationResponse"
+        "400":
+          description: |
+            Invalid or malformed input that prevented the verification process from being performed.
+            This indicates issues with the request format, structure, or parameters, rather than
+            verification failures.
+        "413":
+          description: Payload too large
+        "429":
+          description: Request rate limit exceeded.
+  /challenges:
+    post:
+      summary: Passing an empty body to this endpoint creates and returns a challenge string in the response body.
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
+      operationId: challenge
+      x-expectedCaller: "Verification Coordinator"
+      description: Creates a challenge to be used as `options.challenge` in future requests.
+      responses:
+        "200":
+          description: Challenge created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateChallengeResponse"
+        "400":
+          description: Invalid or malformed input
+components:
+  securitySchemes:
+    $ref: "./components/SecuritySchemes.yml#/components/securitySchemes"
+  schemas:
+    UpdateCredentialStatusRequest:
+      type: object
+      required: ['credentialId', 'credentialStatus', 'status']
+      additionalProperties: false
+      description: Credential status information to be updated.
+      properties:
+        credentialId:
+          type: string
+          description: Identifies the credential (the identifier does not have to appear in the VC itself).
+        credentialStatus:
+          type: object
+          description: Identifies the specific status list entry to update.
+          required: ['type', 'statusPurpose']
+          additionalProperties: false
+          properties:
+            id:
+              type: string
+            type:
+              type: string
+            statusPurpose:
+              type: string
+            statusListIndex:
+              type: string
+            statusListCredential:
+              type: string
+        status:
+          type: boolean
+          description: Specifies the new status.
+        indexAllocator:
+          type: string
+          description: For services to use which indexes are being used/assigned to VCs.
+      example:
+        {
+          "credentialId": "0fc754bc-fc32-46a0-aec1-a5ef385e7ea0",
+          "credentialStatus": { "type": "BitstringStatusList", "statusPurpose": "revocation" },
+          "status": True
+        }
+    IssueCredentialRequest:
+      type: object
+      properties:
+        credential:
+          $ref: "./components/Credential.yml#/components/schemas/UnsecuredCredential"
+        options:
+          $ref: "./components/IssueCredentialOptions.yml#/components/schemas/IssueCredentialOptions"
+    IssueCredentialResponse:
+      type: object
+      properties:
+        IssueCredentialResponse:
+          $ref: "./components/VerifiableCredentialResponse.yml#/components/schemas/VerifiableCredentialResponse"
+    CreateWorkflowRequest:
+      type: object
+      additionalProperties: false
+      description: Object containing information for creating a workflow.
+      properties:
+        id:
+          type: string
+          description: The ID that will be used for the created workflow. Passing an ID is OPTIONAL.
+        initialStep:
+          type: string
+          description: The step from the above set that the exchange starts on. Passing intialStep is REQUIRED.
+        controller:
+          type: string
+          description: An OPTIONAL property that specifies the root controller of the instance, which can be used by systems supporting authorization mechanisms like Authorization Capabilities (ZCAPs), which rely on object capabilities. This value can be used in conjunction with the <code>authorization</code> property to simultaneously allow other authorization mechanisms.
+        authorization:
+          type: object
+          description: An OPTIONAL property that specifies authorization scheme information for the endpoint, such as an OAuth2 configuration.
+          properties:
+            oauth2:
+              type: object
+              description: OAuth2 configuration.
+              properties:
+                issuerConfigUrl:
+                  type: string
+                  description: OAuth2 issuer config URL.
+        credentialTemplates:
+          type: array
+          description: One or more VC templates for issuance. Passing credentialTemplates is OPTIONAL.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: The type of template.
+              template:
+                type: string
+                description: The template itself.
+        steps:
+          type: object
+          description: One or more steps required to complete an exchange on the workflow. Passing the steps object is REQUIRED. The keys are one or more step names, where each STEP_NAME is replaced by the name of a step (such as <code>request-employee-id</code>), and the values are step configurations.
+          properties:
+            STEP_NAME:
+              $ref: "#/components/schemas/WorkflowStep"
+
+    GetWorkflowResponse:
+      type: object
+      additionalProperties: false
+      description: Object containing information about a workflow.
+      properties:
+        id:
+          type: string
+          description: The ID that will be used for the created workflow. Passing an ID is OPTIONAL.
+        initialStep:
+          type: string
+          description: The step from the above set that the exchange starts on. Passing intialStep is REQUIRED.
+        controller:
+          type: string
+          description: The controller of the instance. Passing controller is OPTIONAL.
+        authorization:
+          type: object
+          description: Authorization scheme information (e.g., OAuth2 configuration). Passing authorization is OPTIONAL.
+          properties:
+            oauth2:
+              type: object
+              description: OAuth2 configuration.
+              properties:
+                issuerConfigUrl:
+                  type: string
+                  description: OAuth2 issuer config URL.
+        credentialTemplates:
+          type: array
+          description: One or more VC templates for issuance. Passing credentialTemplates is OPTIONAL.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: The type of template.
+              template:
+                type: string
+                description: The template itself.
+        steps:
+          type: object
+          description: One or more steps required to complete an exchange on the workflow. The keys are one or more step names, where each STEP_NAME is replaced by the name of a step (such as <code>request-employee-id</code>), and the values are step configurations.
+          properties:
+            STEP_NAME:
+              $ref: "#/components/schemas/WorkflowStep"
+    CreateExchangeRequest:
+      type: object
+      description: Object containing information about the exchange to be created.
+      properties:
+        expires:
+          type: string
+          description: The date and time (expressed as an XML Schema dateTimeStamp) that the exchange expires.
+        variables:
+          type: object
+          description: Template variables to be used in the exchange.
+        openId:
+          type: object
+          description: Optional parameters to enable OID4* protocol for delivery.
+    ExchangeParticipationResponse:
+      type: object
+      description: Either what the exchange is expecting next or a result of the exchange.
+      oneOf:
+        - type: object
+          properties:
+            verifiablePresentationRequest:
+              $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
+        - type: object
+          properties:
+            verifiablePresentation:
+              $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+        - type: object
+          properties:
+            redirectUrl:
+              type: string
+              description: The URL the exchange wishes to redirect the client to.
+    GetExchangeProtocolsResponse:
+      type: object
+      additionalProperties: false
+      description: Object containing information about the protocols that can be used to perform a specific exchange.
+      properties:
+        protocols:
+          type: object
+          description: An object containing one or more protocols that can be used to perform the specific exchange.
+          properties:
+            interact:
+              type: string
+              description: A URL that can be used during exchange flows with a human in the loop. See the section on the <a href="#dfn-interaction-url">interact URL format</a> for more details.
+            vcapi:
+              type: string
+              description: The URL to use when initiating a VC API exchange.
+            OID4VP:
+              type: string
+              description: The URL to use when initiating an OID4VP presentation.
+            OID4VCI:
+              type: string
+              description: The URL to use when initiating an OID4VCI issuance.
+    GetExchangeResponse:
+      type: object
+      additionalProperties: false
+      description: Object containing information about an active exchange.
+      properties:
+        id:
+          type: string
+          description: The local exchange ID that identifies the exchange.
+        sequence:
+          type: integer
+          description: A sequence number for the exchange. Set to 0 on creation.
+        expires:
+          type: string
+          description: The date and time (expressed as an XML Schema dateTimeStamp) that the exchange expires.
+        step:
+          type: string
+          description: The current step in the exchange.
+        state:
+          type: string
+          description: The status ("pending" | "active" | "complete" | "invalid") of the exchange, set to "pending" on creation.
+        variables:
+          type: object
+          description: Template variables to be used in the exchange.
+    WorkflowStep:
+      type: object
+      description: Object containing information about a workflow step.
+      oneOf:
+        - $ref: "#/components/schemas/StepData"
+        - type: object
+          properties:
+            stepTemplate:
+              $ref: "#/components/schemas/StepTemplate"
+    StepTemplate:
+      type: object
+      additionalProperties: false
+      description: A template for a workflow step. Either this must be present or the other step data must be present, but not both sets.
+      properties:
+        type:
+          type: string
+          description: The type of template.
+        template:
+          type: string
+          description: The step template.
+    StepData:
+      type: object
+      additionalProperties: false
+      description: Step data to be included if a template is not used.
+      properties:
+        createChallenge:
+          type: boolean
+          description: An optional step directive that tells the exchange to handle challenge management via a VC API verifier service it has a zcap for.
+        verifiablePresentationRequest:
+          $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
+        presentationSchema:
+          oneOf:
+            - type: object
+              description: A JSON Schema describing the validation to be performed on the presentation.
+              properties:
+                  type:
+                    type: string
+                    description: The value MUST be <code>JsonSchema</code>.
+                  jsonSchema:
+                    type: object
+                    description: The JSON Schema object to use when validating the presentation.
+            - type: object
+              description: An alternate presentation schema format to use when validating a presentation in the current step. Additional properties are expected for a specific presentation schema type, but are beyond the scope of this specification.
+              properties:
+                type:
+                  type: string
+                  description: The type of presentation schema mechanism to use when validating the presentation.
+        verifyPresentationResponseSchema:
+          oneOf:
+            - type: object
+              description: A JSON Schema describing the validation to be performed on the result of verifying the presentation.
+              properties:
+                  type:
+                    type: string
+                    description: The value MUST be <code>JsonSchema</code>.
+                  jsonSchema:
+                    type: object
+                    description: The JSON Schema object to use when validating the result of verifying the presentation.
+            - type: object
+              description: An alternate presentation schema format to use on the result of verifying a presentation in the current step. Additional properties are expected for a specific presentation schema type, but are beyond the scope of this specification.
+              properties:
+                type:
+                  type: string
+                  description: The type of presentation schema mechanism to use when validating the result of verifying the presentation.
+        nextStep:
+          type: string
+          description: The name of the next step in the sequence. Passing nextStep is OPTIONAL. This field MUST NOT be present on the final step configuration.
+        openId:
+          type: object
+          description: Optional information to trigger OID4VP
+          properties:
+            createAuthorizationRequest:
+              type: string
+              description: If present, identifies the name of the template variable (in <code>variables</code> for an <a href="#create-exchange">exchange</a>) that the auto-generated OpenID for Verifiable Presentations Authorization Request will be stored in for subsequent use in the exchange. Either this or <code>authorizationRequest</code> MUST be present, but not both. The value of the named variable can be lazily generated when the Authorization Request is required, i.e., after the client of the exchange chooses to use the OID4VP protocol. This feature allows the Authorization Request to be generated by reusing values, e.g., a Verifiable Presentation Request, that only need to be specified once across multiple protocol offerings.
+            authorizationRequest:
+              type: object
+              description: If present, an OID4VP Authorization Request for subsequent use in the exchange. Either this or <code>createAuthorizationRequest</code> MUST be present, but not both.
+    DeriveCredentialRequest:
+      type: object
+      properties:
+        verifiableCredential:
+          $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+        options:
+          $ref: "./components/DeriveCredentialOptions.yml#/components/schemas/DeriveCredentialOptions"
+    DeriveCredentialResponse:
+      $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+    CreatePresentationRequest:
+      type: object
+      properties:
+        presentation:
+          $ref: "./components/Presentation.yml#/components/schemas/Presentation"
+        options:
+          $ref: "./components/PresentCredentialOptions.yml#/components/schemas/PresentCredentialOptions"
+    CreatePresentationResponse:
+      type: object
+      properties:
+        verifiablePresentation:
+          type: object
+          description: A JSON-LD Verifiable Presentation with a proof.
+          oneOf:
+            - $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+            - $ref: "./components/EnvelopedVerifiablePresentation.yml#/components/schemas/EnvelopedVerifiablePresentation"
+    NotifyPresentationAvailableRequest:
+      type: object
+      properties:
+        query:
+          type: object
+          description: See https://w3c-ccg.github.io/vp-request-spec/#format
+          properties:
+            type:
+              type: string
+              description: "The type of query the server should reply with."
+            credentialQuery:
+              type: object
+              description: "Details of the client's available presentation"
+      example:
+        {
+          "query":
+            [
+              {
+                "type": "RequestQueryByFrame",
+                "credentialQuery":
+                  [
+                    {
+                      "type":
+                        [
+                            "VerifiableCredential",
+                            "CommercialInvoiceCertificate",
+                        ],
+                      "reason": "Wallet XYZ is ready to selectively disclose new credentials.",
+                    },
+                  ],
+              },
+            ],
+        }
+    ErrorResponse:
+      $ref: "./components/ErrorResponse.yml#/components/schemas/ErrorResponse"
+    StorePresentationRequest:
+      $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+    VerifiablePresentationRequestBody:
+      type: object
+      properties:
+        verifiablePresentationRequest:
+          $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
+    VerifiablePresentationBody:
+      type: object
+      properties:
+        verifiablePresentation:
+          $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+    VerifyCredentialRequest:
+      type: object
+      properties:
+        verifiableCredential:
+          $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+        options:
+          $ref: "./components/VerifyCredentialOptions.yml#/components/schemas/VerifyCredentialOptions"
+    VerifyEnvelopedCredentialRequest:
+      type: object
+      properties:
+        verifiableCredential:
+          $ref: "./components/EnvelopedVerifiableCredential.yml#/components/schemas/EnvelopedVerifiableCredential"
+        options:
+          $ref: "./components/VerifyCredentialOptions.yml#/components/schemas/VerifyCredentialOptions"
+    VerifyCredentialResponse:
+      $ref: "./components/VerifyCredentialResult.yml#/components/schemas/VerificationResult"
+    VerifyPresentationRequest:
+      type: object
+      properties:
+        verifiablePresentation:
+          $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+        options:
+          $ref: "./components/VerifyPresentationOptions.yml#/components/schemas/VerifyPresentationOptions"
+    VerifyEnvelopedPresentationRequest:
+      type: object
+      properties:
+        verifiablePresentation:
+          $ref: "./components/EnvelopedVerifiablePresentation.yml#/components/schemas/EnvelopedVerifiablePresentation"
+        options:
+          $ref: "./components/VerifyPresentationOptions.yml#/components/schemas/VerifyPresentationOptions"
+    ProoflessVerifyPresentationRequest:
+      type: object
+      properties:
+        presentation:
+          $ref: "./components/Presentation.yml#/components/schemas/Presentation"
+    VerifyPresentationResponse:
+      $ref: "./components/VerifyPresentationResult.yml#/components/schemas/VerificationResult"
+    CreateChallengeResponse:
+      $ref: "./components/Challenge.yml#/components/schemas/CreateChallengeResult"
