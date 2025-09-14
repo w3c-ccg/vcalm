@@ -16,6 +16,12 @@ You can view the latest version of the specification here:
 
 [The VCALM Specification](https://w3c-ccg.github.io/vcalm/)
 
+or popular renderings of the OAS definitions here:
+
+* [ReDoc](https://w3c-ccg.github.io/vcalm/api/redoc.html)
+* [RapiDoc](https://w3c-ccg.github.io/vcalm/api/rapidoc.html)
+* [Swagger](https://w3c-ccg.github.io/vcalm/api/swagger.html)
+
 As some implementations might not support all endpoints defined by this
 specification, the APIs provide a clean measure by which to identify which
 methods are or are not implemented when comparing solutions that provide VC
