@@ -1,18 +1,16 @@
 {
-  "name": "vc-api",
+  "name": "vcalm",
   "version": "0.0.3",
   "description": "Verifiable Credential API",
-  "main": "index.js",
   "scripts": {
-    "build": "openapi bundle *.yml --output ./api/bundles/ && openapi join ./api/bundles/*.yml --prefix-tags-with-filename && mv ./openapi.yml ./api/vc-api.yaml",
-    "serve": "http-server ./api --cors",
-    "serveIndex": "http-server . --cors",
-    "lint": "openapi lint *.yml --extends recommended",
+    "serveAlternates": "http-server ./api --cors",
+    "serve": "http-server . --cors",
+    "lint": "openapi lint oas.yaml --extends recommended",
     "eslint": "eslint ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/w3c-ccg/vc-api.git"
+    "url": "git+https://github.com/w3c-ccg/vcalm.git"
   },
   "keywords": [
     "VC",
@@ -22,9 +20,9 @@
   "author": "public-credentials@w3.org",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/w3c-ccg/vc-api/issues"
+    "url": "https://github.com/w3c-ccg/vcalm/issues"
   },
-  "homepage": "https://github.com/w3c-ccg/vc-api#readme",
+  "homepage": "https://github.com/w3c-ccg/vcalm#readme",
   "devDependencies": {
     "@redocly/cli": "^1.0.0-beta.102",
     "eslint": "^8.26.0",
