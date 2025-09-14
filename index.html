@@ -72,7 +72,7 @@
         publisher: "OpenID Foundation"
       },
     },
-    xref: ["web-platform", "infra", "vc-data-model-2.0"],
+    xref: ["web-platform", "infra", "vc-data-model-2.0", "did"],
     github: {
       repoURL: "https://github.com/w3c-ccg/vcalm/",
       branch: "main"
@@ -86,7 +86,8 @@
     postProcess: [window.respecOas.injectOas],
     oas: ["oas.yaml"],
     lint: {
-      "no-unused-dfns": false
+      "no-unused-dfns": false,
+      "informative-dfn": false
     },
 
     // list of specification editors
@@ -361,13 +362,13 @@ the base API platform.
         </tbody>
       </table>
 
-
-      <section>
-        <h3>Design Guidelines</h3>
+      <section class="notoc">
+        <h3>HTTP API Design Guidelines</h3>
         <p>
-          A <a href="https://restfulapi.net/">RESTful API</a> approach was used as a basis for the specification.
-          Some endpoints use what is referred to as the 'controller' resource naming style.
-          [[[?json-schema]]] is used to define the acceptable inputs to the APIs.
+A <a href="https://restfulapi.net/">RESTful API</a> approach was used as a basis
+for the specification. Some endpoints use what is referred to as the
+'controller' resource naming style. [[[?json-schema]]] is used to define the
+acceptable inputs to the APIs.
         </p>
       </section>
 
@@ -420,6 +421,19 @@ interoperability and substitutability across the Verifiable Credential
 conformant ecosystem.
       </p>
 
+      <p class="issue" title="Standardizing the architecture is of primary importance; component standards are secondary">
+Based on this architectural thinking, we may want to frame this API as a
+roadmap of related specifications, integrated in an extensible way for maximum
+substitutability. Several technologies, such as EDVs and WebKMSs would likely
+benefit from the crypto suite Approach taken for VC proofs. Defining a generic
+mechanism that can be realized by any functionally conformant technology enables
+flexibility while laying the groundwork with current existing functionality. In
+this way, we may be able to acknowledge that elements like Key Services,
+Storage, and Status are necessary parts of this API while deferring the
+definition of how those elements work to specification already in development as
+well as those yet to be written.
+      </p>
+
       <p>
 In addition to aggregating components into a single app, implementers may choose
 to operationalize any given role over any number active instances of deployed
@@ -435,7 +449,7 @@ deployment architecture.
       <p>
 We define these components as follows:
       </p>
-      <section>
+      <section class="notoc">
         <h3>Coordinators</h3>
         <p>
 <strong>[=issuer coordinator=] &bull; [=verifier coordinator=] &bull; [=holder coordinator=] </strong>
@@ -494,7 +508,7 @@ organizational credentials are securely shared with, and presented by, (legal)
 agents of those organizations is not yet specified as in scope for this API.
         </p>
       </section>
-      <section>
+      <section class="notoc">
         <h3>Services</h3>
         <p>
 <strong>Issuer Service &bull; Verifier Service &bull; Holder Service </strong>
@@ -530,7 +544,7 @@ demonstrate control over DIDs prior to VC issuance and with Verifiers to present
 specific VCs.
         </p>
       </section>
-      <section>
+      <section class="notoc">
         <h3>Status Service</h3>
         <p>
 The <dfn>status service</dfn> provides a privacy-preserving means of publishing
@@ -545,7 +559,7 @@ recommended to refer to well-known external specifications, such as the
 [[VC-BITSTRING-STATUS-LIST]].
         </p>
       </section>
-      <section>
+      <section class="notoc">
         <h3>Storage Services</h3>
         <p>
 <strong>Storage Service (Issuer) &bull; Storage Service (Verifier) &bull;
@@ -572,7 +586,7 @@ bespoke customization. We expect different implementations to compete on the
 ease of integration into various back-end storage platforms.
         </p>
       </section>
-      <section>
+      <section class="notoc">
         <h3>Workflow Service</h3>
         <p>
 The <dfn>workflow service</dfn> provides a way for coordinators to automate
@@ -584,7 +598,7 @@ create exchanges at their workflow service and give access to those exchanges to
 any authorized party.
         </p>
       </section>
-      <section>
+      <section class="notoc">
         <h3>Administration</h3>
         <p><strong>Issuer Admin &bull; Holder Admin &bull; Verifier Admin</strong></p>
         <p>
@@ -599,21 +613,6 @@ mechanisms are provided, such as in Section [[[#create-workflow]]], where there
 was broad agreement to standardize some configuration parameters. As the market
 matures, other areas of configuration standardization might occur in future
 versions of this specification.
-        </p>
-      </section>
-      <section>
-        <h3>Summary</h3>
-        <p>
-Based on this architectural thinking, we may want to frame this API as a
-roadmap of related specifications, integrated in an extensible way for maximum
-substitutability. Several technologies, such as EDVs and WebKMSs would likely
-benefit from the crypto suite Approach taken for VC proofs. Defining a generic
-mechanism that can be realized by any functionally conformant technology enables
-flexibility while laying the groundwork with current existing functionality. In
-this way, we may be able to acknowledge that elements like Key Services,
-Storage, and Status are necessary parts of this API while deferring the
-definition of how those elements work to specification already in development as
-well as those yet to be written.
         </p>
       </section>
 
@@ -669,14 +668,16 @@ All implementations MAY provide functionality beyond this specification.
 
     </section>
 
-  </section>
+    <section class="informative">
+      <h2>Terminology</h2>
 
-  <section class="informative">
-    <h2>Terminology</h2>
+      <p>
+  Terminology used throughout this document is defined in the
+  <a data-cite="VC-DATA-MODEL-2.0#terminology">Terminology</a> section of the
+  [[[VC-DATA-MODEL-2.0]]] specification.
+      </p>
 
-    <div data-include="https://w3c.github.io/vc-data-model/terms.html">
-    </div>
-
+    </section>
   </section>
 
   <section>
@@ -2473,7 +2474,7 @@ properties:
       <dl>
         <dt>type</dt>
         <dd>
-The `type` [=map/key=] MUST be present and its value MUST be a [=URL=]
+The `type` [=map/key=] MUST be present and its value MUST be a URL
 identifying the type of problem.
         </dd>
         <dt>title</dt>
