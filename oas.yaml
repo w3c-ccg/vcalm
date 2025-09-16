@@ -744,6 +744,70 @@ paths:
                 $ref: "#/components/schemas/CreateChallengeResponse"
         "400":
           description: Invalid or malformed input
+  /interaction/{interactionId}:
+    get:
+      summary: Retrieve available interaction protocols from the interaction originator. 
+      tags:
+        - Interactions
+        - Credentials
+        - Exchanges
+      operationId: startInteraction
+      description: Retrieve available interaction protocols from the interaction originator.
+      x-expectedCaller: Anyone with provided URL
+      parameters:
+        - in: path
+          name: interactionID
+          required: true
+          schema:
+            oneOf: 
+              - type: string
+              - type: integer
+          description: The unique interaction identifier for the current interaction. 
+        - in: query
+          name: iuv
+          required: true
+          schema:
+            type: string
+          description: Informs a reader of the Interaction URL of the Interaction API version, and allows for quick disambiguation of the URL when scanned from a QR Code.
+      requestBody:
+        description: A request for the protocols object to negotiate an interaction protocol. 
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Protocols"
+      responses:
+        "200":
+          description: The protocols object with the advertised interaction protocol options. 
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Protocols"
+        "400":
+          description: Invalid or malformed input
+        "401":
+          description: Not Authorized
+        "500":
+          description: Internal Error
+  /{invitateId}/invite-request/response:
+    post:
+      summary: Provides a location for a particular invitation response to be submitted to the by the entitiy trying to start an interaction. In the case that an implimenter has implimented the full VCALM, it is expected that the {inviteId} parameter will be equivilant to the {exchangeId}.
+      tags:
+        - Interactions
+        - Exchanges
+      operationId: receiveInvitationResponse
+      description: Ths endpoint is one of the ones expected to be included as a fully formed URL in the protocols object returned by the /interaction/{interactionId} endpoint.
+      x-expectedCaller: Whoever POSTed to the URL containing /interaction/{interactionId}
+      requestBody:
+        description: The inviteResponse object provides a URL to continue the interaction, a purpose for the interaction, and an ID to reference the interaction by (mostly for debug purposes).
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InviteResponse"
+      responses:
+        "200":
+          description: The inviteResponse object has been injested and was understood. This does not mean an interaction will continue, only that the inviteResponse was understood.
+        "400":
+          description: Invalid or malformed input.
 components:
   securitySchemes:
     $ref: "./components/SecuritySchemes.yml#/components/securitySchemes"
@@ -1146,3 +1210,49 @@ components:
       $ref: "./components/VerifyPresentationResult.yml#/components/schemas/VerificationResult"
     CreateChallengeResponse:
       $ref: "./components/Challenge.yml#/components/schemas/CreateChallengeResult"
+    Protocols:
+      type: object
+      description: Object containing the available options for continuing the current interaction.
+      required:
+        oneOf:
+          - inviteRequest
+          - vcapi
+      properties:
+        inviteRequest:
+          type: string
+          description: A URL that is intended to take the initiating user of the current interaction to a website to continue the interaction beyond this API.
+          examples: 
+            - https://website.example/invitation/87654321/invite-request/response
+            - https://website.example/workflows/12392212/exchanges/87654321/invite-request/response
+        vcapi:
+          type: string
+          description: A VC-API exchanges URL that will allow the initiating user of the current interaction to continue with a VC-API credential exchange.
+          example: https://vcapi.example/workflows/z1A1FjMfnG/exchanges/z19mxakBFecZ
+        otherFutureAPI:
+          type: string
+          description: A URL that is intended to take the initiating user of the current interaction to some other, as yet to be defined, API to continue the interaction and credential exchange.
+          example: https://otherFutureAPI.example/otherFutureAPIParameter/0987
+    InviteResponse:
+      type: object
+      description: Object a continuation URL for an interaction, along with a purpose for a given interaction.
+      required:
+          - url
+          - purpose
+          - referenceId
+      properties:
+        url:
+          type: string
+          description: A URL where the recipient can continue the interaction, should they choose.
+          examples:
+            - https://website.example/checkout/8372974
+            - https://website.example/forms/7864165 
+        purpose:
+          type: string
+          description: A reason for the interaction that is human readable and usable in a concent interaction with the user recieving the inviteResponse object. 
+          examples:
+            - Checkout at ShopCo
+            - Fill out online form
+        referenceId:
+          type: string
+          description: An ID used to reference this particular inviteResponse, mostly for debug purposes.
+          example: 417bcaf2-14d9-11f0-99d7-9f094678517b
