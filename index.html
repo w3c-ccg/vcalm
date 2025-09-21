@@ -2209,7 +2209,7 @@ sequenceDiagram
   I->>W: Return interaction protocols
   Note left of I: (VCALM, OID4VP, NFC, Bluetooth, etc.)
   W->>W: Select appropriate protocol
-  opt "vcalm" protocol example
+  opt "vcapi" protocol example
   W->>I: Initiate workflow exchange
   W->>H: Acquire consent to proceed
   Note right of H: issuer.example is offering credentials, accept?
@@ -2247,7 +2247,7 @@ sequenceDiagram
   W->>H: Acquire consent to proceed
   Note right of H: verifier.example is requesting credentials, proceed?
   W->>W: Select appropriate protocol
-  opt "vcalm" protocol example
+  opt "vcapi" protocol example
   W->>V: Initiate workflow exchange
   end
         </pre>
@@ -2351,7 +2351,7 @@ result in either of the following responses:
 {
   "protocols": {
     "inviteRequest": "https://saas.example/workflows/123/exchanges/987/invite-request/response",
-    "vcalm": "https://saas.example/workflows/123/exchanges/987",
+    "vcapi": "https://saas.example/workflows/123/exchanges/987",
     "OID4VP": "openid4vp://?client_id=https%3A%2F%2Fapp.example%2Fworkflows%2F123%2Fexchanges%2F987%2Fopenid%2Fclient%2Fauthorization%2Fresponse&request_uri=https%3A%2F%2Fapp.example%2Fworkflows%2F123%2Fexchanges%2F987%2Fopenid%2Fclient%2Fauthorization%2Frequest'"
   }
 }
