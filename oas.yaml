@@ -954,6 +954,8 @@ components:
         state:
           type: string
           description: The status ("pending" | "active" | "complete" | "invalid") of the exchange, set to "pending" on creation.
+        lastError:
+          $ref: "#/components/schemas/ExchangeError"
         variables:
           $ref: "#/components/schemas/ExchangeVariables"
     WorkflowStep:
@@ -1033,6 +1035,16 @@ components:
             authorizationRequest:
               type: object
               description: If present, an OID4VP Authorization Request for subsequent use in the exchange. Either this or <code>createAuthorizationRequest</code> MUST be present, but not both.
+    ExchangeError:
+      type: object
+      description: An error encountered throughout the course of an exchange.
+      properties:
+        message:
+          type: string
+          description: A message describing an exchange error.
+        status:
+          type: integer
+          description: A status number describing an exchange error.
     ExchangeVariables:
       type: object
       description: Variables needed for an exchange.
