@@ -1120,49 +1120,18 @@ components:
       type: object
       description: Variables needed for an exchange.
       properties:
-        inputs:
-          type: object
-          description: Credential inputs for each step of an exchange.
-          properties:
-            STEP_NAME:
-              $ref: '#/components/schemas/ExchangeStepInputs'
         results:
           type: object
           description: Results from each step of an exchange.
           properties:
             STEP_NAME:
               $ref: '#/components/schemas/ExchangeStepResults'
-        errors:
-          type: object
-          description: Errors from each step of an exchange.
-          nullable: true
-          properties:
-            STEP_NAME:
-              $ref: '#/components/schemas/ExchangeStepErrors'
-    ExchangeStepInputs:
-      type: object
-      description: Credential inputs for a step of an exchange.
-      oneOf:
-        - $ref: "./components/Credential.yml#/components/schemas/Credential"
-        - type: array
-          items:
-            $ref: "./components/Credential.yml#/components/schemas/Credential"
     ExchangeStepResults:
       type: object
       description: Results from a step of an exchange.
       properties:
         verifiablePresentation:
           $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
-    ExchangeStepErrors:
-      type: object
-      description: Errors from a step of an exchange.
-      properties:
-        message:
-          type: string
-          description: A message describing an error from the exchange step.
-        status:
-          type: integer
-          description: A status number describing an error from the exchange step.
     DeriveCredentialRequest:
       type: object
       properties:
