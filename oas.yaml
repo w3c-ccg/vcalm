@@ -1093,7 +1093,7 @@ components:
             variables:
               oneOf:
                 - type: string
-                - type: "#/components/schemas/ExchangeVariables"
+                - $ref: "#/components/schemas/ExchangeVariables"
         presentationSchema:
           oneOf:
             - type: object
