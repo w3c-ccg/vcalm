@@ -751,12 +751,16 @@ paths:
         - Interactions
         - Credentials
         - Exchanges
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
       operationId: startInteraction
       description: Retrieve available interaction protocols from the interaction originator.
       x-expectedCaller: Anyone with provided URL
       parameters:
         - in: path
-          name: interactionID
+          name: interactionId
           required: true
           schema:
             oneOf: 
@@ -793,10 +797,24 @@ paths:
       summary: Provides a location for a particular invitation response to be submitted to the by the entity trying to start an interaction. When an implementer has implemented the full VCALM, it is expected that the {inviteId} parameter will be equivalent to the {exchangeId}.
       tags:
         - Interactions
+        - Invite Request
         - Exchanges
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
       operationId: receiveInvitationResponse
       description: Ths endpoint is one of the ones expected to be included as a fully formed URL in the protocols object returned by the /interaction/{interactionId} endpoint.
       x-expectedCaller: Whoever POSTed to the URL containing /interaction/{interactionId}
+      parameters:
+        - in: path
+          name: inviteId
+          required: true
+          schema:
+            oneOf: 
+              - type: string
+              - type: integer
+          description: The unique inviteId that the interaction requester uses to select the invite response protocol from the set of advertised options. When an implementer has implemented the full VCALM, this value will be an {exchangeId}, and that the invite-request/response endpoint lives on the Workflow Service.
       requestBody:
         description: The inviteResponse object provides a URL to continue the interaction, a purpose for the interaction, and an ID to reference the interaction by (mostly for debug purposes).
         content:
@@ -1214,16 +1232,12 @@ components:
       type: object
       description: Object containing the available options for continuing the current interaction.
       required:
-        oneOf:
-          - inviteRequest
-          - vcapi
+        oneOf: ["inviteRequest", "vcaml"]
       properties:
         inviteRequest:
           type: string
           description: A URL that is intended to take the initiating user of the current interaction to a website to continue the interaction beyond this API.
-          examples: 
-            - https://website.example/invitation/87654321/invite-request/response
-            - https://website.example/workflows/12392212/exchanges/87654321/invite-request/response
+          example: https://website.example/invitation/87654321/invite-request/response
         vcapi:
           type: string
           description: A VC-API exchanges URL that will allow the initiating user of the current interaction to continue with a VC-API credential exchange.
@@ -1249,9 +1263,7 @@ components:
         purpose:
           type: string
           description: A reason for the interaction that is human readable and usable in a concent interaction with the user recieving the inviteResponse object. 
-          examples:
-            - Checkout at ShopCo
-            - Fill out online form
+          example: "Checkout at ShopCo"
         referenceId:
           type: string
           description: An ID used to reference this particular inviteResponse, mostly for debug purposes.
