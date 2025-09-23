@@ -1248,7 +1248,7 @@ components:
       type: string
       description: A URL that is intended to take the initiating user of the current interaction to a website to continue the interaction beyond this API.
       example: https://website.example/invitation/87654321/invite-request/response
-    vcaml:
+    vcalm:
       type: string
       description: A VC-API exchanges URL that will allow the initiating user of the current interaction to continue with a VC-API credential exchange.
       example: https://vcapi.example/workflows/z1A1FjMfnG/exchanges/z19mxakBFecZ
