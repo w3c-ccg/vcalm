@@ -1238,7 +1238,7 @@ components:
           example: https://website.example/invitation/87654321/invite-request/response
         vcaml:
           type: string
-          description: A VC-API exchanges URL that will allow the initiating user of the current interaction to continue with a VC-API credential exchange.
+          description: A VC-API exchange URL that will allow the initiating user of the current interaction to continue with a VC-API credential exchange.
           example: https://vcapi.example/workflows/z1A1FjMfnG/exchanges/z19mxakBFecZ"
         otherFutureAPI:
           type: string
