@@ -1090,12 +1090,12 @@ components:
                 oneOf:
                   - type: string
                   - $ref: "#/components/schemas/ExchangeVariables"
-          oneOf:
-            - required:
-              - credentialTemplateId
-            - required:
-              - credentialTemplateIndex
-          additionalProperties: false
+            oneOf:
+              - required:
+                - credentialTemplateId
+              - required:
+                - credentialTemplateIndex
+            additionalProperties: false
         presentationSchema:
           oneOf:
             - type: object
