@@ -1231,32 +1231,24 @@ components:
     Protocols:
       type: object
       description: Object containing the available options for continuing the current interaction.
-      anyOf: 
-        - $ref: "#/components/schemas/inviteRequest"
-        - $ref: "#/components/schemas/vcalm"
-        - $ref: "#/components/schemas/otherFutureAPI"
       properties:
         inviteRequest:
-          schema:
-            - $ref: "#/components/schemas/inviteRequest"
+          type: string
+          description: A URL that is intended to take the initiating user of the current interaction to a website to continue the interaction beyond this API.
+          example: https://website.example/invitation/87654321/invite-request/response
         vcaml:
-          schema:
-            - $ref: "#/components/schemas/vcalm"
+          type: string
+          description: A VC-API exchanges URL that will allow the initiating user of the current interaction to continue with a VC-API credential exchange.
+          example: https://vcapi.example/workflows/z1A1FjMfnG/exchanges/z19mxakBFecZ"
         otherFutureAPI:
-        schema:
-            - $ref: "#/components/schemas/otherFutureAPI"
-    inviteRequest:
-      type: string
-      description: A URL that is intended to take the initiating user of the current interaction to a website to continue the interaction beyond this API.
-      example: https://website.example/invitation/87654321/invite-request/response
-    vcalm:
-      type: string
-      description: A VC-API exchanges URL that will allow the initiating user of the current interaction to continue with a VC-API credential exchange.
-      example: https://vcapi.example/workflows/z1A1FjMfnG/exchanges/z19mxakBFecZ
-    otherFutureAPI:
-      type: string
-      description: A URL that is intended to take the initiating user of the current interaction to some other, as yet to be defined, API to continue the interaction and credential exchange.
-      example: https://otherFutureAPI.example/otherFutureAPIParameter/0987
+          type: string
+          description: A URL that is intended to take the initiating user of the current interaction to some other, as yet to be defined, API to continue the interaction and credential exchange.
+          example: https://otherFutureAPI.example/otherFutureAPIParameter/0987
+      oneOf:
+        - required:
+          - inviteRequest
+        - required:
+          - vcalm
     InviteResponse:
       type: object
       description: Object a continuation URL for an interaction, along with a purpose for a given interaction.
