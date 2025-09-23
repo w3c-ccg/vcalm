@@ -231,7 +231,7 @@ paths:
         content:
           application/json:
             schema:
-              :
+              oneOf:
                 - type: object
                   properties:
                     verifiablePresentationRequest:
@@ -302,7 +302,7 @@ paths:
           content:
             application/json:
               schema:
-                :
+                oneOf:
                   - $ref: "./components/VerifiableCredentialResponse.yml#/components/schemas/VerifiableCredentialResponse"
         "400":
           description: Bad Request
