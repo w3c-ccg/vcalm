@@ -2302,6 +2302,16 @@ it is fetched by the receiving system. An example of such a URL is shown below:
         <pre class="example nohighlight" title="An interaction URL">
 https://app.example/interactions/z8n38Dp7a?iuv=1
         </pre>
+
+        <p>
+Protocols that encode lengthy protocol-specific information into URLs suffer
+from limitations in the maximum allowable length of a URL by software libraries.
+At the time of writing, the suggested URL length limit is roughly 2,000
+characters. Implementers SHOULD NOT put information that can be expressed in the
+response to a GET request for an interaction URL, defined in Section
+[[[#interaction-protocols-response]]], into the query parameters of the
+interaction URL.
+        </p>
       </section>
 
       <section>
