@@ -1232,7 +1232,11 @@ components:
       type: object
       description: Object containing the available options for continuing the current interaction.
       required:
-        oneOf: ["inviteRequest", "vcaml"]
+        oneOf: 
+          - type: string
+              description: The value MUST be <code>inviteRequest</code>.
+          - type: string
+              description: The value MUST be <code>vcaml</code>.
       properties:
         inviteRequest:
           type: string
@@ -1257,9 +1261,7 @@ components:
         url:
           type: string
           description: A URL where the recipient can continue the interaction, should they choose.
-          examples:
-            - https://website.example/checkout/8372974
-            - https://website.example/forms/7864165 
+          example: https://website.example/checkout/8372974
         purpose:
           type: string
           description: A reason for the interaction that is human readable and usable in a concent interaction with the user recieving the inviteResponse object. 
