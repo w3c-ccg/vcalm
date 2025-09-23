@@ -1233,23 +1233,25 @@ components:
       description: Object containing the available options for continuing the current interaction.
       required:
         oneOf: 
-          - type: string
-              description: The value MUST be <code>inviteRequest</code>.
-          - type: string
-              description: The value MUST be <code>vcaml</code>.
+          - $ref: "#/componenets/schemas/inviteRequest"
+          - $ref: "#/componenets/schemas/vcalm"
       properties:
         inviteRequest:
-          type: string
-          description: A URL that is intended to take the initiating user of the current interaction to a website to continue the interaction beyond this API.
-          example: https://website.example/invitation/87654321/invite-request/response
-        vcapi:
-          type: string
-          description: A VC-API exchanges URL that will allow the initiating user of the current interaction to continue with a VC-API credential exchange.
-          example: https://vcapi.example/workflows/z1A1FjMfnG/exchanges/z19mxakBFecZ
+          - $ref: "#/componenets/schemas/inviteRequest"
+        vcaml:
+          - $ref: "#/componenets/schemas/vcalm"
         otherFutureAPI:
           type: string
           description: A URL that is intended to take the initiating user of the current interaction to some other, as yet to be defined, API to continue the interaction and credential exchange.
           example: https://otherFutureAPI.example/otherFutureAPIParameter/0987
+    inviteRequest:
+      type: string
+      description: A URL that is intended to take the initiating user of the current interaction to a website to continue the interaction beyond this API.
+      example: https://website.example/invitation/87654321/invite-request/response
+    vcaml:
+      type: string
+      description: A VC-API exchanges URL that will allow the initiating user of the current interaction to continue with a VC-API credential exchange.
+      example: https://vcapi.example/workflows/z1A1FjMfnG/exchanges/z19mxakBFecZ
     InviteResponse:
       type: object
       description: Object a continuation URL for an interaction, along with a purpose for a given interaction.
