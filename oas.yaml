@@ -923,7 +923,6 @@ components:
           properties:
             STEP_NAME:
               $ref: "#/components/schemas/WorkflowStep"
-
     GetWorkflowResponse:
       type: object
       additionalProperties: false
@@ -1137,7 +1136,7 @@ components:
           description: Results from each step of an exchange.
           properties:
             STEP_NAME:
-              $ref: '#/components/schemas/ExchangeStepResults'
+              $ref: "#/components/schemas/ExchangeStepResults"
     ExchangeStepResults:
       type: object
       description: Results from a step of an exchange.
