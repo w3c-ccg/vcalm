@@ -790,7 +790,7 @@ paths:
           description: Internal Error
   /{inviteId}/invite-request/response:
     post:
-      summary: Provides a location for a particular invitation response to be submitted to the by the entitiy trying to start an interaction. In the case that an implimenter has implimented the full VCALM, it is expected that the {inviteId} parameter will be equivilant to the {exchangeId}.
+      summary: Provides a location for a particular invitation response to be submitted to the by the entity trying to start an interaction. When an implementer has implemented the full VCALM, it is expected that the {inviteId} parameter will be equivalent to the {exchangeId}.
       tags:
         - Interactions
         - Exchanges
