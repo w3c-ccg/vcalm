@@ -911,9 +911,15 @@ components:
           items:
             type: object
             properties:
+              id:
+                type: string
+                description: The ID of the template.
               type:
                 type: string
                 description: The type of template.
+                # Other options are possible
+                enum:
+                  - "jsonata"
               template:
                 type: string
                 description: The template itself.
@@ -1070,6 +1076,26 @@ components:
           description: An optional step directive that tells the exchange to handle challenge management via a VC API verifier service it has a zcap for.
         verifiablePresentationRequest:
           $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
+        issueRequests:
+          type: 'object'
+          oneOf:
+            - required:
+              - credentialTemplateId
+            - required:
+              - credentialTemplateIndex
+          additionalProperties: false
+          properties:
+            credentialTemplateId:
+              type: string
+            credentialTemplateIndex:
+              type: number
+            # Optionally specify different variables from exchange.variables
+            # (either a string that is the name of a variable in exchange.variables
+            # to use, or a whole object with alternative variables)
+            variables:
+              oneOf:
+                - type: string
+                - type: "#/components/schemas/ExchangeVariables"
         presentationSchema:
           oneOf:
             - type: object
