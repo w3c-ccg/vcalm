@@ -1073,27 +1073,29 @@ components:
         verifiablePresentationRequest:
           $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
         issueRequests:
-          type: object
+          type: array
+          items:
+            type: object
+            properties:
+              credentialTemplateId:
+                type: string
+                description: The ID of the item in workflow.credentialTemplates that captures the schema of a credential that should be issued in a step.
+              credentialTemplateIndex:
+                type: number
+                description: The index of the item in workflow.credentialTemplates that captures the schema of a credential that should be issued in a step.
+              # Optionally specify different variables from exchange.variables
+              # (either a string that is the name of a variable in exchange.variables
+              # to use, or a whole object with alternative variables)
+              variables:
+                oneOf:
+                  - type: string
+                  - $ref: "#/components/schemas/ExchangeVariables"
           oneOf:
             - required:
               - credentialTemplateId
             - required:
               - credentialTemplateIndex
           additionalProperties: false
-          properties:
-            credentialTemplateId:
-              type: string
-              description: The ID of the item in workflow.credentialTemplates that captures the schema of a credential that should be issued in a step.
-            credentialTemplateIndex:
-              type: number
-              description: The index of the item in workflow.credentialTemplates that captures the schema of a credential that should be issued in a step.
-            # Optionally specify different variables from exchange.variables
-            # (either a string that is the name of a variable in exchange.variables
-            # to use, or a whole object with alternative variables)
-            variables:
-              oneOf:
-                - type: string
-                - $ref: "#/components/schemas/ExchangeVariables"
         presentationSchema:
           oneOf:
             - type: object
