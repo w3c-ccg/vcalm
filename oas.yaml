@@ -616,13 +616,9 @@ paths:
           application/json:
             schema:
               anyOf:
-                -
-                  {
-                    "type": "object",
-                    "description": "Data necessary to initiate the exchange."
-                  }
-                -
-                  $ref: "#/components/schemas/NotifyPresentationAvailableRequest"
+                - type: object
+                  description: "Data necessary to initiate the exchange."
+                - $ref: "#/components/schemas/NotifyPresentationAvailableRequest"
       responses:
         "200":
           description: Proceed with exchange.
@@ -1015,7 +1011,7 @@ components:
               description: A URL that can be used during exchange flows with a human in the loop. See the section on the <a href="#dfn-interaction-url">interact URL format</a> for more details.
             vcapi:
               type: string
-              description: The URL to use when initiating a VC API exchange.
+              description: The URL to use when initiating a VCALM exchange.
             OID4VP:
               type: string
               description: The URL to use when initiating an OID4VP presentation.
@@ -1073,11 +1069,11 @@ components:
       properties:
         createChallenge:
           type: boolean
-          description: An optional step directive that tells the exchange to handle challenge management via a VC API verifier service it has a zcap for.
+          description: An optional step directive that tells the exchange to handle challenge management via a VCALM verifier service it has a zcap for.
         verifiablePresentationRequest:
           $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
         issueRequests:
-          type: 'object'
+          type: object
           oneOf:
             - required:
               - credentialTemplateId
@@ -1087,8 +1083,10 @@ components:
           properties:
             credentialTemplateId:
               type: string
+              description: The ID of the item in workflow.credentialTemplates that captures the schema of a credential that should be issued in a step.
             credentialTemplateIndex:
               type: number
+              description: The index of the item in workflow.credentialTemplates that captures the schema of a credential that should be issued in a step.
             # Optionally specify different variables from exchange.variables
             # (either a string that is the name of a variable in exchange.variables
             # to use, or a whole object with alternative variables)
