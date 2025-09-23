@@ -231,7 +231,7 @@ paths:
         content:
           application/json:
             schema:
-              oneOf:
+              :
                 - type: object
                   properties:
                     verifiablePresentationRequest:
@@ -302,7 +302,7 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
+                :
                   - $ref: "./components/VerifiableCredentialResponse.yml#/components/schemas/VerifiableCredentialResponse"
         "400":
           description: Bad Request
@@ -1231,19 +1231,20 @@ components:
     Protocols:
       type: object
       description: Object containing the available options for continuing the current interaction.
-      required:
-        oneOf: 
-          - $ref: "#/componenets/schemas/inviteRequest"
-          - $ref: "#/componenets/schemas/vcalm"
+      anyOf: 
+        - $ref: "#/components/schemas/inviteRequest"
+        - $ref: "#/components/schemas/vcalm"
+        - $ref: "#/components/schemas/otherFutureAPI"
       properties:
         inviteRequest:
-          - $ref: "#/componenets/schemas/inviteRequest"
+          schema:
+            - $ref: "#/components/schemas/inviteRequest"
         vcaml:
-          - $ref: "#/componenets/schemas/vcalm"
+          schema:
+            - $ref: "#/components/schemas/vcalm"
         otherFutureAPI:
-          type: string
-          description: A URL that is intended to take the initiating user of the current interaction to some other, as yet to be defined, API to continue the interaction and credential exchange.
-          example: https://otherFutureAPI.example/otherFutureAPIParameter/0987
+        schema:
+            - $ref: "#/components/schemas/otherFutureAPI"
     inviteRequest:
       type: string
       description: A URL that is intended to take the initiating user of the current interaction to a website to continue the interaction beyond this API.
@@ -1252,6 +1253,10 @@ components:
       type: string
       description: A VC-API exchanges URL that will allow the initiating user of the current interaction to continue with a VC-API credential exchange.
       example: https://vcapi.example/workflows/z1A1FjMfnG/exchanges/z19mxakBFecZ
+    otherFutureAPI:
+      type: string
+      description: A URL that is intended to take the initiating user of the current interaction to some other, as yet to be defined, API to continue the interaction and credential exchange.
+      example: https://otherFutureAPI.example/otherFutureAPIParameter/0987
     InviteResponse:
       type: object
       description: Object a continuation URL for an interaction, along with a purpose for a given interaction.
