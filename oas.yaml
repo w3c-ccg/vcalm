@@ -772,6 +772,7 @@ paths:
           required: true
           schema:
             type: string
+            enum: ["1"]
           description: Informs a reader of the Interaction URL of the Interaction API version, and allows for quick disambiguation of the URL when scanned from a QR Code.
       requestBody:
         description: A request for the protocols object to negotiate an interaction protocol. 
