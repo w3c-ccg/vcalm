@@ -795,7 +795,7 @@ paths:
           description: Internal Error
   /{inviteId}/invite-request/response:
     post:
-      summary: Provides a location for a particular invitation response to be submitted to the by the entity trying to start an interaction. When an implementer has implemented the full VCALM, it is expected that the {inviteId} parameter will be equivalent to the {exchangeId}.
+      summary: Provides a location for a particular invitation response to be submitted to the by the entity trying to start an interaction. When an implementer has implemented the full specification, it is expected that the {inviteId} parameter will be equivalent to the {exchangeId}.
       tags:
         - Interactions
         - Invite Request
@@ -815,7 +815,7 @@ paths:
             oneOf: 
               - type: string
               - type: integer
-          description: The unique inviteId that the interaction requester uses to select the invite response protocol from the set of advertised options. When an implementer has implemented the full VCALM, this value will be an {exchangeId}, and that the invite-request/response endpoint lives on the Workflow Service.
+          description: The unique inviteId that the interaction requester uses to select the invite response protocol from the set of advertised options. When an implementer has implemented the full specification, this value will be an {exchangeId}, and that the invite-request/response endpoint lives on the Workflow Service.
       requestBody:
         description: The inviteResponse object provides a URL to continue the interaction, a purpose for the interaction, and an ID to reference the interaction by (mostly for debug purposes).
         content:
@@ -1240,11 +1240,11 @@ components:
         vcaml:
           type: string
           description: A VC-API exchange URL that will allow the initiating user of the current interaction to continue with a VC-API credential exchange.
-          example: https://vcapi.example/workflows/z1A1FjMfnG/exchanges/z19mxakBFecZ"
+          example: https://vcapi.example/workflows/z1A1FjMfnG/exchanges/z19mxakBFecZ
         otherFutureAPI:
           type: string
           description: A URL that is intended to take the initiating user of the current interaction to some other, as yet to be defined, API to continue the interaction and credential exchange.
-          example: https://otherFutureAPI.example/otherFutureAPIParameter/0987
+          example: https://otherFutureAPI.example/collection/0987
       oneOf:
         - required:
           - inviteRequest
@@ -1252,7 +1252,7 @@ components:
           - vcalm
     InviteResponse:
       type: object
-      description: Object a continuation URL for an interaction, along with a purpose for a given interaction.
+      description: Object for a continuation URL for an interaction, along with a purpose for a given interaction.
       required:
           - url
           - purpose
