@@ -1894,7 +1894,11 @@ a specific element in the URL path.
 
         <p>
 Most workflows will contain information about steps, credential templates,
-and authorization. Here is a basic workflow configuration that contains
+and authorization. In some cases, a workflow will also reference the
+reserved `results` variable at different points in its configuration
+(typically in credential templates). This variable holds data that
+the workflow service receives from clients throughout the course
+of an exchange. Here is a basic workflow configuration that contains
 a DID Authentication step and a credential delivery step:
         </p>
 
@@ -1982,7 +1986,7 @@ a DID Authentication step and a credential delivery step:
         </pre>
 
         <p>
-Some workflows will need to reference variables in one or more
+Some workflows will need to reference custom variables in one or more
 of their steps. In this case, the coordinator will need
 to provide the appropriate value(s) for the variable(s) when it
 creates an exchange. Here is an example of a workflow configuration
