@@ -81,11 +81,11 @@ This entails:
   list](https://lists.w3.org/Archives/Public/public-credentials/); editors and
   CCG chairs reserve the right to  adjudicate if conflicting, inappropriate, or
   contentious agenda proposals are put forward.
-- Mostly-audio calls hosted on a CCG [Jitsi
-  room](https://meet.w3c-ccg.org/vcapi), Tuesdays at 4pm Eastern Time. This
-  allows members to screenshare during issue review or discussion of diagrams.
-- Minutes are scribed by volunteers from the group and sent to the CCG mailing
-  list for review.
+- Mostly-audio calls hosted in an open virtual meeting room
+  ([Calendar invite](https://www.w3.org/events/meetings/ce3fe409-8ab6-4b25-ae46-f605108403f1/))
+  This allows members to screenshare during issue review or discussion of
+  diagrams.
+- Transcription and video is recorded and shared immediately after the calls.
 
 ### Development
 
