@@ -622,7 +622,7 @@ paths:
         that the server cannot understand results in an error.
       x-expectedCaller: Anyone
       parameters:
-        - $ref: "./components/parameters/path/exchangeId.yml"
+        - $ref: "./components/parameters/path/ExchangeId.yml"
       requestBody:
         description:
           Information related to the type of exchange the client would like
