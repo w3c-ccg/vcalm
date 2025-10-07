@@ -1,4 +1,4 @@
-name: exchange-id
+name: exchangeId
 description: A potentially human-readable identifier for an exchange.
 in: path
 required: true
