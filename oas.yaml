@@ -507,7 +507,7 @@ paths:
        - zCap: []
       operationId: discoverExchanges
       description:
-        This endpoint returns an array of the exchange-ids (path endpoints) supported by this server,
+        This endpoint returns an array of the exchangeIds (path endpoints) supported by this server,
         and the associated protocol supported by each exchange endpoint. The list supports pagination.
 
         Clients consuming this list and wishing to use an exchange endpoint MUST recognize and support
@@ -535,7 +535,7 @@ paths:
             type: number
       responses:
         "200":
-          description: A map of the exchange-id endpoints to protocols those exchanges support.
+          description: A map of the exchangeId endpoints to protocols those exchanges support.
           content:
             application/json:
               schema:
@@ -622,7 +622,7 @@ paths:
         that the server cannot understand results in an error.
       x-expectedCaller: Anyone
       parameters:
-        - $ref: "./components/parameters/path/ExchangeId.yml"
+        - $ref: "./components/parameters/path/exchangeId.yml"
       requestBody:
         description:
           Information related to the type of exchange the client would like
