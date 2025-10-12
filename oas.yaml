@@ -635,7 +635,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetails"
   /credentials/verify:
     post:
       summary: Verifies a verifiableCredential and returns a verificationResult in the response body.
@@ -954,7 +954,7 @@ components:
           type: string
           description: The status ("pending" | "active" | "complete" | "invalid") of the exchange, set to "pending" on creation.
         lastError:
-          $ref: "#/components/schemas/ExchangeError"
+          $ref: "#/components/schemas/ProblemDetails"
         variables:
           $ref: "#/components/schemas/ExchangeVariables"
     WorkflowStep:
@@ -1034,16 +1034,6 @@ components:
             authorizationRequest:
               type: object
               description: If present, an OID4VP Authorization Request for subsequent use in the exchange. Either this or <code>createAuthorizationRequest</code> MUST be present, but not both.
-    ExchangeError:
-      type: object
-      description: An error encountered throughout the course of an exchange.
-      properties:
-        message:
-          type: string
-          description: A message describing an exchange error.
-        status:
-          type: integer
-          description: A status number describing an exchange error.
     ExchangeVariables:
       type: object
       description: Variables needed for an exchange.
@@ -1060,6 +1050,36 @@ components:
       properties:
         verifiablePresentation:
           $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
+        openId:
+          type: object
+          description: Results from OID4* holder interaction.
+          properties:
+            clientProfileId:
+              type: object
+              description: The verifier's (client's) identifier, which is used to secure interactions and prevent replay attacks.
+            authorizationResponse:
+              type: object
+              description: A credential bearing response that the holder sends to the verifier.
+            presentationSubmission:
+              type: object
+              description: A mapping between input descriptors and credentials that a holder submits.
+        inviteRequest:
+          type: object
+          description: Results from an invite request.
+          properties:
+            inviteResponse:
+              type: object
+              description: Response to invite request indicating where to redirect holder.
+              properties:
+                url:
+                  type: string
+                  description: URL where exchange should proceed.
+                purpose:
+                  type: string
+                  description: Description of interaction.
+                referenceId:
+                  type: string
+                  description: Unique ID of invite request.
     DeriveCredentialRequest:
       type: object
       properties:
@@ -1118,8 +1138,6 @@ components:
               },
             ],
         }
-    ErrorResponse:
-      $ref: "./components/ErrorResponse.yml#/components/schemas/ErrorResponse"
     StorePresentationRequest:
       $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
     VerifiablePresentationRequestBody:
