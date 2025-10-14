@@ -380,7 +380,6 @@ acceptable inputs to the APIs.
       <h2>
 Architecture Overview
       </h2>
-
       <p>
 The Verifiable Credentials Data Model defines three fundamental roles, the
 [=issuer=], the [=verifier=], and the [=holder=].
@@ -515,7 +514,16 @@ All implementations MAY provide functionality beyond this specification.
 
   <section>
     <h2>Architecture</h2>
-
+      <p>
+The below architecture description, as well as that seen in the diagram in the 
+<a href="#architecture-overview"></a> section, are representative of one possible 
+architecture for these software components. One software package may serve multiple 
+roles, but these roles are not required to be served by a single library or other 
+software package. For the purposes of this specification, each component will be 
+treated independently, both for clarity of reading, and to highlight that each 
+component can be implemented separately from any other, assuming some other software 
+is fulfilling the missing roles. 
+      </p>
     <section>
       <h3>Coordinators</h3>
       <p>
@@ -901,52 +909,71 @@ the endpoint is expected be callable from. If a component does not have a
 listing below it means the VC-API does not currently specify any endpoints for
 that component.
         </p>
+
+
       <h4>Issuer Coordinator</h4>
       <p>
 Below are all endpoints expected to be exposed by the [=issuer coordinator=], along
-with the component that is expected to call the endpoint
+with the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
-        data-api-path=""></table>
+        data-api-path="/interactions/{interactionId}"></table>
+
+
       <h4>Issuer Service</h4>
       <p>
 Below are all endpoints expected to be exposed by the [=issuer service=], along with
-the component that is expected to call the endpoint
+the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
         data-api-path="/credentials/issue /credentials/{id}"></table>
 
-      <h4>Status Service</h4>
+      <h4>Verifier Cooirdinator</h4>
       <p>
-Below are all endpoints expected to be exposed by the Status Service, along with
-the component that is expected to call the endpoint
+Below are all endpoints expected to be exposed by the [=verifier coordinator=], along with the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
-        data-api-path="/credentials/status"></table>
-
-      <h4>Verification Service</h4>
+        data-api-path="/interactions/{interactionId}"></table>
+      
+        <h4>Verifier Service</h4>
       <p>
-Below are all endpoints expected to be exposed by the Verification Service,
-along with the component that is expected to call the endpoint
+Below are all endpoints expected to be exposed by the [=verifier service=],
+along with the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
         data-api-path="/credentials/verify /presentations/verify /challenges"></table>
 
-      <h4>Holder Service</h4>
+      <h4>Holder Coordinator</h4>
+      <p>
+Below are all endpoints expected to be exposed by the [=holder coordinator=], along with
+the component that is expected to call the endpoint.
+      </p>
+      <table class="simple api-component-table"
+        data-api-path="/interactions/{interactionId}"></table>
+      
+        <h4>Holder Service</h4>
       <p>
 Below are all endpoints expected to be exposed by the [=holder service=], along with
-the component that is expected to call the endpoint
+the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
         data-api-path="/credentials/derive /credentials/{id} /presentations /presentations/{id}"></table>
 
+      <h4>Status Service</h4>
+      <p>
+Below are all endpoints expected to be exposed by the [=status service=], along with
+the component that is expected to call the endpoint.
+      </p>
+      <table class="simple api-component-table"
+        data-api-path="/credentials/status"></table>
+
       <h4>Workflow Service</h4>
       <p>
 Below are all endpoints expected to be exposed by the Workflow Service, along
-with the component that is expected to call the endpoint
+with the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
-        data-api-path="/workflows /workflows/{localWorkflowId} /workflows/{localWorkflowId}/exchanges /workflows/{localWorkflowId}/exchanges/{localExchangeId}"></table>
+        data-api-path="/workflows /workflows/{localWorkflowId} /workflows/{localWorkflowId}/exchanges /workflows/{localWorkflowId}/exchanges/{localExchangeId} /workflows/{localWorkflowId}/exchanges/{localExchangeId}/protocols /{inviteId}/invite-request/response"></table>
 
     </section>
     <section>
@@ -1601,7 +1628,7 @@ The following APIs are defined for presenting a Verifiable Credential:
         data-api-path="
           /credentials/derive /presentations
           /presentations /presentations/{id}
-          /exchanges/ /exchanges/{exchange-id}"
+          /exchanges/ /exchanges/{exchangeId}"
         ></table>
 
         <p class="advisement">
@@ -2369,7 +2396,7 @@ result in either of the following responses:
         <pre class="example nohighlight" title="The degenerate case where the list of protocols only includes the inviteRequest option.">
 {
   "protocols": {
-    "inviteRequest": "https://saas.example/interaction/123/invite-request/response"
+    "inviteRequest": "https://saas.example/interactions/123/invite-request/response"
   }
 }
         </pre>
