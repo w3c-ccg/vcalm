@@ -1079,10 +1079,10 @@ components:
             properties:
               credentialTemplateId:
                 type: string
-                description: The ID of the item in workflow.credentialTemplates that captures the schema of a credential that should be issued in a step.
+                description: The ID of the item in workflow.credentialTemplates that captures the schema of a credential that is issued in a step.
               credentialTemplateIndex:
                 type: number
-                description: The index of the item in workflow.credentialTemplates that captures the schema of a credential that should be issued in a step.
+                description: The index of the item in workflow.credentialTemplates that captures the schema of a credential that is issued in a step.
               # Optionally specify different variables from exchange.variables
               # (either a string that is the name of a variable in exchange.variables
               # to use, or a whole object with alternative variables)
@@ -1165,10 +1165,10 @@ components:
           properties:
             clientProfileId:
               type: object
-              description: The issuer/verifier's (client's) identifier, which is used to secure interactions and prevent replay attacks.
+              description: The software client identifier for the issuer or verifier, which is used to secure interactions and prevent replay attacks.
             authorizationResponse:
               type: object
-              description: A credential bearing response that the holder sends to the issuer/verifier.
+              description: A credential bearing response that the holder sends to the issuer or verifier.
             presentationSubmission:
               type: object
               description: A mapping between input descriptors and credentials that a holder submits.
