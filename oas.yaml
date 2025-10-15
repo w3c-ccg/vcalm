@@ -979,7 +979,7 @@ components:
           $ref: "#/components/schemas/ExchangeVariables"
         openId:
           type: object
-          description: Optional parameters to enable OID4* protocol for delivery.
+          description: Optional parameters to enable OID4VCI/OID4VP protocol for delivery.
     ExchangeParticipationResponse:
       type: object
       description: Either what the exchange is expecting next or a result of the exchange.
@@ -1161,14 +1161,14 @@ components:
           $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
         openId:
           type: object
-          description: Results from OID4* holder interaction.
+          description: Results from OID4VCI/OID4VP holder interaction.
           properties:
             clientProfileId:
               type: object
-              description: The verifier's (client's) identifier, which is used to secure interactions and prevent replay attacks.
+              description: The issuer/verifier's (client's) identifier, which is used to secure interactions and prevent replay attacks.
             authorizationResponse:
               type: object
-              description: A credential bearing response that the holder sends to the verifier.
+              description: A credential bearing response that the holder sends to the issuer/verifier.
             presentationSubmission:
               type: object
               description: A mapping between input descriptors and credentials that a holder submits.
