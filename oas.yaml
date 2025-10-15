@@ -903,7 +903,7 @@ components:
                   description: OAuth2 issuer config URL.
         credentialTemplates:
           type: array
-          description: One or more VC templates for issuance. Passing credentialTemplates is OPTIONAL.
+          description: One or more templates for credential issuance. The `template` string should render to an object containing a "credential" field, which holds the credential template, and (optionally) an "options" field, which holds important credential issuing parameters (this is the format of the request body that is sent to POST /credentials/issue). Passing credentialTemplates is OPTIONAL.
           items:
             type: object
             properties:
@@ -952,7 +952,7 @@ components:
                   description: OAuth2 issuer config URL.
         credentialTemplates:
           type: array
-          description: One or more VC templates for issuance. Passing credentialTemplates is OPTIONAL.
+          description: One or more templates for credential issuance. The `template` string should render to an object containing a "credential" field, which holds the credential template, and (optionally) an "options" field, which holds important credential issuing parameters (this is the format of the request body that is sent to POST /credentials/issue). Passing credentialTemplates is OPTIONAL.
           items:
             type: object
             properties:
