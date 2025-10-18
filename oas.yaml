@@ -1165,7 +1165,7 @@ components:
           properties:
             clientProfileId:
               type: object
-              description: The software client identifier for the issuer or verifier, which is used to secure interactions and prevent replay attacks.
+              description: The identifier for the particular profile of OID4VCI/OID4VP chosen to be used in the exchange. A single exchange can offer multiple profiles for an exchange client (e.g., a digital wallet) to use; this identifier signals to the coordinator which was selected.
             authorizationResponse:
               type: object
               description: A credential bearing response that the holder sends to the issuer or verifier.
