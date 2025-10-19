@@ -742,7 +742,7 @@ paths:
           description: Invalid or malformed input
   /interaction/{interactionId}:
     get:
-      summary: Retrieve available interaction protocols from the interaction originator. 
+      summary: Retrieve available interaction protocols from the interaction originator.
       tags:
         - Interactions
         - Credentials
@@ -759,10 +759,10 @@ paths:
           name: interactionId
           required: true
           schema:
-            oneOf: 
+            oneOf:
               - type: string
               - type: integer
-          description: The unique interaction identifier for the current interaction. 
+          description: The unique interaction identifier for the current interaction.
         - in: query
           name: iuv
           required: true
@@ -771,14 +771,14 @@ paths:
             enum: ["1"]
           description: Informs a reader of the Interaction URL of the Interaction API version, and allows for quick disambiguation of the URL when scanned from a QR Code.
       requestBody:
-        description: A request for the protocols object to negotiate an interaction protocol. 
+        description: A request for the protocols object to negotiate an interaction protocol.
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/Protocols"
       responses:
         "200":
-          description: The protocols object with the advertised interaction protocol options. 
+          description: The protocols object with the advertised interaction protocol options.
           content:
             application/json:
               schema:
@@ -808,7 +808,7 @@ paths:
           name: inviteId
           required: true
           schema:
-            oneOf: 
+            oneOf:
               - type: string
               - type: integer
           description: The unique inviteId that the interaction requester uses to select the invite response protocol from the set of advertised options. When an implementer has implemented the full specification, this value will be an {exchangeId}, and that the invite-request/response endpoint lives on the Workflow Service.
@@ -1333,7 +1333,7 @@ components:
           example: https://website.example/checkout/8372974
         purpose:
           type: string
-          description: A reason for the interaction that is human readable and usable in a concent interaction with the user recieving the inviteResponse object. 
+          description: A reason for the interaction that is human readable and usable in a concent interaction with the user recieving the inviteResponse object.
           example: "Checkout at ShopCo"
         referenceId:
           type: string
