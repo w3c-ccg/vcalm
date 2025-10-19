@@ -632,6 +632,34 @@ paths:
             application/json:
               schema:
                 $ref: "./components/ProblemDetails.yml#/components/schemas/ProblemDetails"
+
+  /callback:
+    post:
+      summary: A callback that can be any arbitrary URL that can be notified when an exchange step is performed.
+      tags:
+       - Exchanges
+      security:
+       - networkAuth: []
+       - oAuth2: []
+       - zCap: []
+      operationId: callback
+      description:
+        A system can expose this endpoint to be notified when an exchange step
+        is executed. A request that the server cannot understand results in an
+        error.
+      requestBody:
+        description:
+          Information related to exchange that initiated the callback.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CallbackData"
+      responses:
+        "200":
+          description: Callback data received.
+        "400":
+          description: Callback data was not received.
+
   /credentials/verify:
     post:
       summary: Verifies a verifiableCredential and returns a verificationResult in the response body.
@@ -1062,6 +1090,22 @@ components:
         template:
           type: string
           description: The step template.
+    CallbackData:
+      type: object
+      additionalProperties: false
+      description: Information received by a callback URL as a part of an exchange step being executed.
+      properties:
+        event:
+          type: object
+          description: The event information associated with the callback.
+          properties:
+            data:
+              type: object
+              description: The event data associated with the callback.
+              properties:
+                exchangeId:
+                  type: string
+                  description: A URL to the exchange state that can be used to retrieve the current state of the exchange.
     StepData:
       type: object
       additionalProperties: false
@@ -1072,6 +1116,13 @@ components:
           description: An optional step directive that tells the exchange to handle challenge management via a VCALM verifier service it has a zcap for.
         verifiablePresentationRequest:
           $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
+        callback:
+          type: object
+          description: A callback that will be called after this step executes.
+          properties:
+            url:
+              type: string
+              description: A URL that will receive the callback data.
         issueRequests:
           type: array
           items:
