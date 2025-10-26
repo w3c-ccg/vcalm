@@ -2347,7 +2347,9 @@ A coordinator has the freedom to put the interaction URL wherever it wants as it
 to be consumed by the participating party via some other transport layer (QR Code, Bluetooth, etc), 
 but needs to format the data returned per this specification. To be clear, the interaction URL is 
 expected to be hosted on a coordinator, as business rules might modulate actions, and NOT hosted at 
-workflow service. Someone consuming the interaction URL should treat the URL as opaque, and key off 
+workflow service. Software and people consuming the interaction URL are generally
+expected to treat it as opaque, but they might key off the `“iuv=1”` query parameter
+to recognize and treat the interaction URL as an input to further processing.
 of the “iuv=1” query parameter to recognise the interaction URL. 
       </p>
       </section>
