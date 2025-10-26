@@ -23,7 +23,9 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: issueCredential
-      x-expectedCaller: "Issuer Coordinator"
+      x-expectedCaller: 
+        - Issuer Coordinator
+        - Workflow Service
       description: Issues a credential and returns it in the response body.
       requestBody:
         content:
@@ -53,7 +55,7 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: updateCredentialStatus
-      x-expectedCaller: "Issuer Service"
+      x-expectedCaller: Issuer Service
       description: Updates the status of an issued credential.
       requestBody:
         content:
@@ -148,7 +150,7 @@ paths:
         - zCap: []
       operationId: createExchange
       description: Creates a new exchange and returns location of exchange metadata in a response header.
-      x-expectedCaller: Owner Coordinator
+      x-expectedCaller: Coordinator
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
       requestBody:
@@ -192,7 +194,7 @@ paths:
         - zCap: []
       operationId: getExchangeConfiguration
       description: Gets the configuration of an existing exchange and returns it in the response body.
-      x-expectedCaller: Owner Coordinator
+      x-expectedCaller: Coordinator
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
         - $ref: "./components/parameters/path/LocalExchangeId.yml"
@@ -265,7 +267,7 @@ paths:
       operationId: getSupportedProtocolsConfiguration
       description: Gets the supported protocols for interacting with a specific exchange.
       x-expectedCaller:
-        - Verification Coordinator
+        - Verifier Coordinator
         - Holder Coordinator
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
@@ -292,7 +294,10 @@ paths:
        - oAuth2: []
        - zCap: []
       summary: Gets a credential or verifiable credential by ID. To get a credential that does not have credential.id set but has an associated credentialId value, pass credentialId instead.
-      x-expectedCaller: "Issuer Coordinator"
+      x-expectedCaller: 
+       - Issuer Coordinator
+       - Holder Coordinator
+       - Workflow Service
       operationId: getCredential
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
@@ -350,7 +355,9 @@ paths:
       summary: Derives a credential and returns it in the response body.
       operationId: deriveCredential
       description: Derives a credential and returns it in the response body.
-      x-expectedCaller: "Holder Coordinator"
+      x-expectedCaller: 
+       - Holder Coordinator
+       - Workflow Service
       requestBody:
         content:
           application/json:
@@ -377,7 +384,9 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: getPresentation
-      x-expectedCaller: "Holder Coordinator"
+      x-expectedCaller: 
+       - Holder Coordinator
+       - Workflow Service
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
@@ -406,7 +415,7 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: deletePresentation
-      x-expectedCaller: "Holder Coordinator"
+      x-expectedCaller: Holder Coordinator
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
@@ -430,7 +439,9 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: getPresentations
-      x-expectedCaller: "Holder Coordinator"
+      x-expectedCaller: 
+       - Holder Coordinator
+       - Workflow Service
       parameters:
         - in: query
           name: type
@@ -466,7 +477,9 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: createPresentation
-      x-expectedCaller: "Holder Coordinator"
+      x-expectedCaller: 
+       - Holder Coordinator
+       - Workflow Service
       description: Creates a presentation and returns it in the response body.
       requestBody:
         content:
@@ -483,155 +496,6 @@ paths:
                 $ref: "#/components/schemas/CreatePresentationResponse"
         "400":
           description: invalid input!
-  /exchanges:
-    get:
-      summary: Provides a discovery endpoint for the exchanges supported by this server endpoint.
-      tags:
-       - Exchanges
-      security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
-      operationId: discoverExchanges
-      description:
-        This endpoint returns an array of the exchange-ids (path endpoints) supported by this server,
-        and the associated protocol supported by each exchange endpoint. The list supports pagination.
-
-        Clients consuming this list and wishing to use an exchange endpoint MUST recognize and support
-        the protocol identified in the value field. Clients are not expected to dynamically process
-        the protocol specified.
-      parameters:
-        - name: index
-          in: query
-          description:
-            The starting index for the list that is meaningful to the server.
-            If omitted, the server must assume the start of the list.
-
-          required: false
-          schema:
-            type: string
-        - name: limit
-          in: query
-          description:
-            The maximum number of items to return in the response. If omitted, the service should
-
-            return all remaining items from the start index.
-          required: false
-          schema:
-            type: number
-      responses:
-        "200":
-          description: A map of the exchange-id endpoints to protocols those exchanges support.
-          content:
-            application/json:
-              schema:
-                required:
-                  - count
-                  - index
-                  - total
-                  - exchanges
-                properties:
-                  count:
-                    type: number
-                    description: The number of elements returned in the array.
-                  total:
-                    type: number
-                    description: The total number of elements available.
-                  exchanges:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                          description: the path name of the exchange endpoint. May be a UUID.
-
-                        type:
-                          type: string
-                          description: MUST be a string that references the protocol supported on that endpoint.
-                  index:
-                    type: object
-                    properties:
-                      self:
-                        type: string
-                        description:
-                          The index position of the start of the returned list. Examples could be a numerical value,
-
-                          a URL, or a value meaningful to the server.
-                      next:
-                        type: string
-                        description:
-                          The index position for the next set of results (i.e., index of the end of this list).
-                          Examples could be a numerical value, a URL, or a value meaningful to the server.
-
-
-              example:
-                {
-                  "count": 3,
-                  "total": 8,
-                  "exchanges" : [
-                    {
-                      "id" : "credential-refresh",
-                      "type": "CredentialRefresh2020"
-                    },
-                    {
-                      "id": "34901-18388409-1939",
-                      "type" : "PresentationExchange1.0",
-                    },
-                    {
-                      "id" : "salad",
-                      "type" : "https://example.com/oas/my-salad.yml"
-                  }],
-                  "index": {
-                    "self": "0",
-                    "next" : "3"
-                  }
-                }
-        "400":
-          description: invalid input
-
-  /exchanges/{exchange-id}:
-    post:
-      summary: Initiates an exchange of information.
-      tags:
-       - Exchanges
-      security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
-      operationId: initiateExchange
-      description:
-        A client can use this endpoint to initiate an exchange of a particular
-        type. The client can include HTTP POST information related to the
-        details of exchange it would like to initiate. If the server understands
-        the request, it returns a Verifiable Presentation Request. A request
-        that the server cannot understand results in an error.
-      parameters:
-        - $ref: "./components/parameters/path/ExchangeId.yml"
-      requestBody:
-        description:
-          Information related to the type of exchange the client would like
-          to start.
-        content:
-          application/json:
-            schema:
-              anyOf:
-                - type: object
-                  description: "Data necessary to initiate the exchange."
-                - $ref: "#/components/schemas/NotifyPresentationAvailableRequest"
-      responses:
-        "200":
-          description: Proceed with exchange.
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/VerifiablePresentationRequestBody"
-        "400":
-          description: Request is malformed.
-          content:
-            application/json:
-              schema:
-                $ref: "./components/ProblemDetails.yml#/components/schemas/ProblemDetails"
   /credentials/verify:
     post:
       summary: Verifies a verifiableCredential and returns a verificationResult in the response body.
@@ -642,7 +506,9 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: verifyCredential
-      x-expectedCaller: "Verification Coordinator"
+      x-expectedCaller: 
+       - Verifier Coordinator
+       - Workflow Service
       description: Verifies a verifiableCredential and returns a verificationResult in the response body.
       requestBody:
         content:
@@ -671,7 +537,9 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: verifyPresentation
-      x-expectedCaller: "Verification Coordinator"
+      x-expectedCaller: 
+       - Verifier Coordinator
+       - Workflow Service
       description: |
         Verifies a verifiablePresentation and, by default, all verifiable credentials
         contained within it.
@@ -729,7 +597,9 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: challenge
-      x-expectedCaller: "Verification Coordinator"
+      x-expectedCaller: 
+       - Verifier Coordinator
+       - Workflow Service
       description: Creates a challenge to be used as `options.challenge` in future requests.
       responses:
         "200":
@@ -740,7 +610,7 @@ paths:
                 $ref: "#/components/schemas/CreateChallengeResponse"
         "400":
           description: Invalid or malformed input
-  /interaction/{interactionId}:
+  /interactions/{interactionId}:
     get:
       summary: Retrieve available interaction protocols from the interaction originator.
       tags:
@@ -801,8 +671,8 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: receiveInvitationResponse
-      description: Ths endpoint is one of the ones expected to be included as a fully formed URL in the protocols object returned by the /interaction/{interactionId} endpoint.
-      x-expectedCaller: Whoever POSTed to the URL containing /interaction/{interactionId}
+      description: Ths endpoint is one of the ones expected to be included as a fully formed URL in the protocols object returned by the /interactions/{interactionId} endpoint.
+      x-expectedCaller: Whoever POSTed to the URL containing /interactions/{interactionId}
       parameters:
         - in: path
           name: inviteId
