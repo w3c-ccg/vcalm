@@ -2495,11 +2495,11 @@ interaction URL.
         </p>
       </section>
 
-        <p class="note" title="Interactions URL lives on coordinators, not Workflow Services">
+        <p class="note" title="Interactions URL lives on Coordinators, not Workflow Services">
 A coordinator has the freedom to put the interaction URL at any location on its Web origin, because
 it is expected to be considered opaque by consuming software (except for the `iuv` query parameter).
 However, it is important that the interaction URL be hosted on a coordinator and NOT hosted at the
-workflow service. This enables the coordinator's Web origin to be used as a consistent trust signal by
+workflow service. This enables the coordinator's Web origin (DNS domain name) to be used as a consistent trust signal by
 consumers and the application of business rules that might modulate actions.
 
       <section>
