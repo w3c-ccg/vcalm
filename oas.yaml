@@ -633,9 +633,9 @@ paths:
               schema:
                 $ref: "./components/ProblemDetails.yml#/components/schemas/ProblemDetails"
 
-  /callback:
+  /callbacks/{localCallbackId}:
     post:
-      summary: A callback that can be any arbitrary URL that can be notified when an exchange step is performed.
+      summary: A callback that can be any capability URL (i.e., a URL that is infeasible to guess) that can be notified when an exchange step is performed. The URL SHOULD be a capability URL to ensure that it can only be used by parties with whom the URL is shared without a need for authorization tokens, periodic token refresh, nor client registration. If the suggested URL format with "localCallbackId" is used, then the "localCallbackId" value must express at least 128-bits of random information in order to ensure the full callback URL can be treated as a capability URL. It is also recommended that a new capability URL be created per exchange and only used by that exchange.
       tags:
        - Exchanges
       security:
