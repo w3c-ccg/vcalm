@@ -515,7 +515,19 @@ All implementations MAY provide functionality beyond this specification.
 
   <section>
     <h2>Architecture</h2>
-
+The architecture description below, as well as that seen in the diagram in the 
+<a href="#architecture-overview"></a> section, are representative of one possible 
+architecture for these software components. This representation was chosen to
+make categorization of the different features in the specification clear, enabling
+each component to be treated independently for both clarity of reading and
+to highlight that each component can be implemented separately from any
+other. However, this is not a prescriptive architecture; implementers can use as
+many or as few software packages as desired to serve multiple roles; roles are
+not required to be served by a single library or other software package nor are
+software libraries or packages required to provide for particular roles in isolation
+of others. It is also an expectation that single deployments of software or
+system components can be for the purpose of multiple roles as needed for a
+given use case.
     <section>
       <h3>Coordinators</h3>
       <p>
