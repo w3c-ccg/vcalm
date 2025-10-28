@@ -2496,12 +2496,11 @@ interaction URL.
       </section>
 
         <p class="note" title="Interactions URL lives on coordinators, not Workflow Services">
-A coordinator has the freedom to put the interaction URL wherever it wants as it is expected 
-to be consumed by the participating party via some other transport layer (QR Code, Bluetooth, etc), 
-but needs to format the data returned per this specification. To be clear, the interaction URL is 
-expected to be hosted on a coordinator, so the coordinator's Web origin can be used as a trust signal 
-by consumers and because business rules may modulate actions, and NOT hosted at the workflow service. 
-Software and people consuming the interaction URL are generally expected to treat it as opaque.
+A coordinator has the freedom to put the interaction URL at any location on its Web origin, because
+it is expected to be considered opaque by consuming software (except for the `iuv` query parameter).
+However, it is important that the interaction URL be hosted on a coordinator and NOT hosted at the
+workflow service. This enables the coordinator's Web origin to be used as a consistent trust signal by
+consumers and the application of business rules that might modulate actions.
 
       <section>
         <h4>Interaction QR Code Format</h4>
