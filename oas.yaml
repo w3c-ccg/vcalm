@@ -23,7 +23,9 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: issueCredential
-      x-expectedCaller: "Issuer Coordinator"
+      x-expectedCaller: 
+        - Issuer Coordinator
+        - Workflow Service
       description: Issues a credential and returns it in the response body.
       requestBody:
         content:
@@ -53,7 +55,7 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: updateCredentialStatus
-      x-expectedCaller: "Issuer Service"
+      x-expectedCaller: Issuer Service
       description: Updates the status of an issued credential.
       requestBody:
         content:
@@ -148,7 +150,7 @@ paths:
         - zCap: []
       operationId: createExchange
       description: Creates a new exchange and returns location of exchange metadata in a response header.
-      x-expectedCaller: Owner Coordinator
+      x-expectedCaller: Coordinator
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
       requestBody:
@@ -192,7 +194,7 @@ paths:
         - zCap: []
       operationId: getExchangeConfiguration
       description: Gets the configuration of an existing exchange and returns it in the response body.
-      x-expectedCaller: Owner Coordinator
+      x-expectedCaller: Coordinator
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
         - $ref: "./components/parameters/path/LocalExchangeId.yml"
@@ -265,7 +267,7 @@ paths:
       operationId: getSupportedProtocolsConfiguration
       description: Gets the supported protocols for interacting with a specific exchange.
       x-expectedCaller:
-        - Verification Coordinator
+        - Verifier Coordinator
         - Holder Coordinator
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
@@ -292,7 +294,10 @@ paths:
        - oAuth2: []
        - zCap: []
       summary: Gets a credential or verifiable credential by ID. To get a credential that does not have credential.id set but has an associated credentialId value, pass credentialId instead.
-      x-expectedCaller: "Issuer Coordinator"
+      x-expectedCaller: 
+       - Issuer Coordinator
+       - Holder Coordinator
+       - Workflow Service
       operationId: getCredential
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
@@ -350,7 +355,9 @@ paths:
       summary: Derives a credential and returns it in the response body.
       operationId: deriveCredential
       description: Derives a credential and returns it in the response body.
-      x-expectedCaller: "Holder Coordinator"
+      x-expectedCaller: 
+       - Holder Coordinator
+       - Workflow Service
       requestBody:
         content:
           application/json:
@@ -377,7 +384,9 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: getPresentation
-      x-expectedCaller: "Holder Coordinator"
+      x-expectedCaller: 
+       - Holder Coordinator
+       - Workflow Service
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
@@ -406,7 +415,7 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: deletePresentation
-      x-expectedCaller: "Holder Coordinator"
+      x-expectedCaller: Holder Coordinator
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
@@ -430,7 +439,9 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: getPresentations
-      x-expectedCaller: "Holder Coordinator"
+      x-expectedCaller: 
+       - Holder Coordinator
+       - Workflow Service
       parameters:
         - in: query
           name: type
@@ -466,7 +477,9 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: createPresentation
-      x-expectedCaller: "Holder Coordinator"
+      x-expectedCaller: 
+       - Holder Coordinator
+       - Workflow Service
       description: Creates a presentation and returns it in the response body.
       requestBody:
         content:
@@ -670,7 +683,9 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: verifyCredential
-      x-expectedCaller: "Verification Coordinator"
+      x-expectedCaller: 
+       - Verifier Coordinator
+       - Workflow Service
       description: Verifies a verifiableCredential and returns a verificationResult in the response body.
       requestBody:
         content:
@@ -699,7 +714,9 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: verifyPresentation
-      x-expectedCaller: "Verification Coordinator"
+      x-expectedCaller: 
+       - Verifier Coordinator
+       - Workflow Service
       description: |
         Verifies a verifiablePresentation and, by default, all verifiable credentials
         contained within it.
@@ -757,7 +774,9 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: challenge
-      x-expectedCaller: "Verification Coordinator"
+      x-expectedCaller: 
+       - Verifier Coordinator
+       - Workflow Service
       description: Creates a challenge to be used as `options.challenge` in future requests.
       responses:
         "200":
@@ -768,7 +787,7 @@ paths:
                 $ref: "#/components/schemas/CreateChallengeResponse"
         "400":
           description: Invalid or malformed input
-  /interaction/{interactionId}:
+  /interactions/{interactionId}:
     get:
       summary: Retrieve available interaction protocols from the interaction originator.
       tags:
@@ -829,8 +848,8 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: receiveInvitationResponse
-      description: Ths endpoint is one of the ones expected to be included as a fully formed URL in the protocols object returned by the /interaction/{interactionId} endpoint.
-      x-expectedCaller: Whoever POSTed to the URL containing /interaction/{interactionId}
+      description: Ths endpoint is one of the ones expected to be included as a fully formed URL in the protocols object returned by the /interactions/{interactionId} endpoint.
+      x-expectedCaller: Whoever POSTed to the URL containing /interactions/{interactionId}
       parameters:
         - in: path
           name: inviteId

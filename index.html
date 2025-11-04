@@ -515,7 +515,19 @@ All implementations MAY provide functionality beyond this specification.
 
   <section>
     <h2>Architecture</h2>
-
+One possible architecture for these software components is represented by the
+architecture description below, as well as the diagram in the <a
+href="#architecture-overview"></a> section. These representations were chosen
+to make categorization of the different features in the specification clear,
+enabling each component to be treated independently both for clarity of reading
+and to highlight that each component can be implemented separately from any
+other. However, this is not a prescriptive architecture; implementers can use as
+many or as few software packages as desired to serve multiple roles; roles are
+not required to be served by a single library or other software package nor are
+software libraries or packages required to provide for particular roles in isolation
+of others. It is also an expectation that single deployments of software or
+system components can be for the purpose of multiple roles as needed for a
+given use case.
     <section>
       <h3>Coordinators</h3>
       <p>
@@ -901,52 +913,71 @@ the endpoint is expected be callable from. If a component does not have a
 listing below it means the VC-API does not currently specify any endpoints for
 that component.
         </p>
+
+
       <h4>Issuer Coordinator</h4>
       <p>
 Below are all endpoints expected to be exposed by the [=issuer coordinator=], along
-with the component that is expected to call the endpoint
+with the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
-        data-api-path=""></table>
+        data-api-path="/interactions/{interactionId}"></table>
+
+
       <h4>Issuer Service</h4>
       <p>
 Below are all endpoints expected to be exposed by the [=issuer service=], along with
-the component that is expected to call the endpoint
+the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
         data-api-path="/credentials/issue /credentials/{id}"></table>
 
-      <h4>Status Service</h4>
+      <h4>Verifier Cooirdinator</h4>
       <p>
-Below are all endpoints expected to be exposed by the Status Service, along with
-the component that is expected to call the endpoint
+Below are all endpoints expected to be exposed by the [=verifier coordinator=], along with the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
-        data-api-path="/credentials/status"></table>
-
-      <h4>Verification Service</h4>
+        data-api-path="/interactions/{interactionId}"></table>
+      
+        <h4>Verifier Service</h4>
       <p>
-Below are all endpoints expected to be exposed by the Verification Service,
-along with the component that is expected to call the endpoint
+Below are all endpoints expected to be exposed by the [=verifier service=],
+along with the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
         data-api-path="/credentials/verify /presentations/verify /challenges"></table>
 
-      <h4>Holder Service</h4>
+      <h4>Holder Coordinator</h4>
+      <p>
+Below are all endpoints expected to be exposed by the [=holder coordinator=], along with
+the component that is expected to call the endpoint.
+      </p>
+      <table class="simple api-component-table"
+        data-api-path="/interactions/{interactionId}"></table>
+      
+        <h4>Holder Service</h4>
       <p>
 Below are all endpoints expected to be exposed by the [=holder service=], along with
-the component that is expected to call the endpoint
+the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
         data-api-path="/credentials/derive /credentials/{id} /presentations /presentations/{id}"></table>
 
+      <h4>Status Service</h4>
+      <p>
+Below are all endpoints expected to be exposed by the [=status service=], along with
+the component that is expected to call the endpoint.
+      </p>
+      <table class="simple api-component-table"
+        data-api-path="/credentials/status"></table>
+
       <h4>Workflow Service</h4>
       <p>
 Below are all endpoints expected to be exposed by the Workflow Service, along
-with the component that is expected to call the endpoint
+with the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
-        data-api-path="/workflows /workflows/{localWorkflowId} /workflows/{localWorkflowId}/exchanges /workflows/{localWorkflowId}/exchanges/{localExchangeId}"></table>
+        data-api-path="/workflows /workflows/{localWorkflowId} /workflows/{localWorkflowId}/exchanges /workflows/{localWorkflowId}/exchanges/{localExchangeId} /workflows/{localWorkflowId}/exchanges/{localExchangeId}/protocols /{inviteId}/invite-request/response"></table>
 
     </section>
     <section>
@@ -1601,7 +1632,7 @@ The following APIs are defined for presenting a Verifiable Credential:
         data-api-path="
           /credentials/derive /presentations
           /presentations /presentations/{id}
-          /exchanges/ /exchanges/{exchange-id}"
+          /exchanges/ /exchanges/{exchangeId}"
         ></table>
 
         <p class="advisement">
@@ -2503,6 +2534,13 @@ interaction URL.
         </p>
       </section>
 
+        <p class="note" title="Interactions URL lives on Coordinators, not Workflow Services">
+A coordinator has the freedom to put the interaction URL at any location on its Web origin, because
+it is expected to be considered opaque by consuming software (except for the `iuv` query parameter).
+However, it is important that the interaction URL be hosted on a coordinator and NOT hosted at the
+workflow service. This enables the coordinator's Web origin (DNS domain name) to be used as a consistent trust signal by
+consumers and the application of business rules that might modulate actions.
+
       <section>
         <h4>Interaction QR Code Format</h4>
         <p>
@@ -2556,7 +2594,7 @@ result in either of the following responses:
         <pre class="example nohighlight" title="The degenerate case where the list of protocols only includes the inviteRequest option.">
 {
   "protocols": {
-    "inviteRequest": "https://saas.example/interaction/123/invite-request/response"
+    "inviteRequest": "https://saas.example/interactions/123/invite-request/response"
   }
 }
         </pre>
