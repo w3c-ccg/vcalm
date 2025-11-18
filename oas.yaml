@@ -892,6 +892,21 @@ components:
       type: object
       additionalProperties: false
       description: Object containing information about an active exchange.
+      oneOf:
+      - type: object
+        properties:
+          exchangeResponse:
+            properties:
+              $ref: "#/components/schemas/ExchangeResponse"
+      - type: object
+        properties:
+          emptyExchangeResponse:
+            type: object
+            description: An empty object sent by either party in an exchange terminates the exchange. 
+    ExchangeReponse:
+      type: object
+      additionalProperties: false
+      description: Object containing information about an active exchange.
       properties:
         id:
           type: string
@@ -907,7 +922,7 @@ components:
           description: The current step in the exchange.
         state:
           type: string
-          description: The status ("pending" | "active" | "complete" | "invalid") of the exchange, set to "pending" on creation.
+          description: The status ("pending" | "active" | "complete" | "invalid") of the exchange, set to "pending" on creation.  
         lastError:
           $ref: "./components/ProblemDetails.yml#/components/schemas/ProblemDetails"
         variables:
