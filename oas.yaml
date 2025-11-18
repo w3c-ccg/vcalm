@@ -893,11 +893,7 @@ components:
       additionalProperties: false
       description: Object containing information about an active exchange.
       oneOf:
-      - type: object
-        properties:
-          exchangeResponse:
-            properties:
-              $ref: "#/components/schemas/ExchangeResponse"
+      - $ref: "#/components/schemas/ExchangeResponse"
       - type: object
         properties:
           emptyExchangeResponse:
