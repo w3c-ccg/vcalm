@@ -1,5 +1,5 @@
 name: localCallbackId
-description: A local identifier for a callback that must express at least 128-bits of random information to ensure the full callback URL can be treated as a capability URL.
+description: A local identifier for a callback. It must express at least 128-bits of random information to ensure the full callback URL can be treated as a capability URL.
 in: path
 required: true
 schema:
