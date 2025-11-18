@@ -903,7 +903,7 @@ components:
           emptyExchangeResponse:
             type: object
             description: An empty object sent by either party in an exchange terminates the exchange. 
-    ExchangeReponse:
+    ExchangeResponse:
       type: object
       additionalProperties: false
       description: Object containing information about an active exchange.
