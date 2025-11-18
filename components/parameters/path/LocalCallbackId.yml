@@ -4,6 +4,4 @@ in: path
 required: true
 schema:
   type: string
-  # Pattern ensures at least 128 bits of entropy (minimum 22 base64url characters, or UUID format)
-  pattern: "^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}|[A-Za-z0-9_-]{22,})$"
 
