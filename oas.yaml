@@ -506,6 +506,8 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: callback
+      parameters:
+        - $ref: "./components/parameters/path/LocalCallbackId.yml"
       description:
         A system can expose this endpoint to be notified when an exchange step
         is executed. A request that the server cannot understand results in an
@@ -1134,51 +1136,8 @@ components:
           oneOf:
             - $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
             - $ref: "./components/EnvelopedVerifiablePresentation.yml#/components/schemas/EnvelopedVerifiablePresentation"
-    NotifyPresentationAvailableRequest:
-      type: object
-      properties:
-        query:
-          type: object
-          description: See https://w3c-ccg.github.io/vp-request-spec/#format
-          properties:
-            type:
-              type: string
-              description: "The type of query the server should reply with."
-            credentialQuery:
-              type: object
-              description: "Details of the client's available presentation"
-      example:
-        {
-          "query":
-            [
-              {
-                "type": "RequestQueryByFrame",
-                "credentialQuery":
-                  [
-                    {
-                      "type":
-                        [
-                            "VerifiableCredential",
-                            "CommercialInvoiceCertificate",
-                        ],
-                      "reason": "Wallet XYZ is ready to selectively disclose new credentials.",
-                    },
-                  ],
-              },
-            ],
-        }
     StorePresentationRequest:
       $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
-    VerifiablePresentationRequestBody:
-      type: object
-      properties:
-        verifiablePresentationRequest:
-          $ref: "./components/VerifiablePresentationRequest.yml#/components/schemas/VerifiablePresentationRequest"
-    VerifiablePresentationBody:
-      type: object
-      properties:
-        verifiablePresentation:
-          $ref: "./components/VerifiablePresentation.yml#/components/schemas/VerifiablePresentation"
     VerifyCredentialRequest:
       type: object
       properties:
