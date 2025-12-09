@@ -891,18 +891,7 @@ components:
     GetExchangeResponse:
       type: object
       additionalProperties: false
-      description: Object containing information about an active exchange.
-      oneOf:
-      - $ref: "#/components/schemas/ExchangeResponse"
-      - type: object
-        properties:
-          emptyExchangeResponse:
-            type: object
-            description: An empty object sent by either party in an exchange terminates the exchange. 
-    ExchangeResponse:
-      type: object
-      additionalProperties: false
-      description: Object containing information about an active exchange.
+      description: Object containing information about an active exchange. This can be an empty object when a given exchange has no VP and no redirectUrl to send.
       properties:
         id:
           type: string
