@@ -1287,7 +1287,7 @@ the [=verifier=].
 
           To request a field without any statement about an expected value, a requester can include the field in 
           the request and leave the value as an empty string. For instance, if a requester needs a first name, 
-          they would include the optional "credentialSubject" object and only include a single field, "firstName": "". 
+          they could include the optional "`credentialSubject`" object with a single field, `"firstName": ""`. 
           This would allow a wallet to respond with only the firstName of the requested credential with no expectation 
           of any other field being included. This does not prevent a wallet from oversharing and including additional 
           fields in its response to the query.
