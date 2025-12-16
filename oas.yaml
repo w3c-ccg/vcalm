@@ -70,6 +70,65 @@ paths:
           description: Bad Request
         "404":
           description: Credential not found
+  /credentials/status/lists:
+    post:
+      summary: Creates a new status list
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: createStatusList
+      x-expectedCaller: Issuer Service
+      description: Creates a new status list credential that can be used to track the status of verifiable credentials. The status list is returned as a verifiable credential that can be publicly accessible for verification purposes.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateStatusListRequest"
+        description: Parameters for creating a status list.
+      responses:
+        "201":
+          description: Status list successfully created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateStatusListResponse"
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uri
+                description: The HTTP URL used to retrieve the status list credential.
+                example: https://issuer.example.com/credentials/status/lists/abc123
+        "400":
+          description: Bad Request
+  /credentials/status/lists/{id}:
+    get:
+      summary: Retrieves a status list credential
+      tags:
+        - Credentials
+      security: []
+      operationId: getStatusList
+      x-expectedCaller: Public
+      description: Retrieves a publicly accessible status list credential. This endpoint SHOULD be publicly accessible without authentication to enable verifiers and holders to retrieve status information. For privacy-preserving status mechanisms, verifiers SHOULD obtain status information from holders rather than directly querying this endpoint.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The identifier of the status list credential to retrieve.
+      responses:
+        "200":
+          description: Status list credential successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VerifiableCredential"
+        "404":
+          description: Status list not found
   /workflows:
     post:
       summary: Creates a new workflow and returns location of workflow metadata in a response header.
@@ -762,6 +821,65 @@ components:
           "credentialId": "0fc754bc-fc32-46a0-aec1-a5ef385e7ea0",
           "credentialStatus": { "type": "BitstringStatusList", "statusPurpose": "revocation" },
           "status": True
+        }
+    CreateStatusListRequest:
+      type: object
+      required: ['statusPurpose']
+      additionalProperties: false
+      description: Parameters for creating a new status list credential.
+      properties:
+        statusPurpose:
+          type: string
+          description: The purpose of the status list (e.g., "revocation", "suspension"). This determines what type of status information the list will track.
+          example: "revocation"
+        id:
+          type: string
+          format: uri
+          description: Optional identifier for the status list. If not provided, the service will generate one.
+        options:
+          type: object
+          description: Optional parameters for creating the status list, such as size or other configuration options specific to the status list mechanism being used.
+      example:
+        {
+          "statusPurpose": "revocation",
+          "id": "https://issuer.example.com/credentials/status/lists/abc123"
+        }
+    CreateStatusListResponse:
+      type: object
+      properties:
+        verifiableCredential:
+          $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+        id:
+          type: string
+          format: uri
+          description: The identifier of the created status list credential, which can be used to retrieve it via the GET endpoint.
+      example:
+        {
+          "id": "https://issuer.example.com/credentials/status/lists/abc123",
+          "verifiableCredential": {
+            "@context": [
+              "https://www.w3.org/2018/credentials/v1",
+              "https://w3id.org/vc/status-list/2021/v1"
+            ],
+            "id": "https://issuer.example.com/credentials/status/lists/abc123",
+            "type": ["VerifiableCredential", "StatusList2021Credential"],
+            "issuer": "did:example:issuer",
+            "issued": "2024-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://issuer.example.com/credentials/status/lists/abc123#list",
+              "type": "StatusList2021",
+              "statusPurpose": "revocation",
+              "encodedList": "H4sIAAAAAAAAA-3BMQEAAADCoPVPbQwfoAAAAACAP2A1AQAAZQAAAIA..."
+            },
+            "proof": {
+              "type": "DataIntegrityProof",
+              "cryptosuite": "eddsa-rdfc-2022",
+              "verificationMethod": "did:example:issuer#key-1",
+              "created": "2024-01-01T00:00:00Z",
+              "proofPurpose": "assertionMethod",
+              "proofValue": "z..."
+            }
+          }
         }
     IssueCredentialRequest:
       type: object
