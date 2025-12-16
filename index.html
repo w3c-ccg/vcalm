@@ -1242,11 +1242,20 @@ specify other information, such as one or more [=issuers=] that are trusted by
 the [=verifier=].
         </p>
 
+        <p>
+The `credentialQuery` property in a QueryByExample query is a single object,
+not an array. Logical "AND" and "OR" operations for combining multiple queries
+are handled through the `group` property at the query level, as described in
+Section [[[#logical-operations-in-queries]]]. Multiple queries with the same
+`group` value are processed as "AND" operations, while queries with different
+or missing `group` values are processed as "OR" operations.
+        </p>
+
         <pre class="example nohighlight" title="A Query By Example query">
 {
   "query": [{
     "type": "QueryByExample",
-    "credentialQuery": [{
+    "credentialQuery": {
       <span class="comment">// (Optional) Reason for requesting this credential that
       // may be shown to a user by their software</span>
       "reason": "We need to know if you are an alumni of this school.",
@@ -1267,7 +1276,7 @@ the [=verifier=].
       "authority": [{
         "issuer": "did:web:authority.example"
       }]
-    }]
+    }
   }],
   "challenge": "3182bdea-63d9-11ea-b6de-3b7c1404d57f",
   "domain": "reunion.example"
@@ -2668,7 +2677,7 @@ as described in Section [[[#participate-in-an-exchange]]].
   "verifiablePresentationRequest": {
     "query": [{
       "type": "QueryByExample",
-      "credentialQuery": [{
+      "credentialQuery": {
         "reason": "Please provide your student ID.",
         "example": {
           "@context": [
@@ -2683,7 +2692,7 @@ as described in Section [[[#participate-in-an-exchange]]].
         "trustedIssuer": [{
           "issuer": "did:web:university.example"
         }]
-      }]
+      }
     }],
     "challenge": "5e34826e-14da-11f0-98a5-8b1c0a196728",
     "domain": "university.example"
