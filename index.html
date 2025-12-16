@@ -1280,7 +1280,10 @@ the [=verifier=].
           to enable selective disclosure, a requester should be mindful not to include fields in their query that 
           are not needed for their use case. Query By Example provides no way to indicate an “optional” field,  
           consequently, it is up to the wallet that is responding to the query to ensure its response does not 
-          reveal additional information beyond what is being requested. 
+          reveal additional information beyond what is being requested. Note: Some securing mechanisms
+          for verifiable credentials do not permit selective disclosure; in these cases even unrequested
+          information might have to be sent in order to send the requested information. Digital wallets are
+          expected to inform users about what information will be shared.
 
           To request a field without any statement about an expected value, a requester can include the field in 
           the request but leave the value as an empty string. For instance, if a requester needs a first name, 
