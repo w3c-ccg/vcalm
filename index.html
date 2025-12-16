@@ -1278,9 +1278,9 @@ the [=verifier=].
          title="Selective disclosure using Query By Example">
           Any field included in a Query By Example is a required field. This means that to use a Query By Example 
           to enable selective disclosure, a requester should be mindful not to include fields in their query that 
-          are not needed for their use case. Query By Example provides no way to indicate an “optional” field, and 
-          therefore any wallet responding to a Query By Example should be mindful of what it reveals beyond the 
-          requested fields.
+          are not needed for their use case. Query By Example provides no way to indicate an “optional” field,  
+          consequently, it is up to the wallet that is responding to the query to ensure its response does not 
+          reveal additional information beyond what is being requested. 
 
           To request a field without any statement about an expected value, a requester can include the field in 
           the request but leave the value as an empty string. For instance, if a requester needs a first name, 
