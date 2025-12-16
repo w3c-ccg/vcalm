@@ -1274,6 +1274,125 @@ the [=verifier=].
 }
         </pre>
 
+        <section>
+          <h4>Converting QueryByExample to JSON Pointers</h4>
+
+          <p>
+When implementing [=selective disclosure=] features, it is often necessary to
+convert a QueryByExample `example` object into a list of JSON pointers that
+specify which fields should be revealed. The following algorithm provides a
+standardized way to perform this conversion:
+          </p>
+
+          <ol>
+            <li>
+First, perform matching on the `@context` field, optionally performing
+JSON-LD transformations as desired.
+            </li>
+            <li>
+Convert the `example` object to JSON pointers, excluding the `@context` field.
+Any VCDM mandatory pointers can be automatically added based on the VC version
+(e.g., `/issuer`, `/issuanceDate` for VC 1.x).
+            </li>
+            <li>
+Ensure that `credentialSubject` is included in any reveal because the VCDM
+requires it. If it is not present, presume that the entire credential subject
+was requested.
+            </li>
+            <li>
+Prune shallow pointers to keep only the deepest pointers from the list. For
+example, `['/a/b', '/a/b/c', '/a/b/c/d']` will be pruned to `['/a/b/c/d']`.
+            </li>
+            <li>
+Make `type` pointers generic by removing array indices, so `/type/0` becomes
+`/type`.
+            </li>
+          </ol>
+
+          <p>
+The following is a reference implementation of this algorithm:
+          </p>
+
+          <pre class="example" title="Algorithm to convert QueryByExample example to JSON pointers">
+ALGORITHM: Convert QueryByExample example to JSON pointers
+
+INPUT: example (object from credentialQuery.example)
+OUTPUT: pointers (array of JSON pointer strings)
+
+BEGIN
+  // Step 1: First perform matching on @context, optionally performing
+  // JSON-LD transformations as desired, then...
+  
+  // Step 2: Convert example to JSON pointers, excluding @context field
+  // Any VCDM mandatory pointers can be automatically added based on VC version
+  // (e.g., /issuer, /issuanceDate for VC 1.x)
+  object = copy(example)
+  remove(object, '@context')
+  pointers = generate_json_pointers(object)
+  
+  // Step 3: Adjust pointers
+  pointers = adjust_pointers(pointers)
+  
+  RETURN pointers
+END
+
+FUNCTION adjust_pointers(pointers):
+  // Ensure credentialSubject is included in any reveal because the VCDM
+  // requires it; presume that if it isn't present that the entire credential
+  // subject was requested and inform the user of this (as always)
+  has_credential_subject = false
+  FOR EACH pointer IN pointers:
+    IF pointer contains '/credentialSubject/' OR pointer ends with '/credentialSubject':
+      has_credential_subject = true
+      BREAK
+    END IF
+  END FOR
+  
+  IF NOT has_credential_subject:
+    pointers = copy(pointers)
+    append(pointers, '/credentialSubject')
+  END IF
+  
+  // Step 4: Prune shallow pointers
+  pointers = prune_shallow_pointers(pointers)
+  
+  // Step 5: Make type pointers generic
+  adjusted_pointers = []
+  FOR EACH pointer IN pointers:
+    index = find(pointer, '/type/')
+    IF index != -1:
+      adjusted_pointer = substring(pointer, 0, index) + '/type'
+      append(adjusted_pointers, adjusted_pointer)
+    ELSE:
+      append(adjusted_pointers, pointer)
+    END IF
+  END FOR
+  
+  RETURN adjusted_pointers
+END FUNCTION
+
+FUNCTION prune_shallow_pointers(pointers):
+  // Gets only the deepest pointers from the given list of pointers, for example,
+  // ['/a/b', '/a/b/c', '/a/b/c/d'] will be pruned to: ['/a/b/c/d']
+  deep = []
+  FOR EACH pointer IN pointers:
+    is_deep = true
+    FOR EACH p IN pointers:
+      IF length(pointer) < length(p) AND p starts with pointer:
+        is_deep = false
+        BREAK
+      END IF
+    END FOR
+    IF is_deep:
+      append(deep, pointer)
+    END IF
+  END FOR
+  RETURN deep
+END FUNCTION
+          </pre>
+
+        </section>
+
       </section>
 
       <section>
