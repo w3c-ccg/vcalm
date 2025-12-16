@@ -1279,8 +1279,8 @@ the [=verifier=].
           Any field included in a Query By Example is a required field. This means that when using a Query By Example 
           to enable selective disclosure, a requester needs to be mindful not to include fields in their query that 
           are not needed for their use case. Query By Example provides no way to indicate an "optional" field;
-          consequently, it is up to the wallet that is responding to the query to ensure its response does not 
-          reveal additional information beyond what is being requested. Note: Some securing mechanisms
+          consequently, it is up to the wallet that is responding to the query to ensure that its response does not 
+          reveal any information beyond what is being requested. Note: Some securing mechanisms
           for verifiable credentials do not permit selective disclosure; in these cases even unrequested
           information might have to be sent in order to send the requested information. Digital wallets are
           expected to inform users about what information will be shared.
