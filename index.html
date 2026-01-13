@@ -1912,8 +1912,12 @@ to be implemented via specific verifiable presentation requests and verifiable
 credentials at a layer above. See the appendices that follow for examples of
 workflows and exchanges that use specific verifiable presentation requests and
 verifiable credentials.
+      </p>  
+      <p class="note"
+         title="Workflow Step and Credential Examples">
+Examples of both minimum viable step and credential templates, as well as a couple
+more complex workflow templates can be found in the appendix <a href="#workflow-step-and-template-examples">.
       </p>
-      <span class="issue">These examples will be added later.</span>
       <p>
 A given interaction with an exchange is expected to be short-lived but
 other mechanisms can be used to enable longer or multi-stage interactions.
@@ -3192,6 +3196,485 @@ Data Integrity Security Considerations</a>).
 
   </section>
 
+  <section class="appendix">
+    <h2>Workflow Step and Template Examples</h2>
+
+    <section>
+      <h3>Minimum Viable Step and Credential Templates</h3>
+      <p>
+  Below are examples of templates for what could be considered a minimum workflow that contains a single step,
+  followed by an example of a minimum credential. Note that both of these "minimum" templates are still 
+  dependent on the authz and variable choices made in each example. 
+      </p>
+
+      <pre class="example nohighlight" title="Minimal Step Template">
+{
+  "id": "https://localhost:18443/workflows/z19nXMUSyXawSMK6j65Vs4jb1",
+  "sequence": 0,
+  "controller": "did:key:z6Mko4QbcRSTBUFiPMU1PfrNM1KWK8qoSef263DfngFohXgZ",
+  "steps": {
+    "verify": {
+      "stepTemplate": {
+        "type": "jsonata",
+        "template": "{\"verifiablePresentationRequest\": verifiablePresentationRequest}"
+      }
+    }
+  },
+  "initialStep": "verify",
+  "zcaps": {...}
+}
+      </pre>
+
+      <pre class="example nohighlight" title="Minimal Credential Template">
+{
+  "id": "https://localhost:18443/workflows/z19mYrRgRuwN9PnezmhoJhBoV",
+  "sequence": 0,
+  "controller": "did:key:z6Mko4QbcRSTBUFiPMU1PfrNM1KWK8qoSef263DfngFohXgZ",
+  "credentialTemplates": [
+    {
+      "type": "jsonata",
+      "template": "{\"@context\": [\"https://www.w3.org/ns/credentials/v2\", \"https://www.w3.org/ns/credentials/examples/v2\"],\"type\": [\"VerifiableCredential\",\"ExampleNameCredential\"],\"credentialSubject\": {\"name\": name}}"
+    }
+  ],
+  "steps": {
+    "issue": {
+      "issueRequests": [
+        {
+          "credentialTemplateIndex": 0
+        }
+      ]
+    }
+  },
+  "initialStep": "issue",
+  "zcaps": {...}
+}
+      </pre>
+    </section>
+    <section>
+      <h3>Complex Examples</h3>
+      <p>
+  Below are examples of more complex workflows. 
+     </p>
+      <p>
+  This first example has multiple steps, includes verification and issuance, supports both zcap and oauth2 authorization, shows 
+  reuse of a credential template both with and without custom variables, and has a presentation schema check as well.
+  It should be noted that this example currently used VC1.0 currently. 
+      </p>
+      <span class="issue">This first example should be updated to use VC2.0</span>
+      <pre class="example nohighlight" title="Example Workflow 1">
+{
+  "id": "https://localhost:18443/workflows/z19mYrRgRuwN9PnezmhoJhBoV",
+  "sequence": 0,
+  "controller": "did:key:z6Mko4QbcRSTBUFiPMU1PfrNM1KWK8qoSef263DfngFohXgZ",
+  "meterId": "https://localhost:18443/meters/z1AG3Ud3apFhGaTBfRm7KZPRY",
+  "credentialTemplates": [
+    {
+      "id": "urn:credential-template-1",
+      "type": "jsonata",
+      "template": "\n  {\n    \"@context\": [\n      \"https://www.w3.org/2018/credentials/v1\",\n      'https://www.w3.org/2018/credentials/examples/v1'\n    ],\n    \"id\": credentialId,\n    \"type\": [\n      \"VerifiableCredential\",\n      \"UniversityDegreeCredential\"\n    ],\n    \"issuanceDate\": issuanceDate,\n    \"credentialSubject\": {\n      \"id\": results.verify.did,\n      \"degree\": {\n        \"type\": \"BachelorDegree\",\n        \"name\": \"Bachelor of Science and Arts\"\n      }\n    }\n  }\n"
+    }
+  ],
+  "steps": {
+    "verify": {
+      "createChallenge": true,
+      "verifiablePresentationRequest": {
+        "query": [
+          {
+            "type": "DIDAuthentication",
+            "acceptedMethods": [
+              {
+                "method": "key"
+              }
+            ]
+          },
+          {
+            "type": "QueryByExample",
+            "credentialQuery": [
+              {
+                "reason": "We require a verifiable credential to pass this test",
+                "example": {
+                  "@context": [
+                    "https://www.w3.org/2018/credentials/v1",
+                    "https://www.w3.org/2018/credentials/examples/v1"
+                  ],
+                  "type": "UniversityDegreeCredential"
+                }
+              }
+            ]
+          }
+        ],
+        "domain": "https://localhost:18443"
+      },
+      "presentationSchema": {
+        "type": "JsonSchema",
+        "jsonSchema": {
+          "title": "Presentation",
+          "type": "object",
+          "required": [
+            "@context",
+            "type",
+            "verifiableCredential"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "@context": {
+              "type": "array"
+            },
+            "holder": {
+              "type": "string"
+            },
+            "type": {
+              "type": "array"
+            },
+            "proof": {
+              "oneOf": [
+                {
+                  "type": "object"
+                },
+                {
+                  "type": "array"
+                }
+              ]
+            },
+            "verifiableCredential": {
+              "oneOf": [
+                {
+                  "title": "Strict Degree Credential",
+                  "type": "object",
+                  "required": [
+                    "@context",
+                    "type",
+                    "issuer",
+                    "credentialSubject"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "@context": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "const": "https://www.w3.org/2018/credentials/v1"
+                        },
+                        {
+                          "const": "https://www.w3.org/2018/credentials/examples/v1"
+                        }
+                      ]
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "issuer": {
+                      "const": "did:key:z6Mkjc99Z627zYQTJXTXP5ohoFnjyGP74ooyRmRYabxz8ozo"
+                    },
+                    "type": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "const": "VerifiableCredential"
+                        },
+                        {
+                          "const": "UniversityDegreeCredential"
+                        }
+                      ]
+                    },
+                    "issuanceDate": {
+                      "type": "string"
+                    },
+                    "credentialSubject": {
+                      "type": "object",
+                      "required": [
+                        "degree"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "degree": {
+                          "type": "object",
+                          "required": [
+                            "type",
+                            "name"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "type": {
+                              "const": "BachelorDegree"
+                            },
+                            "name": {
+                              "const": "Bachelor of Science and Arts"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "proof": {
+                      "oneOf": [
+                        {
+                          "type": "object"
+                        },
+                        {
+                          "type": "array"
+                        }
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "title": "Strict Degree Credential",
+                    "type": "object",
+                    "required": [
+                      "@context",
+                      "type",
+                      "issuer",
+                      "credentialSubject"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "@context": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "const": "https://www.w3.org/2018/credentials/v1"
+                          },
+                          {
+                            "const": "https://www.w3.org/2018/credentials/examples/v1"
+                          }
+                        ]
+                      },
+                      "id": {
+                        "type": "string"
+                      },
+                      "issuer": {
+                        "const": "did:key:z6Mkjc99Z627zYQTJXTXP5ohoFnjyGP74ooyRmRYabxz8ozo"
+                      },
+                      "type": {
+                        "type": "array",
+                        "items": [
+                          {
+                            "const": "VerifiableCredential"
+                          },
+                          {
+                            "const": "UniversityDegreeCredential"
+                          }
+                        ]
+                      },
+                      "issuanceDate": {
+                        "type": "string"
+                      },
+                      "credentialSubject": {
+                        "type": "object",
+                        "required": [
+                          "degree"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "degree": {
+                            "type": "object",
+                            "required": [
+                              "type",
+                              "name"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                              "type": {
+                                "const": "BachelorDegree"
+                              },
+                              "name": {
+                                "const": "Bachelor of Science and Arts"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "proof": {
+                        "oneOf": [
+                          {
+                            "type": "object"
+                          },
+                          {
+                            "type": "array"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "nextStep": "issue"
+    },
+    "issue": {
+      "issueRequests": [
+        {
+          "credentialTemplateId": "urn:credential-template-1"
+        },
+        {
+          "credentialTemplateId": "urn:credential-template-1",
+          "variables": {
+            "credentialId": "urn:different",
+            "issuanceDate": "2024-01-01T00:00:00Z",
+            "results": {
+              "verify": {
+                "did": "did:example:1"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "initialStep": "verify",
+  "zcaps": {
+    "issue": {
+      "@context": [
+        "https://w3id.org/zcap/v1",
+        "https://w3id.org/security/suites/ed25519-2020/v1"
+      ],
+      "id": "urn:uuid:560e68a8-6c39-454d-8a54-b16c7d1e35fe",
+      "controller": "did:key:z6MkrFmv97wsVfa7sseVctxAEAoyUL4fpLAGMfGUbtSoC3G3",
+      "parentCapability": "urn:zcap:root:https%3A%2F%2Flocalhost%3A18443%2Fissuers%2Fz1A9Aay1eLcMPnBYEFkkqhZev",
+      "invocationTarget": "https://localhost:18443/issuers/z1A9Aay1eLcMPnBYEFkkqhZev/credentials/issue",
+      "expires": "2025-12-01T21:28:44Z",
+      "proof": {
+        "type": "Ed25519Signature2020",
+        "created": "2025-12-01T21:23:44Z",
+        "verificationMethod": "did:key:z6Mko4QbcRSTBUFiPMU1PfrNM1KWK8qoSef263DfngFohXgZ#z6Mko4QbcRSTBUFiPMU1PfrNM1KWK8qoSef263DfngFohXgZ",
+        "proofPurpose": "capabilityDelegation",
+        "capabilityChain": [
+          "urn:zcap:root:https%3A%2F%2Flocalhost%3A18443%2Fissuers%2Fz1A9Aay1eLcMPnBYEFkkqhZev"
+        ],
+        "proofValue": "z4ubKiW87sRfEqSWRwoLhPGLTMuR7VnYuGyunPkWCbc6oCqUQDQUEz4bWw3zYBWACTywWj4NyBoUJwyH9VVBYZTKY"
+      }
+    },
+    "createChallenge": {
+      "@context": [
+        "https://w3id.org/zcap/v1",
+        "https://w3id.org/security/suites/ed25519-2020/v1"
+      ],
+      "id": "urn:uuid:07537e74-25d7-49fa-9d30-28728bbb4838",
+      "controller": "did:key:z6MkrFmv97wsVfa7sseVctxAEAoyUL4fpLAGMfGUbtSoC3G3",
+      "parentCapability": "urn:zcap:root:https%3A%2F%2Flocalhost%3A18443%2Fverifiers%2Fz1A2cLHcMzzuGT7sBZiU7AtYa",
+      "invocationTarget": "https://localhost:18443/verifiers/z1A2cLHcMzzuGT7sBZiU7AtYa/challenges",
+      "expires": "2025-12-01T21:28:44Z",
+      "proof": {
+        "type": "Ed25519Signature2020",
+        "created": "2025-12-01T21:23:44Z",
+        "verificationMethod": "did:key:z6Mko4QbcRSTBUFiPMU1PfrNM1KWK8qoSef263DfngFohXgZ#z6Mko4QbcRSTBUFiPMU1PfrNM1KWK8qoSef263DfngFohXgZ",
+        "proofPurpose": "capabilityDelegation",
+        "capabilityChain": [
+          "urn:zcap:root:https%3A%2F%2Flocalhost%3A18443%2Fverifiers%2Fz1A2cLHcMzzuGT7sBZiU7AtYa"
+        ],
+        "proofValue": "zydEXjYSYFVAVkoHvET2QMqsHgVqxRQoYViU6DDPRncjdSj2VAW19dAFUPBrpYBTt1kwYHeVB9HNZhoHtQL7DJ2A"
+      }
+    },
+    "verifyPresentation": {
+      "@context": [
+        "https://w3id.org/zcap/v1",
+        "https://w3id.org/security/suites/ed25519-2020/v1"
+      ],
+      "id": "urn:uuid:4f495517-f6bd-488f-b662-fa2f761ccd03",
+      "controller": "did:key:z6MkrFmv97wsVfa7sseVctxAEAoyUL4fpLAGMfGUbtSoC3G3",
+      "parentCapability": "urn:zcap:root:https%3A%2F%2Flocalhost%3A18443%2Fverifiers%2Fz1A2cLHcMzzuGT7sBZiU7AtYa",
+      "invocationTarget": "https://localhost:18443/verifiers/z1A2cLHcMzzuGT7sBZiU7AtYa/presentations/verify",
+      "expires": "2025-12-01T21:28:44Z",
+      "proof": {
+        "type": "Ed25519Signature2020",
+        "created": "2025-12-01T21:23:44Z",
+        "verificationMethod": "did:key:z6Mko4QbcRSTBUFiPMU1PfrNM1KWK8qoSef263DfngFohXgZ#z6Mko4QbcRSTBUFiPMU1PfrNM1KWK8qoSef263DfngFohXgZ",
+        "proofPurpose": "capabilityDelegation",
+        "capabilityChain": [
+          "urn:zcap:root:https%3A%2F%2Flocalhost%3A18443%2Fverifiers%2Fz1A2cLHcMzzuGT7sBZiU7AtYa"
+        ],
+        "proofValue": "z3NmKFcY2o146jTgpoLi6hD6TwRV7uC2SzEQrvTQSi4Sg33xCm3jE2QtYoa5MBGFvax8DCpjpjWdzzdhXUxijXLUG"
+      }
+    }
+  },
+  "authorization": {
+    "oauth2": {
+      "issuerConfigUrl": "https://localhost:18443/.well-known/oauth-authorization-server"
+    }
+  }
+}
+      </pre>
+      <p>
+  This second example uses the stepTemplate feature. 
+  It expects the verifiablePresentationRequest to be provided in full as a variable when creating the exchange, 
+  as well as contains a callbackUrl to demonstrate the callback feature.
+      </p>
+      <pre class="example nohighlight" title="Example Workflow 2">
+{
+  "id": "https://localhost:18443/workflows/z19nXMUSyXawSMK6j65Vs4jb1",
+  "sequence": 0,
+  "controller": "did:key:z6Mko4QbcRSTBUFiPMU1PfrNM1KWK8qoSef263DfngFohXgZ",
+  "meterId": "https://localhost:18443/meters/z1A7quFpnVP4NdDURjUv78JVj",
+  "steps": {
+    "verify": {
+      "stepTemplate": {
+        "type": "jsonata",
+        "template": "\n          {\n            \"createChallenge\": true,\n            \"verifiablePresentationRequest\": verifiablePresentationRequest,\n            \"callback\": {\n              \"url\": callbackUrl\n            }\n          }"
+      }
+    }
+  },
+  "initialStep": "verify",
+  "zcaps": {
+    "createChallenge": {
+      "@context": [
+        "https://w3id.org/zcap/v1",
+        "https://w3id.org/security/suites/ed25519-2020/v1"
+      ],
+      "id": "urn:uuid:103c3199-ae29-48c0-a848-61752093909c",
+      "controller": "did:key:z6MkezKzgnoN3fxvdnsNhyf8wacUTLt22gg6PpXi2DRFkdBA",
+      "parentCapability": "urn:zcap:root:https%3A%2F%2Flocalhost%3A18443%2Fverifiers%2Fz1AG62DcvrFkaszuQmcvZ1tjp",
+      "invocationTarget": "https://localhost:18443/verifiers/z1AG62DcvrFkaszuQmcvZ1tjp/challenges",
+      "expires": "2025-12-01T21:32:04Z",
+      "proof": {
+        "type": "Ed25519Signature2020",
+        "created": "2025-12-01T21:27:04Z",
+        "verificationMethod": "did:key:z6Mko4QbcRSTBUFiPMU1PfrNM1KWK8qoSef263DfngFohXgZ#z6Mko4QbcRSTBUFiPMU1PfrNM1KWK8qoSef263DfngFohXgZ",
+        "proofPurpose": "capabilityDelegation",
+        "capabilityChain": [
+          "urn:zcap:root:https%3A%2F%2Flocalhost%3A18443%2Fverifiers%2Fz1AG62DcvrFkaszuQmcvZ1tjp"
+        ],
+        "proofValue": "z21ZcYeG7wPae2kvznuqH9V6S3bb3M2Zfs1cEGf4KdYnHB12AAe1to6scLCgdjyLdLM1E3uWWUupkE6xGaNzVnJis"
+      }
+    },
+    "verifyPresentation": {
+      "@context": [
+        "https://w3id.org/zcap/v1",
+        "https://w3id.org/security/suites/ed25519-2020/v1"
+      ],
+      "id": "urn:uuid:14b5563a-1f73-4c3b-9fbb-a93b11e1084d",
+      "controller": "did:key:z6MkezKzgnoN3fxvdnsNhyf8wacUTLt22gg6PpXi2DRFkdBA",
+      "parentCapability": "urn:zcap:root:https%3A%2F%2Flocalhost%3A18443%2Fverifiers%2Fz1AG62DcvrFkaszuQmcvZ1tjp",
+      "invocationTarget": "https://localhost:18443/verifiers/z1AG62DcvrFkaszuQmcvZ1tjp/presentations/verify",
+      "expires": "2025-12-01T21:32:04Z",
+      "proof": {
+        "type": "Ed25519Signature2020",
+        "created": "2025-12-01T21:27:04Z",
+        "verificationMethod": "did:key:z6Mko4QbcRSTBUFiPMU1PfrNM1KWK8qoSef263DfngFohXgZ#z6Mko4QbcRSTBUFiPMU1PfrNM1KWK8qoSef263DfngFohXgZ",
+        "proofPurpose": "capabilityDelegation",
+        "capabilityChain": [
+          "urn:zcap:root:https%3A%2F%2Flocalhost%3A18443%2Fverifiers%2Fz1AG62DcvrFkaszuQmcvZ1tjp"
+        ],
+        "proofValue": "z5pHj7SvNzB8GamN77kYLCjt66J98pHr5dqVgXpZJ7zHKnA6A2RMgVMvPAc3xxCADbuYsCgioGDPAQjvYzF9XF33u"
+      }
+    }
+  }
+}
+      </pre>
+    </section>
+  </section>
+  
   <section class="appendix">
     <h2>Relationship to Other Specifications</h2>
 
