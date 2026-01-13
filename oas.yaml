@@ -126,7 +126,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+                $ref: "#/components/schemas/VerifiableCredential"
         "404":
           description: Status list not found
   /workflows:

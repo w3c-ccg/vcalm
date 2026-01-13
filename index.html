@@ -627,68 +627,13 @@ specific VCs.
       <p>
 A <dfn>status service</dfn> provides a privacy-preserving means of publishing
 and checking the status of any Verifiable Credentials issued by the [=issuer=].
-The status service provides three primary operations:
-      </p>
-      <ul>
-        <li>
-<strong>Create a list</strong>: Create a new status list credential that can be
-used to track the status of multiple [=verifiable credentials=]
-        </li>
-        <li>
-<strong>Get a list</strong>: Retrieve a publicly accessible status list
-credential for verification purposes
-        </li>
-        <li>
-<strong>Set a status</strong>: Update the status of a specific [=verifiable
-credential=] within a status list
-        </li>
-      </ul>
-
-      <p class="note" title="Non-normative status list operations">
-The status list operations described in this specification (create list, get list,
-and set status) are <strong>non-normative</strong> and represent a recommended
-implementation approach. Status list creation and management may depend on various
-factors not accounted for in this specification, such as:
-      </p>
-      <ul>
-        <li>
-Business requirements and policies specific to the issuer or use case
-        </li>
-        <li>
-Performance considerations, such as list size, update frequency, and caching strategies
-        </li>
-        <li>
-Infrastructure constraints, including storage capacity and hosting capabilities
-        </li>
-        <li>
-Regulatory or compliance requirements that may affect how status information is managed
-        </li>
-        <li>
-Integration with existing credential management systems or workflows
-        </li>
-      </ul>
-      <p>
-Implementers are free to design their status list management systems according to
-their specific needs, as long as the resulting status information can be verified
-according to the status mechanism specification in use (e.g., [[VC-BITSTRING-STATUS-LIST]]).
-      </p>
-
-      <p>
 Implementers of verifier services are encouraged to understand the privacy
 implications of checking status by referring to the respective status
 specification used by the verifiable credential. For specific mechanisms by
 which to manage [=verifiable credential=] statuses, it's recommended to refer to
-well-known external specifications, such as the [[VC-BITSTRING-STATUS-LIST]],
-which provides a normative example of how to implement status list credentials.
-      </p>
-      <p>
-To maximize privacy, [=verifiers=] SHOULD obtain status information from
-[=holders=] rather than directly querying the status service. When a [=holder=]
-presents a [=verifiable credential=], they SHOULD include the corresponding
-status list credential or sufficient status information to enable verification
-without requiring the [=verifier=] to contact the [=issuer=]. This approach
-prevents correlation of status checks with specific [=verifiers=] or
-[=verifiable credentials=].
+well-known external specifications, such as the [[VC-BITSTRING-STATUS-LIST]].
+For additional details on status list management operations, see
+<a href="#status-list-management">Status List Management</a>.
       </p>
       <p>
 A <dfn>storage service</dfn> is used by each actor in the system to store their own verifiable credentials
@@ -1108,106 +1053,8 @@ and the intended use case for the verifiable credential.
       </section>
 
       <section>
-        <h4>Create Status List</h4>
-        <p>
-This endpoint is used to create a new status list credential that can be used to
-track the status of [=verifiable credentials=]. A status list is itself a
-[=verifiable credential=] that contains status information for multiple
-credentials, enabling privacy-preserving status checks. The status list credential
-is returned in the response and can be made publicly accessible for verification
-purposes.
-        </p>
-
-        <p>
-The status list credential MUST use the same securing mechanism (proof type and
-cryptographic suite) as the [=verifiable credentials=] it will be linked to. This
-ensures consistency in verification processes and allows verifiers to validate
-both the credentials and their associated status lists using the same verification
-methods.
-        </p>
-
-        <p>
-For specific mechanisms by which to manage [=verifiable credential=] statuses,
-implementers are encouraged to refer to well-known external specifications, such
-as the [[VC-BITSTRING-STATUS-LIST]] specification, which provides a normative
-example of how to implement status list credentials.
-        </p>
-
-        <div class="api-detail"
-          data-api-endpoint="post /credentials/status/lists"></div>
-      </section>
-
-      <section>
-        <h4>Get Status List</h4>
-        <p>
-This endpoint retrieves a publicly accessible status list credential. This
-endpoint SHOULD be publicly accessible without authentication to enable
-[=verifiers=] and [=holders=] to retrieve status information.
-        </p>
-
-        <p>
-The endpoint MUST return the status list credential in an appropriate format
-based on the media type requested or the default format configured for the
-service. The response SHOULD be either a `VerifiableCredential` or an
-`EnvelopedVerifiableCredential`, consistent with the format used by the
-[=verifiable credentials=] that reference this status list. This ensures that
-verifiers can process the status list using the same mechanisms they use for
-verifying the associated credentials.
-        </p>
-
-        <p class="note" title="Privacy-preserving status retrieval">
-For privacy-preserving status mechanisms, [=verifiers=] SHOULD obtain status
-information from [=holders=] rather than directly querying this endpoint. When a
-[=holder=] presents a [=verifiable credential=] that includes status information
-(such as a `credentialStatus` property), the [=holder=] SHOULD also provide the
-corresponding status list credential or sufficient status information to enable
-verification. This approach prevents the [=issuer=] from correlating status
-checks with specific [=verifiers=] or [=verifiable credentials=], thereby
-preserving privacy.
-        </p>
-
-        <p>
-When a [=verifier=] needs to check the status of a [=verifiable credential=],
-the recommended flow is:
-        </p>
-        <ol>
-          <li>
-The [=verifier=] requests a [=verifiable presentation=] from the [=holder=]
-          </li>
-          <li>
-The [=holder=] includes the [=verifiable credential=] along with the
-corresponding status list credential or status information in the presentation
-          </li>
-          <li>
-The [=verifier=] verifies the status using the information provided by the
-[=holder=], without needing to directly contact the [=issuer=]
-          </li>
-        </ol>
-
-        <p>
-This endpoint may still be useful for [=holders=] who need to retrieve status
-list credentials to include in presentations, or for cases where direct issuer
-contact is acceptable from a privacy perspective.
-        </p>
-
-        <div class="api-detail"
-          data-api-endpoint="get /credentials/status/lists/{id}"></div>
-      </section>
-
-      <section>
         <h4>Update Status</h4>
         <p>
-This endpoint is used to update the status of an issued [=verifiable credential=]
-within a status list. When a credential's status needs to be changed (e.g., revoked
-or suspended), this endpoint updates the corresponding entry in the status list
-credential.
-        </p>
-
-        <p>
-The request must specify the credential to update, the status list entry
-information (including the status list credential identifier and the index within
-that list), and the new status value. The status service will update the status
-list credential accordingly.
         </p>
 
         <div class="api-detail"
@@ -3317,6 +3164,176 @@ lifecycle management because not doing so creates opportunities for vendor
 lock-in. No other specification exists that provides interfaces that prevent
 vendor lock throughout the lifecycle management of [=verifiable credentials=].
     </p>
+  </section>
+
+  <section class="appendix" id="status-list-management">
+    <h2>Status List Management</h2>
+    <p>
+This appendix provides detailed information about status list management
+operations. The status service provides three primary operations for managing
+status lists:
+    </p>
+    <ul>
+      <li>
+<strong>Create a list</strong>: Create a new status list credential that can be
+used to track the status of multiple [=verifiable credentials=]
+      </li>
+      <li>
+<strong>Get a list</strong>: Retrieve a publicly accessible status list
+credential for verification purposes
+      </li>
+      <li>
+<strong>Set a status</strong>: Update the status of a specific [=verifiable
+credential=] within a status list
+      </li>
+    </ul>
+
+    <p class="note" title="Non-normative status list operations">
+The status list operations described in this specification (create list, get list,
+and set status) are <strong>non-normative</strong> and represent a recommended
+implementation approach. Status list creation and management may depend on various
+factors not accounted for in this specification, such as:
+    </p>
+    <ul>
+      <li>
+Business requirements and policies specific to the issuer or use case
+      </li>
+      <li>
+Performance considerations, such as list size, update frequency, and caching strategies
+      </li>
+      <li>
+Infrastructure constraints, including storage capacity and hosting capabilities
+      </li>
+      <li>
+Regulatory or compliance requirements that may affect how status information is managed
+      </li>
+      <li>
+Integration with existing credential management systems or workflows
+      </li>
+    </ul>
+    <p>
+Implementers are free to design their status list management systems according to
+their specific needs, as long as the resulting status information can be verified
+according to the status mechanism specification in use (e.g., [[VC-BITSTRING-STATUS-LIST]]).
+    </p>
+
+    <p>
+To maximize privacy, [=verifiers=] SHOULD obtain status information from
+[=holders=] rather than directly querying the status service. When a [=holder=]
+presents a [=verifiable credential=], they SHOULD include the corresponding
+status list credential or sufficient status information to enable verification
+without requiring the [=verifier=] to contact the [=issuer=]. This approach
+prevents correlation of status checks with specific [=verifiers=] or
+[=verifiable credentials=].
+    </p>
+
+    <section>
+      <h3>Create Status List</h3>
+      <p>
+This endpoint is used to create a new status list credential that can be used to
+track the status of [=verifiable credentials=]. A status list is itself a
+[=verifiable credential=] that contains status information for multiple
+credentials, enabling privacy-preserving status checks. The status list credential
+is returned in the response and can be made publicly accessible for verification
+purposes.
+      </p>
+
+      <p>
+The status list credential MUST use the same securing mechanism (proof type and
+cryptographic suite) as the [=verifiable credentials=] it will be linked to. This
+ensures consistency in verification processes and allows verifiers to validate
+both the credentials and their associated status lists using the same verification
+methods.
+      </p>
+
+      <p>
+For specific mechanisms by which to manage [=verifiable credential=] statuses,
+implementers are encouraged to refer to well-known external specifications, such
+as the [[VC-BITSTRING-STATUS-LIST]] specification, which provides a normative
+example of how to implement status list credentials.
+      </p>
+
+      <div class="api-detail"
+        data-api-endpoint="post /credentials/status/lists"></div>
+    </section>
+
+    <section>
+      <h3>Get Status List</h3>
+      <p>
+This endpoint retrieves a publicly accessible status list credential. This
+endpoint SHOULD be publicly accessible without authentication to enable
+[=verifiers=] and [=holders=] to retrieve status information.
+      </p>
+
+      <p>
+The endpoint MUST return the status list credential in an appropriate format
+based on the media type requested or the default format configured for the
+service. The response SHOULD be either a `VerifiableCredential` or an
+`EnvelopedVerifiableCredential`, consistent with the format used by the
+[=verifiable credentials=] that reference this status list. This ensures that
+verifiers can process the status list using the same mechanisms they use for
+verifying the associated credentials.
+      </p>
+
+      <p class="note" title="Privacy-preserving status retrieval">
+For privacy-preserving status mechanisms, [=verifiers=] SHOULD obtain status
+information from [=holders=] rather than directly querying this endpoint. When a
+[=holder=] presents a [=verifiable credential=] that includes status information
+(such as a `credentialStatus` property), the [=holder=] SHOULD also provide the
+corresponding status list credential or sufficient status information to enable
+verification. This approach prevents the [=issuer=] from correlating status
+checks with specific [=verifiers=] or [=verifiable credentials=], thereby
+preserving privacy.
+      </p>
+
+      <p>
+When a [=verifier=] needs to check the status of a [=verifiable credential=],
+the recommended flow is:
+      </p>
+      <ol>
+        <li>
+The [=verifier=] requests a [=verifiable presentation=] from the [=holder=]
+        </li>
+        <li>
+The [=holder=] includes the [=verifiable credential=] along with the
+corresponding status list credential or status information in the presentation
+        </li>
+        <li>
+The [=verifier=] verifies the status using the information provided by the
+[=holder=], without needing to directly contact the [=issuer=]
+        </li>
+      </ol>
+
+      <p>
+This endpoint may still be useful for [=holders=] who need to retrieve status
+list credentials to include in presentations, or for cases where direct issuer
+contact is acceptable from a privacy perspective.
+      </p>
+
+      <div class="api-detail"
+        data-api-endpoint="get /credentials/status/lists/{id}"></div>
+    </section>
+
+    <section>
+      <h3>Update Status</h3>
+      <p>
+This endpoint is used to update the status of an issued [=verifiable credential=]
+within a status list. When a credential's status needs to be changed (e.g., revoked
+or suspended), this endpoint updates the corresponding entry in the status list
+credential.
+      </p>
+
+      <p>
+The request must specify the credential to update, the status list entry
+information (including the status list credential identifier and the index within
+that list), and the new status value. The status service will update the status
+list credential accordingly.
+      </p>
+
+      <div class="api-detail"
+        data-api-endpoint="post /credentials/status"></div>
+    </section>
+
   </section>
 
   <section class="appendix">
