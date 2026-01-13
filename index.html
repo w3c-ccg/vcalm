@@ -2593,6 +2593,43 @@ An interaction QR code for `https://app.example/interactions/z8n38Dp7a?iuv=1`
       </section>
 
       <section>
+        <h4>Interaction Scheme Format</h4>
+        <p>
+It can be useful to invoke an application that is capable of processing an
+[=interaction URL=]. This section defines an `interaction:` protocol scheme
+format for this purpose. The format of the protocol scheme MUST conform to
+the following syntax:
+        </p>
+
+      <table class="simple">
+        <thead>
+          <tr>
+            <th>
+The Interaction Protocol Scheme
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <pre class="nohighlight">
+scheme          = "interaction:" interaction-url
+interaction-url = <a href="https://url.spec.whatwg.org/#concept-url">URL</a>
+              </pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+The `interaction-url` is any URL that conforms to the [[[URL]]] and where
+retrieving the resource at the URL results in an
+<a href="#interaction-protocols-response">interaction protocols response</a>.
+      </p>
+
+      </section>
+
+      <section>
         <h4>Interaction Protocols Response</h4>
         <p>
 Performing a retrieval of the [=interaction URL=] results in instructions
