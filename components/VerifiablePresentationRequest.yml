@@ -27,6 +27,36 @@ components:
                 description: The type of the query.
                 items:
                   type: string
+              "credentialQuery":
+                type: object
+                description: For QueryByExample queries, specifies the credential request details.
+                properties:
+                  "reason":
+                    type: string
+                    description: A human-readable explanation for why the credential is being requested.
+                  "example":
+                    type: object
+                    description: An example of the credential being requested.
+                  "authority":
+                    type: array
+                    description: Trusted issuers for the requested credential.
+                    items:
+                      type: object
+                      properties:
+                        "issuer":
+                          type: string
+                  "acceptedCryptosuites":
+                    type: array
+                    description: Cryptographic proof suites the verifier will accept.
+                    items:
+                      type: string
+                    example: ["eddsa-rdfc-2022", "bbs-2023", "ecdsa-sd-2023"]
+                  "acceptedEnvelopes":
+                    type: array
+                    description: Envelope formats the verifier will accept.
+                    items:
+                      type: string
+                    example: ["application/jwt", "application/vc+sd-jwt"]
         "challenge":
           type: string
           description: A challenge, intended to prevent replay attacks, provided by the requester that is typically expected to be included in the Verifiable Presentation response.
