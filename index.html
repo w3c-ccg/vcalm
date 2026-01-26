@@ -1259,7 +1259,7 @@ or missing `group` values are processed as "OR" operations.
       <span class="comment">// (Optional) Reason for requesting this credential that
       // may be shown to a user by their software</span>
       "reason": "We need to know if you are an alumni of this school.",
-      <span class="comment">// (Mandatory) An example of the credential being requested</span>
+      <span class="comment">// (Optional) An example of the credential being requested</span>
       "example": {
         "@context": [
           "https://www.w3.org/ns/credentials/v2",
@@ -1303,7 +1303,7 @@ by their software.
           <tr>
             <td>example</td>
             <td>
-A Mandatory object that provides an example of the credential being requested,
+An OPTIONAL object that provides an example of the credential being requested,
 including its <code>@context</code>, <code>type</code>, and optionally
 <code>credentialSubject</code> fields to indicate which claims are needed.
             </td>
