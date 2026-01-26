@@ -37,7 +37,7 @@ components:
                   "example":
                     type: object
                     description: An example of the credential being requested.
-                  "authority":
+                  "trustedIssuers":
                     type: array
                     description: Trusted issuers for the requested credential.
                     items:
@@ -97,7 +97,15 @@ components:
                   "https://www.w3.org/2018/credentials/examples/v1"
                 ],
                 "type": "UniversityDegreeCredential"
-              }
+              },
+              "acceptedCryptosuites": [
+                "eddsa-rdfc-2022",
+                "ecdsa-rdfc-2019",
+                "bbs-2023"
+              ],
+              "acceptedEnvelopes": [
+                "application/jwt"
+              ]
             }
           }],
           "challenge": "3182bdea-63d9-11ea-b6de-3b7c1404d57f",
