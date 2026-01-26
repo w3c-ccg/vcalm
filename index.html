@@ -1283,6 +1283,115 @@ or missing `group` values are processed as "OR" operations.
 }
         </pre>
 
+        <p>
+The <code>credentialQuery</code> object supports the following properties:
+        </p>
+
+        <table class="simple">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>reason</td>
+            <td>
+An OPTIONAL [=string=] that provides a human-readable explanation for why
+the credential is being requested. This MAY be displayed to the [=holder=]
+by their software.
+            </td>
+          </tr>
+          <tr>
+            <td>example</td>
+            <td>
+A Mandatory object that provides an example of the credential being requested,
+including its <code>@context</code>, <code>type</code>, and optionally
+<code>credentialSubject</code> fields to indicate which claims are needed.
+            </td>
+          </tr>
+          <tr>
+            <td>authority</td>
+            <td>
+An OPTIONAL array of objects specifying trusted [=issuers=] for the requested
+credential. Each object MAY contain an <code>issuer</code> property with a
+value that is an [=issuer=] identifier.
+            </td>
+          </tr>
+          <tr>
+            <td>acceptedCryptosuites</td>
+            <td>
+An OPTIONAL array of [=strings=] specifying which cryptographic proof suites
+the [=verifier=] will accept. This enables the [=holder=] to select an
+appropriate proof format. Valid example values include:
+<ul>
+  <li><code>["eddsa-rdfc-2022", "ecdsa-rdfc-2019"]</code></li>
+  <li><code>["bbs-2023", "ecdsa-sd-2023"]</code></li>
+</ul>
+            </td>
+          </tr>
+          <tr>
+            <td>acceptedEnvelopes</td>
+            <td>
+An OPTIONAL array of [=strings=] specifying which envelope formats the
+[=verifier=] will accept. This enables the [=holder=] to provide credentials
+in formats other than the default Data Integrity format. Valid example values
+include:
+<ul>
+  <li><code>["application/jwt"]</code></li>
+  <li><code>["application/vc+sd-jwt"]</code></li>
+</ul>
+            </td>
+          </tr>
+        </table>
+
+        <p>
+The following example demonstrates a QueryByExample that specifies accepted
+cryptosuites and envelope formats, enabling the [=holder=] to choose an
+appropriate proof mechanism:
+        </p>
+
+        <pre class="example nohighlight" title="A Query By Example with accepted cryptosuites and envelopes">
+{
+  "query": [{
+    "type": "QueryByExample",
+    "credentialQuery": {
+      "reason": "Please present your PermanentResidentCard to complete the verification process.",
+      "example": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/citizenship/v3"
+        ],
+        "type": ["PermanentResidentCard"],
+        "credentialSubject": {
+          "birthCountry": ""
+        }
+      },
+      "acceptedCryptosuites": [
+        "eddsa-rdfc-2022",
+        "ecdsa-rdfc-2019",
+        "bbs-2023",
+        "ecdsa-sd-2023"
+      ],
+      "acceptedEnvelopes": [
+        "application/jwt",
+        "application/vc+sd-jwt"
+      ]
+    }
+  }],
+  "challenge": "9876fedc-ba98-7654-3210-fedcba987654",
+  "domain": "immigration.example"
+}
+        </pre>
+
+        <p>
+In the example above, the [=verifier=] indicates it will accept credentials
+secured with any of the listed cryptosuites. By including <code>bbs-2023</code>
+and <code>ecdsa-sd-2023</code>, the [=verifier=] signals that selective
+disclosure proofs are acceptable, allowing the [=holder=] to reveal only the
+<code>birthCountry</code> field rather than the entire credential. The
+<code>acceptedEnvelopes</code> property indicates that JWT-based envelope
+formats are also acceptable.
+        </p>
+
         <p class="note"
          title="Selective disclosure using Query By Example">
           Any field included in a Query By Example is a required field. This means that when using a Query By Example
@@ -1300,6 +1409,9 @@ or missing `group` values are processed as "OR" operations.
           This would allow a wallet to respond with only the `firstName` of the requested credential with no expectation
           of any other field being included. _This does not prevent a wallet from oversharing by including additional
           fields in its response to the query._
+
+          To signal that selective disclosure cryptosuites are acceptable, [=verifiers=] SHOULD include cryptosuites
+          such as <code>bbs-2023</code> or <code>ecdsa-sd-2023</code> in the <code>acceptedCryptosuites</code> array.
         </p>
 
       </section>
