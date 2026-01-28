@@ -37,9 +37,9 @@ components:
                   "example":
                     type: object
                     description: An example of the credential being requested.
-                  "trustedIssuers":
+                  "acceptedIssuers":
                     type: array
-                    description: Trusted issuers for the requested credential.
+                    description: Accepted issuers for the requested credential.
                     items:
                       type: object
                       properties:

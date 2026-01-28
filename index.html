@@ -1271,9 +1271,9 @@ or missing `group` values are processed as "OR" operations.
           "type": "Alumni"
         }
       },
-      <span class="comment">// (Optional) Specify credentials from particular trustedIssuers or
+      <span class="comment">// (Optional) Specify credentials from particular acceptedIssuers or
       // delegates of the authority</span>
-      "trustedIssuers": [{
+      "acceptedIssuers": [{
         "issuer": "did:web:authority.example"
       }]
     }
@@ -1309,9 +1309,9 @@ including its <code>@context</code>, <code>type</code>, and optionally
             </td>
           </tr>
           <tr>
-            <td>trustedIssuers</td>
+            <td>acceptedIssuers</td>
             <td>
-An OPTIONAL array of objects specifying trusted [=issuers=] for the requested
+An OPTIONAL array of objects specifying accepted [=issuers=] for the requested
 credential. Each object MAY contain an <code>issuer</code> property with a
 value that is an [=issuer=] identifier.
             </td>
