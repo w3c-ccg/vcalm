@@ -1319,25 +1319,29 @@ value that is an [=issuer=] identifier.
           <tr>
             <td>acceptedCryptosuites</td>
             <td>
-An OPTIONAL array of [=strings=] specifying which cryptographic proof suites
-the [=verifier=] will accept. This enables the [=holder=] to select an
-appropriate proof format. Valid example values include:
+An OPTIONAL array specifying which cryptographic proof suites the [=verifier=]
+will accept. Each element SHOULD be an object with a <code>cryptosuite</code>
+property; however, for backwards compatibility, string values are also accepted
+and interpreted as the cryptosuite name for a Data Integrity proof. This enables
+the [=holder=] to select an appropriate proof format. Valid example values include:
 <ul>
-  <li><code>["eddsa-rdfc-2022", "ecdsa-rdfc-2019"]</code></li>
-  <li><code>["bbs-2023", "ecdsa-sd-2023"]</code></li>
+  <li><code>[{"cryptosuite": "eddsa-rdfc-2022"}, {"cryptosuite": "ecdsa-rdfc-2019"}]</code></li>
+  <li><code>[{"cryptosuite": "bbs-2023"}, {"cryptosuite": "ecdsa-sd-2023"}]</code></li>
 </ul>
             </td>
           </tr>
           <tr>
             <td>acceptedEnvelopes</td>
             <td>
-An OPTIONAL array of [=strings=] specifying which envelope formats the
-[=verifier=] will accept. This enables the [=holder=] to provide credentials
-in formats other than the default Data Integrity format. Valid example values
-include:
+An OPTIONAL array specifying which envelope formats the [=verifier=] will
+accept. Each element SHOULD be an object with a <code>mediaType</code> property;
+however, for backwards compatibility, string values are also accepted and
+interpreted as the media type for the envelope. This enables the [=holder=] to
+provide credentials in formats other than the default Data Integrity format.
+Valid example values include:
 <ul>
-  <li><code>["application/jwt"]</code></li>
-  <li><code>["application/vc+sd-jwt"]</code></li>
+  <li><code>[{"mediaType": "application/jwt"}]</code></li>
+  <li><code>[{"mediaType": "application/vc+sd-jwt"}]</code></li>
 </ul>
             </td>
           </tr>
@@ -1366,14 +1370,14 @@ appropriate proof mechanism:
         }
       },
       "acceptedCryptosuites": [
-        "eddsa-rdfc-2022",
-        "ecdsa-rdfc-2019",
-        "bbs-2023",
-        "ecdsa-sd-2023"
+        {"cryptosuite": "eddsa-rdfc-2022"},
+        {"cryptosuite": "ecdsa-rdfc-2019"},
+        {"cryptosuite": "bbs-2023"},
+        {"cryptosuite": "ecdsa-sd-2023"}
       ],
       "acceptedEnvelopes": [
-        "application/jwt",
-        "application/vc+sd-jwt"
+        {"mediaType": "application/jwt"},
+        {"mediaType": "application/vc+sd-jwt"}
       ]
     }
   }],
