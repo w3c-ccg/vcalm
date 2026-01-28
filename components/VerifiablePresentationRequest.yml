@@ -49,22 +49,30 @@ components:
                     type: array
                     description: Cryptographic proof suites the verifier will accept. Each element SHOULD be an object with a `cryptosuite` property; however, for backwards compatibility, string values are also accepted and interpreted as the cryptosuite name for a Data Integrity proof.
                     items:
-                      type: object
-                      properties:
-                        "cryptosuite":
-                          type: string
-                          description: The name of the cryptosuite.
-                    example: [{"cryptosuite": "eddsa-rdfc-2022"}, {"cryptosuite": "bbs-2023"}, {"cryptosuite": "ecdsa-sd-2023"}]
+                      oneOf:
+                        - type: string
+                          description: A cryptosuite name (shorthand for an object with cryptosuite).
+                          example: ["eddsa-rdfc-2022", "bbs-2023", "ecdsa-sd-2023"]
+                        - type: object
+                          properties:
+                            "cryptosuite":
+                              type: string
+                              description: The name of the cryptosuite.
+                          example: [{"cryptosuite": "eddsa-rdfc-2022"}, {"cryptosuite": "bbs-2023"}, {"cryptosuite": "ecdsa-sd-2023"}]
                   "acceptedEnvelopes":
                     type: array
                     description: Envelope formats the verifier will accept. Each element SHOULD be an object with a `mediaType` property; however, for backwards compatibility, string values are also accepted and interpreted as the media type for the envelope.
                     items:
-                      type: object
-                      properties:
-                        "mediaType":
-                          type: string
-                          description: The media type of the envelope format.
-                    example: [{"mediaType": "application/jwt"}, {"mediaType": "application/vc+sd-jwt"}]
+                      oneOf:
+                        - type: string
+                          description: A media type string (shorthand for an object with mediaType).
+                          example: ["application/jwt", "application/vc+sd-jwt"]
+                        - type: object
+                          properties:
+                            "mediaType":
+                              type: string
+                              description: The media type of the envelope format.
+                          example: [{"mediaType": "application/jwt"}, {"mediaType": "application/vc+sd-jwt"}]
         "challenge":
           type: string
           description: A challenge, intended to prevent replay attacks, provided by the requester that is typically expected to be included in the Verifiable Presentation response.
