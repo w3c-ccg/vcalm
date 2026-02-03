@@ -1195,7 +1195,7 @@ components:
           properties:
             clientProfileId:
               type: object
-              description: The identifier for the particular profile of OID4VCI/OID4VP chosen to be used in the exchange. A single exchange can offer multiple profiles for an exchange client (e.g., a digital wallet) to use; this identifier signals to the coordinator which was selected.
+              description: The identifier for the particular profile of OID4VCI/OID4VP chosen to be used from the openId.clientProfiles object in the exchange step configuration. A single exchange can offer multiple profiles for an exchange client (e.g., a digital wallet) to use; this identifier signals to the coordinator which was selected.
             authorizationResponse:
               type: object
               description: A credential bearing response that the holder sends to the issuer or verifier.
@@ -1351,9 +1351,18 @@ components:
         nonce:
           type: string
           description: A single-use value created by the OID4VP client to prevent replay attacks during an exchange (defined in OIDC 1.0).
+        dcql_query:
+          type: object
+          description: A Digital Credentials Query Language (DCQL) JSON object that specifies which credentials the OID4VP client requests during an exchange. DCQL is defined in draft 22 of OID4VP as a more advanced alternative to DIF Presentation Exchange.
+        presentation_definition:
+          type: object
+          description: A Presentation Exchange (PE) JSON object that specifies which credentials the OID4VP client requests during an exchange. PE is defined in DIF Presentation Exchange 1.0.0 and used in OID4VP 1.0, but since draft 22, it has been been phased out in favor of DCQL.
         response_mode:
           type: string
           description: A directive from an OID4VP client instructing how to submit an authorization response during an exchange (defined in OIDC 1.0).
+        response_uri:
+          type: string
+          description: A directive from an OID4VP client instructing where to submit an authorization response during an exchange; works in tandem with response_mode=direct_post (defined in OID4VP 1.0).
         redirect_uri:
           type: string
           description: A URI specified by the OID4VP client to indicate where to redirect UX control after an exchange (defined in RFC 6749).
