@@ -84,7 +84,7 @@
 
     // Uncomment these to use the respec extension that generates a list of
     //   normative statements:
-    preProcess: [window.respecMermaid.createFigures],
+    preProcess: [window.respecMermaid.createFigures, window.respecOasComponentTable.injectOasComponentTables] ,
     postProcess: [window.respecOas.injectOas],
     oas: ["oas.yaml"],
     lint: {
