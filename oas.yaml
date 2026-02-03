@@ -1341,27 +1341,27 @@ components:
         # ====================================================================================================
         client_id:
           type: string
-          description: The identifier of the OID4VCI/OID4VP profile to use in an exchange (defined in RFC 6749).
+          description: The identifier of the OID4VP client. This is defined in RFC 6749 as the application making protected resource requests on behalf of the resource owner using its authorization. In OID4VP, the client acts on behalf of the party making a request for a verifiable presentation; for example, a server that is interacting with a digital wallet.
         client_id_scheme:
           type: string
-          description: The scheme of the identifier of the OID4VCI/OID4VP profile to use in an exchange (defined in OID4VP, drafts 20+).
+          description: The scheme of the identifier of the OID4VP client. This is defined in OID4VP draft 18, but was removed in OID4VP 1.0. It is made available for backwards compatibility purposes with the popular OID4VP draft 18.
         client_metadata:
           type: object
-          description: Important metadata about the OID4VCI/OID4VP profile to use in an exchange (defined in RFC 7591).
+          description: Important metadata about the OID4VP client to use in an exchange (defined in RFC 7591).
         nonce:
           type: string
-          description: A single-use value created by the OID4VCI/OID4VP profile to prevent replay attacks during an exchange (defined in OIDC 1.0).
+          description: A single-use value created by the OID4VP client to prevent replay attacks during an exchange (defined in OIDC 1.0).
         response_mode:
           type: string
-          description: A directive from an OID4VCI/OID4VP instructing how to submit an authorization response during an exchange (defined in OIDC 1.0).
+          description: A directive from an OID4VP client instructing how to submit an authorization response during an exchange (defined in OIDC 1.0).
         redirect_uri:
           type: string
-          description: A URI registered by the OID4VCI/OID4VP profile to indicate where to redirect UX control after an exchange (defined in RFC 6749).
+          description: A URI specified by the OID4VP client to indicate where to redirect UX control after an exchange (defined in RFC 6749).
         # ====================================================================================================
         authorizationRequestSigningParameters:
           type: object
           additionalProperties: false
-          description: Parameters needed for signing authorization requests submitted to an OID4VCI/OID4VP profile during an exchange.
+          description: Parameters needed for signing authorization requests submitted via OID4VP during an exchange.
           properties:
             x5c:
               type: array
@@ -1386,11 +1386,11 @@ components:
         zcapReferenceIds:
           type: object
           additionalProperties: false
-          description: References to ZCAPs needed when interacting with an OID4VCI/OID4VP profile during an exchange.
+          description: References to ZCAPs needed during an exchange that is using OID4VCI/OID4VP.
           properties:
             signAuthorizationRequest:
               type: string
-              description: Reference to a ZCAP needed for signing an authorization request submitted to an OID4VCI/OID4VP profile during an exchange.
+              description: Reference to a ZCAP needed for signing an authorization request submitted during an exchange using OID4VP.
           required:
             - signAuthorizationRequest
       oneOf:
@@ -1409,7 +1409,7 @@ components:
     OpenIdExchangeConfig:
       type: object
       additionalProperties: false
-      description: Optional parameters to enable OID4VCI/OID4VP protocol for credential delivery/presentation.
+      description: Optional parameters to enable OID4VCI/OID4VP protocols for credential delivery/presentation.
       oneOf:
         - $ref: "#/components/schemas/OpenIDClientProfile"
         - type: object
