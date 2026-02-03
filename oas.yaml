@@ -104,7 +104,7 @@ paths:
                 example: https://issuer.example.com/credentials/status/lists/abc123
         "400":
           description: Bad Request
-  /credentials/status/lists/{id}:
+  /status-lists/{id}:
     get:
       summary: Retrieves a status list credential
       tags:
