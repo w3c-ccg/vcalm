@@ -70,7 +70,7 @@ paths:
           description: Bad Request
         "404":
           description: Credential not found
-  /credentials/status/lists:
+  /status-lists:
     post:
       summary: Creates a new status list
       tags:
