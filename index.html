@@ -1348,6 +1348,12 @@ Valid example values include:
         </table>
 
         <p>
+A JSON Schema for a `QueryByExample` is
+<a href="schemas/qbe.json">provided in a separate file</a> for integration into
+software systems.
+        </p>
+
+        <p>
 The following example demonstrates a QueryByExample that specifies accepted
 cryptosuites and envelope formats, enabling the [=holder=] to choose an
 appropriate proof mechanism:
@@ -2028,7 +2034,7 @@ to be implemented via specific verifiable presentation requests and verifiable
 credentials at a layer above. See the appendices that follow for examples of
 workflows and exchanges that use specific verifiable presentation requests and
 verifiable credentials.
-      </p>  
+      </p>
       <p class="note"
          title="Workflow Step and Credential Examples">
 Minimum viable examples of both step and credential templates, as well as a couple
@@ -3319,8 +3325,8 @@ Data Integrity Security Considerations</a>).
       <h3>Minimum Viable Step and Credential Templates</h3>
       <p>
   Below are examples of templates for what could be considered a minimum workflow that contains a single step,
-  followed by an example of a minimum credential. Note that both of these "minimum" templates are still 
-  dependent on the authorization and variable choices made in each example. 
+  followed by an example of a minimum credential. Note that both of these "minimum" templates are still
+  dependent on the authorization and variable choices made in each example.
       </p>
 
       <pre class="example nohighlight" title="Minimal Step Template">
@@ -3369,12 +3375,12 @@ Data Integrity Security Considerations</a>).
     <section>
       <h3>Complex Examples</h3>
       <p>
-  Below are examples of more complex workflows. 
+  Below are examples of more complex workflows.
      </p>
       <p>
-This first example has multiple steps, includes verification and issuance, supports both ZCAP and OAuth2 authorization, shows 
+This first example has multiple steps, includes verification and issuance, supports both ZCAP and OAuth2 authorization, shows
 reuse of a credential template both with and without custom variables, and has a presentation schema check.
-It should be noted that this example currently uses VC1.0. 
+It should be noted that this example currently uses VC1.0.
       </p>
       <span class="issue">This first example should be updated to use VC2.0</span>
       <pre class="example nohighlight" title="Example Workflow 1">
@@ -3723,8 +3729,8 @@ It should be noted that this example currently uses VC1.0.
 }
       </pre>
       <p>
-This second example uses the stepTemplate feature. 
-It expects the `verifiablePresentationRequest` to be provided in full as a variable when creating the exchange, 
+This second example uses the stepTemplate feature.
+It expects the `verifiablePresentationRequest` to be provided in full as a variable when creating the exchange,
 and contains a `callbackUrl` to demonstrate the callback feature.
       </p>
       <pre class="example nohighlight" title="Example Workflow 2">
@@ -3790,7 +3796,7 @@ and contains a `callbackUrl` to demonstrate the callback feature.
       </pre>
     </section>
   </section>
-  
+
   <section class="appendix">
     <h2>Relationship to Other Specifications</h2>
 
