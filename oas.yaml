@@ -72,6 +72,65 @@ paths:
           description: Bad Request
         "404":
           description: Credential not found
+  /status-lists:
+    post:
+      summary: Creates a new status list
+      tags:
+        - Credentials
+      security:
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
+      operationId: createStatusList
+      x-expectedCaller: Issuer Service
+      description: Creates a new status list credential that can be used to track the status of verifiable credentials. The status list is returned as a verifiable credential that can be publicly accessible for verification purposes.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateStatusListRequest"
+        description: Parameters for creating a status list.
+      responses:
+        "201":
+          description: Status list successfully created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateStatusListResponse"
+          headers:
+            Location:
+              schema:
+                type: string
+                format: uri
+                description: The HTTP URL used to retrieve the status list credential.
+                example: https://issuer.example.com/credentials/status/lists/abc123
+        "400":
+          description: Bad Request
+  /status-lists/{id}:
+    get:
+      summary: Retrieves a status list credential
+      tags:
+        - Credentials
+      security: []
+      operationId: getStatusList
+      x-expectedCaller: Public
+      description: Retrieves a publicly accessible status list credential. This endpoint SHOULD be publicly accessible without authentication to enable verifiers and holders to retrieve status information. For privacy-preserving status mechanisms, verifiers SHOULD obtain status information from holders rather than directly querying this endpoint.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The identifier of the status list credential to retrieve.
+      responses:
+        "200":
+          description: Status list credential successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+        "404":
+          description: Status list not found
   /workflows:
     post:
       summary: Creates a new workflow and returns location of workflow metadata in a response header.
@@ -296,11 +355,11 @@ paths:
   /credentials/{id}:
     get:
       tags:
-       - Credentials
+        - Credentials
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       summary: Gets a credential or verifiable credential by ID. To get a credential that does not have credential.id set but has an associated credentialId value, pass credentialId instead.
       x-expectedCaller: 
        - Issuer Coordinator
@@ -330,11 +389,11 @@ paths:
           description: I'm a teapot - MUST not be returned outside of pre-arranged scenarios between both parties
     delete:
       tags:
-       - Credentials
+        - Credentials
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       summary: Deletes a credential or verifiable credential by ID. To delete a credential that does not have credential.id set but has an associated credentialId value, pass credentialId instead.
       x-expectedCaller:
         - Issuer Coordinator
@@ -357,11 +416,11 @@ paths:
   /credentials/derive:
     post:
       tags:
-       - Credentials
+        - Credentials
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       summary: Derives a credential and returns it in the response body.
       operationId: deriveCredential
       description: Derives a credential and returns it in the response body.
@@ -388,12 +447,12 @@ paths:
   /presentations/{id}:
     get:
       tags:
-       - Presentations
+        - Presentations
       summary: Gets a presentation or verifiable presentation by ID
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: getPresentation
       x-expectedCaller: 
        - Holder Coordinator
@@ -420,12 +479,12 @@ paths:
           description: Gone! There is no data here
     delete:
       tags:
-       - Presentations
+        - Presentations
       summary: Deletes a presentation or verifiable presentation by ID
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: deletePresentation
       x-expectedCaller: Holder Coordinator
       x-componentTableLink: ""
@@ -445,12 +504,12 @@ paths:
   /presentations:
     get:
       tags:
-       - Presentations
+        - Presentations
       summary: Gets list of presentations or verifiable presentations
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: getPresentations
       x-expectedCaller: 
        - Holder Coordinator
@@ -485,11 +544,11 @@ paths:
     post:
       summary: Creates a presentation and returns it in the response body.
       tags:
-       - Presentations
+        - Presentations
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: createPresentation
       x-expectedCaller: 
        - Holder Coordinator
@@ -515,11 +574,11 @@ paths:
     post:
       summary: A callback that can be any capability URL (i.e., a URL that is infeasible to guess) that can be notified when an exchange step is performed. The URL SHOULD be a capability URL to ensure that it can only be used by parties with whom the URL is shared without a need for authorization tokens, periodic token refresh, nor client registration. If the suggested URL format with "localCallbackId" is used, then the "localCallbackId" value must express at least 128-bits of random information in order to ensure the full callback URL can be treated as a capability URL. It is also recommended that a new capability URL be created per exchange and only used by that exchange.
       tags:
-       - Exchanges
+        - Exchanges
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: callback
       x-componentTableLink: "exchange-step-callbacks"
       parameters:
@@ -545,11 +604,11 @@ paths:
     post:
       summary: Verifies a verifiableCredential and returns a verificationResult in the response body.
       tags:
-       - Credentials
+        - Credentials
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: verifyCredential
       x-expectedCaller: 
        - Verifier Coordinator
@@ -577,11 +636,11 @@ paths:
     post:
       summary: Verifies a Presentation and all Verifiable Credentials it contains, returning detailed verification results.
       tags:
-       - Presentations
+        - Presentations
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: verifyPresentation
       x-expectedCaller: 
        - Verifier Coordinator
@@ -618,7 +677,6 @@ paths:
       responses:
         "200":
           description: |
-
             Verification process completed successfully. The response body contains detailed results
             indicating whether the presentation and its contained credentials passed or failed verification.
             A <code>200</code> status indicates the verification process itself succeeded, regardless of whether
@@ -640,9 +698,9 @@ paths:
     post:
       summary: Passing an empty body to this endpoint creates and returns a challenge string in the response body.
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: challenge
       x-expectedCaller: 
        - Verifier Coordinator
@@ -666,9 +724,9 @@ paths:
         - Credentials
         - Exchanges
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: startInteraction
       description: Retrieve available interaction protocols from the interaction originator.
       x-expectedCaller: Anyone with provided URL
@@ -716,9 +774,9 @@ paths:
         - Invite Request
         - Exchanges
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: receiveInvitationResponse
       description: Ths endpoint is one of the ones expected to be included as a fully formed URL in the protocols object returned by the /interactions/{interactionId} endpoint.
       x-expectedCaller: Whoever POSTed to the URL containing /interactions/{interactionId}
@@ -783,6 +841,65 @@ components:
           "credentialId": "0fc754bc-fc32-46a0-aec1-a5ef385e7ea0",
           "credentialStatus": { "type": "BitstringStatusList", "statusPurpose": "revocation" },
           "status": True
+        }
+    CreateStatusListRequest:
+      type: object
+      required: ['statusPurpose']
+      additionalProperties: false
+      description: Parameters for creating a new status list credential.
+      properties:
+        statusPurpose:
+          type: string
+          description: The purpose of the status list (e.g., "revocation", "suspension"). This determines what type of status information the list will track.
+          example: "revocation"
+        id:
+          type: string
+          format: uri
+          description: Optional identifier for the status list. If not provided, the service will generate one.
+        options:
+          type: object
+          description: Optional parameters for creating the status list, such as size or other configuration options specific to the status list mechanism being used.
+      example:
+        {
+          "statusPurpose": "revocation",
+          "id": "https://issuer.example.com/credentials/status/lists/abc123"
+        }
+    CreateStatusListResponse:
+      type: object
+      properties:
+        verifiableCredential:
+          $ref: "./components/VerifiableCredential.yml#/components/schemas/VerifiableCredential"
+        id:
+          type: string
+          format: uri
+          description: The identifier of the created status list credential, which can be used to retrieve it via the GET endpoint.
+      example:
+        {
+          "id": "https://issuer.example.com/credentials/status/lists/abc123",
+          "verifiableCredential": {
+            "@context": [
+              "https://www.w3.org/2018/credentials/v1",
+              "https://w3id.org/vc/status-list/2021/v1"
+            ],
+            "id": "https://issuer.example.com/credentials/status/lists/abc123",
+            "type": ["VerifiableCredential", "StatusList2021Credential"],
+            "issuer": "did:example:issuer",
+            "issued": "2024-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://issuer.example.com/credentials/status/lists/abc123#list",
+              "type": "StatusList2021",
+              "statusPurpose": "revocation",
+              "encodedList": "H4sIAAAAAAAAA-3BMQEAAADCoPVPbQwfoAAAAACAP2A1AQAAZQAAAIA..."
+            },
+            "proof": {
+              "type": "DataIntegrityProof",
+              "cryptosuite": "eddsa-rdfc-2022",
+              "verificationMethod": "did:example:issuer#key-1",
+              "created": "2024-01-01T00:00:00Z",
+              "proofPurpose": "assertionMethod",
+              "proofValue": "z..."
+            }
+          }
         }
     IssueCredentialRequest:
       type: object
@@ -898,8 +1015,7 @@ components:
         variables:
           $ref: "#/components/schemas/ExchangeVariables"
         openId:
-          type: object
-          description: Optional parameters to enable OID4VCI/OID4VP protocol for delivery.
+          $ref: "#/components/schemas/OpenIdExchangeConfig"
     ExchangeParticipationResponse:
       type: object
       description: Either what the exchange is expecting next or a result of the exchange.
@@ -1035,9 +1151,9 @@ components:
                   - $ref: "#/components/schemas/ExchangeVariables"
             oneOf:
               - required:
-                - credentialTemplateId
+                  - credentialTemplateId
               - required:
-                - credentialTemplateIndex
+                  - credentialTemplateIndex
             additionalProperties: false
         presentationSchema:
           oneOf:
@@ -1077,15 +1193,7 @@ components:
           type: string
           description: The name of the next step in the sequence. Passing nextStep is OPTIONAL. This field MUST NOT be present on the final step configuration.
         openId:
-          type: object
-          description: Optional information to trigger OID4VP
-          properties:
-            createAuthorizationRequest:
-              type: string
-              description: If present, identifies the name of the template variable (in <code>variables</code> for an <a href="#create-exchange">exchange</a>) that the auto-generated OID4VP Authorization Request will be stored in for subsequent use in the exchange. Either this or <code>authorizationRequest</code> MUST be present, but not both. The value of the named variable can be lazily generated when the Authorization Request is required, i.e., after the client of the exchange chooses to use the OID4VP protocol. This feature allows the Authorization Request to be generated by reusing values, e.g., a Verifiable Presentation Request, that only need to be specified once across multiple protocol offerings.
-            authorizationRequest:
-              type: object
-              description: If present, an OID4VP Authorization Request for subsequent use in the exchange. Either this or <code>createAuthorizationRequest</code> MUST be present, but not both.
+          $ref: "#/components/schemas/OpenIdExchangeConfig"
     ExchangeVariables:
       type: object
       description: Variables needed for an exchange.
@@ -1108,7 +1216,7 @@ components:
           properties:
             clientProfileId:
               type: object
-              description: The identifier for the particular profile of OID4VCI/OID4VP chosen to be used in the exchange. A single exchange can offer multiple profiles for an exchange client (e.g., a digital wallet) to use; this identifier signals to the coordinator which was selected.
+              description: The identifier for the particular profile of OID4VCI/OID4VP chosen to be used from the openId.clientProfiles object in the exchange step configuration. A single exchange can offer multiple profiles for an exchange client (e.g., a digital wallet) to use; this identifier signals to the coordinator which was selected.
             authorizationResponse:
               type: object
               description: A credential bearing response that the holder sends to the issuer or verifier.
@@ -1206,7 +1314,7 @@ components:
           type: string
           description: A URL that is intended to take the initiating user of the current interaction to a website to continue the interaction beyond this API.
           example: https://website.example/invitation/87654321/invite-request/response
-        vcaml:
+        vcapi:
           type: string
           description: A VC-API exchange URL that will allow the initiating user of the current interaction to continue with a VC-API credential exchange.
           example: https://vcapi.example/workflows/z1A1FjMfnG/exchanges/z19mxakBFecZ
@@ -1216,16 +1324,16 @@ components:
           example: https://otherFutureAPI.example/collection/0987
       oneOf:
         - required:
-          - inviteRequest
+            - inviteRequest
         - required:
-          - vcalm
+            - vcalm
     InviteResponse:
       type: object
       description: Object for a continuation URL for an interaction, along with a purpose for a given interaction.
       required:
-          - url
-          - purpose
-          - referenceId
+        - url
+        - purpose
+        - referenceId
       properties:
         url:
           type: string
@@ -1239,3 +1347,104 @@ components:
           type: string
           description: An ID used to reference this particular inviteResponse, mostly for debug purposes.
           example: 417bcaf2-14d9-11f0-99d7-9f094678517b
+    OpenIDClientProfile:
+      type: object
+      additionalProperties: false
+      description: Client profile configuration for exchanges using OID4VCI/OID4VP.
+      properties:
+        createAuthorizationRequest:
+          type: string
+          description: If present, identifies the name of the template variable (in <code>variables</code> for an <a href="#create-exchange">exchange</a>) that the auto-generated OID4VP authorization request will be stored in for subsequent use in the exchange. Either this or <code>authorizationRequest</code> MUST be present, but not both. The value of the named variable can be lazily generated when the authorization request is required, i.e., after the client of the exchange chooses to use the OID4VP protocol. This feature allows the authorization request to be generated by reusing values, e.g., a Verifiable Presentation Request, that only need to be specified once across multiple protocol offerings.
+        authorizationRequest:
+          type: object
+          description: If present, an OID4VP authorization request for subsequent use in the exchange. Either this or <code>createAuthorizationRequest</code> MUST be present, but not both.
+        # The following are optional properties that can be used as overrides in any authorization request:
+        # ====================================================================================================
+        client_id:
+          type: string
+          description: The identifier of the OID4VP client. This is defined in RFC 6749 as the application making protected resource requests on behalf of the resource owner using its authorization. In OID4VP, the client acts on behalf of the party making a request for a verifiable presentation; for example, a server that is interacting with a digital wallet.
+        client_id_scheme:
+          type: string
+          description: The scheme of the identifier of the OID4VP client. This is defined in OID4VP draft 18, but was removed in OID4VP 1.0. It is made available for backwards compatibility purposes with the popular OID4VP draft 18.
+        client_metadata:
+          type: object
+          description: Important metadata about the OID4VP client to use in an exchange (defined in RFC 7591).
+        nonce:
+          type: string
+          description: A single-use value created by the OID4VP client to prevent replay attacks during an exchange (defined in OIDC 1.0).
+        dcql_query:
+          type: object
+          description: A Digital Credentials Query Language (DCQL) JSON object that specifies which credentials the OID4VP client requests during an exchange. DCQL is defined in draft 22 of OID4VP as a more advanced alternative to DIF Presentation Exchange.
+        presentation_definition:
+          type: object
+          description: A Presentation Exchange (PE) JSON object that specifies which credentials the OID4VP client requests during an exchange. PE is defined in DIF Presentation Exchange 1.0.0 and used in OID4VP 1.0, but since draft 22, it has been been phased out in favor of DCQL.
+        response_mode:
+          type: string
+          description: A directive from an OID4VP client instructing how to submit an authorization response during an exchange (defined in OIDC 1.0).
+        response_uri:
+          type: string
+          description: A directive from an OID4VP client instructing where to submit an authorization response during an exchange; works in tandem with response_mode=direct_post (defined in OID4VP 1.0).
+        redirect_uri:
+          type: string
+          description: A URI specified by the OID4VP client to indicate where to redirect UX control after an exchange (defined in RFC 6749).
+        # ====================================================================================================
+        authorizationRequestSigningParameters:
+          type: object
+          additionalProperties: false
+          description: Parameters needed for signing authorization requests submitted via OID4VP during an exchange.
+          properties:
+            x5c:
+              type: array
+              items:
+                type: string
+          required:
+            - x5c
+        protocolUrlParameters:
+          type: object
+          additionalProperties: false
+          description: OID4VCI/OID4VP URL parameters.
+          properties:
+            name:
+              type: string
+              description: Name used in OID4VCI/OID4VP URL
+            scheme:
+              type: string
+              description: Scheme used in OID4VCI/OID4VP URL
+          required:
+            - name
+            - scheme
+        zcapReferenceIds:
+          type: object
+          additionalProperties: false
+          description: References to ZCAPs needed during an exchange that is using OID4VCI/OID4VP.
+          properties:
+            signAuthorizationRequest:
+              type: string
+              description: Reference to a ZCAP needed for signing an authorization request submitted during an exchange using OID4VP.
+          required:
+            - signAuthorizationRequest
+      oneOf:
+        # An authorization request or a directive to create one can be used,
+        # but not both
+        - required:
+            - createAuthorizationRequest
+          not:
+            required:
+              - authorizationRequest
+        - required:
+            - authorizationRequest
+          not:
+            required:
+              - createAuthorizationRequest
+    OpenIdExchangeConfig:
+      type: object
+      additionalProperties: false
+      description: Optional parameters to enable OID4VCI/OID4VP protocols for credential delivery/presentation.
+      oneOf:
+        - $ref: "#/components/schemas/OpenIDClientProfile"
+        - type: object
+          properties:
+            clientProfiles:
+              type: object
+              additionalProperties:
+                $ref: "#/components/schemas/OpenIDClientProfile"

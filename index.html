@@ -963,13 +963,178 @@ the component that is expected to call the endpoint.
       <table class="simple api-component-table"
         data-api-path="/credentials/derive /credentials/{id} /presentations /presentations/{id}"></table>
 
-      <h4>Status Service</h4>
+      <h4 id="status-service">Status Service</h4>
       <p>
 Below are all endpoints expected to be exposed by the [=status service=], along with
 the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
-        data-api-path="/credentials/status"></table>
+        data-api-path="/credentials/status /status-lists /status-lists/{id}"></table>
+
+      <p>
+The status service provides three primary operations for managing status lists:
+      </p>
+      <ul>
+        <li>
+<strong>Create a list</strong>: Create a new status list credential that can be
+used to track the status of multiple [=verifiable credentials=].
+        </li>
+        <li>
+<strong>Get a list</strong>: Retrieve a publicly accessible status list
+credential for verification purposes.
+        </li>
+        <li>
+<strong>Set a status</strong>: Update the status of a specific [=verifiable
+credential=] within a status list.
+        </li>
+      </ul>
+
+      <div class="note" title="Non-normative status list operations">
+        <p>
+The status list operations described in this specification (create list, get list,
+and set status) are <strong>non-normative</strong> and represent a recommended
+implementation approach. Status list creation and management might depend on various
+factors not accounted for in this specification, such as the following:
+        </p>
+        <ul>
+          <li>
+Business requirements and policies specific to the issuer or use case
+          </li>
+          <li>
+Performance considerations, such as list size, update frequency, and caching strategies
+          </li>
+          <li>
+Infrastructure constraints, including storage capacity and hosting capabilities
+          </li>
+          <li>
+Regulatory or compliance requirements that might affect how status information is managed
+          </li>
+          <li>
+Integration with existing credential management systems or workflows
+          </li>
+        </ul>
+      </div>
+      <p>
+Implementers are free to design their status list management systems according to
+their specific needs, as long as the resulting status information can be verified
+according to the status mechanism specification in use (e.g., [[VC-BITSTRING-STATUS-LIST]]).
+      </p>
+
+      <p>
+To maximize privacy, [=verifiers=] are encouraged to obtain status information from
+[=holders=] rather than directly querying the status service. When a [=holder=]
+presents a [=verifiable credential=], they are encouraged to include the corresponding
+status list credential or sufficient status information to enable verification
+without requiring the [=verifier=] to contact the [=issuer=]. This approach
+prevents correlation of status checks with specific [=verifiers=] or
+[=verifiable credentials=].
+      </p>
+
+      <section>
+        <h5>Create Status List</h5>
+        <p>
+This endpoint is used to create a new status list credential that can be used to
+track the status of [=verifiable credentials=]. A status list is itself a
+[=verifiable credential=] that contains status information for multiple
+credentials, enabling privacy-preserving status checks. The status list credential
+is returned in the response and can be made publicly accessible for verification
+purposes.
+        </p>
+
+        <p>
+For consistency in verification processes, the status list credential typically uses
+the same securing mechanism (proof type and cryptographic suite) as the [=verifiable
+credentials=] it will be linked to. This allows verifiers to verify both the
+credentials and their associated status lists using the same verification methods.
+        </p>
+
+        <p>
+For specific mechanisms by which to manage [=verifiable credential=] statuses,
+implementers are encouraged to refer to well-known external specifications, such
+as the [[VC-BITSTRING-STATUS-LIST]] specification, which provides a normative
+example of how to implement status list credentials.
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="post /status-lists"></div>
+      </section>
+
+      <section>
+        <h5>Get Status List</h5>
+        <p>
+This endpoint retrieves a publicly accessible status list credential. This
+endpoint is typically publicly accessible without authentication to enable
+[=verifiers=] and [=holders=] to retrieve status information.
+        </p>
+
+        <p>
+The endpoint returns the status list credential in an appropriate format
+based on the media type requested or the default format configured for the
+service. The response is typically either a `VerifiableCredential` or an
+`EnvelopedVerifiableCredential`, consistent with the format used by the
+[=verifiable credentials=] that reference this status list. This allows
+verifiers to process the status list using the same mechanisms they use for
+verifying the associated credentials.
+        </p>
+
+        <p class="note" title="Privacy-preserving status retrieval">
+For privacy-preserving status mechanisms, [=verifiers=] are encouraged to obtain status
+information from [=holders=] rather than directly querying this endpoint. When a
+[=holder=] presents a [=verifiable credential=] that includes status information
+(such as a `credentialStatus` property), the [=holder=] is encouraged to also provide the
+corresponding status list credential or sufficient status information to enable
+verification. This approach prevents the [=issuer=] from correlating status
+checks with specific [=verifiers=] or [=verifiable credentials=], thereby
+preserving privacy.
+        </p>
+
+        <p>
+When a [=verifier=] needs to check the status of a [=verifiable credential=],
+the recommended flow is as follows:
+        </p>
+        <ol>
+          <li>
+The [=verifier=] requests a [=verifiable presentation=] from the [=holder=].
+          </li>
+          <li>
+The [=holder=] includes the [=verifiable credential=] along with the
+corresponding status list credential or status information in the presentation.
+          </li>
+          <li>
+The [=verifier=] verifies the status using the information provided by the
+[=holder=], without needing to directly contact the [=issuer=].
+          </li>
+        </ol>
+
+        <p>
+This endpoint might also be useful for [=holders=] who need to retrieve status
+list credentials to include in presentations, or for cases where direct issuer
+contact is acceptable from a privacy perspective.
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="get /status-lists/{id}"></div>
+      </section>
+
+      <section>
+        <h5>Update Status</h5>
+        <p>
+This endpoint is used to update the status of an issued [=verifiable credential=]
+within a status list. When a credential's status needs to be changed (e.g., revoked
+or suspended), this endpoint updates the corresponding entry in the status list
+credential.
+        </p>
+
+        <p>
+The request typically specifies the credential to update, the status list entry
+information (including the status list credential identifier and the index within
+that list), and the new status value. The status service updates the status
+list credential accordingly.
+        </p>
+
+        <div class="api-detail"
+          data-api-endpoint="post /credentials/status"></div>
+      </section>
 
       <h4>Workflow Service</h4>
       <p>
@@ -988,7 +1153,7 @@ The following APIs are defined for issuing a Verifiable Credential:
 
       <table class="simple api-summary-table"
         data-api-path="/credentials/{id}
-          /credentials/issue /credentials/status"></table>
+          /credentials/issue /credentials/status /status-lists /status-lists/{id}"></table>
 
       <section>
         <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
@@ -1271,7 +1436,7 @@ or missing `group` values are processed as "OR" operations.
       <span class="comment">// (Optional) Reason for requesting this credential that
       // may be shown to a user by their software</span>
       "reason": "We need to know if you are an alumni of this school.",
-      <span class="comment">// (Mandatory) An example of the credential being requested</span>
+      <span class="comment">// (Optional) An example of the credential being requested</span>
       "example": {
         "@context": [
           "https://www.w3.org/ns/credentials/v2",
@@ -1283,9 +1448,9 @@ or missing `group` values are processed as "OR" operations.
           "type": "Alumni"
         }
       },
-      <span class="comment">// (Optional) Specify credentials from a particular authority or
-      // delegate of the authority</span>
-      "authority": [{
+      <span class="comment">// (Optional) Specify credentials from particular acceptedIssuers or
+      // delegates of the authority</span>
+      "acceptedIssuers": [{
         "issuer": "did:web:authority.example"
       }]
     }
@@ -1294,6 +1459,119 @@ or missing `group` values are processed as "OR" operations.
   "domain": "reunion.example"
 }
         </pre>
+
+        <p>
+The <code>credentialQuery</code> object supports the following properties:
+        </p>
+
+        <table class="simple">
+          <tr>
+            <th>Property</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>reason</td>
+            <td>
+An OPTIONAL [=string=] that provides a human-readable explanation for why
+the credential is being requested. This MAY be displayed to the [=holder=]
+by their software.
+            </td>
+          </tr>
+          <tr>
+            <td>example</td>
+            <td>
+An OPTIONAL object that provides an example of the credential being requested,
+including its <code>@context</code>, <code>type</code>, and optionally
+<code>credentialSubject</code> fields to indicate which claims are needed.
+            </td>
+          </tr>
+          <tr>
+            <td>acceptedIssuers</td>
+            <td>
+An OPTIONAL array of objects specifying accepted [=issuers=] for the requested
+credential. Each object MAY contain an <code>issuer</code> property with a
+value that is an [=issuer=] identifier.
+            </td>
+          </tr>
+          <tr>
+            <td>acceptedCryptosuites</td>
+            <td>
+An OPTIONAL array specifying which cryptographic proof suites the [=verifier=]
+will accept. Each element SHOULD be an object with a <code>cryptosuite</code>
+property; however, for backwards compatibility, string values are also accepted
+and interpreted as the cryptosuite name for a Data Integrity proof. This enables
+the [=holder=] to select an appropriate proof format. Valid example values include:
+<ul>
+  <li><code>[{"cryptosuite": "eddsa-rdfc-2022"}, {"cryptosuite": "ecdsa-rdfc-2019"}]</code></li>
+  <li><code>[{"cryptosuite": "bbs-2023"}, {"cryptosuite": "ecdsa-sd-2023"}]</code></li>
+</ul>
+            </td>
+          </tr>
+          <tr>
+            <td>acceptedEnvelopes</td>
+            <td>
+An OPTIONAL array specifying which envelope formats the [=verifier=] will
+accept. Each element SHOULD be an object with a <code>mediaType</code> property;
+however, for backwards compatibility, string values are also accepted and
+interpreted as the media type for the envelope. This enables the [=holder=] to
+provide credentials in formats other than the default Data Integrity format.
+Valid example values include:
+<ul>
+  <li><code>[{"mediaType": "application/jwt"}]</code></li>
+  <li><code>[{"mediaType": "application/vc+sd-jwt"}]</code></li>
+</ul>
+            </td>
+          </tr>
+        </table>
+
+        <p>
+The following example demonstrates a QueryByExample that specifies accepted
+cryptosuites and envelope formats, enabling the [=holder=] to choose an
+appropriate proof mechanism:
+        </p>
+
+        <pre class="example nohighlight" title="A Query By Example with acceptable cryptosuites and envelopes">
+{
+  "query": [{
+    "type": "QueryByExample",
+    "credentialQuery": {
+      "reason": "Please present your PermanentResidentCard to complete the verification process.",
+      "example": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          "https://w3id.org/citizenship/v3"
+        ],
+        "type": ["PermanentResidentCard"],
+        "credentialSubject": {
+          "birthCountry": ""
+        }
+      },
+      "acceptedCryptosuites": [
+        {"cryptosuite": "eddsa-rdfc-2022"},
+        {"cryptosuite": "ecdsa-rdfc-2019"},
+        {"cryptosuite": "bbs-2023"},
+        {"cryptosuite": "ecdsa-sd-2023"}
+      ],
+      "acceptedEnvelopes": [
+        {"mediaType": "application/jwt"},
+        {"mediaType": "application/vc+sd-jwt"}
+      ]
+    }
+  }],
+  "challenge": "9876fedc-ba98-7654-3210-fedcba987654",
+  "domain": "immigration.example"
+}
+        </pre>
+
+        <p>
+In the example above, the [=verifier=] indicates it will accept credentials
+secured with any of the listed cryptosuites. By including <code>bbs-2023</code>
+and <code>ecdsa-sd-2023</code>, the [=verifier=] signals that selective
+disclosure proofs are acceptable, allowing the [=holder=] to reveal only the
+<code>birthCountry</code> field rather than the entire credential. The
+<code>acceptedEnvelopes</code> property indicates that JWT-based envelope
+formats are also acceptable.
+        </p>
 
         <p class="note"
          title="Selective disclosure using Query By Example">
@@ -1312,6 +1590,9 @@ or missing `group` values are processed as "OR" operations.
           This would allow a wallet to respond with only the `firstName` of the requested credential with no expectation
           of any other field being included. _This does not prevent a wallet from oversharing by including additional
           fields in its response to the query._
+
+          To signal that selective disclosure cryptosuites are acceptable, [=verifiers=] SHOULD include cryptosuites
+          such as <code>bbs-2023</code> or <code>ecdsa-sd-2023</code> in the <code>acceptedCryptosuites</code> array.
         </p>
 
       </section>
@@ -1711,21 +1992,6 @@ strongly advised to not assign semantics to any human-readable values.
       </section>
 
       <section>
-        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
-            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
-        <h4>Exchange Discovery</h4>
-        <p>
-Discovery is an optional call for the [=holder coordinator=] to ensure the [=holder coordinator=] can support
-the exchange protocol requirements before calling the endpoint. Coordinators SHOULD support
-the exchange discovery endpoint.
-        </p>
-        <div class="api-detail"
-          data-api-endpoint="post /exchanges/"></div>
-      </section>
-
-      <section>
-        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
-            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Get Presentations</h4>
         <p>
         </p>
