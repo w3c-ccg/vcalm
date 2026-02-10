@@ -347,16 +347,16 @@ paths:
   /credentials/{id}:
     get:
       tags:
-       - Credentials
+        - Credentials
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       summary: Gets a credential or verifiable credential by ID. To get a credential that does not have credential.id set but has an associated credentialId value, pass credentialId instead.
       x-expectedCaller: 
-       - Issuer Coordinator
-       - Holder Coordinator
-       - Workflow Service
+        - Issuer Coordinator
+        - Holder Coordinator
+        - Workflow Service
       operationId: getCredential
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
@@ -380,11 +380,11 @@ paths:
           description: I'm a teapot - MUST not be returned outside of pre-arranged scenarios between both parties
     delete:
       tags:
-       - Credentials
+        - Credentials
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       summary: Deletes a credential or verifiable credential by ID. To delete a credential that does not have credential.id set but has an associated credentialId value, pass credentialId instead.
       x-expectedCaller:
         - Issuer Coordinator
@@ -406,17 +406,17 @@ paths:
   /credentials/derive:
     post:
       tags:
-       - Credentials
+        - Credentials
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       summary: Derives a credential and returns it in the response body.
       operationId: deriveCredential
       description: Derives a credential and returns it in the response body.
       x-expectedCaller: 
-       - Holder Coordinator
-       - Workflow Service
+        - Holder Coordinator
+        - Workflow Service
       requestBody:
         content:
           application/json:
@@ -436,16 +436,16 @@ paths:
   /presentations/{id}:
     get:
       tags:
-       - Presentations
+        - Presentations
       summary: Gets a presentation or verifiable presentation by ID
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: getPresentation
       x-expectedCaller: 
-       - Holder Coordinator
-       - Workflow Service
+        - Holder Coordinator
+        - Workflow Service
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
@@ -467,12 +467,12 @@ paths:
           description: Gone! There is no data here
     delete:
       tags:
-       - Presentations
+        - Presentations
       summary: Deletes a presentation or verifiable presentation by ID
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: deletePresentation
       x-expectedCaller: Holder Coordinator
       parameters:
@@ -491,16 +491,16 @@ paths:
   /presentations:
     get:
       tags:
-       - Presentations
+        - Presentations
       summary: Gets list of presentations or verifiable presentations
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: getPresentations
       x-expectedCaller: 
-       - Holder Coordinator
-       - Workflow Service
+        - Holder Coordinator
+        - Workflow Service
       parameters:
         - in: query
           name: type
@@ -530,15 +530,15 @@ paths:
     post:
       summary: Creates a presentation and returns it in the response body.
       tags:
-       - Presentations
+        - Presentations
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: createPresentation
       x-expectedCaller: 
-       - Holder Coordinator
-       - Workflow Service
+        - Holder Coordinator
+        - Workflow Service
       description: Creates a presentation and returns it in the response body.
       requestBody:
         content:
@@ -559,11 +559,11 @@ paths:
     post:
       summary: A callback that can be any capability URL (i.e., a URL that is infeasible to guess) that can be notified when an exchange step is performed. The URL SHOULD be a capability URL to ensure that it can only be used by parties with whom the URL is shared without a need for authorization tokens, periodic token refresh, nor client registration. If the suggested URL format with "localCallbackId" is used, then the "localCallbackId" value must express at least 128-bits of random information in order to ensure the full callback URL can be treated as a capability URL. It is also recommended that a new capability URL be created per exchange and only used by that exchange.
       tags:
-       - Exchanges
+        - Exchanges
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: callback
       parameters:
         - $ref: "./components/parameters/path/LocalCallbackId.yml"
@@ -588,15 +588,15 @@ paths:
     post:
       summary: Verifies a verifiableCredential and returns a verificationResult in the response body.
       tags:
-       - Credentials
+        - Credentials
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: verifyCredential
       x-expectedCaller: 
-       - Verifier Coordinator
-       - Workflow Service
+        - Verifier Coordinator
+        - Workflow Service
       description: Verifies a verifiableCredential and returns a verificationResult in the response body.
       requestBody:
         content:
@@ -619,15 +619,15 @@ paths:
     post:
       summary: Verifies a Presentation and all Verifiable Credentials it contains, returning detailed verification results.
       tags:
-       - Presentations
+        - Presentations
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: verifyPresentation
       x-expectedCaller: 
-       - Verifier Coordinator
-       - Workflow Service
+        - Verifier Coordinator
+        - Workflow Service
       description: |
         Verifies a verifiablePresentation and, by default, all verifiable credentials
         contained within it.
@@ -680,13 +680,13 @@ paths:
     post:
       summary: Passing an empty body to this endpoint creates and returns a challenge string in the response body.
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: challenge
       x-expectedCaller: 
-       - Verifier Coordinator
-       - Workflow Service
+        - Verifier Coordinator
+        - Workflow Service
       description: Creates a challenge to be used as `options.challenge` in future requests.
       responses:
         "200":
@@ -705,9 +705,9 @@ paths:
         - Credentials
         - Exchanges
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: startInteraction
       description: Retrieve available interaction protocols from the interaction originator.
       x-expectedCaller: Anyone with provided URL
@@ -754,9 +754,9 @@ paths:
         - Invite Request
         - Exchanges
       security:
-       - networkAuth: []
-       - oAuth2: []
-       - zCap: []
+        - networkAuth: []
+        - oAuth2: []
+        - zCap: []
       operationId: receiveInvitationResponse
       description: Ths endpoint is one of the ones expected to be included as a fully formed URL in the protocols object returned by the /interactions/{interactionId} endpoint.
       x-expectedCaller: Whoever POSTed to the URL containing /interactions/{interactionId}
