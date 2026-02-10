@@ -506,6 +506,8 @@ paths:
        - oAuth2: []
        - zCap: []
       operationId: callback
+      x-expectedCaller: Workflow Service
+      x-componentTableLink: "exchange-step-callbacks"
       parameters:
         - $ref: "./components/parameters/path/LocalCallbackId.yml"
       description:
