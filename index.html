@@ -2735,17 +2735,19 @@ from the workflow service that match the specified formats.
         <pre class="example nohighlight" title="Client-Initiated Exchange with Accepted Formats">
 {
   "verifiablePresentationRequest": {
-    "query": {
+    "query": [{
       "type": "QueryByExample",
-      "acceptedCryptosuites": [
-        {"cryptosuite": "eddsa-rdfc-2022"},
-        {"cryptosuite": "ecdsa-rdfc-2019"},
-        {"cryptosuite": "bbs-2023"}
-      ],
-      "acceptedEnvelopes": [
-        {"mediaType": "application/jwt"}
-      ]
-    }
+      "credentialQuery": {
+        "acceptedCryptosuites": [
+          {"cryptosuite": "eddsa-rdfc-2022"},
+          {"cryptosuite": "ecdsa-rdfc-2019"},
+          {"cryptosuite": "bbs-2023"}
+        ],
+        "acceptedEnvelopes": [
+          {"mediaType": "application/jwt"}
+        ]
+      }
+    }]
   }
 }
         </pre>
@@ -2760,7 +2762,7 @@ registered business before sharing personal information.
         <pre class="example nohighlight" title="Client Requesting Server Credentials Before Proceeding">
 {
   "verifiablePresentationRequest": {
-    "query": {
+    "query": [{
       "type": "QueryByExample",
       "credentialQuery": {
         "reason": "Please present your BusinessRegistrationCredential to complete the verification process.",
@@ -2769,12 +2771,12 @@ registered business before sharing personal information.
             "https://www.w3.org/ns/credentials/v2"
           ],
           "type": ["BusinessRegistrationCredential"]
-        }
-      },
-      "acceptedCryptosuites": [
-        {"cryptosuite": "eddsa-rdfc-2022"}
-      ]
-    }
+        },
+        "acceptedCryptosuites": [
+          {"cryptosuite": "eddsa-rdfc-2022"}
+        ]
+      }
+    }]
   }
 }
         </pre>
