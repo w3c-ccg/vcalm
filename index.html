@@ -2683,6 +2683,61 @@ above is used to provide guidance on whether the next step is automated or
 requires an individual to intervene.
         </p>
 
+        <p>
+The following example demonstrates an exchange client initiating an exchange
+with a `verifiablePresentationRequest` that specifies which cryptographic
+proof formats and envelope types it will accept. If the `credentialQuery`
+property is not present, the exchange client will accept any credential(s)
+from the workflow service that match the specified formats.
+        </p>
+
+        <pre class="example nohighlight" title="Client-Initiated Exchange with Accepted Formats">
+{
+  "verifiablePresentationRequest": {
+    "query": {
+      "type": "QueryByExample",
+      "acceptedCryptosuites": [
+        {"cryptosuite": "eddsa-rdfc-2022"},
+        {"cryptosuite": "ecdsa-rdfc-2019"},
+        {"cryptosuite": "bbs-2023"}
+      ],
+      "acceptedEnvelopes": [
+        {"mediaType": "application/jwt"}
+      ]
+    }
+  }
+}
+        </pre>
+
+        <p>
+The following example demonstrates an exchange client requesting credentials
+from the workflow service before fulfilling any subsequent request. In this
+scenario, the exchange client requires proof that the server operator is a
+registered business before sharing personal information.
+        </p>
+
+        <pre class="example nohighlight" title="Client Requesting Server Credentials Before Proceeding">
+{
+  "verifiablePresentationRequest": {
+    "query": {
+      "type": "QueryByExample",
+      "credentialQuery": {
+        "reason": "Please present your BusinessRegistrationCredential to complete the verification process.",
+        "example": {
+          "@context": [
+            "https://www.w3.org/ns/credentials/v2"
+          ],
+          "type": ["BusinessRegistrationCredential"]
+        }
+      },
+      "acceptedCryptosuites": [
+        {"cryptosuite": "eddsa-rdfc-2022"}
+      ]
+    }
+  }
+}
+        </pre>
+
       </section>
     </section>
 
