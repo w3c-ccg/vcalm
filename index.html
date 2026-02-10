@@ -2684,6 +2684,65 @@ requires an individual to intervene.
         </p>
 
         <p>
+The following diagram illustrates an exchange where the [=holder coordinator=]
+initiates with a Verifiable Presentation Request, requiring credentials from the
+receiving Coordinator before proceeding:
+        </p>
+
+        <figure>
+          <pre class="mermaid">
+sequenceDiagram
+    participant H as Holder
+    participant W as Holder Coordinator (Wallet)
+    participant I as Issuer/Verifier Coordinator
+    autonumber
+    Note right of H: Start exchange with client VPR
+    W->>I: Verifiable Presentation Request (VPR)
+    Note right of W: POST /workflows/123/exchanges/abc &mdash; client requests credentials from server before proceeding
+    I->>W: Verifiable Presentation (VP) + Verifiable Presentation Request (VPR)
+    Note left of I: VP fulfills client request, VPR requests credentials from client
+    W->>I: Verifiable Presentation (VP)
+    Note right of W: POST /workflows/123/exchanges/abc &mdash; client fulfills server request
+    I->>W: Verifiable Presentation or empty response
+    Note left of I: VP includes result of exchange (e.g., VCs), or empty if complete
+          </pre>
+          <figcaption>
+A client-initiated exchange where the [=holder=] requests credentials from the [=issuer=]/[=verifier=] before proceeding.
+          </figcaption>
+        </figure>
+
+        <p>
+The following diagram illustrates an exchange where the [=holder coordinator=]
+sends a counter-request after receiving the server's initial request:
+        </p>
+
+        <figure>
+          <pre class="mermaid">
+sequenceDiagram
+    participant H as Holder
+    participant W as Holder Coordinator (Wallet)
+    participant I as Issuer/Verifier Coordinator
+    autonumber
+    Note right of H: Start exchange without VPR
+    W->>I: Initiate
+    Note right of W: POST /workflows/123/exchanges/abc &mdash; empty request body
+    I->>W: Verifiable Presentation Request (VPR)
+    Note left of I: Server requests credentials from client
+    W->>I: Verifiable Presentation Request (VPR)
+    Note right of W: POST /workflows/123/exchanges/abc &mdash; client counter-requests credentials from server
+    I->>W: Verifiable Presentation (VP) + Verifiable Presentation Request (VPR)
+    Note left of I: VP fulfills client request, VPR resends server request
+    W->>I: Verifiable Presentation (VP)
+    Note right of W: POST /workflows/123/exchanges/abc &mdash; client fulfills server request
+    I->>W: Verifiable Presentation or empty response
+    Note left of I: VP includes result of exchange (e.g., VCs), or empty if complete
+          </pre>
+          <figcaption>
+A mid-exchange counter-request where the [=holder=] requests credentials from the [=issuer=]/[=verifier=] after receiving the server's initial request.
+          </figcaption>
+        </figure>
+
+        <p>
 The following example demonstrates an exchange client initiating an exchange
 with a `verifiablePresentationRequest` that specifies which cryptographic
 proof formats and envelope types it will accept. If the `credentialQuery`
