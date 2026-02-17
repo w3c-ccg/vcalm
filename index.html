@@ -2703,8 +2703,8 @@ sequenceDiagram
     Note left of I: VP fulfills client request, VPR requests credentials from client
     W->>I: Verifiable Presentation (VP)
     Note right of W: POST /workflows/123/exchanges/abc &mdash; client fulfills server request
-    I->>W: Verifiable Presentation or empty JSON object response
-    Note left of I: VP includes result of exchange (e.g., VCs), or empty JSON object if complete
+    I->>W: Verifiable Presentation or empty JSON object ({}) response
+    Note left of I: VP includes result of exchange (e.g., VCs), or empty JSON object ({}) if complete
           </pre>
           <figcaption>
 A client-initiated exchange where the [=holder=] requests credentials from the [=issuer=]/[=verifier=] before proceeding.
@@ -2734,8 +2734,8 @@ sequenceDiagram
     Note left of I: VP fulfills client request, VPR resends server request
     W->>I: Verifiable Presentation (VP)
     Note right of W: POST /workflows/123/exchanges/abc &mdash; client fulfills server request
-    I->>W: Verifiable Presentation or empty JSON object response
-    Note left of I: VP includes result of exchange (e.g., VCs), or empty JSON object if complete
+    I->>W: Verifiable Presentation or empty JSON object ({}) response
+    Note left of I: VP includes result of exchange (e.g., VCs), or empty JSON object ({}) if complete
           </pre>
           <figcaption>
 A mid-exchange counter-request where the [=holder=] requests credentials from the [=issuer=]/[=verifier=] after receiving the server's initial request.
