@@ -84,7 +84,7 @@
 
     // Uncomment these to use the respec extension that generates a list of
     //   normative statements:
-    preProcess: [window.respecMermaid.createFigures],
+    preProcess: [window.respecMermaid.createFigures, window.respecOasComponentTable.injectOasComponentTables] ,
     postProcess: [window.respecOas.injectOas],
     oas: ["oas.yaml"],
     lint: {
@@ -1156,6 +1156,8 @@ The following APIs are defined for issuing a Verifiable Credential:
           /credentials/issue /credentials/status /status-lists /status-lists/{id}"></table>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Issue Credential</h4>
         <p>
 This endpoint is used to issue a [=verifiable credential=].
@@ -1207,6 +1209,8 @@ and the intended use case for the verifiable credential.
       </section>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Get a Specific Credential</h4>
         <p>
         </p>
@@ -1216,6 +1220,8 @@ and the intended use case for the verifiable credential.
       </section>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Update Status</h4>
         <p>
         </p>
@@ -1253,6 +1259,8 @@ The following APIs are defined for verifying a Verifiable Credential:
         data-api-path="/credentials/verify /presentations/verify /challenges"></table>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Verify Credential</h4>
         <p>
 This endpoint is used to verify a [=verifiable credential=].
@@ -1271,6 +1279,8 @@ can be provided in the request.
       </section>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Verify Presentation</h4>
         <p>
 This endpoint is used to verify a [=verifiable presentation=] and, by default,
@@ -1333,6 +1343,8 @@ provides a concrete verifiable presentation request format as well.
       </p>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Verifiable Presentation Request</h4>
 
         <p>
@@ -1952,6 +1964,8 @@ strongly advised to not assign semantics to any human-readable values.
         </p>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Derive Credential</h4>
         <p>
         </p>
@@ -1961,6 +1975,8 @@ strongly advised to not assign semantics to any human-readable values.
       </section>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Create Presentation</h4>
         <p>
         </p>
@@ -1986,6 +2002,8 @@ strongly advised to not assign semantics to any human-readable values.
 
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Get a Specific Presentation</h4>
         <p>
         </p>
@@ -2226,6 +2244,8 @@ a specific element in the URL path.
       </p>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Create Workflow</h4>
         <p>
         </p>
@@ -2521,6 +2541,8 @@ looks like:
         </section>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Get Workflow Configuration</h4>
         <p>
         </p>
@@ -2538,6 +2560,8 @@ exchange, that challenge ceases to be valid at the date referenced by the
       </p>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Create Exchange</h4>
         <p>
         </p>
@@ -2547,6 +2571,8 @@ exchange, that challenge ceases to be valid at the date referenced by the
       </section>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Get Exchange Protocols</h4>
         <p>
 This endpoint provides a mechanism for a client to query an exchange for all of
@@ -2594,6 +2620,8 @@ links to resources from other domains to render a web page.
       </section>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Participate in an Exchange</h4>
         <p>
         </p>
@@ -2603,6 +2631,8 @@ links to resources from other domains to render a web page.
       </section>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Get Exchange State</h4>
         <p>
         </p>
@@ -2612,6 +2642,8 @@ links to resources from other domains to render a web page.
       </section>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Exchange Step Callbacks</h4>
         <p>
         </p>
@@ -2820,6 +2852,8 @@ A holder-initiated interaction using a QR Code
       </figure>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Interaction URL Format</h4>
         <p>
 The format of the <dfn>interaction URL</dfn> MUST conform to the syntax for the
@@ -2913,6 +2947,8 @@ retrieving the resource at the URL results in an
       </section>
 
       <section>
+        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
+            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
         <h4>Interaction Protocols Response</h4>
         <p>
 Performing a retrieval of the [=interaction URL=] results in instructions

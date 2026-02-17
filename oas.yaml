@@ -26,6 +26,7 @@ paths:
       x-expectedCaller: 
         - Issuer Coordinator
         - Workflow Service
+      x-componentTableLink: "issue-credential"
       description: Issues a credential and returns it in the response body.
       requestBody:
         content:
@@ -56,6 +57,7 @@ paths:
         - zCap: []
       operationId: updateCredentialStatus
       x-expectedCaller: Issuer Service
+      x-componentTableLink: "update-status"
       description: Updates the status of an issued credential.
       requestBody:
         content:
@@ -141,6 +143,7 @@ paths:
       operationId: createWorkflow
       description: Creates a new workflow and returns location of workflow metadata in a response header.
       x-expectedCaller: Administrators
+      x-componentTableLink: "create-workflow"
       requestBody:
         content:
           application/json:
@@ -183,6 +186,7 @@ paths:
       operationId: getWorkflowConfiguration
       description: Gets the configuration of an existing workflow and returns it in the response body.
       x-expectedCaller: Administrators
+      x-componentTableLink: "get-workflow-configuration"
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
       responses:
@@ -210,6 +214,7 @@ paths:
       operationId: createExchange
       description: Creates a new exchange and returns location of exchange metadata in a response header.
       x-expectedCaller: Coordinator
+      x-componentTableLink: "create-exchange"
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
       requestBody:
@@ -254,6 +259,7 @@ paths:
       operationId: getExchangeConfiguration
       description: Gets the configuration of an existing exchange and returns it in the response body.
       x-expectedCaller: Coordinator
+      x-componentTableLink: "get-exchange-state"
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
         - $ref: "./components/parameters/path/LocalExchangeId.yml"
@@ -285,6 +291,7 @@ paths:
       operationId: participateInExchange
       description: Participate in an exchange. Posting an empty body will start the exchange or return what the exchange is expecting to complete the next step.
       x-expectedCaller: Anyone
+      x-componentTableLink: "participate-in-an-exchange"
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
         - $ref: "./components/parameters/path/LocalExchangeId.yml"
@@ -328,6 +335,7 @@ paths:
       x-expectedCaller:
         - Verifier Coordinator
         - Holder Coordinator
+      x-componentTableLink: "get-exchange-protocols"
       parameters:
         - $ref: "./components/parameters/path/LocalWorkflowId.yml"
         - $ref: "./components/parameters/path/LocalExchangeId.yml"
@@ -354,9 +362,10 @@ paths:
         - zCap: []
       summary: Gets a credential or verifiable credential by ID. To get a credential that does not have credential.id set but has an associated credentialId value, pass credentialId instead.
       x-expectedCaller: 
-        - Issuer Coordinator
-        - Holder Coordinator
-        - Workflow Service
+       - Issuer Coordinator
+       - Holder Coordinator
+       - Workflow Service
+      x-componentTableLink: "get-a-specific-credential"
       operationId: getCredential
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
@@ -389,6 +398,7 @@ paths:
       x-expectedCaller:
         - Issuer Coordinator
         - Holder Coordinator
+      x-componentTableLink: "delete-a-specific-credential"
       operationId: deleteCredential
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
@@ -415,8 +425,9 @@ paths:
       operationId: deriveCredential
       description: Derives a credential and returns it in the response body.
       x-expectedCaller: 
-        - Holder Coordinator
-        - Workflow Service
+       - Holder Coordinator
+       - Workflow Service
+      x-componentTableLink: "derive-credential"
       requestBody:
         content:
           application/json:
@@ -444,8 +455,9 @@ paths:
         - zCap: []
       operationId: getPresentation
       x-expectedCaller: 
-        - Holder Coordinator
-        - Workflow Service
+       - Holder Coordinator
+       - Workflow Service
+      x-componentTableLink: "get-a-specific-presentation"
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
@@ -475,6 +487,7 @@ paths:
         - zCap: []
       operationId: deletePresentation
       x-expectedCaller: Holder Coordinator
+      x-componentTableLink: ""
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
@@ -499,8 +512,9 @@ paths:
         - zCap: []
       operationId: getPresentations
       x-expectedCaller: 
-        - Holder Coordinator
-        - Workflow Service
+       - Holder Coordinator
+       - Workflow Service
+      x-componentTableLink: "get-presentations"
       parameters:
         - in: query
           name: type
@@ -537,8 +551,9 @@ paths:
         - zCap: []
       operationId: createPresentation
       x-expectedCaller: 
-        - Holder Coordinator
-        - Workflow Service
+       - Holder Coordinator
+       - Workflow Service
+      x-componentTableLink: "create-presentation"
       description: Creates a presentation and returns it in the response body.
       requestBody:
         content:
@@ -597,8 +612,9 @@ paths:
         - zCap: []
       operationId: verifyCredential
       x-expectedCaller: 
-        - Verifier Coordinator
-        - Workflow Service
+       - Verifier Coordinator
+       - Workflow Service
+      x-componentTableLink: "verify-credential"
       description: Verifies a verifiableCredential and returns a verificationResult in the response body.
       requestBody:
         content:
@@ -628,8 +644,9 @@ paths:
         - zCap: []
       operationId: verifyPresentation
       x-expectedCaller: 
-        - Verifier Coordinator
-        - Workflow Service
+       - Verifier Coordinator
+       - Workflow Service
+      x-componentTableLink: "verify-presentation"
       description: |
         Verifies a verifiablePresentation and, by default, all verifiable credentials
         contained within it.
@@ -687,8 +704,9 @@ paths:
         - zCap: []
       operationId: challenge
       x-expectedCaller: 
-        - Verifier Coordinator
-        - Workflow Service
+       - Verifier Coordinator
+       - Workflow Service
+      x-componentTableLink: "create-challenge"
       description: Creates a challenge to be used as `options.challenge` in future requests.
       responses:
         "200":
@@ -713,6 +731,7 @@ paths:
       operationId: startInteraction
       description: Retrieve available interaction protocols from the interaction originator.
       x-expectedCaller: Anyone with provided URL
+      x-componentTableLink: "interaction-url-format"
       parameters:
         - in: path
           name: interactionId
@@ -762,6 +781,7 @@ paths:
       operationId: receiveInvitationResponse
       description: Ths endpoint is one of the ones expected to be included as a fully formed URL in the protocols object returned by the /interactions/{interactionId} endpoint.
       x-expectedCaller: Whoever POSTed to the URL containing /interactions/{interactionId}
+      x-componentTableLink: "interaction-protocols-response"
       parameters:
         - in: path
           name: inviteId
