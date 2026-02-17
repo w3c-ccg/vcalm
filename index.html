@@ -2766,7 +2766,7 @@ sequenceDiagram
     autonumber
     Note right of H: Start exchange without VPR
     W->>I: Initiate
-    Note right of W: POST /workflows/123/exchanges/abc &mdash; empty request body
+    Note right of W: POST /workflows/123/exchanges/abc &mdash; empty JSON object ({})
     I->>W: Verifiable Presentation Request (VPR)
     Note left of I: Server requests credentials from client
     W->>I: Verifiable Presentation Request (VPR)
