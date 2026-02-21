@@ -23,7 +23,7 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: issueCredential
-      x-expectedCaller: 
+      x-expectedCaller:
         - Issuer Coordinator
         - Workflow Service
       x-componentTableLink: "issue-credential"
@@ -83,6 +83,7 @@ paths:
         - zCap: []
       operationId: createStatusList
       x-expectedCaller: Issuer Service
+      x-componentTableLink: create-status-list
       description: Creates a new status list credential that can be used to track the status of verifiable credentials. The status list is returned as a verifiable credential that can be publicly accessible for verification purposes.
       requestBody:
         content:
@@ -114,6 +115,7 @@ paths:
       security: []
       operationId: getStatusList
       x-expectedCaller: Public
+      x-componentTableLink: get-status-list
       description: Retrieves a publicly accessible status list credential. This endpoint SHOULD be publicly accessible without authentication to enable verifiers and holders to retrieve status information. For privacy-preserving status mechanisms, verifiers SHOULD obtain status information from holders rather than directly querying this endpoint.
       parameters:
         - name: id
@@ -361,7 +363,7 @@ paths:
         - oAuth2: []
         - zCap: []
       summary: Gets a credential or verifiable credential by ID. To get a credential that does not have credential.id set but has an associated credentialId value, pass credentialId instead.
-      x-expectedCaller: 
+      x-expectedCaller:
        - Issuer Coordinator
        - Holder Coordinator
        - Workflow Service
@@ -424,7 +426,7 @@ paths:
       summary: Derives a credential and returns it in the response body.
       operationId: deriveCredential
       description: Derives a credential and returns it in the response body.
-      x-expectedCaller: 
+      x-expectedCaller:
        - Holder Coordinator
        - Workflow Service
       x-componentTableLink: "derive-credential"
@@ -454,7 +456,7 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: getPresentation
-      x-expectedCaller: 
+      x-expectedCaller:
        - Holder Coordinator
        - Workflow Service
       x-componentTableLink: "get-a-specific-presentation"
@@ -511,7 +513,7 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: getPresentations
-      x-expectedCaller: 
+      x-expectedCaller:
        - Holder Coordinator
        - Workflow Service
       x-componentTableLink: "get-presentations"
@@ -550,7 +552,7 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: createPresentation
-      x-expectedCaller: 
+      x-expectedCaller:
        - Holder Coordinator
        - Workflow Service
       x-componentTableLink: "create-presentation"
@@ -611,7 +613,7 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: verifyCredential
-      x-expectedCaller: 
+      x-expectedCaller:
        - Verifier Coordinator
        - Workflow Service
       x-componentTableLink: "verify-credential"
@@ -643,7 +645,7 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: verifyPresentation
-      x-expectedCaller: 
+      x-expectedCaller:
        - Verifier Coordinator
        - Workflow Service
       x-componentTableLink: "verify-presentation"
@@ -703,7 +705,7 @@ paths:
         - oAuth2: []
         - zCap: []
       operationId: challenge
-      x-expectedCaller: 
+      x-expectedCaller:
        - Verifier Coordinator
        - Workflow Service
       x-componentTableLink: "create-challenge"

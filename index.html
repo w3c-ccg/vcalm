@@ -915,7 +915,7 @@ that component.
         </p>
 
 
-      <h4>Issuer Coordinator</h4>
+      <h4 class="notoc">Issuer Coordinator</h4>
       <p>
 Below are all endpoints expected to be exposed by the [=issuer coordinator=], along
 with the component that is expected to call the endpoint.
@@ -924,7 +924,7 @@ with the component that is expected to call the endpoint.
         data-api-path="/interactions/{interactionId} /callbacks/{localCallbackId}"></table>
 
 
-      <h4>Issuer Service</h4>
+      <h4 class="notoc">Issuer Service</h4>
       <p>
 Below are all endpoints expected to be exposed by the [=issuer service=], along with
 the component that is expected to call the endpoint.
@@ -932,14 +932,14 @@ the component that is expected to call the endpoint.
       <table class="simple api-component-table"
         data-api-path="/credentials/issue /credentials/{id}"></table>
 
-      <h4>Verifier Cooirdinator</h4>
+      <h4 class="notoc">Verifier Cooirdinator</h4>
       <p>
 Below are all endpoints expected to be exposed by the [=verifier coordinator=], along with the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
         data-api-path="/interactions/{interactionId} /callbacks/{localCallbackId}"></table>
 
-        <h4>Verifier Service</h4>
+        <h4 class="notoc">Verifier Service</h4>
       <p>
 Below are all endpoints expected to be exposed by the [=verifier service=],
 along with the component that is expected to call the endpoint.
@@ -947,7 +947,7 @@ along with the component that is expected to call the endpoint.
       <table class="simple api-component-table"
         data-api-path="/credentials/verify /presentations/verify /challenges"></table>
 
-      <h4>Holder Coordinator</h4>
+      <h4 class="notoc">Holder Coordinator</h4>
       <p>
 Below are all endpoints expected to be exposed by the [=holder coordinator=], along with
 the component that is expected to call the endpoint.
@@ -955,7 +955,7 @@ the component that is expected to call the endpoint.
       <table class="simple api-component-table"
         data-api-path="/interactions/{interactionId} /callbacks/{localCallbackId}"></table>
 
-        <h4>Holder Service</h4>
+        <h4 class="notoc">Holder Service</h4>
       <p>
 Below are all endpoints expected to be exposed by the [=holder service=], along with
 the component that is expected to call the endpoint.
@@ -963,180 +963,15 @@ the component that is expected to call the endpoint.
       <table class="simple api-component-table"
         data-api-path="/credentials/derive /credentials/{id} /presentations /presentations/{id}"></table>
 
-      <h4 id="status-service">Status Service</h4>
+      <h4 class="notoc">Status Service</h4>
       <p>
 Below are all endpoints expected to be exposed by the [=status service=], along with
 the component that is expected to call the endpoint.
       </p>
       <table class="simple api-component-table"
-        data-api-path="/credentials/status /status-lists /status-lists/{id}"></table>
+        data-api-path="/status-lists /status-lists/{id} /credentials/status"></table>
 
-      <p>
-The status service provides three primary operations for managing status lists:
-      </p>
-      <ul>
-        <li>
-<strong>Create a list</strong>: Create a new status list credential that can be
-used to track the status of multiple [=verifiable credentials=].
-        </li>
-        <li>
-<strong>Get a list</strong>: Retrieve a publicly accessible status list
-credential for verification purposes.
-        </li>
-        <li>
-<strong>Set a status</strong>: Update the status of a specific [=verifiable
-credential=] within a status list.
-        </li>
-      </ul>
-
-      <div class="note" title="Non-normative status list operations">
-        <p>
-The status list operations described in this specification (create list, get list,
-and set status) are <strong>non-normative</strong> and represent a recommended
-implementation approach. Status list creation and management might depend on various
-factors not accounted for in this specification, such as the following:
-        </p>
-        <ul>
-          <li>
-Business requirements and policies specific to the issuer or use case
-          </li>
-          <li>
-Performance considerations, such as list size, update frequency, and caching strategies
-          </li>
-          <li>
-Infrastructure constraints, including storage capacity and hosting capabilities
-          </li>
-          <li>
-Regulatory or compliance requirements that might affect how status information is managed
-          </li>
-          <li>
-Integration with existing credential management systems or workflows
-          </li>
-        </ul>
-      </div>
-      <p>
-Implementers are free to design their status list management systems according to
-their specific needs, as long as the resulting status information can be verified
-according to the status mechanism specification in use (e.g., [[VC-BITSTRING-STATUS-LIST]]).
-      </p>
-
-      <p>
-To maximize privacy, [=verifiers=] are encouraged to obtain status information from
-[=holders=] rather than directly querying the status service. When a [=holder=]
-presents a [=verifiable credential=], they are encouraged to include the corresponding
-status list credential or sufficient status information to enable verification
-without requiring the [=verifier=] to contact the [=issuer=]. This approach
-prevents correlation of status checks with specific [=verifiers=] or
-[=verifiable credentials=].
-      </p>
-
-      <section>
-        <h5>Create Status List</h5>
-        <p>
-This endpoint is used to create a new status list credential that can be used to
-track the status of [=verifiable credentials=]. A status list is itself a
-[=verifiable credential=] that contains status information for multiple
-credentials, enabling privacy-preserving status checks. The status list credential
-is returned in the response and can be made publicly accessible for verification
-purposes.
-        </p>
-
-        <p>
-For consistency in verification processes, the status list credential typically uses
-the same securing mechanism (proof type and cryptographic suite) as the [=verifiable
-credentials=] it will be linked to. This allows verifiers to verify both the
-credentials and their associated status lists using the same verification methods.
-        </p>
-
-        <p>
-For specific mechanisms by which to manage [=verifiable credential=] statuses,
-implementers are encouraged to refer to well-known external specifications, such
-as the [[VC-BITSTRING-STATUS-LIST]] specification, which provides a normative
-example of how to implement status list credentials.
-        </p>
-
-        <div class="api-detail"
-          data-api-endpoint="post /status-lists"></div>
-      </section>
-
-      <section>
-        <h5>Get Status List</h5>
-        <p>
-This endpoint retrieves a publicly accessible status list credential. This
-endpoint is typically publicly accessible without authentication to enable
-[=verifiers=] and [=holders=] to retrieve status information.
-        </p>
-
-        <p>
-The endpoint returns the status list credential in an appropriate format
-based on the media type requested or the default format configured for the
-service. The response is typically either a `VerifiableCredential` or an
-`EnvelopedVerifiableCredential`, consistent with the format used by the
-[=verifiable credentials=] that reference this status list. This allows
-verifiers to process the status list using the same mechanisms they use for
-verifying the associated credentials.
-        </p>
-
-        <p class="note" title="Privacy-preserving status retrieval">
-For privacy-preserving status mechanisms, [=verifiers=] are encouraged to obtain status
-information from [=holders=] rather than directly querying this endpoint. When a
-[=holder=] presents a [=verifiable credential=] that includes status information
-(such as a `credentialStatus` property), the [=holder=] is encouraged to also provide the
-corresponding status list credential or sufficient status information to enable
-verification. This approach prevents the [=issuer=] from correlating status
-checks with specific [=verifiers=] or [=verifiable credentials=], thereby
-preserving privacy.
-        </p>
-
-        <p>
-When a [=verifier=] needs to check the status of a [=verifiable credential=],
-the recommended flow is as follows:
-        </p>
-        <ol>
-          <li>
-The [=verifier=] requests a [=verifiable presentation=] from the [=holder=].
-          </li>
-          <li>
-The [=holder=] includes the [=verifiable credential=] along with the
-corresponding status list credential or status information in the presentation.
-          </li>
-          <li>
-The [=verifier=] verifies the status using the information provided by the
-[=holder=], without needing to directly contact the [=issuer=].
-          </li>
-        </ol>
-
-        <p>
-This endpoint might also be useful for [=holders=] who need to retrieve status
-list credentials to include in presentations, or for cases where direct issuer
-contact is acceptable from a privacy perspective.
-        </p>
-
-        <div class="api-detail"
-          data-api-endpoint="get /status-lists/{id}"></div>
-      </section>
-
-      <section>
-        <h5>Update Status</h5>
-        <p>
-This endpoint is used to update the status of an issued [=verifiable credential=]
-within a status list. When a credential's status needs to be changed (e.g., revoked
-or suspended), this endpoint updates the corresponding entry in the status list
-credential.
-        </p>
-
-        <p>
-The request typically specifies the credential to update, the status list entry
-information (including the status list credential identifier and the index within
-that list), and the new status value. The status service updates the status
-list credential accordingly.
-        </p>
-
-        <div class="api-detail"
-          data-api-endpoint="post /credentials/status"></div>
-      </section>
-
-      <h4>Workflow Service</h4>
+      <h4 class="notoc">Workflow Service</h4>
       <p>
 Below are all endpoints expected to be exposed by the Workflow Service, along
 with the component that is expected to call the endpoint.
@@ -1217,17 +1052,6 @@ and the intended use case for the verifiable credential.
 
         <div class="api-detail"
           data-api-endpoint="get /credentials/{id}"></div>
-      </section>
-
-      <section>
-        <!--If this header is changed, also update the x-componentTableLink parameter for this endpoint in the oas.yaml file.
-            If the x-componentTableLink isn't updated to match the corresponding Component Table link will break.-->
-        <h4>Update Status</h4>
-        <p>
-        </p>
-
-        <div class="api-detail"
-          data-api-endpoint="post /credentials/status"></div>
       </section>
 
       <section>
@@ -2209,7 +2033,7 @@ to be implemented via specific verifiable presentation requests and verifiable
 credentials at a layer above. See the appendices that follow for examples of
 workflows and exchanges that use specific verifiable presentation requests and
 verifiable credentials.
-      </p>  
+      </p>
       <p class="note"
          title="Workflow Step and Credential Examples">
 Minimum viable examples of both step and credential templates, as well as a couple
@@ -3628,14 +3452,183 @@ Data Integrity Security Considerations</a>).
   </section>
 
   <section class="appendix">
+    <h2>Status List Management</h2>
+    <p>
+The status service provides three primary operations for managing status lists:
+    </p>
+    <ul>
+      <li>
+<strong>Create a list</strong>: Create a new status list credential that can be
+used to track the status of multiple [=verifiable credentials=].
+      </li>
+      <li>
+<strong>Get a list</strong>: Retrieve a publicly accessible status list
+credential for verification purposes.
+      </li>
+      <li>
+<strong>Set a status</strong>: Update the status of a specific [=verifiable
+credential=] within a status list.
+      </li>
+    </ul>
+
+    <div class="note" title="Non-normative status list operations">
+      <p>
+The status list operations described in this specification (create list, get list,
+and set status) are <strong>non-normative</strong> and represent a recommended
+implementation approach. Status list creation and management might depend on various
+factors not accounted for in this specification, such as the following:
+      </p>
+      <ul>
+        <li>
+Business requirements and policies specific to the issuer or use case
+        </li>
+        <li>
+Performance considerations, such as list size, update frequency, and caching strategies
+        </li>
+        <li>
+Infrastructure constraints, including storage capacity and hosting capabilities
+        </li>
+        <li>
+Regulatory or compliance requirements that might affect how status information is managed
+        </li>
+        <li>
+Integration with existing credential management systems or workflows
+        </li>
+      </ul>
+    </div>
+    <p>
+Implementers are free to design their status list management systems according to
+their specific needs, as long as the resulting status information can be verified
+according to the status mechanism specification in use such as the
+[[[VC-BITSTRING-STATUS-LIST]]] specification.
+    </p>
+
+    <p>
+To maximize privacy, [=verifiers=] are encouraged to obtain status information from
+[=holders=] rather than directly querying the status service. When a [=holder=]
+presents a [=verifiable credential=], they are encouraged to include the corresponding
+status list credential or sufficient status information to enable verification
+without requiring the [=verifier=] to contact the [=issuer=]. This approach
+prevents correlation of status checks with specific [=verifiers=] or
+[=verifiable credentials=].
+    </p>
+
+    <section>
+      <h5>Create Status List</h5>
+      <p>
+This endpoint is used to create a new status list credential that can be used to
+track the status of [=verifiable credentials=]. A status list is itself a
+[=verifiable credential=] that contains status information for multiple
+credentials, enabling privacy-preserving status checks. The status list credential
+is returned in the response and can be made publicly accessible for verification
+purposes.
+      </p>
+
+      <p>
+For consistency in verification processes, the status list credential typically uses
+the same securing mechanism (proof type and cryptographic suite) as the [=verifiable
+credentials=] it will be linked to. This allows verifiers to verify both the
+credentials and their associated status lists using the same verification methods.
+      </p>
+
+      <p>
+For specific mechanisms by which to manage [=verifiable credential=] statuses,
+implementers are encouraged to refer to well-known external specifications, such
+as the [[VC-BITSTRING-STATUS-LIST]] specification, which provides a normative
+example of how to implement status list credentials.
+      </p>
+
+      <div class="api-detail"
+        data-api-endpoint="post /status-lists"></div>
+    </section>
+
+    <section>
+      <h5>Get Status List</h5>
+      <p>
+This endpoint retrieves a publicly accessible status list credential. This
+endpoint is typically publicly accessible without authentication to enable
+[=verifiers=] and [=holders=] to retrieve status information.
+      </p>
+
+      <p>
+The endpoint returns the status list credential in an appropriate format
+based on the media type requested or the default format configured for the
+service. The response is typically either a `VerifiableCredential` or an
+`EnvelopedVerifiableCredential`, consistent with the format used by the
+[=verifiable credentials=] that reference this status list. This allows
+verifiers to process the status list using the same mechanisms they use for
+verifying the associated credentials.
+      </p>
+
+      <p class="note" title="Privacy-preserving status retrieval">
+For privacy-preserving status mechanisms, [=verifiers=] are encouraged to obtain status
+information from [=holders=] rather than directly querying this endpoint. When a
+[=holder=] presents a [=verifiable credential=] that includes status information
+(such as a `credentialStatus` property), the [=holder=] is encouraged to also provide the
+corresponding status list credential or sufficient status information to enable
+verification. This approach prevents the [=issuer=] from correlating status
+checks with specific [=verifiers=] or [=verifiable credentials=], thereby
+preserving privacy.
+      </p>
+
+      <p>
+When a [=verifier=] needs to check the status of a [=verifiable credential=],
+the recommended flow is as follows:
+      </p>
+      <ol>
+        <li>
+The [=verifier=] requests a [=verifiable presentation=] from the [=holder=].
+        </li>
+        <li>
+The [=holder=] includes the [=verifiable credential=] along with the
+corresponding status list credential or status information in the presentation.
+        </li>
+        <li>
+The [=verifier=] verifies the status using the information provided by the
+[=holder=], without needing to directly contact the [=issuer=].
+        </li>
+      </ol>
+
+      <p>
+This endpoint might also be useful for [=holders=] who need to retrieve status
+list credentials to include in presentations, or for cases where direct issuer
+contact is acceptable from a privacy perspective.
+      </p>
+
+      <div class="api-detail"
+        data-api-endpoint="get /status-lists/{id}"></div>
+    </section>
+
+    <section>
+      <h5>Update Status</h5>
+      <p>
+This endpoint is used to update the status of an issued [=verifiable credential=]
+within a status list. When a credential's status needs to be changed (e.g., revoked
+or suspended), this endpoint updates the corresponding entry in the status list
+credential.
+      </p>
+
+      <p>
+The request typically specifies the credential to update, the status list entry
+information (including the status list credential identifier and the index within
+that list), and the new status value. The status service updates the status
+list credential accordingly.
+      </p>
+
+      <div class="api-detail"
+        data-api-endpoint="post /credentials/status"></div>
+    </section>
+  </section>
+
+  <section class="appendix">
     <h2>Workflow Step and Template Examples</h2>
 
     <section>
       <h3>Minimum Viable Step and Credential Templates</h3>
       <p>
   Below are examples of templates for what could be considered a minimum workflow that contains a single step,
-  followed by an example of a minimum credential. Note that both of these "minimum" templates are still 
-  dependent on the authorization and variable choices made in each example. 
+  followed by an example of a minimum credential. Note that both of these "minimum" templates are still
+  dependent on the authorization and variable choices made in each example.
       </p>
 
       <pre class="example nohighlight" title="Minimal Step Template">
@@ -3684,12 +3677,12 @@ Data Integrity Security Considerations</a>).
     <section>
       <h3>Complex Examples</h3>
       <p>
-  Below are examples of more complex workflows. 
+  Below are examples of more complex workflows.
      </p>
       <p>
-This first example has multiple steps, includes verification and issuance, supports both ZCAP and OAuth2 authorization, shows 
+This first example has multiple steps, includes verification and issuance, supports both ZCAP and OAuth2 authorization, shows
 reuse of a credential template both with and without custom variables, and has a presentation schema check.
-It should be noted that this example currently uses VC1.0. 
+It should be noted that this example currently uses VC1.0.
       </p>
       <span class="issue">This first example should be updated to use VC2.0</span>
       <pre class="example nohighlight" title="Example Workflow 1">
@@ -4038,8 +4031,8 @@ It should be noted that this example currently uses VC1.0.
 }
       </pre>
       <p>
-This second example uses the stepTemplate feature. 
-It expects the `verifiablePresentationRequest` to be provided in full as a variable when creating the exchange, 
+This second example uses the stepTemplate feature.
+It expects the `verifiablePresentationRequest` to be provided in full as a variable when creating the exchange,
 and contains a `callbackUrl` to demonstrate the callback feature.
       </p>
       <pre class="example nohighlight" title="Example Workflow 2">
@@ -4105,7 +4098,7 @@ and contains a `callbackUrl` to demonstrate the callback feature.
       </pre>
     </section>
   </section>
-  
+
   <section class="appendix">
     <h2>Relationship to Other Specifications</h2>
 
