@@ -489,7 +489,7 @@ paths:
         - zCap: []
       operationId: deletePresentation
       x-expectedCaller: Holder Coordinator
-      x-componentTableLink: ""
+      x-componentTableLink: "delete-a-specific-presentation"
       parameters:
         - $ref: "./components/parameters/path/ObjectId.yml"
       responses:
