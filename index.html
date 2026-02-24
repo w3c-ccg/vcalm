@@ -1419,6 +1419,250 @@ formats are also acceptable.
           such as <code>bbs-2023</code> or <code>ecdsa-sd-2023</code> in the <code>acceptedCryptosuites</code> array.
         </p>
 
+        <section>
+          <h4>Matching a Credential to a QueryByExample</h4>
+
+          <p>
+The following algorithm specifies how a conforming [=holder=] implementation
+determines whether a [=verifiable credential=] matches the selection criteria
+in a QueryByExample <code>credentialQuery</code> object. A conforming
+implementation MUST use an algorithm that produces the same output as the
+following algorithm.
+          </p>
+
+          <p>
+The algorithm takes the following input:
+          </p>
+
+          <dl>
+            <dt><var>credential</var></dt>
+            <dd>
+The [=verifiable credential=] being evaluated.
+            </dd>
+            <dt><var>credentialQuery</var></dt>
+            <dd>
+The <code>credentialQuery</code> object from a QueryByExample query.
+            </dd>
+          </dl>
+
+          <p>
+The algorithm returns a boolean value: <code>true</code> if the
+<var>credential</var> matches the <var>credentialQuery</var>, or
+<code>false</code> otherwise.
+          </p>
+
+          <ol class="algorithm">
+            <li>
+If <var>credential</var> is not a [=map=], return <code>false</code>.
+            </li>
+            <li>
+If <var>credentialQuery</var> contains an <code>example</code> property,
+let <var>example</var> be its value and perform the following steps:
+              <ol class="algorithm">
+                <li>
+If <var>example</var> contains a <code>@context</code> property, let
+<var>expectedContexts</var> be its value, normalized to a [=list=]. For each
+<var>expectedContext</var> in <var>expectedContexts</var>:
+                  <ol class="algorithm">
+                    <li>
+Let <var>credentialContexts</var> be the value of the <code>@context</code>
+property of <var>credential</var>, normalized to a [=list=].
+                    </li>
+                    <li>
+If <var>credentialContexts</var> does not contain at least one value that
+matches <var>expectedContext</var>, return <code>false</code>.
+                    </li>
+                  </ol>
+                </li>
+                <li>
+If <var>example</var> contains a <code>type</code> property, let
+<var>expectedTypes</var> be its value, normalized to a [=list=]. For each
+<var>expectedType</var> in <var>expectedTypes</var>:
+                  <ol class="algorithm">
+                    <li>
+Let <var>credentialTypes</var> be the value of the <code>type</code>
+property of <var>credential</var>, normalized to a [=list=].
+                    </li>
+                    <li>
+If <var>credentialTypes</var> does not contain at least one value that
+matches <var>expectedType</var>, return <code>false</code>.
+                    </li>
+                  </ol>
+                </li>
+                <li>
+If <var>example</var> contains any additional properties beyond
+<code>@context</code> and <code>type</code>, perform the
+<a href="#matching-object-properties">matching object properties</a>
+algorithm, passing <var>example</var> as <var>expectedObject</var> and
+<var>credential</var> as <var>actualObject</var>, while skipping the
+<code>@context</code> and <code>type</code> properties. If the result is
+<code>false</code>, return <code>false</code>.
+                </li>
+              </ol>
+            </li>
+            <li>
+If <var>credentialQuery</var> contains an <code>acceptedIssuers</code>
+property, let <var>acceptedIssuers</var> be its value and perform the
+following steps:
+              <ol class="algorithm">
+                <li>
+Let <var>credentialIssuer</var> be the value of the <code>issuer</code>
+property of <var>credential</var>. If <var>credentialIssuer</var> is a
+[=map=], let <var>credentialIssuer</var> be the value of its <code>id</code>
+property.
+                </li>
+                <li>
+If no object in <var>acceptedIssuers</var> contains an <code>issuer</code>
+property whose value matches <var>credentialIssuer</var>, return
+<code>false</code>.
+                </li>
+              </ol>
+            </li>
+            <li>
+Return <code>true</code>.
+            </li>
+          </ol>
+
+          <p class="note" title="Properties not used during matching">
+The <code>reason</code>, <code>acceptedCryptosuites</code>, and
+<code>acceptedEnvelopes</code> properties of a <code>credentialQuery</code>
+object are not used during credential matching. The <code>reason</code>
+property is intended for display to the [=holder=] by their software. The
+<code>acceptedCryptosuites</code> and <code>acceptedEnvelopes</code> properties
+inform the [=holder=]'s software about which proof mechanisms and envelope
+formats the [=verifier=] will accept, and are used during presentation
+construction rather than credential selection.
+          </p>
+        </section>
+
+        <section>
+          <h5 id="matching-object-properties">Matching Object Properties</h5>
+
+          <p>
+The following algorithm determines whether the properties of an expected object
+are satisfied by the corresponding properties of an actual object. This
+algorithm is used recursively to support arbitrarily nested objects, such as
+those found in <code>credentialSubject</code>.
+          </p>
+
+          <p>
+The algorithm takes the following input:
+          </p>
+
+          <dl>
+            <dt><var>expectedObject</var></dt>
+            <dd>
+A [=map=] containing the expected property names and values.
+            </dd>
+            <dt><var>actualObject</var></dt>
+            <dd>
+A [=map=] from the [=verifiable credential=] to match against.
+            </dd>
+          </dl>
+
+          <p>
+The algorithm returns a boolean value: <code>true</code> if all properties in
+<var>expectedObject</var> are satisfied by <var>actualObject</var>, or
+<code>false</code> otherwise.
+          </p>
+
+          <ol class="algorithm">
+            <li>
+For each <var>propertyName</var> and <var>expectedValue</var> pair in
+<var>expectedObject</var>:
+              <ol class="algorithm">
+                <li>
+If <var>actualObject</var> does not contain a property named
+<var>propertyName</var>, return <code>false</code>.
+                </li>
+                <li>
+Let <var>actualValue</var> be the value of the <var>propertyName</var>
+property of <var>actualObject</var>.
+                </li>
+                <li>
+If <var>expectedValue</var> is an empty [=string=] (<code>""</code>), continue
+to the next property. An empty string indicates that the property is required
+to exist, but any value is acceptable.
+                </li>
+                <li>
+If <var>expectedValue</var> is a [=map=]:
+                  <ol class="algorithm">
+                    <li>
+If <var>expectedValue</var> is an empty [=map=] (contains no properties),
+continue to the next property. An empty map indicates that the property is
+required to exist, but any value is acceptable.
+                    </li>
+                    <li>
+If <var>actualValue</var> is a [=list=], then at least one element in
+<var>actualValue</var> MUST be a [=map=] for which this algorithm returns
+<code>true</code> when called with <var>expectedValue</var> as the
+<var>expectedObject</var> and the element as the <var>actualObject</var>. If no
+such element exists, return <code>false</code>.
+                    </li>
+                    <li>
+Otherwise, recursively perform this algorithm with <var>expectedValue</var> as
+the <var>expectedObject</var> and <var>actualValue</var> as the
+<var>actualObject</var>. If the result is <code>false</code>, return
+<code>false</code>.
+                    </li>
+                  </ol>
+                </li>
+                <li>
+If <var>expectedValue</var> is a [=list=]:
+                  <ol class="algorithm">
+                    <li>
+If <var>expectedValue</var> is an empty [=list=] (contains no elements),
+continue to the next property. An empty list indicates that the property is
+required to exist, but any value is acceptable.
+                    </li>
+                    <li>
+Let <var>actualValues</var> be <var>actualValue</var> normalized to a [=list=]
+(if <var>actualValue</var> is not already a [=list=], wrap it in a new [=list=]
+containing only <var>actualValue</var>).
+                    </li>
+                    <li>
+At least one element in <var>actualValues</var> MUST match at least one element
+in <var>expectedValue</var>. If no such matching pair exists, return
+<code>false</code>.
+                    </li>
+                  </ol>
+                </li>
+                <li>
+Otherwise, <var>expectedValue</var> is a primitive value. Let
+<var>actualValues</var> be <var>actualValue</var> normalized to a [=list=]. At
+least one element in <var>actualValues</var> MUST satisfy one of the following
+conditions:
+                  <ol class="algorithm">
+                    <li>
+The element is strictly equal to <var>expectedValue</var>.
+                    </li>
+                    <li>
+Numeric coercion: both the element and <var>expectedValue</var> can be
+interpreted as numeric values, and their numeric values are equal.
+Implementations SHOULD perform numeric coercion to accommodate cases where
+equivalent numeric values are represented differently (e.g., the [=string=]
+<code>"21"</code> and the number <code>21</code>). When performing numeric
+coercion, a value is eligible for coercion only if it is a [=string=] that
+represents a valid numeric value in its entirety; strings that contain
+non-numeric characters MUST NOT be coerced.
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+            <li>
+Return <code>true</code>.
+            </li>
+          </ol>
+
+          <p class="note" title="Equivalence to JSON Pointer Map approach">
+The recursive property matching algorithm described above is functionally
+equivalent to flattening the expected object into a map of
+<a href="https://www.rfc-editor.org/rfc/rfc6901">JSON Pointer</a> paths
+paired with expected values, and then checking each path against the credential.
+Implementations MAY use either approach, provided the results are equivalent.
+          </p>
+        </section>
       </section>
 
       <section>
