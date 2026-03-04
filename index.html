@@ -101,6 +101,15 @@
     authors: [],
 
     otherLinks: [{
+      key: "Related Specifications:",
+      data: [{
+        value: "Verifiable Credentials Data Model",
+        href: "https://www.w3.org/TR/vc-data-model/"
+      }, {
+        value: "Decentralized Identifiers",
+        href: "https://www.w3.org/TR/did/"
+      }]
+    }, {
       key: "Meetings:",
       data: [{
         value: "View next scheduled meeting",
@@ -189,19 +198,19 @@ table.simple tbody tr:last-of-type {
   <section id='abstract'>
 
     <p>
-Verifiable credentials provide a mechanism to express credentials on
-the Web in a way that is cryptographically secure, privacy respecting,
-and machine-verifiable. This specification provides data model and
-HTTP protocols to issue, verify, present, and manage data used in such an
+[=Verifiable credentials=] provide a mechanism to express credentials in a way
+that is cryptographically secure, privacy respecting, and machine-verifiable.
+This specification provides data model and HTTP protocols to [=issuer|issue=],
+[=verifier|verify=], [=holder|present=], and manage data used in such an
 ecosystem.
     </p>
   </section>
 
   <section id='sotd'>
     <p>
-This specification is highly experimental and changing rapidly. Implementation
-in non-experimental systems is discouraged unless you are participating in
-the weekly meetings that coordinate activity around this specification.
+This specification is experimental. Implementation in production systems
+is discouraged unless you are participating in the weekly meetings that
+coordinate activity around this specification.
     </p>
 
     <p>
@@ -906,7 +915,7 @@ implementations</a>.
     </p>
 
     <section>
-      <h3>Component Overview</h3>
+      <h3>HTTP API Overview</h3>
         <p>
 This section gives an overview of all endpoints in the VC-API by the component
 the endpoint is expected be callable from. If a component does not have a
